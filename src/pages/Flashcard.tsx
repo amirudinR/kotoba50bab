@@ -119,7 +119,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
               <FaceCard
                 eyebrow={isKanaMode ? "Jawaban" : "Arti"}
                 main={front}
-                sub={!isKanaMode ? card.kanji || undefined : undefined}
+                kanji={card.kanji || undefined}
                 hint="Ketuk untuk membalik"
                 marked={marked}
                 isKanaSide={isKanaMode}
@@ -130,7 +130,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
               <FaceCard
                 eyebrow={isKanaMode ? "Arti" : "Jawaban"}
                 main={back}
-                sub={!isKanaMode ? undefined : card.kanji || undefined}
+                kanji={card.kanji || undefined}
                 hint="Ketuk untuk kembali"
                 revealed
                 marked={marked}
@@ -188,7 +188,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
 function FaceCard({
   eyebrow,
   main,
-  sub,
+  kanji,
   hint,
   revealed,
   marked,
@@ -196,7 +196,8 @@ function FaceCard({
 }: {
   eyebrow: string;
   main: string;
-  sub?: string;
+  /** Kanji asli bila ada. */
+  kanji?: string;
   hint: string;
   revealed?: boolean;
   marked?: boolean;
@@ -207,9 +208,13 @@ function FaceCard({
     ? "text-[3.25rem] sm:text-6xl md:text-7xl"
     : "text-3xl sm:text-4xl md:text-5xl";
 
+  // Jangan tampilkan kanji kalau isinya sama dengan teks utama
+  // (mis. mode arti→kana lalu kanji sempat jadi main).
+  const showKanji = kanji && kanji.trim() && kanji.trim() !== main.trim();
+
   return (
     <div
-      className={`k-card-raised relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-3xl border-line/15 px-6 py-7 text-center ${
+      className={`k-card-raised relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-3xl border-line/15 px-6 pb-12 pt-7 text-center ${
         revealed ? "bg-accent-soft/70" : "bg-surface"
       }`}
     >
@@ -219,21 +224,30 @@ function FaceCard({
         </span>
       )}
 
-      <span className="k-eyebrow">{eyebrow}</span>
+      {/* Isi kartu benar-benar di tengah vertikal & horizontal */}
+      <div className="flex w-full flex-1 flex-col items-center justify-center">
+        <span className="k-eyebrow">{eyebrow}</span>
 
-      <span
-        className={`mt-3.5 break-words font-display font-medium leading-[1.15] text-ink ${mainSize}`}
-      >
-        {main}
-      </span>
-
-      {sub && (
-        <span className="mt-3 break-words font-display text-base leading-snug text-muted sm:text-lg">
-          {sub}
+        <span
+          className={`mt-3.5 break-words font-display font-medium leading-[1.15] text-ink ${mainSize}`}
+        >
+          {main}
         </span>
-      )}
 
-      <span className="mt-auto pt-6 text-[13px] text-muted">{hint}</span>
+        {showKanji && (
+          <span className="mt-3 flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-1">
+            <span className="k-eyebrow text-[10px]">Kanji</span>
+            <span className="break-words font-display text-xl leading-snug text-ink-soft sm:text-2xl">
+              {kanji}
+            </span>
+          </span>
+        )}
+      </div>
+
+      {/* Hint di Absolute agar tidak menggeser teks utama dari tengah */}
+      <span className="pointer-events-none absolute inset-x-0 bottom-4 px-6 text-center text-[13px] text-muted">
+        {hint}
+      </span>
     </div>
   );
 }
