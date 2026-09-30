@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type ColKey = "no" | "kana" | "katakana" | "romaji" | "kanji" | "arti";
+export type ColKey = "no" | "kana" | "katakana" | "romaji" | "kanji" | "arti" | "audio";
 
 export type KatakanaMode = "auto" | "kana" | "katakana";
 
@@ -27,6 +27,15 @@ export interface ListState {
   showAllCols: () => void;
   resetCols: () => void;
   setKatakanaMode: (m: KatakanaMode) => void;
+
+  // —— pencarian & filter ——
+  query: string;
+  onlyWithKanji: boolean;
+  sortBy: "bab" | "romaji";
+  setQuery: (q: string) => void;
+  toggleOnlyKanji: () => void;
+  setSortBy: (s: "bab" | "romaji") => void;
+  clearFilters: () => void;
 }
 
 const COL_ALL: Record<ColKey, boolean> = {
@@ -36,6 +45,7 @@ const COL_ALL: Record<ColKey, boolean> = {
   romaji: true,
   kanji: true,
   arti: true,
+  audio: true,
 };
 
 const COL_DEFAULT: Record<ColKey, boolean> = {
@@ -45,6 +55,7 @@ const COL_DEFAULT: Record<ColKey, boolean> = {
   romaji: true,
   kanji: true,
   arti: true,
+  audio: true,
 };
 
 export function toKatakana(s: string): string {
@@ -114,6 +125,15 @@ export const useList = create<ListState>()(
       showAllCols: () => set({ visible: { ...COL_ALL } }),
       resetCols: () => set({ visible: { ...COL_DEFAULT } }),
       setKatakanaMode: (m) => set({ katakanaMode: m }),
+
+      query: "",
+      onlyWithKanji: false,
+      sortBy: "bab",
+      setQuery: (q) => set({ query: q }),
+      toggleOnlyKanji: () => set((s) => ({ onlyWithKanji: !s.onlyWithKanji })),
+      setSortBy: (sortBy) => set({ sortBy }),
+      clearFilters: () =>
+        set({ query: "", onlyWithKanji: false, sortBy: "bab" }),
     }),
     { name: "kotoba-list" },
   ),
