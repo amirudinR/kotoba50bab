@@ -3,6 +3,7 @@ export interface Kotoba {
   kana: string;
   kanji: string;
   arti: string;
+  romaji: string;
 }
 
 export interface Bab {

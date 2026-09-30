@@ -6,7 +6,8 @@ export type Route =
   | "quiz-pg"
   | "quiz-ketik"
   | "search"
-  | "progress";
+  | "progress"
+  | "list";
 
 interface AppState {
   route: Route;

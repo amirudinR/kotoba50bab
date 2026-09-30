@@ -7,12 +7,13 @@ import QuizPG from "./pages/QuizPG";
 import QuizKetik from "./pages/QuizKetik";
 import Search from "./pages/Search";
 import Progress from "./pages/Progress";
+import List from "./pages/List";
 import { useApp, type Route } from "./store/app";
 
 export default function App() {
   const route = useApp((s) => s.route);
   const go = useApp((s) => s.go);
-  const { selectedBabs, shuffle, viewMode } = useSettings();
+  const { selectedBabs } = useSettings();
 
   // Validasi: kalau tak ada bab terpilih saat masuk mode latihan, arahkan ke Home.
   useEffect(() => {
@@ -31,8 +32,8 @@ export default function App() {
       return (
         <Flashcard
           pool={pool}
-          shuffle={shuffle}
-          viewMode={viewMode}
+          shuffle={useSettings.getState().shuffle}
+          viewMode={useSettings.getState().viewMode}
           onBack={() => go("home")}
         />
       );
@@ -41,8 +42,8 @@ export default function App() {
         <QuizPG
           pool={pool}
           allPool={BABS.flatMap((b) => b.items.map((it) => ({ ...it, bab: b.bab })))}
-          shuffle={shuffle}
-          viewMode={viewMode}
+          shuffle={useSettings.getState().shuffle}
+          viewMode={useSettings.getState().viewMode}
           onBack={() => go("home")}
         />
       );
@@ -50,8 +51,8 @@ export default function App() {
       return (
         <QuizKetik
           pool={pool}
-          shuffle={shuffle}
-          viewMode={viewMode}
+          shuffle={useSettings.getState().shuffle}
+          viewMode={useSettings.getState().viewMode}
           onBack={() => go("home")}
         />
       );
@@ -59,6 +60,8 @@ export default function App() {
       return <Search onBack={() => go("home")} />;
     case "progress":
       return <Progress onBack={() => go("home")} />;
+    case "list":
+      return <List onBack={() => go("home")} />;
     default:
       return <Home />;
   }

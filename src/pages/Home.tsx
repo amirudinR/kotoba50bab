@@ -93,7 +93,10 @@ export default function Home() {
         </section>
 
         {/* —— Mode pendukung —— */}
-        <section aria-label="Mode lain" className="mt-3 grid gap-3 sm:grid-cols-3">
+        <section
+          aria-label="Mode lain"
+          className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4"
+        >
           <ModeRow
             icon="ph:keyboard"
             title="Kuis Ketik"
@@ -106,6 +109,12 @@ export default function Home() {
             title="Cari"
             desc="Telusuri 2.910 kata"
             onClick={() => go("search")}
+          />
+          <ModeRow
+            icon="ph:list-bullets"
+            title="Daftar"
+            desc="Lihat semua per bab"
+            onClick={() => go("list")}
           />
           <ModeRow
             icon="ph:chart-bar"
