@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Kotoba">
+  <title>Kotoba</title>
+  <!-- Kanji U+8A00 (gen = word) redrawn as vector paths: dot, long
+       bar, two bars, box. No font dependency, identical in every
+       browser and OS. -->
+  <rect width="512" height="512" rx="118" ry="118" fill="#2b4c7e" />
+  <g fill="#f5efe0">
+    <path d="M126 18 H386 V58 H126 Z" />
+    <path d="M72 83 H440 V123 H72 Z" />
+    <path d="M132 148 H380 V188 H132 Z" />
+    <path d="M132 213 H380 V253 H132 Z" />
+    <path fill-rule="evenodd" d="M116 278 H396 V414 H116 Z M156 318 H356 V374 H156 Z" />
+  </g>
+  <rect x="84" y="446" width="344" height="40" rx="20" ry="20" fill="#c0392b" />
+</svg>
