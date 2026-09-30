@@ -6,6 +6,8 @@ import type { ViewMode } from "../store/settings";
 import TopBar from "../components/TopBar";
 import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
+import HankoSeal from "../components/HankoSeal";
+import Icon from "../components/Icon";
 
 interface Props {
   pool: KotobaWithBab[];
@@ -20,7 +22,6 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
   // Bangun deck dari pool; reshuffle saat pool/shuffle berubah.
   const deck = useMemo(() => {
     return shuffle ? shuffleArray(pool) : [...pool];
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pool, shuffle]);
 
   const [idx, setIdx] = useState(0);
@@ -35,10 +36,17 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
   const card = deck[idx];
   if (!card) {
     return (
-      <div>
+      <div className="min-h-full pb-24">
         <TopBar title="Flashcard" onBack={onBack} />
-        <div className="mx-auto max-w-3xl px-4 py-16 text-center text-pencil">
-          <p className="font-hand text-3xl">Pilih bab dulu ya ✏️</p>
+        <div className="mx-auto max-w-md px-4 pt-16 text-center">
+          <HankoSeal mark="空" size="lg" className="animate-fade-rise" />
+          <p className="mt-6 font-display text-2xl text-ink">Belum ada bab dipilih</p>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            Pilih bab yang mau dilatih, lalu kembali ke sini untuk mulai menghafal.
+          </p>
+          <Button className="mt-6" onClick={onBack} iconRight="ph:arrow-right">
+            Pilih bab
+          </Button>
         </div>
       </div>
     );
@@ -47,13 +55,10 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
   const marked = isHafal(card.bab, card.no);
   const done = deck.filter((c) => hafal.includes(`${c.bab}-${c.no}`)).length;
 
-  const front = viewMode === "kana-arti" ? card.kana : card.arti;
-  const back = viewMode === "kana-arti" ? card.arti : card.kana;
-  const frontSub =
-    viewMode === "kana-arti"
-      ? card.kanji || undefined
-      : card.kanji || undefined;
-  const backSub = viewMode === "arti-kana" ? card.kanji || undefined : undefined;
+  const isKanaMode = viewMode === "kana-arti";
+  const front = isKanaMode ? card.kana : card.arti;
+  const back = isKanaMode ? card.arti : card.kana;
+  const modeLabel = isKanaMode ? "Kana → Arti" : "Arti → Kana";
 
   function next() {
     setFlipped(false);
@@ -66,71 +71,114 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
 
   return (
     <div className="min-h-full pb-28">
-      <TopBar
-        title="Flashcard"
-        subtitle={`Kartu ${idx + 1} / ${deck.length} · bab ${card.bab}`}
-        onBack={onBack}
-      />
+      <TopBar title="Flashcard" subtitle={`Bab ${card.bab}`} onBack={onBack} />
 
       <div className="mx-auto max-w-xl px-4 pt-4">
-        <ProgressBar value={done} max={deck.length} className="mb-4" />
+        {/* Kemajuan hafalan */}
+        <div className="mb-3.5">
+          <div className="mb-1.5 flex items-baseline justify-between gap-3">
+            <span className="k-eyebrow">Sudah hafal</span>
+            <span className="k-num font-mono text-[11px] text-muted">
+              {done}/{deck.length}
+            </span>
+          </div>
+          <ProgressBar value={done} max={deck.length} tone="seal" />
+        </div>
 
+        {/* Posisi kartu + arah mode (pill, read-only) */}
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <span className="k-num font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+            Kartu {idx + 1} / {deck.length}
+          </span>
+          <span
+            className="k-eyebrow rounded-pill border border-line/15 bg-surface px-2.5 py-1 shadow-soft"
+            title={`Mode kartu: ${modeLabel}`}
+          >
+            {modeLabel}
+          </span>
+        </div>
+
+        {/* Kartu */}
         <div
           className="flip-perspective select-none"
-          style={{ height: "min(56vh, 420px)" }}
+          style={{ height: "clamp(280px, 52vh, 420px)" }}
           onClick={() => setFlipped((f) => !f)}
+          onKeyDown={(e) => {
+            if (e.key === " " || e.key === "Enter") {
+              e.preventDefault();
+              setFlipped((f) => !f);
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label={`Balik kartu. ${flipped ? "Tampil arti" : "Tampil jawaban"}`}
         >
           <div className={`flip-inner ${flipped ? "flipped" : ""}`}>
-            {/* FRONT */}
+            {/* Sisi depan — yang ditanyakan */}
             <div className="flip-face cursor-pointer">
               <FaceCard
-                eyebrow={
-                  viewMode === "kana-arti" ? "Bahasa Jepang" : "Arti (Indonesia)"
-                }
+                eyebrow={isKanaMode ? "Jawaban" : "Arti"}
                 main={front}
-                sub={frontSub}
+                sub={!isKanaMode ? card.kanji || undefined : undefined}
                 hint="Ketuk untuk membalik"
+                marked={marked}
+                isKanaSide={isKanaMode}
               />
             </div>
-            {/* BACK */}
+            {/* Sisi belakang — jawabannya */}
             <div className="flip-face flip-back cursor-pointer">
               <FaceCard
-                eyebrow={
-                  viewMode === "kana-arti" ? "Arti (Indonesia)" : "Bahasa Jepang"
-                }
+                eyebrow={isKanaMode ? "Arti" : "Jawaban"}
                 main={back}
-                sub={backSub}
+                sub={!isKanaMode ? undefined : card.kanji || undefined}
                 hint="Ketuk untuk kembali"
                 revealed
+                marked={marked}
+                isKanaSide={!isKanaMode}
               />
             </div>
           </div>
         </div>
 
         {/* Kontrol */}
-        <div className="mt-5 flex items-center justify-between gap-3">
-          <Button variant="ghost" onClick={prev} disabled={idx === 0}>
-            ← Sebelumnya
-          </Button>
+        <div className="mt-5 flex items-center gap-2.5">
+          <Button
+            variant="ghost"
+            icon="ph:caret-left"
+            onClick={prev}
+            disabled={idx === 0}
+            aria-label="Kartu sebelumnya"
+            title="Kartu sebelumnya"
+          />
 
           <button
             onClick={() => toggleHafal(card.bab, card.no)}
-            className={`flex h-12 w-12 items-center justify-center rounded-full text-xl shadow-paper transition active:scale-90 ${
-              marked ? "bg-note-green text-green-800" : "bg-white/80 text-pencil"
+            aria-pressed={marked}
+            className={`flex h-11 flex-1 items-center justify-center gap-2 rounded-pill border text-[15px] font-semibold transition-[transform,background-color,color,border-color] duration-150 active:scale-[0.98] ${
+              marked
+                ? "border-success/45 bg-success-soft text-success"
+                : "border-ink/20 bg-surface text-ink hover:border-ink/35 hover:bg-raised"
             }`}
-            title={marked ? "Sudah hafal" : "Tandai sudah hafal"}
           >
-            {marked ? "✓" : "☆"}
+            <Icon
+              icon={marked ? "ph:check-circle" : "ph:star"}
+              className="text-lg"
+            />
+            {marked ? "Sudah hafal" : "Belum hafal"}
           </button>
 
-          <Button variant="ink" onClick={next} disabled={idx >= deck.length - 1}>
-            Berikutnya →
-          </Button>
+          <Button
+            iconRight="ph:caret-right"
+            onClick={next}
+            disabled={idx >= deck.length - 1}
+            aria-label="Kartu berikutnya"
+            title="Kartu berikutnya"
+          />
         </div>
 
-        <p className="mt-4 text-center text-xs text-pencil/70">
-          Tap kartu untuk melihat {viewMode === "kana-arti" ? "arti" : "kosakata"}.
-          Tandai ✓ untuk kata yang sudah kamu hafal.
+        <p className="mt-4 text-center text-[13px] leading-relaxed text-muted">
+          Ketuk kartu untuk melihat {isKanaMode ? "arti" : "kosakata"}.
+          Tandai yang sudah dikuasai.
         </p>
       </div>
     </div>
@@ -143,25 +191,49 @@ function FaceCard({
   sub,
   hint,
   revealed,
+  marked,
+  isKanaSide,
 }: {
   eyebrow: string;
   main: string;
   sub?: string;
   hint: string;
   revealed?: boolean;
+  marked?: boolean;
+  isKanaSide: boolean;
 }) {
+  // Kana butuh ruang lebih; arti bisa panjang jadi turun satu tingkat.
+  const mainSize = isKanaSide
+    ? "text-[3.25rem] sm:text-6xl md:text-7xl"
+    : "text-3xl sm:text-4xl md:text-5xl";
+
   return (
     <div
-      className={`flex h-full w-full flex-col items-center justify-center rounded-3xl border border-black/5 p-6 text-center shadow-card paper-grain ${
-        revealed ? "bg-note-green/70" : "bg-white/95"
+      className={`k-card-raised relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-3xl border-line/15 px-6 py-7 text-center ${
+        revealed ? "bg-accent-soft/70" : "bg-surface"
       }`}
     >
-      <span className="font-hand text-xl text-margin">{eyebrow}</span>
-      <span className="mt-3 break-words font-hand text-5xl leading-tight text-ink sm:text-6xl">
+      {marked && (
+        <span className="absolute right-4 top-4 -rotate-6 animate-stamp-in">
+          <HankoSeal size="sm" />
+        </span>
+      )}
+
+      <span className="k-eyebrow">{eyebrow}</span>
+
+      <span
+        className={`mt-3.5 break-words font-display font-medium leading-[1.15] text-ink ${mainSize}`}
+      >
         {main}
       </span>
-      {sub && <span className="mt-3 text-lg text-pencil/80">{sub}</span>}
-      <span className="mt-auto pt-6 text-xs text-pencil/50">{hint}</span>
+
+      {sub && (
+        <span className="mt-3 break-words font-display text-base leading-snug text-muted sm:text-lg">
+          {sub}
+        </span>
+      )}
+
+      <span className="mt-auto pt-6 text-[13px] text-muted">{hint}</span>
     </div>
   );
 }

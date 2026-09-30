@@ -5,6 +5,9 @@ import { useProgress, kataKey } from "../store/progress";
 import { useApp } from "../store/app";
 import PaperCard from "../components/PaperCard";
 import ProgressBar from "../components/ProgressBar";
+import HankoSeal from "../components/HankoSeal";
+import AppIcon from "../components/Icon";
+import type { IconName } from "../components/Icon";
 
 export default function Home() {
   const { selectedBabs, toggleBab, selectAll, clearBabs, shuffle, setShuffle } =
@@ -23,100 +26,160 @@ export default function Home() {
   );
 
   const hafalCount = selectedKata.filter((k) => hafalSet.has(k)).length;
+  const totalWords = TOTAL_KOTOBA.toLocaleString("id-ID");
+  const belumAdaBab = selectedBabs.length === 0;
 
   return (
     <div className="min-h-full">
-      <header className="mx-auto max-w-3xl px-4 pt-8 pb-2">
-        <div className="paper-margin pl-12 relative">
-          <h1 className="font-hand text-4xl sm:text-5xl text-ink leading-none">
-            日本語の言葉
-          </h1>
-          <p className="font-hand text-2xl text-margin -mt-1">
-            Kotoba · Minna no Nihongo
+      {/* —— Hero: sampul buku, bukan dashboard —— */}
+      <div className="mx-auto max-w-3xl px-4 pt-6 sm:pt-9">
+        <PaperCard raised tape className="k-margin overflow-hidden pl-10 pr-5 pt-7 pb-6">
+          <p className="k-eyebrow">
+            Minna no Nihongo · {totalWords} kata · {BABS.length} bab
           </p>
-        </div>
-        <p className="mt-3 text-pencil/90">
-          Hafalkan kosakata bab <b>1–50</b> dengan kartu, kuis, dan pencarian.
-          Total <b>{TOTAL_KOTOBA.toLocaleString("id-ID")}</b> kata.
-        </p>
-      </header>
 
-      <main className="mx-auto max-w-3xl px-4 pb-28">
-        {/* Menu mode */}
-        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          <ModeButton
-            emoji="🃏"
-            label="Flashcard"
-            desc="Balik kartu"
-            onClick={() => go("flashcard")}
-            disabled={selectedBabs.length === 0}
-          />
-          <ModeButton
-            emoji="✅"
-            label="Kuis Pilihan"
-            desc="4 opsi"
-            onClick={() => go("quiz-pg")}
-            disabled={selectedBabs.length === 0}
-          />
-          <ModeButton
-            emoji="✍️"
-            label="Kuis Ketik"
-            desc="Isi jawaban"
-            onClick={() => go("quiz-ketik")}
-            disabled={selectedBabs.length === 0}
-          />
-          <ModeButton emoji="🔍" label="Cari" desc="Cari kata" onClick={() => go("search")} />
-          <ModeButton emoji="📊" label="Progres" desc="Statistik" onClick={() => go("progress")} />
-        </div>
-
-        {/* Opsi latihan */}
-        <PaperCard className="mt-5 p-4" tape>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <span className="font-hand text-2xl text-ink">Urutan acak</span>
+          <div className="mt-3 flex items-end gap-4 sm:gap-6">
+            <div className="min-w-0">
+              {/* Kanji sebagai elemen visual utama: instantly terbaca sebagai "bahasa Jepang". */}
+              <h1 className="font-display text-[64px] leading-[0.86] tracking-tight text-ink sm:text-[88px]">
+                言葉
+              </h1>
+              <p className="k-underline mt-2 inline-block font-display text-2xl text-ink-soft sm:text-3xl">
+                Kotoba
+              </p>
             </div>
-            <Toggle checked={shuffle} onChange={setShuffle} />
+            <HankoSeal
+              mark="言"
+              size="lg"
+              stamp
+              className="mb-1 shrink-0 rotate-[-4deg] sm:mb-2"
+            />
           </div>
+
+          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-body">
+            Hafalkan kosakata <span className="font-medium text-ink">Minna no Nihongo</span>{" "}
+            bab 1–50 lewat kartu, kuis, dan pencarian cepat.
+          </p>
+        </PaperCard>
+      </div>
+
+      <main className="mx-auto max-w-3xl px-4 pb-24">
+        {/* —— Statistik: kesan produk serius, tanpa chart —— */}
+        <div className="mt-4 grid grid-cols-3 divide-x divide-line/15 border-y border-line/15 py-4">
+          <Stat value={totalWords} label="Kosakata" />
+          <Stat value={String(BABS.length)} label="Bab" />
+          <Stat value={String(hafal.length)} label="Dihafal" />
+        </div>
+
+        {/* —— Mode utama —— */}
+        <section aria-label="Mode latihan utama" className="mt-7">
+          <h2 className="k-eyebrow">Mode latihan</h2>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <ModeCard
+              icon="ph:cards"
+              title="Flashcard"
+              desc="Balik kartu, tandai yang sudah dikuasai"
+              onClick={() => go("flashcard")}
+              disabled={belumAdaBab}
+            />
+            <ModeCard
+              icon="ph:check-circle"
+              title="Kuis Pilihan Ganda"
+              desc="10 soal · 4 opsi · cek otomatis"
+              onClick={() => go("quiz-pg")}
+              disabled={belumAdaBab}
+            />
+          </div>
+        </section>
+
+        {/* —— Mode pendukung —— */}
+        <section aria-label="Mode lain" className="mt-3 grid gap-3 sm:grid-cols-3">
+          <ModeRow
+            icon="ph:keyboard"
+            title="Kuis Ketik"
+            desc="Tulis jawabannya"
+            onClick={() => go("quiz-ketik")}
+            disabled={belumAdaBab}
+          />
+          <ModeRow
+            icon="ph:magnifying-glass"
+            title="Cari"
+            desc="Telusuri 2.910 kata"
+            onClick={() => go("search")}
+          />
+          <ModeRow
+            icon="ph:chart-bar"
+            title="Progres"
+            desc="Statistik hafalan"
+            onClick={() => go("progress")}
+          />
+        </section>
+
+        {/* —— Urutan acak —— */}
+        <PaperCard className="mt-6 flex items-center justify-between gap-3 px-4 py-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sunken text-ink-soft">
+              <AppIcon icon="ph:shuffle" className="text-lg" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-[15px] font-semibold leading-tight text-ink">
+                Urutan acak
+              </p>
+              <p className="text-xs leading-tight text-muted">
+                Campur semua kata tiap sesi
+              </p>
+            </div>
+          </div>
+          <Switch
+            checked={shuffle}
+            onChange={setShuffle}
+            label="Urutan acak"
+          />
         </PaperCard>
 
-        {/* Bab selector */}
-        <PaperCard className="mt-4 p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="font-hand text-2xl text-ink">
-              Pilih Bab
-              <span className="ml-2 text-base text-pencil/70">
-                ({selectedBabs.length} terpilih)
+        {/* —— Pemilih bab —— */}
+        <PaperCard className="mt-4 p-4 sm:p-5">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-display text-xl text-ink">
+              Pilih bab
+              <span className="k-num ml-2 font-sans text-sm text-muted">
+                {selectedBabs.length} dipilih
               </span>
             </h2>
-            <div className="flex gap-2 text-sm">
+            <div className="flex items-center gap-1">
               <button
                 onClick={selectAll}
-                className="rounded-lg px-2.5 py-1 font-bold text-ink bg-ink/10 hover:bg-ink/15"
+                className="h-9 rounded-lg px-2.5 text-sm font-semibold text-ink-soft transition hover:bg-ink/[0.07] hover:text-ink active:scale-95"
               >
                 Semua
               </button>
               <button
                 onClick={clearBabs}
-                className="rounded-lg px-2.5 py-1 font-bold text-margin bg-margin/10 hover:bg-margin/15"
+                className="h-9 rounded-lg px-2.5 text-sm font-semibold text-muted transition hover:bg-ink/[0.07] hover:text-ink active:scale-95"
               >
                 Kosongkan
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-8 gap-1.5 sm:grid-cols-10">
+          <div
+            className="grid grid-cols-6 gap-1.5 sm:grid-cols-10"
+            role="group"
+            aria-label="Daftar bab 1 sampai 50"
+          >
             {BABS.map((b) => {
               const active = selectedBabs.includes(b.bab);
               return (
                 <button
                   key={b.bab}
                   onClick={() => toggleBab(b.bab)}
-                  className={`flex h-10 items-center justify-center rounded-lg text-sm font-extrabold transition active:scale-95 ${
+                  aria-pressed={active}
+                  title={`Bab ${b.bab} · ${b.items.length} kata`}
+                  className={`k-num h-10 rounded-lg border font-mono text-sm transition duration-150 active:scale-95 ${
                     active
-                      ? "bg-ink text-white shadow-paper"
-                      : "bg-paper-dark/70 text-pencil hover:bg-paper-dark"
+                      ? "border-ink bg-ink text-surface shadow-soft"
+                      : "border-transparent bg-sunken text-body/60 hover:text-ink"
                   }`}
-                  title={`Bab ${b.bab} (${b.items.length} kata)`}
                 >
                   {b.bab}
                 </button>
@@ -125,39 +188,55 @@ export default function Home() {
           </div>
         </PaperCard>
 
-        {/* Progres bab terpilih */}
+        {/* —— Kemajuan hafalan bab terpilih —— */}
         {selectedBabs.length > 0 && (
-          <PaperCard className="mt-4 p-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="font-hand text-2xl text-ink">Kemajuan hafalan</span>
-              <span className="text-sm font-bold text-ink">
-                {hafalCount}/{selectedKata.length}
+          <PaperCard className="mt-4 p-4 sm:p-5">
+            <div className="mb-2.5 flex items-baseline justify-between gap-3">
+              <h2 className="k-eyebrow">Kemajuan hafalan · bab terpilih</h2>
+              <span className="k-num shrink-0 font-display text-lg text-ink">
+                {hafalCount}
+                <span className="text-muted">/{selectedKata.length}</span>
               </span>
             </div>
-            <ProgressBar value={hafalCount} max={selectedKata.length} />
-            <p className="mt-2 text-xs text-pencil/70">
-              Tandai kata "sudah hafal" saat flashcard, atau lewat kuis.
+            <ProgressBar
+              value={hafalCount}
+              max={selectedKata.length}
+              tone="seal"
+            />
+            <p className="mt-2.5 text-xs text-muted">
+              Tandai kata saat flashcard, atau otomatis saat menjawab kuis dengan benar.
             </p>
           </PaperCard>
         )}
 
-        <footer className="mt-8 text-center text-xs text-pencil/50 font-hand text-base">
-          Dibuat untuk belajar · selamat menghafal ✏️
+        <footer className="mt-9 text-center">
+          <p className="k-eyebrow">Kotoba · belajar kosakata Jepang</p>
         </footer>
       </main>
     </div>
   );
 }
 
-function ModeButton({
-  emoji,
-  label,
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="px-2 text-center">
+      <div className="k-num font-display text-2xl leading-none text-ink sm:text-3xl">
+        {value}
+      </div>
+      <div className="k-eyebrow mt-1.5">{label}</div>
+    </div>
+  );
+}
+
+function ModeCard({
+  icon,
+  title,
   desc,
   onClick,
   disabled,
 }: {
-  emoji: string;
-  label: string;
+  icon: IconName;
+  title: string;
   desc: string;
   onClick: () => void;
   disabled?: boolean;
@@ -166,37 +245,92 @@ function ModeButton({
     <button
       onClick={onClick}
       disabled={disabled}
-      className="group flex items-center gap-3 rounded-2xl bg-white/90 paper-grain border border-black/5 p-3 text-left shadow-paper transition active:scale-[0.97] disabled:opacity-40 hover:-translate-y-0.5"
+      className="k-card-raised group p-4 text-left transition duration-200 hover:-translate-y-0.5 hover:shadow-deep active:translate-y-0 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-45"
     >
-      <span className="text-2xl">{emoji}</span>
-      <span className="min-w-0">
-        <span className="block font-extrabold text-ink leading-tight">{label}</span>
-        <span className="block text-xs text-pencil/70 truncate">{desc}</span>
+      <span className="flex items-start gap-3.5">
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
+          <AppIcon icon={icon} className="text-[22px]" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="flex items-center gap-1.5 font-display text-lg leading-tight text-ink">
+            {title}
+            <AppIcon
+              icon="ph:arrow-right"
+              className="text-base text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            />
+          </span>
+          <span className="mt-0.5 block text-[13px] leading-snug text-muted">
+            {desc}
+          </span>
+        </span>
       </span>
     </button>
   );
 }
 
-function Toggle({
-  checked,
-  onChange,
+function ModeRow({
+  icon,
+  title,
+  desc,
+  onClick,
+  disabled,
 }: {
-  checked: boolean;
-  onChange: (v: boolean) => void;
+  icon: IconName;
+  title: string;
+  desc: string;
+  onClick: () => void;
+  disabled?: boolean;
 }) {
   return (
     <button
+      onClick={onClick}
+      disabled={disabled}
+      className="k-card flex min-h-[72px] w-full items-center gap-3 px-3.5 py-3 text-left transition duration-200 hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0 active:scale-[0.99] disabled:pointer-events-none disabled:opacity-45"
+    >
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-sunken text-ink-soft">
+        <AppIcon icon={icon} className="text-xl" />
+      </span>
+      <span className="min-w-0">
+        <span className="block text-[15px] font-semibold leading-tight text-ink">
+          {title}
+        </span>
+        <span className="block truncate text-xs leading-tight text-muted">
+          {desc}
+        </span>
+      </span>
+    </button>
+  );
+}
+
+function Switch({
+  checked,
+  onChange,
+  label,
+}: {
+  checked: boolean;
+  onChange: (v: boolean) => void;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      aria-label={label}
       onClick={() => onChange(!checked)}
-      className={`relative h-7 w-12 rounded-full transition ${
-        checked ? "bg-ink" : "bg-pencil/30"
-      }`}
-      aria-pressed={checked}
+      className="grid h-11 w-16 shrink-0 place-items-center rounded-pill transition active:scale-95"
     >
       <span
-        className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-all ${
-          checked ? "left-[22px]" : "left-0.5"
+        className={`relative block h-6 w-11 rounded-pill border transition-colors duration-200 ease-out ${
+          checked ? "border-ink bg-ink" : "border-line/20 bg-sunken"
         }`}
-      />
+      >
+        <span
+          className={`absolute top-1/2 h-[18px] w-[18px] -translate-y-1/2 rounded-full shadow-soft transition-all duration-200 ease-spring ${
+            checked ? "left-[25px] bg-surface" : "left-[2px] bg-muted"
+          }`}
+        />
+      </span>
     </button>
   );
 }

@@ -2,16 +2,53 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="theme-color" content="#2b4c7e" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f4f0e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121419" media="(prefers-color-scheme: dark)" />
+
+    <title>Kotoba — Hafalan Kosakata Minna no Nihongo</title>
+    <meta
+      name="description"
+      content="Hafalkan 2.910 kosakata Minna no Nihongo bab 1–50 lewat flashcard, kuis, dan pencarian. Desain buku tulis Jepang."
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <title>Kotoba — Hafalan Minna no Nihongo</title>
+
+    <!-- Terapkan tema SEBELUM React mount supaya tidak ada kilatan putih -->
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem("kotoba-theme");
+          var mode = raw ? JSON.parse(raw).state.theme : "system";
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var dark = mode === "dark" || (mode !== "light" && prefersDark);
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {
+          /* biarkan default */
+        }
+      })();
+    </script>
+
+    <style>
+      /* Latar awal sama persis dengan body supaya transisi mulus */
+      html {
+        background: #f4f0e6;
+      }
+      html.dark {
+        background: #121419;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

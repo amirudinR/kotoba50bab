@@ -6,6 +6,9 @@ import type { ViewMode } from "../store/settings";
 import TopBar from "../components/TopBar";
 import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
+import PaperCard from "../components/PaperCard";
+import HankoSeal from "../components/HankoSeal";
+import Icon from "../components/Icon";
 
 interface Props {
   pool: KotobaWithBab[];
@@ -16,6 +19,7 @@ interface Props {
 }
 
 const QUIZ_LEN = 10;
+const LETTERS = ["A", "B", "C", "D"];
 
 interface Question {
   card: KotobaWithBab;
@@ -23,10 +27,6 @@ interface Question {
   answer: string;
 }
 
-function labelFor(card: KotobaWithBab, viewMode: ViewMode): string {
-  // Yang ditanyakan (prompt) & yang dicari (jawaban)
-  return viewMode === "kana-arti" ? card.kana : card.arti;
-}
 function answerFor(card: KotobaWithBab, viewMode: ViewMode): string {
   return viewMode === "kana-arti" ? card.arti : card.kana;
 }
@@ -62,7 +62,6 @@ export default function QuizPG({
       const options = shuffleArray([answer, ...distractors]);
       return { card, options, answer };
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pool, allPool, shuffle, viewMode]);
 
   const [qi, setQi] = useState(0);
@@ -70,20 +69,32 @@ export default function QuizPG({
   const [score, setScore] = useState(0);
   const [wrong, setWrong] = useState<KotobaWithBab[]>([]);
 
-  useEffect(() => {
+  function restart() {
     setQi(0);
     setPicked(null);
     setScore(0);
     setWrong([]);
+  }
+
+  useEffect(() => {
+    restart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions]);
 
   if (questions.length === 0) {
     return (
-      <div>
+      <div className="min-h-full pb-24">
         <TopBar title="Kuis Pilihan" onBack={onBack} />
-        <p className="mx-auto max-w-3xl px-4 py-16 text-center font-hand text-3xl text-pencil">
-          Pilih bab dulu ya ✏️
-        </p>
+        <div className="mx-auto max-w-md px-4 pt-16 text-center">
+          <HankoSeal mark="空" size="lg" className="animate-fade-rise" />
+          <p className="mt-6 font-display text-2xl text-ink">Belum ada bab dipilih</p>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            Pilih bab yang mau dilatih, lalu kembali ke sini untuk mulai kuis.
+          </p>
+          <Button className="mt-6" onClick={onBack} iconRight="ph:arrow-right">
+            Pilih bab
+          </Button>
+        </div>
       </div>
     );
   }
@@ -92,6 +103,10 @@ export default function QuizPG({
   const isLast = qi >= questions.length - 1;
   const answered = picked !== null;
   const correct = picked !== null && normalize(picked) === normalize(q.answer);
+
+  const isKanaMode = viewMode === "kana-arti";
+  const prompt = isKanaMode ? q.card.kana : q.card.arti;
+  const promptLabel = isKanaMode ? "Apa artinya?" : "Apa kosakatanya?";
 
   function choose(opt: string) {
     if (answered) return;
@@ -113,118 +128,291 @@ export default function QuizPG({
 
   // ===== Ringkasan =====
   if (isLast && answered) {
+    const total = questions.length;
+    const perfect = score === total;
+    const pct = Math.round((score / total) * 100);
+
     return (
       <div className="min-h-full pb-24">
         <TopBar title="Kuis Pilihan" subtitle="Selesai" onBack={onBack} />
-        <div className="mx-auto max-w-xl px-4 pt-6 text-center">
-          <div className="font-hand text-6xl text-ink">
-            {score}/{questions.length}
-          </div>
-          <p className="font-hand text-2xl text-margin mt-1">
-            {score === questions.length
-              ? "Sempurna! 🎉"
-              : score >= questions.length / 2
-                ? "Bagus! Terus berlatih ✏️"
-                : "Semangat, ulangi lagi 💪"}
-          </p>
 
-          {wrong.length > 0 && (
-            <div className="mt-6 text-left">
-              <h2 className="font-hand text-2xl text-ink mb-2">
-                Perlu diulang ({wrong.length})
-              </h2>
-              <div className="space-y-2">
-                {wrong.map((c) => (
-                  <div
-                    key={`${c.bab}-${c.no}`}
-                    className="rounded-xl bg-white/90 border border-black/5 p-3 shadow-paper"
-                  >
-                    <div className="flex items-baseline justify-between gap-2">
-                      <span className="font-hand text-2xl text-ink">{c.kana}</span>
-                      <span className="text-xs text-pencil/60">bab {c.bab}</span>
-                    </div>
-                    {c.kanji && (
-                      <div className="text-sm text-pencil/70">{c.kanji}</div>
-                    )}
-                    <div className="text-sm text-ink-soft">{c.arti}</div>
-                  </div>
-                ))}
+        <div className="mx-auto max-w-xl px-4 pt-6">
+          <PaperCard raised className="animate-fade-rise p-6 text-center">
+            {perfect && (
+              <div className="mb-4 flex justify-center">
+                <HankoSeal mark="満" size="md" stamp />
               </div>
-            </div>
-          )}
+            )}
 
-          <div className="mt-6 flex justify-center gap-3">
-            <Button variant="ghost" onClick={() => { setQi(0); setPicked(null); setScore(0); setWrong([]); }}>
+            <p className="k-eyebrow">Skor akhir</p>
+            <div className="mt-2 flex items-end justify-center gap-1.5">
+              <span className="k-num font-display text-6xl leading-none text-ink">
+                {score}
+              </span>
+              <span className="k-num mb-1 font-display text-2xl text-muted">
+                / {total}
+              </span>
+            </div>
+
+            <div className="mx-auto mt-4 max-w-[16rem]">
+              <ProgressBar
+                value={score}
+                max={total}
+                tone={perfect ? "success" : pct >= 50 ? "accent" : "seal"}
+              />
+            </div>
+
+            <p className="mt-4 font-display text-xl text-ink">
+              {perfect
+                ? "Sempurna, semua benar."
+                : pct >= 70
+                  ? "Bagus sekali, teruskan."
+                  : pct >= 40
+                    ? "Sudah setengah jalan."
+                    : "Awal yang baik, ulangi lagi."}
+            </p>
+            <p className="mt-1 text-[14px] text-muted">
+              {perfect
+                ? "Semua kata soal ini sudah ditandai hafal."
+                : `${pct}% benar dari ${total} soal.`}
+            </p>
+          </PaperCard>
+
+          <section className="mt-6">
+            <div className="mb-3 flex items-center gap-2">
+              <Icon
+                icon={wrong.length > 0 ? "ph:arrow-counter-clockwise" : "ph:target"}
+                className={`text-base ${wrong.length > 0 ? "text-seal" : "text-success"}`}
+              />
+              <h2 className="font-display text-lg font-semibold text-ink">
+                Perlu diulang
+              </h2>
+              <span
+                className={`k-num rounded-pill px-2 py-0.5 font-mono text-[11px] ${
+                  wrong.length > 0 ? "bg-seal/10 text-seal" : "bg-success/10 text-success"
+                }`}
+              >
+                {wrong.length}
+              </span>
+            </div>
+
+            {wrong.length === 0 ? (
+              <PaperCard className="flex items-center gap-3 p-4">
+                <Icon icon="ph:check-circle" className="shrink-0 text-2xl text-success" />
+                <p className="text-[15px] leading-snug text-body">
+                  Tidak ada. Semua soal terjawab benar.
+                </p>
+              </PaperCard>
+            ) : (
+              <ul className="space-y-2">
+                {wrong.map((c) => (
+                  <li key={`${c.bab}-${c.no}`}>
+                    <PaperCard className="flex items-center gap-3 p-3">
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-baseline gap-2">
+                          <span className="font-display text-2xl leading-tight text-ink">
+                            {c.kana}
+                          </span>
+                          {c.kanji && (
+                            <span className="truncate font-display text-base text-muted">
+                              {c.kanji}
+                            </span>
+                          )}
+                        </span>
+                        <span className="mt-0.5 block text-[14px] leading-snug text-body">
+                          {c.arti}
+                        </span>
+                      </span>
+                      <span className="k-eyebrow shrink-0 normal-case tracking-normal">
+                        bab {c.bab}
+                      </span>
+                    </PaperCard>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+          <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row sm:justify-center">
+            <Button variant="ghost" icon="ph:arrow-counter-clockwise" onClick={restart}>
               Ulangi
             </Button>
-            <Button onClick={onBack}>Kembali</Button>
+            <Button iconRight="ph:arrow-right" onClick={onBack}>
+              Kembali
+            </Button>
           </div>
         </div>
       </div>
     );
   }
 
+  // ===== Soal =====
   return (
     <div className="min-h-full pb-28">
       <TopBar
         title="Kuis Pilihan"
-        subtitle={`Soal ${qi + 1} / ${questions.length} · skor ${score}`}
+        subtitle={`Soal ${qi + 1} / ${questions.length} · benar ${score}`}
         onBack={onBack}
       />
 
       <div className="mx-auto max-w-xl px-4 pt-4">
-        <ProgressBar value={qi + (answered ? 1 : 0)} max={questions.length} className="mb-5" />
-
-        <div className="rounded-3xl bg-white/95 border border-black/5 paper-grain p-6 text-center shadow-card">
-          <span className="font-hand text-xl text-margin">
-            {viewMode === "kana-arti" ? "Bahasa Jepang" : "Arti (Indonesia)"}
+        <div className="mb-3 flex items-center gap-3">
+          <ProgressBar
+            value={qi + (answered ? 1 : 0)}
+            max={questions.length}
+            tone="accent"
+            className="h-1.5 flex-1"
+          />
+          <span className="k-num shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+            {qi + 1}/{questions.length}
           </span>
-          <div className="mt-2 font-hand text-4xl sm:text-5xl text-ink break-words">
-            {labelFor(q.card, viewMode)}
-          </div>
-          {q.card.kanji && (
-            <div className="mt-1 text-sm text-pencil/60">{q.card.kanji}</div>
-          )}
+          <span className="k-num shrink-0 rounded-pill bg-ink/[0.07] px-2 py-0.5 font-mono text-[11px] text-ink">
+            {score} benar
+          </span>
         </div>
 
-        <p className="mt-5 mb-2 text-sm font-bold text-pencil">
-          Pilih {viewMode === "kana-arti" ? "arti" : "kosakata"} yang benar:
+        {/* Kartu pertanyaan */}
+        <PaperCard raised className="k-margin px-5 py-7 text-center">
+          <p className="k-eyebrow">{promptLabel}</p>
+
+          <div
+            className={`mt-3 break-words font-display font-medium leading-tight text-ink ${
+              isKanaMode
+                ? "text-[2.75rem] sm:text-5xl"
+                : "text-2xl sm:text-3xl"
+            }`}
+          >
+            {prompt}
+          </div>
+
+          {!isKanaMode && q.card.kanji && (
+            <p className="mt-3 text-[14px] text-muted">
+              <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                petunjuk
+              </span>
+              {q.card.kanji}
+            </p>
+          )}
+
+          <p className="k-eyebrow mt-5 normal-case tracking-normal">bab {q.card.bab}</p>
+        </PaperCard>
+
+        <p className="k-eyebrow mb-2.5 mt-5 normal-case tracking-normal">
+          Pilih {isKanaMode ? "arti" : "kosakata"} yang benar
         </p>
 
-        <div className="grid gap-2.5">
-          {q.options.map((opt) => {
+        {/* Opsi */}
+        <div className="grid gap-2.5" role="group" aria-label="Pilihan jawaban">
+          {q.options.map((opt, i) => {
             const isThis = normalize(opt) === normalize(q.answer);
-            const isPicked = picked !== null && normalize(opt) === normalize(picked);
-            let cls =
-              "bg-white/90 border-black/5 hover:bg-white text-ink";
-            if (answered && isThis)
-              cls = "bg-note-green border-green-600/40 text-green-900 animate-pop";
-            else if (answered && isPicked)
-              cls = "bg-note-pink border-margin/40 text-red-900 animate-shake";
-            else if (answered) cls = "bg-white/60 border-black/5 text-pencil/60";
+            const isPicked = answered && normalize(opt) === normalize(picked);
+
+            let tone =
+              "border-line/20 bg-surface text-ink hover:border-ink/35 hover:bg-raised active:scale-[0.99]";
+            let badge = "border-line/20 bg-sunken text-body/75";
+            let mark: "check" | "x" | null = null;
+
+            if (answered && isThis) {
+              tone = "border-success/50 bg-success-soft text-success";
+              badge = "border-success/40 bg-success/15 text-success";
+              mark = "check";
+            } else if (answered && isPicked) {
+              tone = "border-danger/50 bg-danger-soft text-danger";
+              badge = "border-danger/40 bg-danger/15 text-danger";
+              mark = "x";
+            } else if (answered) {
+              tone = "border-line/10 bg-surface/50 text-muted opacity-60";
+              badge = "border-line/10 bg-sunken/60 text-body/60";
+            }
+
             return (
               <button
                 key={opt}
                 onClick={() => choose(opt)}
                 disabled={answered}
-                className={`rounded-2xl border px-4 py-3.5 text-left font-bold shadow-paper transition active:scale-[0.98] ${cls}`}
+                className={`flex min-h-[3.25rem] w-full items-center gap-3 rounded-card border px-3.5 py-4 text-left text-[15px] font-semibold shadow-soft transition-[transform,background-color,color,border-color,opacity] duration-150 disabled:pointer-events-none ${tone} ${
+                  mark === "check" ? "animate-stamp-in" : ""
+                }`}
               >
-                {opt}
+                <span
+                  className={`k-num grid h-7 w-7 shrink-0 place-items-center rounded-lg border font-mono text-[11px] font-semibold ${badge}`}
+                >
+                  {LETTERS[i]}
+                </span>
+
+                <span
+                  className={`min-w-0 flex-1 break-words ${
+                    isKanaMode ? "font-display text-xl" : ""
+                  }`}
+                >
+                  {opt}
+                </span>
+
+                {mark && (
+                  <Icon
+                    icon={mark === "check" ? "ph:check-circle" : "ph:x-circle"}
+                    className="shrink-0 text-2xl"
+                  />
+                )}
               </button>
             );
           })}
         </div>
 
+        {/* Feedback */}
         {answered && (
-          <div className="mt-5 flex items-center justify-between gap-3">
-            <span
-              className={`font-hand text-3xl ${
-                correct ? "text-green-700" : "text-margin"
+          <div className="mt-5 animate-fade-rise">
+            <div
+              role="status"
+              aria-live="polite"
+              className={`rounded-card border p-4 ${
+                correct
+                  ? "border-success/35 bg-success-soft"
+                  : "border-danger/35 bg-danger-soft"
               }`}
             >
-              {correct ? "Benar! ✓" : "Kurang tepat ✗"}
-            </span>
-            <Button onClick={nextQ}>{isLast ? "Lihat hasil" : "Soal berikutnya →"}</Button>
+              <div className="flex items-center gap-2.5">
+                <Icon
+                  icon={correct ? "ph:check-circle" : "ph:x-circle"}
+                  className={`shrink-0 text-2xl ${correct ? "text-success" : "text-danger"}`}
+                />
+                <span
+                  className={`font-display text-2xl leading-none ${
+                    correct ? "text-success" : "text-danger"
+                  }`}
+                >
+                  {correct ? "Benar" : "Kurang tepat"}
+                </span>
+              </div>
+
+              {!correct && (
+                <p className="mt-3 text-[14px] text-body">
+                  <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                    kamu pilih
+                  </span>
+                  <span className="k-underline font-medium">{picked}</span>
+                </p>
+              )}
+
+              <p className="mt-1.5 text-[14px] text-body">
+                <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                  jawaban benar
+                </span>
+                <span className="font-display text-lg text-ink">{q.answer}</span>
+                {isKanaMode && q.card.kanji && (
+                  <span className="text-muted"> · {q.card.kanji}</span>
+                )}
+              </p>
+            </div>
+
+            <Button
+              className="mt-4 w-full py-3.5"
+              size="lg"
+              onClick={nextQ}
+              iconRight="ph:arrow-right"
+            >
+              {isLast ? "Lihat hasil" : "Soal berikutnya"}
+            </Button>
           </div>
         )}
       </div>
