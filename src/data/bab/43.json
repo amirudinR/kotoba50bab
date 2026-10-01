@@ -1,0 +1,320 @@
+{
+  "bab": 43,
+  "items": [
+    {
+      "no": 1,
+      "kana": "ふえます （が）",
+      "kanji": "増えます",
+      "arti": "Meningkat",
+      "romaji": "fuemasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "へります （が）",
+      "kanji": "減ります",
+      "arti": "Menurun",
+      "romaji": "herimasu (ga)"
+    },
+    {
+      "no": 3,
+      "kana": "あがります （が）",
+      "kanji": "上がります",
+      "arti": "Naik",
+      "romaji": "agarimasu (ga)"
+    },
+    {
+      "no": 4,
+      "kana": "さがります （が）",
+      "kanji": "下がります",
+      "arti": "Turun",
+      "romaji": "sagarimasu (ga)"
+    },
+    {
+      "no": 5,
+      "kana": "きれます （が）",
+      "kanji": "切れます",
+      "arti": "Putus",
+      "romaji": "kiremasu (ga)"
+    },
+    {
+      "no": 6,
+      "kana": "とれます （が）",
+      "kanji": "",
+      "arti": "Lepas",
+      "romaji": "toremasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "おちます （が）",
+      "kanji": "落ちます",
+      "arti": "Jatuh",
+      "romaji": "ochimasu (ga)"
+    },
+    {
+      "no": 8,
+      "kana": "なくなります （が）",
+      "kanji": "",
+      "arti": "Habis",
+      "romaji": "nakunarimasu (ga)"
+    },
+    {
+      "no": 9,
+      "kana": "じょうぶな",
+      "kanji": "丈夫な",
+      "arti": "Kuat, sehat",
+      "romaji": "joubuna"
+    },
+    {
+      "no": 10,
+      "kana": "へんな",
+      "kanji": "変な",
+      "arti": "Aneh",
+      "romaji": "henna"
+    },
+    {
+      "no": 11,
+      "kana": "しあわせな",
+      "kanji": "幸せな",
+      "arti": "Bahagia",
+      "romaji": "shiawasena"
+    },
+    {
+      "no": 12,
+      "kana": "うまい",
+      "kanji": "",
+      "arti": "Enak, ahli dalam",
+      "romaji": "umai"
+    },
+    {
+      "no": 13,
+      "kana": "まずい",
+      "kanji": "",
+      "arti": "Tidak enak",
+      "romaji": "mazui"
+    },
+    {
+      "no": 14,
+      "kana": "つまらない",
+      "kanji": "",
+      "arti": "Bosan, tidak menarik",
+      "romaji": "tsumaranai"
+    },
+    {
+      "no": 15,
+      "kana": "ガソリン",
+      "kanji": "",
+      "arti": "Bensin",
+      "romaji": "gasorin"
+    },
+    {
+      "no": 16,
+      "kana": "ひ",
+      "kanji": "火",
+      "arti": "Api",
+      "romaji": "hi"
+    },
+    {
+      "no": 17,
+      "kana": "だんぼう",
+      "kanji": "暖房",
+      "arti": "Pemanas",
+      "romaji": "danbou"
+    },
+    {
+      "no": 18,
+      "kana": "れいぼう",
+      "kanji": "冷房",
+      "arti": "AC",
+      "romaji": "reibou"
+    },
+    {
+      "no": 19,
+      "kana": "センス （ふくの～がある）",
+      "kanji": "",
+      "arti": "Selera (punya selera pakaian)",
+      "romaji": "sensu (fukuno~gaaru)"
+    },
+    {
+      "no": 20,
+      "kana": "いまにも",
+      "kanji": "今にも",
+      "arti": "Sekarangpun",
+      "romaji": "imanimo"
+    },
+    {
+      "no": 21,
+      "kana": "かいいん",
+      "kanji": "会員",
+      "arti": "Anggota",
+      "romaji": "kaiin"
+    },
+    {
+      "no": 22,
+      "kana": "てきとうな",
+      "kanji": "適当な",
+      "arti": "Cocok",
+      "romaji": "tekitouna"
+    },
+    {
+      "no": 23,
+      "kana": "ねんれい",
+      "kanji": "年齢",
+      "arti": "Umur",
+      "romaji": "nenrei"
+    },
+    {
+      "no": 24,
+      "kana": "しゅうにゅう",
+      "kanji": "収入",
+      "arti": "Pendapatan, penghasilan",
+      "romaji": "shuunyuu"
+    },
+    {
+      "no": 25,
+      "kana": "ぴったり",
+      "kanji": "",
+      "arti": "Pas sekali",
+      "romaji": "pittari"
+    },
+    {
+      "no": 26,
+      "kana": "そのうえ",
+      "kanji": "",
+      "arti": "Lagi pula",
+      "romaji": "sonoue"
+    },
+    {
+      "no": 27,
+      "kana": "～といいます",
+      "kanji": "",
+      "arti": "Bernama -",
+      "romaji": "~toiimasu"
+    },
+    {
+      "no": 28,
+      "kana": "ばら",
+      "kanji": "",
+      "arti": "Bunga mawar",
+      "romaji": "bara"
+    },
+    {
+      "no": 29,
+      "kana": "ドライブ",
+      "kanji": "",
+      "arti": "Bepergian naik mobil",
+      "romaji": "doraibu"
+    },
+    {
+      "no": 30,
+      "kana": "あかるい",
+      "kanji": "明るい",
+      "arti": "Ceria",
+      "romaji": "akarui"
+    },
+    {
+      "no": 31,
+      "kana": "くらい",
+      "kanji": "暗い",
+      "arti": "Muram",
+      "romaji": "kurai"
+    },
+    {
+      "no": 32,
+      "kana": "かっぱつな",
+      "kanji": "活発な",
+      "arti": "Aktif",
+      "romaji": "kappatsuna"
+    },
+    {
+      "no": 33,
+      "kana": "せいじつな",
+      "kanji": "誠実な",
+      "arti": "Tulus",
+      "romaji": "seijitsuna"
+    },
+    {
+      "no": 34,
+      "kana": "わがままな",
+      "kanji": "",
+      "arti": "Egois",
+      "romaji": "wagamamana"
+    },
+    {
+      "no": 35,
+      "kana": "つめたい",
+      "kanji": "冷たい",
+      "arti": "Kaku, dingin",
+      "romaji": "tsumetai"
+    },
+    {
+      "no": 36,
+      "kana": "きびしい",
+      "kanji": "厳しい",
+      "arti": "Keras, disiplin",
+      "romaji": "kibishii"
+    },
+    {
+      "no": 37,
+      "kana": "きがながい",
+      "kanji": "気が長い",
+      "arti": "Penyabar",
+      "romaji": "kiganagai"
+    },
+    {
+      "no": 38,
+      "kana": "きがみじかい",
+      "kanji": "気が短い",
+      "arti": "Cepat marah, tidak sabar",
+      "romaji": "kigamijikai"
+    },
+    {
+      "no": 39,
+      "kana": "がんこな",
+      "kanji": "頑固な",
+      "arti": "Keras kepala",
+      "romaji": "gankona"
+    },
+    {
+      "no": 40,
+      "kana": "すなおな",
+      "kanji": "素直な",
+      "arti": "Penurut",
+      "romaji": "sunaona"
+    },
+    {
+      "no": 41,
+      "kana": "きがつよい",
+      "kanji": "気が強い",
+      "arti": "Berkemauan keras",
+      "romaji": "kigatsuyoi"
+    },
+    {
+      "no": 42,
+      "kana": "きがよわい",
+      "kanji": "気が弱い",
+      "arti": "Penakut, berjiwa lemah",
+      "romaji": "kigayowai"
+    },
+    {
+      "no": 43,
+      "kana": "いじわるな",
+      "kanji": "意地悪な",
+      "arti": "Jahat",
+      "romaji": "ijiwaruna"
+    },
+    {
+      "no": 44,
+      "kana": "かちきな",
+      "kanji": "勝気な",
+      "arti": "Tidak mau kalah",
+      "romaji": "kachikina"
+    },
+    {
+      "no": 45,
+      "kana": "しんけいしつな",
+      "kanji": "神経質な",
+      "arti": "Penggugup, mudah gelisah",
+      "romaji": "shinkeishitsuna"
+    }
+  ]
+}

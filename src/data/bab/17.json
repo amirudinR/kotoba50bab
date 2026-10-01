@@ -1,0 +1,390 @@
+{
+  "bab": 17,
+  "items": [
+    {
+      "no": 1,
+      "kana": "おぼえます",
+      "kanji": "覚えます",
+      "arti": "Mengingat",
+      "romaji": "oboemasu"
+    },
+    {
+      "no": 2,
+      "kana": "わすれます",
+      "kanji": "忘れます",
+      "arti": "Lupa",
+      "romaji": "wasuremasu"
+    },
+    {
+      "no": 3,
+      "kana": "なくします",
+      "kanji": "",
+      "arti": "Kehilangan, hilang",
+      "romaji": "nakushimasu"
+    },
+    {
+      "no": 4,
+      "kana": "はらいます",
+      "kanji": "払います",
+      "arti": "Membayar",
+      "romaji": "haraimasu"
+    },
+    {
+      "no": 5,
+      "kana": "かえします",
+      "kanji": "返します",
+      "arti": "Mengembalikan",
+      "romaji": "kaeshimasu"
+    },
+    {
+      "no": 6,
+      "kana": "でかけます",
+      "kanji": "出かけます",
+      "arti": "Keluar rumah",
+      "romaji": "dekakemasu"
+    },
+    {
+      "no": 7,
+      "kana": "ぬぎます",
+      "kanji": "脱ぎます",
+      "arti": "Melepas pakaian",
+      "romaji": "nugimasu"
+    },
+    {
+      "no": 8,
+      "kana": "もっていきます",
+      "kanji": "持って行きます",
+      "arti": "Membawa pergi",
+      "romaji": "motteikimasu"
+    },
+    {
+      "no": 9,
+      "kana": "もってきます",
+      "kanji": "持って来ます",
+      "arti": "Membawa datang",
+      "romaji": "mottekimasu"
+    },
+    {
+      "no": 10,
+      "kana": "しんぱいします",
+      "kanji": "心配します",
+      "arti": "Khawatir",
+      "romaji": "shinpaishimasu"
+    },
+    {
+      "no": 11,
+      "kana": "ざんぎょうします",
+      "kanji": "残業します",
+      "arti": "Lembur",
+      "romaji": "zangyoushimasu"
+    },
+    {
+      "no": 12,
+      "kana": "しゅっちょうします",
+      "kanji": "出張します",
+      "arti": "Dinas",
+      "romaji": "shutchoushimasu"
+    },
+    {
+      "no": 13,
+      "kana": "たいせつな",
+      "kanji": "大切な",
+      "arti": "Penting",
+      "romaji": "taisetsuna"
+    },
+    {
+      "no": 14,
+      "kana": "だいじょうぶな",
+      "kanji": "大丈夫な",
+      "arti": "Tidak apa-apa",
+      "romaji": "daijoubuna"
+    },
+    {
+      "no": 15,
+      "kana": "あぶない",
+      "kanji": "危ない",
+      "arti": "Berbahaya",
+      "romaji": "abunai"
+    },
+    {
+      "no": 16,
+      "kana": "きんえん",
+      "kanji": "禁煙",
+      "arti": "Dilarang merokok",
+      "romaji": "kin'en"
+    },
+    {
+      "no": 17,
+      "kana": "けんこうほけんしょう",
+      "kanji": "健康保険証",
+      "arti": "Kartu asuransi kesehatan",
+      "romaji": "kenkouhokenshou"
+    },
+    {
+      "no": 18,
+      "kana": "ねつ",
+      "kanji": "熱",
+      "arti": "Demam",
+      "romaji": "netsu"
+    },
+    {
+      "no": 19,
+      "kana": "びょうき",
+      "kanji": "病気",
+      "arti": "Sakit",
+      "romaji": "byouki"
+    },
+    {
+      "no": 20,
+      "kana": "くすり",
+      "kanji": "薬",
+      "arti": "Obat",
+      "romaji": "kusuri"
+    },
+    {
+      "no": 21,
+      "kana": "おふろ",
+      "kanji": "",
+      "arti": "Kamar mandi",
+      "romaji": "ofuro"
+    },
+    {
+      "no": 22,
+      "kana": "うわぎ",
+      "kanji": "上着",
+      "arti": "Baju,jaket",
+      "romaji": "uwagi"
+    },
+    {
+      "no": 23,
+      "kana": "したぎ",
+      "kanji": "下着",
+      "arti": "Pakaian dalam",
+      "romaji": "shitagi"
+    },
+    {
+      "no": 24,
+      "kana": "までに",
+      "kanji": "",
+      "arti": "Sampai dengan ( menyatakan batas waktu )",
+      "romaji": "madeni"
+    },
+    {
+      "no": 25,
+      "kana": "ですから",
+      "kanji": "",
+      "arti": "Oleh karena itu",
+      "romaji": "desukara"
+    },
+    {
+      "no": 26,
+      "kana": "どうしましたか",
+      "kanji": "",
+      "arti": "Apa yang terjadi , ada masalah apa?",
+      "romaji": "doushimashitaka"
+    },
+    {
+      "no": 27,
+      "kana": "のど",
+      "kanji": "",
+      "arti": "Tenggorokan",
+      "romaji": "nodo"
+    },
+    {
+      "no": 28,
+      "kana": "いたい",
+      "kanji": "痛い",
+      "arti": "Sakit (nyeri)",
+      "romaji": "itai"
+    },
+    {
+      "no": 29,
+      "kana": "かぜ",
+      "kanji": "",
+      "arti": "Masuk angin",
+      "romaji": "kaze"
+    },
+    {
+      "no": 30,
+      "kana": "それから",
+      "kanji": "",
+      "arti": "Setelah itu, kemudian , dan",
+      "romaji": "sorekara"
+    },
+    {
+      "no": 31,
+      "kana": "おだいじに",
+      "kanji": "お大事に",
+      "arti": "Semoga lekas sembuh",
+      "romaji": "odaijini"
+    },
+    {
+      "no": 32,
+      "kana": "あたまがいたい",
+      "kanji": "頭が痛い",
+      "arti": "Sakit kepala",
+      "romaji": "atamagaitai"
+    },
+    {
+      "no": 33,
+      "kana": "おなががいたい",
+      "kanji": "",
+      "arti": "Sakit perut",
+      "romaji": "onagagaitai"
+    },
+    {
+      "no": 34,
+      "kana": "はがいたい",
+      "kanji": "歯が痛い",
+      "arti": "Sakit gigi",
+      "romaji": "hagaitai"
+    },
+    {
+      "no": 35,
+      "kana": "ねつがあります",
+      "kanji": "熱があります",
+      "arti": "Demam",
+      "romaji": "netsugaarimasu"
+    },
+    {
+      "no": 36,
+      "kana": "せきがでます",
+      "kanji": "せきが出ます",
+      "arti": "Batuk",
+      "romaji": "sekigademasu"
+    },
+    {
+      "no": 37,
+      "kana": "はなみずがでます",
+      "kanji": "鼻水が出ます",
+      "arti": "Pilek",
+      "romaji": "hanamizugademasu"
+    },
+    {
+      "no": 38,
+      "kana": "ちがでます",
+      "kanji": "血が出ます",
+      "arti": "Berdarah",
+      "romaji": "chigademasu"
+    },
+    {
+      "no": 39,
+      "kana": "はきけがします",
+      "kanji": "吐き気がします",
+      "arti": "Mual",
+      "romaji": "hakikegashimasu"
+    },
+    {
+      "no": 40,
+      "kana": "さむけがします",
+      "kanji": "寒気がします",
+      "arti": "Kedinginan",
+      "romaji": "samukegashimasu"
+    },
+    {
+      "no": 41,
+      "kana": "めまいがします",
+      "kanji": "",
+      "arti": "Pusing",
+      "romaji": "memaigashimasu"
+    },
+    {
+      "no": 42,
+      "kana": "げりをします",
+      "kanji": "下痢をします",
+      "arti": "Mencret, diare",
+      "romaji": "geriwoshimasu"
+    },
+    {
+      "no": 43,
+      "kana": "べんぴをします",
+      "kanji": "便秘をします",
+      "arti": "Sembelit",
+      "romaji": "benpiwoshimasu"
+    },
+    {
+      "no": 44,
+      "kana": "けがをします",
+      "kanji": "",
+      "arti": "Terluka",
+      "romaji": "kegawoshimasu"
+    },
+    {
+      "no": 45,
+      "kana": "やけどをします",
+      "kanji": "",
+      "arti": "Terbakar",
+      "romaji": "yakedowoshimasu"
+    },
+    {
+      "no": 46,
+      "kana": "しょくよくがありません",
+      "kanji": "食欲がありません",
+      "arti": "Tidak nafsu makan",
+      "romaji": "shokuyokugaarimasen"
+    },
+    {
+      "no": 47,
+      "kana": "かたがこります",
+      "kanji": "肩が凝ります",
+      "arti": "Bahu pegal",
+      "romaji": "katagakorimasu"
+    },
+    {
+      "no": 48,
+      "kana": "からだがだるい",
+      "kanji": "体がだるい",
+      "arti": "Badan lemas",
+      "romaji": "karadagadarui"
+    },
+    {
+      "no": 49,
+      "kana": "かゆい",
+      "kanji": "",
+      "arti": "Gatal",
+      "romaji": "kayui"
+    },
+    {
+      "no": 50,
+      "kana": "インフルエンザ",
+      "kanji": "",
+      "arti": "Flu, influenza",
+      "romaji": "infuruenza"
+    },
+    {
+      "no": 51,
+      "kana": "もうちょう",
+      "kanji": "盲腸",
+      "arti": "Usus buntu",
+      "romaji": "mouchou"
+    },
+    {
+      "no": 52,
+      "kana": "ぎっくりごし",
+      "kanji": "ぎっくり腰",
+      "arti": "Sakit pinggang",
+      "romaji": "gikkurigoshi"
+    },
+    {
+      "no": 53,
+      "kana": "ねんざ",
+      "kanji": "",
+      "arti": "Keseleo",
+      "romaji": "nenza"
+    },
+    {
+      "no": 54,
+      "kana": "こっせつ",
+      "kanji": "骨折",
+      "arti": "Patah tulang",
+      "romaji": "kossetsu"
+    },
+    {
+      "no": 55,
+      "kana": "ふつかよい",
+      "kanji": "二日酔い",
+      "arti": "Efek sesudah minum",
+      "romaji": "futsukayoi"
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "bab": 4,
+  "items": [
+    {
+      "no": 1,
+      "kana": "おきます",
+      "kanji": "起きます",
+      "arti": "Bangun tidur",
+      "romaji": "okimasu"
+    },
+    {
+      "no": 2,
+      "kana": "ねます",
+      "kanji": "寝ます",
+      "arti": "Tidur",
+      "romaji": "nemasu"
+    },
+    {
+      "no": 3,
+      "kana": "はたらきます",
+      "kanji": "働きます",
+      "arti": "Bekerja",
+      "romaji": "hatarakimasu"
+    },
+    {
+      "no": 4,
+      "kana": "やすみます",
+      "kanji": "休みます",
+      "arti": "Beristirahat , libur",
+      "romaji": "yasumimasu"
+    },
+    {
+      "no": 5,
+      "kana": "べんきょうします",
+      "kanji": "勉強します",
+      "arti": "Belajar",
+      "romaji": "benkyoushimasu"
+    },
+    {
+      "no": 6,
+      "kana": "おわります",
+      "kanji": "終わります",
+      "arti": "Selesai",
+      "romaji": "owarimasu"
+    },
+    {
+      "no": 7,
+      "kana": "デパート",
+      "kanji": "",
+      "arti": "Departemen store",
+      "romaji": "depaato"
+    },
+    {
+      "no": 8,
+      "kana": "ぎんこう",
+      "kanji": "銀行",
+      "arti": "Bank",
+      "romaji": "ginkou"
+    },
+    {
+      "no": 9,
+      "kana": "ゆうびんきょく",
+      "kanji": "郵便局",
+      "arti": "Kantor pos",
+      "romaji": "yuubinkyoku"
+    },
+    {
+      "no": 10,
+      "kana": "としょかん",
+      "kanji": "図書館",
+      "arti": "Perpustakaan",
+      "romaji": "toshokan"
+    },
+    {
+      "no": 11,
+      "kana": "びじゅつかん",
+      "kanji": "美術館",
+      "arti": "Gedung kesenian",
+      "romaji": "bijutsukan"
+    },
+    {
+      "no": 12,
+      "kana": "いま",
+      "kanji": "今",
+      "arti": "Sekarang",
+      "romaji": "ima"
+    },
+    {
+      "no": 13,
+      "kana": "～じ",
+      "kanji": "～時",
+      "arti": "Jam , pukul",
+      "romaji": "~ji"
+    },
+    {
+      "no": 14,
+      "kana": "～ふん／ぶん",
+      "kanji": "～分",
+      "arti": "Menit",
+      "romaji": "~fun/bun"
+    },
+    {
+      "no": 15,
+      "kana": "はん",
+      "kanji": "半",
+      "arti": "Setengah",
+      "romaji": "han"
+    },
+    {
+      "no": 16,
+      "kana": "なんんじ",
+      "kanji": "何時",
+      "arti": "Jam berapa?",
+      "romaji": "nannji"
+    },
+    {
+      "no": 17,
+      "kana": "なんぷん",
+      "kanji": "何分",
+      "arti": "Berapa menit ?",
+      "romaji": "nanpun"
+    },
+    {
+      "no": 18,
+      "kana": "ごぜん",
+      "kanji": "午前",
+      "arti": "AM (waktu sebelum jam 12 siang)",
+      "romaji": "gozen"
+    },
+    {
+      "no": 19,
+      "kana": "ごご",
+      "kanji": "午後",
+      "arti": "PM (waktu setelah jam 12 siang)",
+      "romaji": "gogo"
+    },
+    {
+      "no": 20,
+      "kana": "あさ",
+      "kanji": "朝",
+      "arti": "Pagi",
+      "romaji": "asa"
+    },
+    {
+      "no": 21,
+      "kana": "ひる",
+      "kanji": "昼",
+      "arti": "Siang",
+      "romaji": "hiru"
+    },
+    {
+      "no": 22,
+      "kana": "ばん",
+      "kanji": "晩",
+      "arti": "Malam",
+      "romaji": "ban"
+    },
+    {
+      "no": 23,
+      "kana": "よる",
+      "kanji": "夜",
+      "arti": "Malam",
+      "romaji": "yoru"
+    },
+    {
+      "no": 24,
+      "kana": "おととい",
+      "kanji": "一昨日",
+      "arti": "2 hari yang lalu , kemarin lusa",
+      "romaji": "ototoi"
+    },
+    {
+      "no": 25,
+      "kana": "きのう",
+      "kanji": "昨日",
+      "arti": "Kemarin",
+      "romaji": "kinou"
+    },
+    {
+      "no": 26,
+      "kana": "きょう",
+      "kanji": "今日",
+      "arti": "Hari ini",
+      "romaji": "kyou"
+    },
+    {
+      "no": 27,
+      "kana": "あした",
+      "kanji": "明日",
+      "arti": "Besok",
+      "romaji": "ashita"
+    },
+    {
+      "no": 28,
+      "kana": "あさって",
+      "kanji": "明後日",
+      "arti": "Besok lusa",
+      "romaji": "asatte"
+    },
+    {
+      "no": 29,
+      "kana": "けさ",
+      "kanji": "今朝",
+      "arti": "Tadi pagi",
+      "romaji": "kesa"
+    },
+    {
+      "no": 30,
+      "kana": "こんばん",
+      "kanji": "今晩",
+      "arti": "Malam ini",
+      "romaji": "konban"
+    },
+    {
+      "no": 31,
+      "kana": "やすみ",
+      "kanji": "休み",
+      "arti": "Istirahat, cuti, libur",
+      "romaji": "yasumi"
+    },
+    {
+      "no": 32,
+      "kana": "ひるやすみ",
+      "kanji": "昼休み",
+      "arti": "Istirahat siang",
+      "romaji": "hiruyasumi"
+    },
+    {
+      "no": 33,
+      "kana": "しけん",
+      "kanji": "試験",
+      "arti": "Ujian",
+      "romaji": "shiken"
+    },
+    {
+      "no": 34,
+      "kana": "かいぎ",
+      "kanji": "会議",
+      "arti": "Rapat",
+      "romaji": "kaigi"
+    },
+    {
+      "no": 35,
+      "kana": "えいが",
+      "kanji": "映画",
+      "arti": "Film",
+      "romaji": "eiga"
+    },
+    {
+      "no": 36,
+      "kana": "まいあさ",
+      "kanji": "毎朝",
+      "arti": "Setiap pagi",
+      "romaji": "maiasa"
+    },
+    {
+      "no": 37,
+      "kana": "まいばん",
+      "kanji": "毎晩",
+      "arti": "Setiap malam",
+      "romaji": "maiban"
+    },
+    {
+      "no": 38,
+      "kana": "まいにち",
+      "kanji": "毎日",
+      "arti": "Setiap hari",
+      "romaji": "mainichi"
+    },
+    {
+      "no": 39,
+      "kana": "げつようび",
+      "kanji": "月曜日",
+      "arti": "Hari senin",
+      "romaji": "getsuyoubi"
+    },
+    {
+      "no": 40,
+      "kana": "かようび",
+      "kanji": "火曜日",
+      "arti": "Hari selasa",
+      "romaji": "kayoubi"
+    },
+    {
+      "no": 41,
+      "kana": "すいようび",
+      "kanji": "水曜日",
+      "arti": "Hari rabo",
+      "romaji": "suiyoubi"
+    },
+    {
+      "no": 42,
+      "kana": "もくようび",
+      "kanji": "木曜日",
+      "arti": "Hari kamis",
+      "romaji": "mokuyoubi"
+    },
+    {
+      "no": 43,
+      "kana": "きんようび",
+      "kanji": "金曜日",
+      "arti": "Hari jumat",
+      "romaji": "kinyoubi"
+    },
+    {
+      "no": 44,
+      "kana": "どようび",
+      "kanji": "土曜日",
+      "arti": "Hari sabtu",
+      "romaji": "doyoubi"
+    },
+    {
+      "no": 45,
+      "kana": "にちようび",
+      "kanji": "日曜日",
+      "arti": "Hari minggu",
+      "romaji": "nichiyoubi"
+    },
+    {
+      "no": 46,
+      "kana": "なんようび",
+      "kanji": "何曜日",
+      "arti": "Hari apa?",
+      "romaji": "nanyoubi"
+    },
+    {
+      "no": 47,
+      "kana": "～から",
+      "kanji": "",
+      "arti": "Dari",
+      "romaji": "~kara"
+    },
+    {
+      "no": 48,
+      "kana": "～まで",
+      "kanji": "",
+      "arti": "Sampai",
+      "romaji": "~made"
+    },
+    {
+      "no": 49,
+      "kana": "～と～",
+      "kanji": "",
+      "arti": "Dan",
+      "romaji": "~to~"
+    },
+    {
+      "no": 50,
+      "kana": "たいへんですね",
+      "kanji": "大変ですね",
+      "arti": "Berat ya,",
+      "romaji": "taihendesune"
+    },
+    {
+      "no": 51,
+      "kana": "ばんごう",
+      "kanji": "番号",
+      "arti": "Nomer",
+      "romaji": "bangou"
+    },
+    {
+      "no": 52,
+      "kana": "なんばん",
+      "kanji": "何番",
+      "arti": "Nomer berapa?",
+      "romaji": "nanban"
+    },
+    {
+      "no": 53,
+      "kana": "ニューヨーク",
+      "kanji": "",
+      "arti": "New york",
+      "romaji": "nyuuyooku"
+    },
+    {
+      "no": 54,
+      "kana": "ペキン",
+      "kanji": "",
+      "arti": "Beijing",
+      "romaji": "pekin"
+    },
+    {
+      "no": 55,
+      "kana": "ロサンゼルス",
+      "kanji": "",
+      "arti": "Los angels",
+      "romaji": "rosanzerusu"
+    },
+    {
+      "no": 56,
+      "kana": "ロンドン",
+      "kanji": "",
+      "arti": "London",
+      "romaji": "rondon"
+    },
+    {
+      "no": 57,
+      "kana": "けいさつしょ",
+      "kanji": "警察署",
+      "arti": "Kantor polisi",
+      "romaji": "keisatsusho"
+    },
+    {
+      "no": 58,
+      "kana": "しょうぼうしょ",
+      "kanji": "消防署",
+      "arti": "Pemadam kebakaran",
+      "romaji": "shoubousho"
+    },
+    {
+      "no": 59,
+      "kana": "じほう",
+      "kanji": "時報",
+      "arti": "Pemberitahuan waktu",
+      "romaji": "jihou"
+    },
+    {
+      "no": 60,
+      "kana": "てんきよほう",
+      "kanji": "天気予報",
+      "arti": "Ramalan cuaca",
+      "romaji": "tenkiyohou"
+    },
+    {
+      "no": 61,
+      "kana": "でんわばんごうあんない",
+      "kanji": "電話番号案内",
+      "arti": "Petunjuk nomor telepon",
+      "romaji": "denwabangouannai"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "bab": 24,
+  "items": [
+    {
+      "no": 1,
+      "kana": "くれます",
+      "kanji": "",
+      "arti": "Diberikan",
+      "romaji": "kuremasu"
+    },
+    {
+      "no": 2,
+      "kana": "なおします",
+      "kanji": "直します",
+      "arti": "Mengoreksi , memperbaiki",
+      "romaji": "naoshimasu"
+    },
+    {
+      "no": 3,
+      "kana": "つれていきます",
+      "kanji": "連れて行きます",
+      "arti": "Mengajak pergi, membawa, mengantarkan",
+      "romaji": "tsureteikimasu"
+    },
+    {
+      "no": 4,
+      "kana": "つれてきます",
+      "kanji": "連れて来ます",
+      "arti": "Membawa datang, membawa datang",
+      "romaji": "tsuretekimasu"
+    },
+    {
+      "no": 5,
+      "kana": "おくります （を）",
+      "kanji": "送ります",
+      "arti": "Mengantar (orang)",
+      "romaji": "okurimasu (wo)"
+    },
+    {
+      "no": 6,
+      "kana": "しょうかいします",
+      "kanji": "紹介します",
+      "arti": "Memperkenalkan",
+      "romaji": "shoukaishimasu"
+    },
+    {
+      "no": 7,
+      "kana": "あんないします",
+      "kanji": "案内します",
+      "arti": "Memandu , mengantarkan",
+      "romaji": "annaishimasu"
+    },
+    {
+      "no": 8,
+      "kana": "せつめいします",
+      "kanji": "説明します",
+      "arti": "Menjelaskan, menerangkan",
+      "romaji": "setsumeishimasu"
+    },
+    {
+      "no": 9,
+      "kana": "おじいさん／おじいちゃん",
+      "kanji": "",
+      "arti": "Kakek",
+      "romaji": "ojiisan/ojiichan"
+    },
+    {
+      "no": 10,
+      "kana": "おばあさん／おばあちゃん",
+      "kanji": "",
+      "arti": "Nenek",
+      "romaji": "obaasan/obaachan"
+    },
+    {
+      "no": 11,
+      "kana": "じゅんび",
+      "kanji": "準備",
+      "arti": "Persiapan",
+      "romaji": "junbi"
+    },
+    {
+      "no": 12,
+      "kana": "ひっこし",
+      "kanji": "引っ越し",
+      "arti": "Pindah rumah",
+      "romaji": "hikkoshi"
+    },
+    {
+      "no": 13,
+      "kana": "おかし",
+      "kanji": "お菓子",
+      "arti": "Kue, snack, makanan ringan",
+      "romaji": "okashi"
+    },
+    {
+      "no": 14,
+      "kana": "ホームステイ",
+      "kanji": "",
+      "arti": "Homestay",
+      "romaji": "hoomusutei"
+    },
+    {
+      "no": 15,
+      "kana": "ぜんぶ",
+      "kanji": "全部",
+      "arti": "Semua",
+      "romaji": "zenbu"
+    },
+    {
+      "no": 16,
+      "kana": "じぶんで",
+      "kanji": "自分で",
+      "arti": "Dengan sendiri",
+      "romaji": "jibunde"
+    },
+    {
+      "no": 17,
+      "kana": "ほかに",
+      "kanji": "",
+      "arti": "Selain, yang lain",
+      "romaji": "hokani"
+    },
+    {
+      "no": 18,
+      "kana": "ははのひ",
+      "kanji": "母の日",
+      "arti": "Hari ibu",
+      "romaji": "hahanohi"
+    },
+    {
+      "no": 19,
+      "kana": "ぞうとうのしゅうかん",
+      "kanji": "贈答の習慣",
+      "arti": "Tukar menukar hadiah",
+      "romaji": "zoutounoshuukan"
+    },
+    {
+      "no": 20,
+      "kana": "おとしだま",
+      "kanji": "お年玉",
+      "arti": "Hadiah kecil yang diberikan orang tua dan keluarga kepada anak-anak pada tahun baru",
+      "romaji": "otoshidama"
+    },
+    {
+      "no": 21,
+      "kana": "にゅうがくいわい",
+      "kanji": "入学祝い",
+      "arti": "Hadiah yang diberikan kepada anak yang masuk sekolah",
+      "romaji": "nyuugakuiwai"
+    },
+    {
+      "no": 22,
+      "kana": "そつぎょういわい",
+      "kanji": "卒業祝い",
+      "arti": "Hadiah yang diberikan kepada anak yang tamat sekolah",
+      "romaji": "sotsugyouiwai"
+    },
+    {
+      "no": 23,
+      "kana": "けっこんいわい",
+      "kanji": "結婚祝い",
+      "arti": "Hadiah perkawinan",
+      "romaji": "kekkon'iwai"
+    },
+    {
+      "no": 24,
+      "kana": "しゅっさんいわい",
+      "kanji": "出産祝い",
+      "arti": "Hadiah yang diberikan kepada orang yang melahirkan",
+      "romaji": "shussan'iwai"
+    },
+    {
+      "no": 25,
+      "kana": "おちゅうげん／おせいぼ",
+      "kanji": "お中元／お歳暮",
+      "arti": "Hadiah yang diberikan kepada orang yang telah memberi bantuan",
+      "romaji": "ochuugen/oseibo"
+    },
+    {
+      "no": 26,
+      "kana": "おこうでん",
+      "kanji": "お香典",
+      "arti": "Uang yang diberikan kepada keluarga yang berduka/ uang duka",
+      "romaji": "okouden"
+    },
+    {
+      "no": 27,
+      "kana": "おみまい",
+      "kanji": "お見舞い",
+      "arti": "Hadiah yang diberikan kepada orang yang sedang sakit",
+      "romaji": "omimai"
+    },
+    {
+      "no": 28,
+      "kana": "のしぶくろ",
+      "kanji": "熨斗袋",
+      "arti": "Amplop khusus untuk hadiah uang",
+      "romaji": "noshibukuro"
+    }
+  ]
+}

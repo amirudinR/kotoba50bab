@@ -1,0 +1,187 @@
+{
+  "bab": 25,
+  "items": [
+    {
+      "no": 1,
+      "kana": "かんがえます",
+      "kanji": "考えます",
+      "arti": "Berfikir, memikirkan",
+      "romaji": "kangaemasu"
+    },
+    {
+      "no": 2,
+      "kana": "つきます",
+      "kanji": "着きます",
+      "arti": "Tiba, sampai",
+      "romaji": "tsukimasu"
+    },
+    {
+      "no": 3,
+      "kana": "とります （としを～）",
+      "kanji": "取ります",
+      "arti": "Berumur, usia lanjut",
+      "romaji": "torimasu (toshiwo~)"
+    },
+    {
+      "no": 4,
+      "kana": "たります",
+      "kanji": "足ります",
+      "arti": "Cukup",
+      "romaji": "tarimasu"
+    },
+    {
+      "no": 5,
+      "kana": "いなか",
+      "kanji": "田舎",
+      "arti": "Desa, kampung halaman",
+      "romaji": "inaka"
+    },
+    {
+      "no": 6,
+      "kana": "チャンス",
+      "kanji": "",
+      "arti": "Kesempatan",
+      "romaji": "chansu"
+    },
+    {
+      "no": 7,
+      "kana": "おく",
+      "kanji": "億",
+      "arti": "Ratus juta",
+      "romaji": "oku"
+    },
+    {
+      "no": 8,
+      "kana": "もし",
+      "kanji": "",
+      "arti": "Kalau",
+      "romaji": "moshi"
+    },
+    {
+      "no": 9,
+      "kana": "いみ",
+      "kanji": "意味",
+      "arti": "Arti",
+      "romaji": "imi"
+    },
+    {
+      "no": 10,
+      "kana": "てんきん",
+      "kanji": "転勤",
+      "arti": "Pindah kerja, pindah ke kantor cabang lain",
+      "romaji": "tenkin"
+    },
+    {
+      "no": 11,
+      "kana": "こと",
+      "kanji": "",
+      "arti": "Hal",
+      "romaji": "koto"
+    },
+    {
+      "no": 12,
+      "kana": "ひまな",
+      "kanji": "暇な",
+      "arti": "Senggang, waktu luang",
+      "romaji": "himana"
+    },
+    {
+      "no": 13,
+      "kana": "いろいろおせわいなりました",
+      "kanji": "いろいろお世話になりました",
+      "arti": "Terima kasih banyak bantuan anda yang telah diberikan",
+      "romaji": "iroiroosewainarimashita"
+    },
+    {
+      "no": 14,
+      "kana": "がんばります",
+      "kanji": "頑張ります",
+      "arti": "Berusaha, bekerja keras",
+      "romaji": "ganbarimasu"
+    },
+    {
+      "no": 15,
+      "kana": "どうぞおげんきで",
+      "kanji": "どうぞお元気で",
+      "arti": "Semoga sehat-sehat selalu",
+      "romaji": "douzoogenkide"
+    },
+    {
+      "no": 16,
+      "kana": "ひとのいっしょう",
+      "kanji": "人の一生",
+      "arti": "Seumur hidup manusia",
+      "romaji": "hitonoisshou"
+    },
+    {
+      "no": 17,
+      "kana": "せいねん",
+      "kanji": "青年",
+      "arti": "Remaja",
+      "romaji": "seinen"
+    },
+    {
+      "no": 18,
+      "kana": "ちゅうねん",
+      "kanji": "中年",
+      "arti": "Setengah baya",
+      "romaji": "chuunen"
+    },
+    {
+      "no": 19,
+      "kana": "ろうじん",
+      "kanji": "老人",
+      "arti": "Orang tua",
+      "romaji": "roujin"
+    },
+    {
+      "no": 20,
+      "kana": "ほいくえん",
+      "kanji": "保育園",
+      "arti": "Play group",
+      "romaji": "hoikuen"
+    },
+    {
+      "no": 21,
+      "kana": "ようちえん",
+      "kanji": "幼稚園",
+      "arti": "TK",
+      "romaji": "youchien"
+    },
+    {
+      "no": 22,
+      "kana": "たんだい",
+      "kanji": "短大",
+      "arti": "Akademi",
+      "romaji": "tandai"
+    },
+    {
+      "no": 23,
+      "kana": "せんもんがっこう",
+      "kanji": "専門学校",
+      "arti": "Sekolah tinggi keahlian, sekolah kejuruan",
+      "romaji": "senmongakkou"
+    },
+    {
+      "no": 24,
+      "kana": "しゅうしょくします",
+      "kanji": "就職します",
+      "arti": "Mendapat pekerjaan",
+      "romaji": "shuushokushimasu"
+    },
+    {
+      "no": 25,
+      "kana": "りこんします",
+      "kanji": "離婚します",
+      "arti": "Bercerai",
+      "romaji": "rikonshimasu"
+    },
+    {
+      "no": 26,
+      "kana": "さいこんします",
+      "kanji": "再婚します",
+      "arti": "Menikah lagi",
+      "romaji": "saikonshimasu"
+    }
+  ]
+}

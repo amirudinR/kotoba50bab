@@ -1,0 +1,404 @@
+{
+  "bab": 16,
+  "items": [
+    {
+      "no": 1,
+      "kana": "のります （に）",
+      "kanji": "乗ります",
+      "arti": "Naik",
+      "romaji": "norimasu (ni)"
+    },
+    {
+      "no": 2,
+      "kana": "おります （を）",
+      "kanji": "降ります",
+      "arti": "Turun",
+      "romaji": "orimasu (wo)"
+    },
+    {
+      "no": 3,
+      "kana": "のりかえます",
+      "kanji": "乗り換えます",
+      "arti": "Ganti, pindah kendaraan",
+      "romaji": "norikaemasu"
+    },
+    {
+      "no": 4,
+      "kana": "あびます （を）",
+      "kanji": "浴びます",
+      "arti": "Mandi",
+      "romaji": "abimasu (wo)"
+    },
+    {
+      "no": 5,
+      "kana": "いれます",
+      "kanji": "入れます",
+      "arti": "Memasukkan",
+      "romaji": "iremasu"
+    },
+    {
+      "no": 6,
+      "kana": "だします",
+      "kanji": "出します",
+      "arti": "Mengeluarkan",
+      "romaji": "dashimasu"
+    },
+    {
+      "no": 7,
+      "kana": "おろします （を）",
+      "kanji": "下ろします",
+      "arti": "Mengeluarkan/mengambil uang",
+      "romaji": "oroshimasu (wo)"
+    },
+    {
+      "no": 8,
+      "kana": "はいります",
+      "kanji": "入ります",
+      "arti": "Masuk",
+      "romaji": "hairimasu"
+    },
+    {
+      "no": 9,
+      "kana": "でます",
+      "kanji": "出ます",
+      "arti": "Keluar",
+      "romaji": "demasu"
+    },
+    {
+      "no": 10,
+      "kana": "おします",
+      "kanji": "押します",
+      "arti": "Menekan",
+      "romaji": "oshimasu"
+    },
+    {
+      "no": 11,
+      "kana": "のみます",
+      "kanji": "飲みます",
+      "arti": "Minum",
+      "romaji": "nomimasu"
+    },
+    {
+      "no": 12,
+      "kana": "はじめます",
+      "kanji": "始めます",
+      "arti": "Mulai",
+      "romaji": "hajimemasu"
+    },
+    {
+      "no": 13,
+      "kana": "けんがくします",
+      "kanji": "見学します",
+      "arti": "Mengunjungi",
+      "romaji": "kengakushimasu"
+    },
+    {
+      "no": 14,
+      "kana": "でんわします",
+      "kanji": "電話します",
+      "arti": "Menelepon",
+      "romaji": "denwashimasu"
+    },
+    {
+      "no": 15,
+      "kana": "わかい",
+      "kanji": "若い",
+      "arti": "Muda",
+      "romaji": "wakai"
+    },
+    {
+      "no": 16,
+      "kana": "ながい",
+      "kanji": "長い",
+      "arti": "Panjang",
+      "romaji": "nagai"
+    },
+    {
+      "no": 17,
+      "kana": "みじかい",
+      "kanji": "短い",
+      "arti": "Pendek",
+      "romaji": "mijikai"
+    },
+    {
+      "no": 18,
+      "kana": "あかるい",
+      "kanji": "明るい",
+      "arti": "Terang",
+      "romaji": "akarui"
+    },
+    {
+      "no": 19,
+      "kana": "くらい",
+      "kanji": "暗い",
+      "arti": "Gelap",
+      "romaji": "kurai"
+    },
+    {
+      "no": 20,
+      "kana": "からだ",
+      "kanji": "体",
+      "arti": "Badan",
+      "romaji": "karada"
+    },
+    {
+      "no": 21,
+      "kana": "あたま",
+      "kanji": "頭",
+      "arti": "Kepala",
+      "romaji": "atama"
+    },
+    {
+      "no": 22,
+      "kana": "かみ",
+      "kanji": "髪",
+      "arti": "Rambut",
+      "romaji": "kami"
+    },
+    {
+      "no": 23,
+      "kana": "かお",
+      "kanji": "顔",
+      "arti": "Wajah",
+      "romaji": "kao"
+    },
+    {
+      "no": 24,
+      "kana": "め",
+      "kanji": "目",
+      "arti": "Mata",
+      "romaji": "me"
+    },
+    {
+      "no": 25,
+      "kana": "みみ",
+      "kanji": "耳",
+      "arti": "Telinga",
+      "romaji": "mimi"
+    },
+    {
+      "no": 26,
+      "kana": "はな",
+      "kanji": "鼻",
+      "arti": "Hidung",
+      "romaji": "hana"
+    },
+    {
+      "no": 27,
+      "kana": "くち",
+      "kanji": "口",
+      "arti": "Mulut",
+      "romaji": "kuchi"
+    },
+    {
+      "no": 28,
+      "kana": "は",
+      "kanji": "歯",
+      "arti": "Gigi",
+      "romaji": "ha"
+    },
+    {
+      "no": 29,
+      "kana": "おなか",
+      "kanji": "",
+      "arti": "Perut",
+      "romaji": "onaka"
+    },
+    {
+      "no": 30,
+      "kana": "あし",
+      "kanji": "足",
+      "arti": "Kaki",
+      "romaji": "ashi"
+    },
+    {
+      "no": 31,
+      "kana": "せ",
+      "kanji": "背",
+      "arti": "Punggung",
+      "romaji": "se"
+    },
+    {
+      "no": 32,
+      "kana": "サービス",
+      "kanji": "",
+      "arti": "Pelayanan",
+      "romaji": "saabisu"
+    },
+    {
+      "no": 33,
+      "kana": "ジョギング",
+      "kanji": "",
+      "arti": "Joging",
+      "romaji": "jogingu"
+    },
+    {
+      "no": 34,
+      "kana": "シャワー",
+      "kanji": "",
+      "arti": "Shower",
+      "romaji": "shawaa"
+    },
+    {
+      "no": 35,
+      "kana": "みどり",
+      "kanji": "緑",
+      "arti": "Hijau",
+      "romaji": "midori"
+    },
+    {
+      "no": 36,
+      "kana": "おてら",
+      "kanji": "お寺",
+      "arti": "Kuil",
+      "romaji": "otera"
+    },
+    {
+      "no": 37,
+      "kana": "じんじゃ",
+      "kanji": "神社",
+      "arti": "Wihara",
+      "romaji": "jinja"
+    },
+    {
+      "no": 38,
+      "kana": "～ばん",
+      "kanji": "～番",
+      "arti": "Nomer",
+      "romaji": "~ban"
+    },
+    {
+      "no": 39,
+      "kana": "どうやって",
+      "kanji": "",
+      "arti": "Dengan cara bagaimana, bagaimana caranya ?",
+      "romaji": "douyatte"
+    },
+    {
+      "no": 40,
+      "kana": "どの～",
+      "kanji": "",
+      "arti": "Yang mana?",
+      "romaji": "dono~"
+    },
+    {
+      "no": 41,
+      "kana": "どれ",
+      "kanji": "",
+      "arti": "Mana ?",
+      "romaji": "dore"
+    },
+    {
+      "no": 42,
+      "kana": "すごいですね",
+      "kanji": "",
+      "arti": "Hebat",
+      "romaji": "sugoidesune"
+    },
+    {
+      "no": 43,
+      "kana": "いいえ、まだまだです",
+      "kanji": "",
+      "arti": "Tidak, belum memuaskan",
+      "romaji": "iie,madamadadesu"
+    },
+    {
+      "no": 44,
+      "kana": "おひきだし",
+      "kanji": "お引き出し",
+      "arti": "Penarikan uang",
+      "romaji": "ohikidashi"
+    },
+    {
+      "no": 45,
+      "kana": "まず",
+      "kanji": "",
+      "arti": "Pertama-tama, terlebih dahulu",
+      "romaji": "mazu"
+    },
+    {
+      "no": 46,
+      "kana": "つぎに",
+      "kanji": "次に",
+      "arti": "Kemudian, berikutnya",
+      "romaji": "tsugini"
+    },
+    {
+      "no": 47,
+      "kana": "キャッシュカード",
+      "kanji": "",
+      "arti": "Kartu ATM",
+      "romaji": "kyasshukaado"
+    },
+    {
+      "no": 48,
+      "kana": "あんしょうばんごう",
+      "kanji": "暗証番号",
+      "arti": "PIN",
+      "romaji": "anshoubangou"
+    },
+    {
+      "no": 49,
+      "kana": "きんがく",
+      "kanji": "金額",
+      "arti": "Jumlah uang",
+      "romaji": "kingaku"
+    },
+    {
+      "no": 50,
+      "kana": "かくにん",
+      "kanji": "確認",
+      "arti": "Memastikan",
+      "romaji": "kakunin"
+    },
+    {
+      "no": 51,
+      "kana": "ボタン",
+      "kanji": "",
+      "arti": "Tombol",
+      "romaji": "botan"
+    },
+    {
+      "no": 52,
+      "kana": "ゆきまつり",
+      "kanji": "雪祭り",
+      "arti": "Pesta salju",
+      "romaji": "yukimatsuri"
+    },
+    {
+      "no": 53,
+      "kana": "おあずけいれ",
+      "kanji": "お預入れ",
+      "arti": "Menambahkan saldo",
+      "romaji": "oazukeire"
+    },
+    {
+      "no": 54,
+      "kana": "おふりこみ",
+      "kanji": "お振込み",
+      "arti": "Pembayaran",
+      "romaji": "ofurikomi"
+    },
+    {
+      "no": 55,
+      "kana": "おふりかえ",
+      "kanji": "お振り替え",
+      "arti": "Pengiriman",
+      "romaji": "ofurikae"
+    },
+    {
+      "no": 56,
+      "kana": "つうちょうきにゅう",
+      "kanji": "通帳記入",
+      "arti": "Pembaharuan buku catatan bank",
+      "romaji": "tsuuchoukinyuu"
+    },
+    {
+      "no": 57,
+      "kana": "ざんだかしょうかい",
+      "kanji": "残高照会",
+      "arti": "Cek saldo",
+      "romaji": "zandakashoukai"
+    }
+  ]
+}

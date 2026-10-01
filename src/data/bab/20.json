@@ -1,0 +1,159 @@
+{
+  "bab": 20,
+  "items": [
+    {
+      "no": 1,
+      "kana": "いります （が）",
+      "kanji": "要ります",
+      "arti": "Memerlukan",
+      "romaji": "irimasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "しらべます",
+      "kanji": "調べます",
+      "arti": "Memeriksa,meneliti,mengecek",
+      "romaji": "shirabemasu"
+    },
+    {
+      "no": 3,
+      "kana": "しゅうりします",
+      "kanji": "修理します",
+      "arti": "Memperbaiki",
+      "romaji": "shuurishimasu"
+    },
+    {
+      "no": 4,
+      "kana": "ぼく",
+      "kanji": "僕",
+      "arti": "Aku",
+      "romaji": "boku"
+    },
+    {
+      "no": 5,
+      "kana": "きみ",
+      "kanji": "君",
+      "arti": "Kamu",
+      "romaji": "kimi"
+    },
+    {
+      "no": 6,
+      "kana": "～くん",
+      "kanji": "～君",
+      "arti": "Saudara~",
+      "romaji": "~kun"
+    },
+    {
+      "no": 7,
+      "kana": "うん",
+      "kanji": "",
+      "arti": "Ya",
+      "romaji": "un"
+    },
+    {
+      "no": 8,
+      "kana": "ううん",
+      "kanji": "",
+      "arti": "Tidak",
+      "romaji": "uun"
+    },
+    {
+      "no": 9,
+      "kana": "ことば",
+      "kanji": "",
+      "arti": "Kata, kosakata ,bahasa",
+      "romaji": "kotoba"
+    },
+    {
+      "no": 10,
+      "kana": "きもの",
+      "kanji": "着物",
+      "arti": "Kimono",
+      "romaji": "kimono"
+    },
+    {
+      "no": 11,
+      "kana": "ビザ",
+      "kanji": "",
+      "arti": "Visa",
+      "romaji": "biza"
+    },
+    {
+      "no": 12,
+      "kana": "はじめ",
+      "kanji": "",
+      "arti": "Awal, mula-mula",
+      "romaji": "hajime"
+    },
+    {
+      "no": 13,
+      "kana": "おわり",
+      "kanji": "",
+      "arti": "Akhir",
+      "romaji": "owari"
+    },
+    {
+      "no": 14,
+      "kana": "こっち",
+      "kanji": "",
+      "arti": "Sini",
+      "romaji": "kotchi"
+    },
+    {
+      "no": 15,
+      "kana": "そっち",
+      "kanji": "",
+      "arti": "Situ",
+      "romaji": "sotchi"
+    },
+    {
+      "no": 16,
+      "kana": "あっち",
+      "kanji": "",
+      "arti": "Sana",
+      "romaji": "atchi"
+    },
+    {
+      "no": 17,
+      "kana": "どっち",
+      "kanji": "",
+      "arti": "mana",
+      "romaji": "dotchi"
+    },
+    {
+      "no": 18,
+      "kana": "みんなで",
+      "kanji": "",
+      "arti": "Kita semua",
+      "romaji": "minnade"
+    },
+    {
+      "no": 19,
+      "kana": "～けど",
+      "kanji": "",
+      "arti": "Tetapi",
+      "romaji": "~kedo"
+    },
+    {
+      "no": 20,
+      "kana": "おなかがいっぱいです",
+      "kanji": "",
+      "arti": "Kenyang",
+      "romaji": "onakagaippaidesu"
+    },
+    {
+      "no": 21,
+      "kana": "よかったら",
+      "kanji": "",
+      "arti": "Kalau mau, kalau suka",
+      "romaji": "yokattara"
+    },
+    {
+      "no": 22,
+      "kana": "いろいろ",
+      "kanji": "",
+      "arti": "Macam-macam",
+      "romaji": "iroiro"
+    }
+  ]
+}

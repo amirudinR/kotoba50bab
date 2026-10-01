@@ -1,0 +1,362 @@
+{
+  "bab": 41,
+  "items": [
+    {
+      "no": 1,
+      "kana": "いただきます",
+      "kanji": "",
+      "arti": "Menerima (kata merendah dari もらいます)",
+      "romaji": "itadakimasu"
+    },
+    {
+      "no": 2,
+      "kana": "くださいます",
+      "kanji": "",
+      "arti": "Memberi (kata hormat untuk くれます)",
+      "romaji": "kudasaimasu"
+    },
+    {
+      "no": 3,
+      "kana": "やります",
+      "kanji": "",
+      "arti": "Memberikan (bawahan,binatang,tanaman)",
+      "romaji": "yarimasu"
+    },
+    {
+      "no": 4,
+      "kana": "よびます",
+      "kanji": "呼びます",
+      "arti": "Memangil",
+      "romaji": "yobimasu"
+    },
+    {
+      "no": 5,
+      "kana": "とりかえます",
+      "kanji": "取り替えます",
+      "arti": "Mengganti, menukar",
+      "romaji": "torikaemasu"
+    },
+    {
+      "no": 6,
+      "kana": "しんせつにします",
+      "kanji": "親切にします",
+      "arti": "Bersikap ramah",
+      "romaji": "shinsetsunishimasu"
+    },
+    {
+      "no": 7,
+      "kana": "かわいい",
+      "kanji": "",
+      "arti": "Manis (wajah), cantik",
+      "romaji": "kawaii"
+    },
+    {
+      "no": 8,
+      "kana": "おいわい  （を）します",
+      "kanji": "お祝い",
+      "arti": "Perayaan , hadiah , merayakan",
+      "romaji": "oiwai  (wo)shimasu"
+    },
+    {
+      "no": 9,
+      "kana": "おとしだま",
+      "kanji": "お年玉",
+      "arti": "Hadiah uang di tahun baru",
+      "romaji": "otoshidama"
+    },
+    {
+      "no": 10,
+      "kana": "おみまい",
+      "kanji": "お見舞い",
+      "arti": "Besuk, menengok orang sakit",
+      "romaji": "omimai"
+    },
+    {
+      "no": 11,
+      "kana": "きょうみ",
+      "kanji": "興味",
+      "arti": "Minat",
+      "romaji": "kyoumi"
+    },
+    {
+      "no": 12,
+      "kana": "じょうほう",
+      "kanji": "情報",
+      "arti": "Penerangan, informasi",
+      "romaji": "jouhou"
+    },
+    {
+      "no": 13,
+      "kana": "ぶんぽう",
+      "kanji": "文法",
+      "arti": "Tata bahasa",
+      "romaji": "bunpou"
+    },
+    {
+      "no": 14,
+      "kana": "はつおん",
+      "kanji": "発音",
+      "arti": "Ucapan",
+      "romaji": "hatsuon"
+    },
+    {
+      "no": 15,
+      "kana": "さる",
+      "kanji": "猿",
+      "arti": "Monyet",
+      "romaji": "saru"
+    },
+    {
+      "no": 16,
+      "kana": "えさ",
+      "kanji": "",
+      "arti": "Makanan hewan",
+      "romaji": "esa"
+    },
+    {
+      "no": 17,
+      "kana": "おもちゃ",
+      "kanji": "",
+      "arti": "Mainan",
+      "romaji": "omocha"
+    },
+    {
+      "no": 18,
+      "kana": "えほん",
+      "kanji": "絵本",
+      "arti": "Buku bergambar",
+      "romaji": "ehon"
+    },
+    {
+      "no": 19,
+      "kana": "えはがき",
+      "kanji": "絵はがき",
+      "arti": "Kartu pos bergambar",
+      "romaji": "ehagaki"
+    },
+    {
+      "no": 20,
+      "kana": "ドライバー",
+      "kanji": "",
+      "arti": "Obeng",
+      "romaji": "doraibaa"
+    },
+    {
+      "no": 21,
+      "kana": "ハンカチ",
+      "kanji": "",
+      "arti": "Sapu tangan",
+      "romaji": "hankachi"
+    },
+    {
+      "no": 22,
+      "kana": "くつした",
+      "kanji": "靴下",
+      "arti": "Kaos kaki",
+      "romaji": "kutsushita"
+    },
+    {
+      "no": 23,
+      "kana": "てぶくろ",
+      "kanji": "手袋",
+      "arti": "Sarung tangan",
+      "romaji": "tebukuro"
+    },
+    {
+      "no": 24,
+      "kana": "ゆびわ",
+      "kanji": "指輪",
+      "arti": "Cincin",
+      "romaji": "yubiwa"
+    },
+    {
+      "no": 25,
+      "kana": "バッグ",
+      "kanji": "",
+      "arti": "Tas",
+      "romaji": "baggu"
+    },
+    {
+      "no": 26,
+      "kana": "そふ",
+      "kanji": "祖父",
+      "arti": "Kakek ( sendiri)",
+      "romaji": "sofu"
+    },
+    {
+      "no": 27,
+      "kana": "そぼ",
+      "kanji": "祖母",
+      "arti": "Nenek (sendiri)",
+      "romaji": "sobo"
+    },
+    {
+      "no": 28,
+      "kana": "まご",
+      "kanji": "孫",
+      "arti": "Cucu",
+      "romaji": "mago"
+    },
+    {
+      "no": 29,
+      "kana": "おじ",
+      "kanji": "",
+      "arti": "Paman (sendiri)",
+      "romaji": "oji"
+    },
+    {
+      "no": 30,
+      "kana": "おじさん",
+      "kanji": "",
+      "arti": "Paman (orang kain)",
+      "romaji": "ojisan"
+    },
+    {
+      "no": 31,
+      "kana": "おば",
+      "kanji": "",
+      "arti": "Bibi (sendiri)",
+      "romaji": "oba"
+    },
+    {
+      "no": 32,
+      "kana": "おばさん",
+      "kanji": "",
+      "arti": "Bibi (orang lain)",
+      "romaji": "obasan"
+    },
+    {
+      "no": 33,
+      "kana": "おととし",
+      "kanji": "",
+      "arti": "2 tahun yang lalu",
+      "romaji": "ototoshi"
+    },
+    {
+      "no": 34,
+      "kana": "もうしわけありません",
+      "kanji": "申し訳ありません",
+      "arti": "Maaf",
+      "romaji": "moushiwakearimasen"
+    },
+    {
+      "no": 35,
+      "kana": "あずかります",
+      "kanji": "預かります",
+      "arti": "Menjagakan sesuatu, menitipkan",
+      "romaji": "azukarimasu"
+    },
+    {
+      "no": 36,
+      "kana": "せんじつ",
+      "kanji": "先日",
+      "arti": "Beberapa hari yang lalu",
+      "romaji": "senjitsu"
+    },
+    {
+      "no": 37,
+      "kana": "たすかります",
+      "kanji": "助かります",
+      "arti": "Tertolong",
+      "romaji": "tasukarimasu"
+    },
+    {
+      "no": 38,
+      "kana": "むかしはなし",
+      "kanji": "昔話",
+      "arti": "Cerita zaman dahulu",
+      "romaji": "mukashihanashi"
+    },
+    {
+      "no": 39,
+      "kana": "ある～",
+      "kanji": "",
+      "arti": "Sesuatu -",
+      "romaji": "aru~"
+    },
+    {
+      "no": 40,
+      "kana": "いじめます",
+      "kanji": "",
+      "arti": "Menyakiti, menyiksa",
+      "romaji": "ijimemasu"
+    },
+    {
+      "no": 41,
+      "kana": "かめ",
+      "kanji": "",
+      "arti": "Kura-kura",
+      "romaji": "kame"
+    },
+    {
+      "no": 42,
+      "kana": "たすけます",
+      "kanji": "助けます",
+      "arti": "Menolong",
+      "romaji": "tasukemasu"
+    },
+    {
+      "no": 43,
+      "kana": "おしろ",
+      "kanji": "お城",
+      "arti": "Kastil, istana",
+      "romaji": "oshiro"
+    },
+    {
+      "no": 44,
+      "kana": "おひめさま",
+      "kanji": "お姫様",
+      "arti": "Putri raja",
+      "romaji": "ohimesama"
+    },
+    {
+      "no": 45,
+      "kana": "たのしく",
+      "kanji": "楽しく",
+      "arti": "Dengan gembira",
+      "romaji": "tanoshiku"
+    },
+    {
+      "no": 46,
+      "kana": "くらします",
+      "kanji": "暮らします",
+      "arti": "Hidup",
+      "romaji": "kurashimasu"
+    },
+    {
+      "no": 47,
+      "kana": "りく",
+      "kanji": "陸",
+      "arti": "Daratan",
+      "romaji": "riku"
+    },
+    {
+      "no": 48,
+      "kana": "すると",
+      "kanji": "",
+      "arti": "Kemudian, lalu",
+      "romaji": "suruto"
+    },
+    {
+      "no": 49,
+      "kana": "けむり",
+      "kanji": "煙",
+      "arti": "Asap",
+      "romaji": "kemuri"
+    },
+    {
+      "no": 50,
+      "kana": "まっしろな",
+      "kanji": "真っ白な",
+      "arti": "Putih sekali",
+      "romaji": "masshirona"
+    },
+    {
+      "no": 51,
+      "kana": "なかみ",
+      "kanji": "中身",
+      "arti": "Isi",
+      "romaji": "nakami"
+    }
+  ]
+}

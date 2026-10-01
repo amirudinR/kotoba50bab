@@ -1,0 +1,453 @@
+{
+  "bab": 37,
+  "items": [
+    {
+      "no": 1,
+      "kana": "ほめます",
+      "kanji": "褒めます",
+      "arti": "Memuji",
+      "romaji": "homemasu"
+    },
+    {
+      "no": 2,
+      "kana": "しかります",
+      "kanji": "",
+      "arti": "Memarahi",
+      "romaji": "shikarimasu"
+    },
+    {
+      "no": 3,
+      "kana": "さそいます",
+      "kanji": "誘います",
+      "arti": "Mengajak",
+      "romaji": "sasoimasu"
+    },
+    {
+      "no": 4,
+      "kana": "おこします",
+      "kanji": "起こします",
+      "arti": "Membangunkan (orang)",
+      "romaji": "okoshimasu"
+    },
+    {
+      "no": 5,
+      "kana": "しょうたいします",
+      "kanji": "招待します",
+      "arti": "Mengundang",
+      "romaji": "shoutaishimasu"
+    },
+    {
+      "no": 6,
+      "kana": "たのみます",
+      "kanji": "頼みます",
+      "arti": "Meminta",
+      "romaji": "tanomimasu"
+    },
+    {
+      "no": 7,
+      "kana": "ちゅういします",
+      "kanji": "注意します",
+      "arti": "Memberi peringatan,memperingatkan",
+      "romaji": "chuuishimasu"
+    },
+    {
+      "no": 8,
+      "kana": "とります",
+      "kanji": "",
+      "arti": "Mencuri",
+      "romaji": "torimasu"
+    },
+    {
+      "no": 9,
+      "kana": "ふみます",
+      "kanji": "踏みます",
+      "arti": "Menginjak",
+      "romaji": "fumimasu"
+    },
+    {
+      "no": 10,
+      "kana": "こわします",
+      "kanji": "壊します",
+      "arti": "Memecahkan,merusakkan",
+      "romaji": "kowashimasu"
+    },
+    {
+      "no": 11,
+      "kana": "よごします",
+      "kanji": "汚します",
+      "arti": "Mengotori",
+      "romaji": "yogoshimasu"
+    },
+    {
+      "no": 12,
+      "kana": "おこないます",
+      "kanji": "行います",
+      "arti": "Mengadakan, melangsungkan",
+      "romaji": "okonaimasu"
+    },
+    {
+      "no": 13,
+      "kana": "ゆしゅつします",
+      "kanji": "輸出します",
+      "arti": "Mengekspor",
+      "romaji": "yushutsushimasu"
+    },
+    {
+      "no": 14,
+      "kana": "ゆにゅうします",
+      "kanji": "輸入します",
+      "arti": "Mengimpor",
+      "romaji": "yunyuushimasu"
+    },
+    {
+      "no": 15,
+      "kana": "ほんやくします",
+      "kanji": "翻訳します",
+      "arti": "Menerjemahkan",
+      "romaji": "honyakushimasu"
+    },
+    {
+      "no": 16,
+      "kana": "はつめいします",
+      "kanji": "発明します",
+      "arti": "Menciptakan",
+      "romaji": "hatsumeishimasu"
+    },
+    {
+      "no": 17,
+      "kana": "はっけんします",
+      "kanji": "発見します",
+      "arti": "Menemukan",
+      "romaji": "hakkenshimasu"
+    },
+    {
+      "no": 18,
+      "kana": "せっけいします",
+      "kanji": "設計します",
+      "arti": "Merancang, mendesain",
+      "romaji": "sekkeishimasu"
+    },
+    {
+      "no": 19,
+      "kana": "こめ",
+      "kanji": "米",
+      "arti": "Beras",
+      "romaji": "kome"
+    },
+    {
+      "no": 20,
+      "kana": "むぎ",
+      "kanji": "麦",
+      "arti": "Gandum",
+      "romaji": "mugi"
+    },
+    {
+      "no": 21,
+      "kana": "せきゆ",
+      "kanji": "石油",
+      "arti": "Minyak tanah",
+      "romaji": "sekiyu"
+    },
+    {
+      "no": 22,
+      "kana": "げんりょう",
+      "kanji": "原料",
+      "arti": "Bahan mentah",
+      "romaji": "genryou"
+    },
+    {
+      "no": 23,
+      "kana": "デート",
+      "kanji": "",
+      "arti": "Kencan,pacaran",
+      "romaji": "deeto"
+    },
+    {
+      "no": 24,
+      "kana": "どろぼう",
+      "kanji": "泥棒",
+      "arti": "Pencuri",
+      "romaji": "dorobou"
+    },
+    {
+      "no": 25,
+      "kana": "けいかん",
+      "kanji": "警官",
+      "arti": "Polisi",
+      "romaji": "keikan"
+    },
+    {
+      "no": 26,
+      "kana": "けんちくか",
+      "kanji": "建築家",
+      "arti": "Arsitek",
+      "romaji": "kenchikuka"
+    },
+    {
+      "no": 27,
+      "kana": "かがくしゃ",
+      "kanji": "科学者",
+      "arti": "Ahli ilmu pengetahuan",
+      "romaji": "kagakusha"
+    },
+    {
+      "no": 28,
+      "kana": "まんが",
+      "kanji": "漫画",
+      "arti": "Komik, kartun",
+      "romaji": "manga"
+    },
+    {
+      "no": 29,
+      "kana": "せかいじゅう",
+      "kanji": "世界中",
+      "arti": "Seluruh dunia",
+      "romaji": "sekaijuu"
+    },
+    {
+      "no": 30,
+      "kana": "～じゅう",
+      "kanji": "～中",
+      "arti": "Seluruh -",
+      "romaji": "~juu"
+    },
+    {
+      "no": 31,
+      "kana": "～によって",
+      "kanji": "",
+      "arti": "Oleh -",
+      "romaji": "~niyotte"
+    },
+    {
+      "no": 32,
+      "kana": "うめたてます",
+      "kanji": "埋め立てます",
+      "arti": "Menimbun, menimbuni",
+      "romaji": "umetatemasu"
+    },
+    {
+      "no": 33,
+      "kana": "ぎじゅつ",
+      "kanji": "技術",
+      "arti": "Teknik, teknologi",
+      "romaji": "gijutsu"
+    },
+    {
+      "no": 34,
+      "kana": "とち",
+      "kanji": "土地",
+      "arti": "Tanah",
+      "romaji": "tochi"
+    },
+    {
+      "no": 35,
+      "kana": "そうおん",
+      "kanji": "騒音",
+      "arti": "Suara bising",
+      "romaji": "souon"
+    },
+    {
+      "no": 36,
+      "kana": "りようします",
+      "kanji": "利用します",
+      "arti": "Memakai, memanfaatkan",
+      "romaji": "riyoushimasu"
+    },
+    {
+      "no": 37,
+      "kana": "アクセス",
+      "kanji": "",
+      "arti": "Jalan masuk, akses",
+      "romaji": "akusesu"
+    },
+    {
+      "no": 38,
+      "kana": "～せいき",
+      "kanji": "～世紀",
+      "arti": "Abad -",
+      "romaji": "~seiki"
+    },
+    {
+      "no": 39,
+      "kana": "ごうかな",
+      "kanji": "豪華な",
+      "arti": "Megah",
+      "romaji": "goukana"
+    },
+    {
+      "no": 40,
+      "kana": "ちょうこく",
+      "kanji": "彫刻",
+      "arti": "Seni ukir, seni pahat",
+      "romaji": "choukoku"
+    },
+    {
+      "no": 41,
+      "kana": "ねむります",
+      "kanji": "眠ります",
+      "arti": "Tidur",
+      "romaji": "nemurimasu"
+    },
+    {
+      "no": 42,
+      "kana": "ほります",
+      "kanji": "彫ります",
+      "arti": "Memahat",
+      "romaji": "horimasu"
+    },
+    {
+      "no": 43,
+      "kana": "なかま",
+      "kanji": "仲間",
+      "arti": "Teman, kawan",
+      "romaji": "nakama"
+    },
+    {
+      "no": 44,
+      "kana": "そのあと",
+      "kanji": "",
+      "arti": "Sesudah itu",
+      "romaji": "sonoato"
+    },
+    {
+      "no": 45,
+      "kana": "いっしょうけんめい",
+      "kanji": "一生懸命",
+      "arti": "Dengan sekuat tenaga",
+      "romaji": "isshoukenmei"
+    },
+    {
+      "no": 46,
+      "kana": "ねずみ",
+      "kanji": "",
+      "arti": "Tikus",
+      "romaji": "nezumi"
+    },
+    {
+      "no": 47,
+      "kana": "いっぴきもいません",
+      "kanji": "一匹もいません",
+      "arti": "Seekorpun tidak ada",
+      "romaji": "ippikimoimasen"
+    },
+    {
+      "no": 48,
+      "kana": "ねむりねこ",
+      "kanji": "眠り猫",
+      "arti": "Kucing tidur",
+      "romaji": "nemurineko"
+    },
+    {
+      "no": 49,
+      "kana": "ころす",
+      "kanji": "殺す",
+      "arti": "Membunuh",
+      "romaji": "korosu"
+    },
+    {
+      "no": 50,
+      "kana": "うつ",
+      "kanji": "撃つ",
+      "arti": "Menembak",
+      "romaji": "utsu"
+    },
+    {
+      "no": 51,
+      "kana": "さす",
+      "kanji": "刺す",
+      "arti": "Menusuk",
+      "romaji": "sasu"
+    },
+    {
+      "no": 52,
+      "kana": "かむ",
+      "kanji": "",
+      "arti": "Menggigit",
+      "romaji": "kamu"
+    },
+    {
+      "no": 53,
+      "kana": "ひく",
+      "kanji": "",
+      "arti": "Menggilas",
+      "romaji": "hiku"
+    },
+    {
+      "no": 54,
+      "kana": "はねる",
+      "kanji": "",
+      "arti": "Menabrak",
+      "romaji": "haneru"
+    },
+    {
+      "no": 55,
+      "kana": "しょうとつする",
+      "kanji": "衝突する",
+      "arti": "Tabrakan",
+      "romaji": "shoutotsusuru"
+    },
+    {
+      "no": 56,
+      "kana": "ついとつする",
+      "kanji": "追突する",
+      "arti": "Menabrak dari belakang",
+      "romaji": "tsuitotsusuru"
+    },
+    {
+      "no": 57,
+      "kana": "ぬすむ",
+      "kanji": "盗む",
+      "arti": "Mencuri",
+      "romaji": "nusumu"
+    },
+    {
+      "no": 58,
+      "kana": "ゆうかいする",
+      "kanji": "誘拐する",
+      "arti": "Menculik",
+      "romaji": "yuukaisuru"
+    },
+    {
+      "no": 59,
+      "kana": "ハイジャックする",
+      "kanji": "",
+      "arti": "Membajak",
+      "romaji": "haijakkusuru"
+    },
+    {
+      "no": 60,
+      "kana": "ついらくする",
+      "kanji": "墜落する",
+      "arti": "Jatuh (kecelakaan)",
+      "romaji": "tsuirakusuru"
+    },
+    {
+      "no": 61,
+      "kana": "はこぶ",
+      "kanji": "運ぶ",
+      "arti": "Membawa",
+      "romaji": "hakobu"
+    },
+    {
+      "no": 62,
+      "kana": "たすける",
+      "kanji": "助ける",
+      "arti": "Meledak",
+      "romaji": "tasukeru"
+    },
+    {
+      "no": 63,
+      "kana": "ばくはつする",
+      "kanji": "爆発する",
+      "arti": "Menolong",
+      "romaji": "bakuhatsusuru"
+    },
+    {
+      "no": 64,
+      "kana": "ちんぼつする",
+      "kanji": "沈没する",
+      "arti": "Tenggelam",
+      "romaji": "chinbotsusuru"
+    }
+  ]
+}

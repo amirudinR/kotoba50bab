@@ -1,0 +1,418 @@
+{
+  "bab": 29,
+  "items": [
+    {
+      "no": 1,
+      "kana": "あきます （が）",
+      "kanji": "開きます",
+      "arti": "Terbuka",
+      "romaji": "akimasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "しまります",
+      "kanji": "閉まります",
+      "arti": "Tertutup",
+      "romaji": "shimarimasu"
+    },
+    {
+      "no": 3,
+      "kana": "つきます",
+      "kanji": "",
+      "arti": "Menyala",
+      "romaji": "tsukimasu"
+    },
+    {
+      "no": 4,
+      "kana": "きえます",
+      "kanji": "消えます",
+      "arti": "Mati,padam",
+      "romaji": "kiemasu"
+    },
+    {
+      "no": 5,
+      "kana": "こみます",
+      "kanji": "込みます",
+      "arti": "Ramai, macet",
+      "romaji": "komimasu"
+    },
+    {
+      "no": 6,
+      "kana": "すきます",
+      "kanji": "",
+      "arti": "Sepi",
+      "romaji": "sukimasu"
+    },
+    {
+      "no": 7,
+      "kana": "こわれます",
+      "kanji": "壊れます",
+      "arti": "Rusak",
+      "romaji": "kowaremasu"
+    },
+    {
+      "no": 8,
+      "kana": "われます",
+      "kanji": "割れます",
+      "arti": "Pecah",
+      "romaji": "waremasu"
+    },
+    {
+      "no": 9,
+      "kana": "おれます",
+      "kanji": "折れます",
+      "arti": "Patah",
+      "romaji": "oremasu"
+    },
+    {
+      "no": 10,
+      "kana": "やぶれます",
+      "kanji": "破れます",
+      "arti": "Sobek",
+      "romaji": "yaburemasu"
+    },
+    {
+      "no": 11,
+      "kana": "よごれます",
+      "kanji": "汚れます",
+      "arti": "Menjadi kotor",
+      "romaji": "yogoremasu"
+    },
+    {
+      "no": 12,
+      "kana": "つきます  （が）",
+      "kanji": "付きます",
+      "arti": "Ada",
+      "romaji": "tsukimasu  (ga)"
+    },
+    {
+      "no": 13,
+      "kana": "はずれます （が）",
+      "kanji": "外れます",
+      "arti": "Terbuka",
+      "romaji": "hazuremasu (ga)"
+    },
+    {
+      "no": 14,
+      "kana": "とまります （が）",
+      "kanji": "止まれます",
+      "arti": "Berhenti",
+      "romaji": "tomarimasu (ga)"
+    },
+    {
+      "no": 15,
+      "kana": "まちがえます",
+      "kanji": "間違えます",
+      "arti": "Berbuat salah, keliru",
+      "romaji": "machigaemasu"
+    },
+    {
+      "no": 16,
+      "kana": "おとします",
+      "kanji": "落とします",
+      "arti": "Menjatuhkan, kehilangan",
+      "romaji": "otoshimasu"
+    },
+    {
+      "no": 17,
+      "kana": "かかります （が）",
+      "kanji": "掛かります",
+      "arti": "Terkunci",
+      "romaji": "kakarimasu (ga)"
+    },
+    {
+      "no": 18,
+      "kana": "おさら",
+      "kanji": "お皿",
+      "arti": "Piring",
+      "romaji": "osara"
+    },
+    {
+      "no": 19,
+      "kana": "おちゃわん",
+      "kanji": "",
+      "arti": "Mangkuk",
+      "romaji": "ochawan"
+    },
+    {
+      "no": 20,
+      "kana": "コップ",
+      "kanji": "",
+      "arti": "Gelas",
+      "romaji": "koppu"
+    },
+    {
+      "no": 21,
+      "kana": "ガラス",
+      "kanji": "",
+      "arti": "Kaca",
+      "romaji": "garasu"
+    },
+    {
+      "no": 22,
+      "kana": "ふくろ",
+      "kanji": "袋",
+      "arti": "Kantong",
+      "romaji": "fukuro"
+    },
+    {
+      "no": 23,
+      "kana": "さいふ",
+      "kanji": "財布",
+      "arti": "Dompet",
+      "romaji": "saifu"
+    },
+    {
+      "no": 24,
+      "kana": "えだ",
+      "kanji": "枝",
+      "arti": "Cabang, ranting pohon",
+      "romaji": "eda"
+    },
+    {
+      "no": 25,
+      "kana": "えきいん",
+      "kanji": "駅員",
+      "arti": "Pegawai stasiun",
+      "romaji": "ekiin"
+    },
+    {
+      "no": 26,
+      "kana": "このへん",
+      "kanji": "この辺",
+      "arti": "Sekitar sini",
+      "romaji": "konohen"
+    },
+    {
+      "no": 27,
+      "kana": "～へん",
+      "kanji": "～辺",
+      "arti": "Sekitar ~",
+      "romaji": "~hen"
+    },
+    {
+      "no": 28,
+      "kana": "このくらい",
+      "kanji": "",
+      "arti": "Kira-kira sebesar ini",
+      "romaji": "konokurai"
+    },
+    {
+      "no": 29,
+      "kana": "おさきにどうぞ",
+      "kanji": "お先にどうぞ",
+      "arti": "Silakan duluan",
+      "romaji": "osakinidouzo"
+    },
+    {
+      "no": 30,
+      "kana": "よかった",
+      "kanji": "",
+      "arti": "Syukurlah",
+      "romaji": "yokatta"
+    },
+    {
+      "no": 31,
+      "kana": "わすれもの",
+      "kanji": "忘れ物",
+      "arti": "Barang yang ketinggalan",
+      "romaji": "wasuremono"
+    },
+    {
+      "no": 32,
+      "kana": "～がわ",
+      "kanji": "～側",
+      "arti": "Sebelah~",
+      "romaji": "~gawa"
+    },
+    {
+      "no": 33,
+      "kana": "ポケット",
+      "kanji": "",
+      "arti": "Saku",
+      "romaji": "poketto"
+    },
+    {
+      "no": 34,
+      "kana": "あみだな",
+      "kanji": "網棚",
+      "arti": "Rak (dalam kereta api)",
+      "romaji": "amidana"
+    },
+    {
+      "no": 35,
+      "kana": "たしか",
+      "kanji": "確か",
+      "arti": "Kalau tidak salah, pasti",
+      "romaji": "tashika"
+    },
+    {
+      "no": 36,
+      "kana": "じしん",
+      "kanji": "地震",
+      "arti": "Gempa bumi",
+      "romaji": "jishin"
+    },
+    {
+      "no": 37,
+      "kana": "かべ",
+      "kanji": "壁",
+      "arti": "Dinding",
+      "romaji": "kabe"
+    },
+    {
+      "no": 38,
+      "kana": "はり",
+      "kanji": "針",
+      "arti": "Jarum",
+      "romaji": "hari"
+    },
+    {
+      "no": 39,
+      "kana": "さします",
+      "kanji": "指します",
+      "arti": "Menunjukkan",
+      "romaji": "sashimasu"
+    },
+    {
+      "no": 40,
+      "kana": "えきまえ",
+      "kanji": "駅前",
+      "arti": "Depan stasiun",
+      "romaji": "ekimae"
+    },
+    {
+      "no": 41,
+      "kana": "たおれます",
+      "kanji": "倒れます",
+      "arti": "Jatuh,roboh",
+      "romaji": "taoremasu"
+    },
+    {
+      "no": 42,
+      "kana": "にし",
+      "kanji": "西",
+      "arti": "Barat",
+      "romaji": "nishi"
+    },
+    {
+      "no": 43,
+      "kana": "ほう",
+      "kanji": "方",
+      "arti": "Arah",
+      "romaji": "hou"
+    },
+    {
+      "no": 44,
+      "kana": "じょうたい",
+      "kanji": "状態",
+      "arti": "Keadaan",
+      "romaji": "joutai"
+    },
+    {
+      "no": 45,
+      "kana": "ようす",
+      "kanji": "様子",
+      "arti": "Penampilan",
+      "romaji": "yousu"
+    },
+    {
+      "no": 46,
+      "kana": "ふとってる",
+      "kanji": "太ってる",
+      "arti": "Gemuk",
+      "romaji": "futotteru"
+    },
+    {
+      "no": 47,
+      "kana": "やせている",
+      "kanji": "",
+      "arti": "Kurus",
+      "romaji": "yaseteiru"
+    },
+    {
+      "no": 48,
+      "kana": "ふくらんでいる",
+      "kanji": "膨らんでいる",
+      "arti": "Gembung",
+      "romaji": "fukurandeiru"
+    },
+    {
+      "no": 49,
+      "kana": "あながあいている",
+      "kanji": "穴が開いている",
+      "arti": "Berlubang",
+      "romaji": "anagaaiteiru"
+    },
+    {
+      "no": 50,
+      "kana": "まがっている",
+      "kanji": "曲がっている",
+      "arti": "Bengkok",
+      "romaji": "magatteiru"
+    },
+    {
+      "no": 51,
+      "kana": "ゆがんでいる",
+      "kanji": "",
+      "arti": "Mencong",
+      "romaji": "yugandeiru"
+    },
+    {
+      "no": 52,
+      "kana": "へこんでいる",
+      "kanji": "",
+      "arti": "Penyok",
+      "romaji": "hekondeiru"
+    },
+    {
+      "no": 53,
+      "kana": "ねじれている",
+      "kanji": "",
+      "arti": "Berbelit",
+      "romaji": "nejireteiru"
+    },
+    {
+      "no": 54,
+      "kana": "かけている",
+      "kanji": "",
+      "arti": "Pecah pinggirnya",
+      "romaji": "kaketeiru"
+    },
+    {
+      "no": 55,
+      "kana": "ひびがはいっている",
+      "kanji": "",
+      "arti": "Retak",
+      "romaji": "hibigahaitteiru"
+    },
+    {
+      "no": 56,
+      "kana": "くさっている",
+      "kanji": "腐っている",
+      "arti": "Busuk",
+      "romaji": "kusatteiru"
+    },
+    {
+      "no": 57,
+      "kana": "かわいている",
+      "kanji": "乾いている",
+      "arti": "Kering",
+      "romaji": "kawaiteiru"
+    },
+    {
+      "no": 58,
+      "kana": "ぬれている",
+      "kanji": "",
+      "arti": "Basah",
+      "romaji": "nureteiru"
+    },
+    {
+      "no": 59,
+      "kana": "こおっている",
+      "kanji": "凍っている",
+      "arti": "Beku",
+      "romaji": "kootteiru"
+    }
+  ]
+}

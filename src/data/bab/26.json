@@ -1,0 +1,453 @@
+{
+  "bab": 26,
+  "items": [
+    {
+      "no": 1,
+      "kana": "みます",
+      "kanji": "見ます。診ます",
+      "arti": "Melihat , memeriksa",
+      "romaji": "mimasu"
+    },
+    {
+      "no": 2,
+      "kana": "さがします",
+      "kanji": "探します",
+      "arti": "Mencari",
+      "romaji": "sagashimasu"
+    },
+    {
+      "no": 3,
+      "kana": "おくれます （じかん に）",
+      "kanji": "遅れます",
+      "arti": "Terlambat",
+      "romaji": "okuremasu (jikan ni)"
+    },
+    {
+      "no": 4,
+      "kana": "まにあいます（じかん に）",
+      "kanji": "間に合います",
+      "arti": "Tepat waktu",
+      "romaji": "maniaimasu(jikan ni)"
+    },
+    {
+      "no": 5,
+      "kana": "やります",
+      "kanji": "",
+      "arti": "Melakukan, mengerjakan",
+      "romaji": "yarimasu"
+    },
+    {
+      "no": 6,
+      "kana": "さんかします（パーティーに）",
+      "kanji": "参加します",
+      "arti": "Turut serta, ikut , berpartisipasi",
+      "romaji": "sankashimasu(paateiini)"
+    },
+    {
+      "no": 7,
+      "kana": "もうしこみます",
+      "kanji": "申し込みます",
+      "arti": "Mendaftar",
+      "romaji": "moushikomimasu"
+    },
+    {
+      "no": 8,
+      "kana": "つごうがいい",
+      "kanji": "都合がいい",
+      "arti": "Tidak ada halangan",
+      "romaji": "tsugougaii"
+    },
+    {
+      "no": 9,
+      "kana": "つごうがわるい",
+      "kanji": "都合が悪い",
+      "arti": "Ada halangan",
+      "romaji": "tsugougawarui"
+    },
+    {
+      "no": 10,
+      "kana": "きぶんがいい",
+      "kanji": "気分がいい",
+      "arti": "Kondisi badan / perasaan baik",
+      "romaji": "kibungaii"
+    },
+    {
+      "no": 11,
+      "kana": "きぶんがわるい",
+      "kanji": "気分が悪い",
+      "arti": "Tidak enak badan",
+      "romaji": "kibungawarui"
+    },
+    {
+      "no": 12,
+      "kana": "しんぶんしゃ",
+      "kanji": "新聞社",
+      "arti": "Perusahaan surat kabar",
+      "romaji": "shinbunsha"
+    },
+    {
+      "no": 13,
+      "kana": "じゅうどう",
+      "kanji": "柔道",
+      "arti": "Judo(olahraga tradisional jepang)",
+      "romaji": "juudou"
+    },
+    {
+      "no": 14,
+      "kana": "うんどうかい",
+      "kanji": "運動会",
+      "arti": "Pesta olahraga, pertandingan olahraga",
+      "romaji": "undoukai"
+    },
+    {
+      "no": 15,
+      "kana": "ばしょ",
+      "kanji": "場所",
+      "arti": "Tempat",
+      "romaji": "basho"
+    },
+    {
+      "no": 16,
+      "kana": "ボランティア",
+      "kanji": "",
+      "arti": "Volunteer, sukarelawan",
+      "romaji": "boranteia"
+    },
+    {
+      "no": 17,
+      "kana": "～べん",
+      "kanji": "～弁",
+      "arti": "Logat ~, dialek~",
+      "romaji": "~ben"
+    },
+    {
+      "no": 18,
+      "kana": "こんど",
+      "kanji": "今度",
+      "arti": "Berikutnya, lain kali",
+      "romaji": "kondo"
+    },
+    {
+      "no": 19,
+      "kana": "ずいぶん",
+      "kanji": "",
+      "arti": "Cukup (lebih dari perkiraan)",
+      "romaji": "zuibun"
+    },
+    {
+      "no": 20,
+      "kana": "ちょくせつ",
+      "kanji": "直接",
+      "arti": "Langsung",
+      "romaji": "chokusetsu"
+    },
+    {
+      "no": 21,
+      "kana": "いつでも",
+      "kanji": "",
+      "arti": "Kapanpun",
+      "romaji": "itsudemo"
+    },
+    {
+      "no": 22,
+      "kana": "どこでも",
+      "kanji": "",
+      "arti": "Dimanapun",
+      "romaji": "dokodemo"
+    },
+    {
+      "no": 23,
+      "kana": "だれでも",
+      "kanji": "",
+      "arti": "Siapapun",
+      "romaji": "daredemo"
+    },
+    {
+      "no": 24,
+      "kana": "なんでも",
+      "kanji": "何でも",
+      "arti": "Apapun",
+      "romaji": "nandemo"
+    },
+    {
+      "no": 25,
+      "kana": "こんな～",
+      "kanji": "",
+      "arti": "~seperti ini",
+      "romaji": "konna~"
+    },
+    {
+      "no": 26,
+      "kana": "そんな～",
+      "kanji": "",
+      "arti": "~seperti itu",
+      "romaji": "sonna~"
+    },
+    {
+      "no": 27,
+      "kana": "あんな～",
+      "kanji": "",
+      "arti": "Seperti yang di sana",
+      "romaji": "anna~"
+    },
+    {
+      "no": 28,
+      "kana": "かたづきます（にもつが）",
+      "kanji": "片付きます",
+      "arti": "Dibereskan, dirapikan",
+      "romaji": "katazukimasu(nimotsuga)"
+    },
+    {
+      "no": 29,
+      "kana": "ごみ",
+      "kanji": "",
+      "arti": "Sampah",
+      "romaji": "gomi"
+    },
+    {
+      "no": 30,
+      "kana": "だします",
+      "kanji": "出します",
+      "arti": "Membuang (sampah)",
+      "romaji": "dashimasu"
+    },
+    {
+      "no": 31,
+      "kana": "もえます",
+      "kanji": "燃えます",
+      "arti": "Dapat dibakar",
+      "romaji": "moemasu"
+    },
+    {
+      "no": 32,
+      "kana": "げつ。すい。きん",
+      "kanji": "月。水。金",
+      "arti": "Senin.rabu.jumat",
+      "romaji": "getsu.sui.kin"
+    },
+    {
+      "no": 33,
+      "kana": "おきば",
+      "kanji": "置き場",
+      "arti": "Tempat pembuangan",
+      "romaji": "okiba"
+    },
+    {
+      "no": 34,
+      "kana": "よこ",
+      "kanji": "横",
+      "arti": "Sebelah",
+      "romaji": "yoko"
+    },
+    {
+      "no": 35,
+      "kana": "びん",
+      "kanji": "瓶",
+      "arti": "Botol",
+      "romaji": "bin"
+    },
+    {
+      "no": 36,
+      "kana": "かん",
+      "kanji": "缶",
+      "arti": "Kaleng",
+      "romaji": "kan"
+    },
+    {
+      "no": 37,
+      "kana": "おゆ",
+      "kanji": "お湯",
+      "arti": "Air panas",
+      "romaji": "oyu"
+    },
+    {
+      "no": 38,
+      "kana": "ガス",
+      "kanji": "",
+      "arti": "Gas",
+      "romaji": "gasu"
+    },
+    {
+      "no": 39,
+      "kana": "れんらくします",
+      "kanji": "連絡します",
+      "arti": "Menghubungi",
+      "romaji": "renrakushimasu"
+    },
+    {
+      "no": 40,
+      "kana": "こまったなあ",
+      "kanji": "困ったなあ",
+      "arti": "Payah ya. Gawat",
+      "romaji": "komattanaa"
+    },
+    {
+      "no": 41,
+      "kana": "でんしメール",
+      "kanji": "",
+      "arti": "Email",
+      "romaji": "denshimeeru"
+    },
+    {
+      "no": 42,
+      "kana": "うちゅう",
+      "kanji": "宇宙",
+      "arti": "Luar angkasa",
+      "romaji": "uchuu"
+    },
+    {
+      "no": 43,
+      "kana": "こわい",
+      "kanji": "怖い",
+      "arti": "Takut",
+      "romaji": "kowai"
+    },
+    {
+      "no": 44,
+      "kana": "うちゅうせん",
+      "kanji": "宇宙船",
+      "arti": "Pesawat ruang angkasa",
+      "romaji": "uchuusen"
+    },
+    {
+      "no": 45,
+      "kana": "べつの",
+      "kanji": "別の",
+      "arti": "Yang lain",
+      "romaji": "betsuno"
+    },
+    {
+      "no": 46,
+      "kana": "うちゅうひこうし",
+      "kanji": "宇宙飛行士",
+      "arti": "Astronot",
+      "romaji": "uchuuhikoushi"
+    },
+    {
+      "no": 47,
+      "kana": "ごみのだしかた",
+      "kanji": "ごみの出し方",
+      "arti": "Cara membuang sampah",
+      "romaji": "gominodashikata"
+    },
+    {
+      "no": 48,
+      "kana": "ごみしゅうしゅうびのおしらせ",
+      "kanji": "ごみ収集日のお知らせ",
+      "arti": "Pemberitahuan hari pembuangan sampah",
+      "romaji": "gomishuushuubinooshirase"
+    },
+    {
+      "no": 49,
+      "kana": "かねんごみ／もえるごみ",
+      "kanji": "可燃ごみ／燃えるごみ",
+      "arti": "Sampah yang dapat dibakar",
+      "romaji": "kanengomi/moerugomi"
+    },
+    {
+      "no": 50,
+      "kana": "しゅうしゅうび",
+      "kanji": "収集日",
+      "arti": "Hari pengumpulan sampah",
+      "romaji": "shuushuubi"
+    },
+    {
+      "no": 51,
+      "kana": "かみくず",
+      "kanji": "紙くず",
+      "arti": "Sampah kertas",
+      "romaji": "kamikuzu"
+    },
+    {
+      "no": 52,
+      "kana": "なまごみ",
+      "kanji": "生ごみ",
+      "arti": "Sampah dapur",
+      "romaji": "namagomi"
+    },
+    {
+      "no": 53,
+      "kana": "ふねんごみ／もえないごみ",
+      "kanji": "不燃ごみ／燃えないごみ",
+      "arti": "Sampah yang tidak dapat dibakar",
+      "romaji": "funengomi/moenaigomi"
+    },
+    {
+      "no": 54,
+      "kana": "ガラスせいひん",
+      "kanji": "ガラス製品",
+      "arti": "Barang-barang yang terbuat dari kaca",
+      "romaji": "garasuseihin"
+    },
+    {
+      "no": 55,
+      "kana": "きんぞくせいだいだいどころようひん",
+      "kanji": "金属製台所用品",
+      "arti": "Barang yang dipakai di dapur dan terbuat dari logam",
+      "romaji": "kinzokuseidaidaidokoroyouhin"
+    },
+    {
+      "no": 56,
+      "kana": "そだいごみ",
+      "kanji": "粗大ごみ",
+      "arti": "Sampah besar",
+      "romaji": "sodaigomi"
+    },
+    {
+      "no": 57,
+      "kana": "かぐ",
+      "kanji": "家具",
+      "arti": "Perabot rumah tangga",
+      "romaji": "kagu"
+    },
+    {
+      "no": 58,
+      "kana": "かていでんかせいひん",
+      "kanji": "家庭電化製品",
+      "arti": "Barang-barang elektronik rumah tangga",
+      "romaji": "kateidenkaseihin"
+    },
+    {
+      "no": 59,
+      "kana": "しげんごみ",
+      "kanji": "資源ごみ",
+      "arti": "Sampah yang bisa didaur ulang",
+      "romaji": "shigengomi"
+    },
+    {
+      "no": 60,
+      "kana": "あきかん",
+      "kanji": "空き缶",
+      "arti": "Kaleng bekas",
+      "romaji": "akikan"
+    },
+    {
+      "no": 61,
+      "kana": "あきびん",
+      "kanji": "空きびん",
+      "arti": "Botol bekas",
+      "romaji": "akibin"
+    },
+    {
+      "no": 62,
+      "kana": "ふるしんぶん",
+      "kanji": "古新聞",
+      "arti": "Koran bekas",
+      "romaji": "furushinbun"
+    },
+    {
+      "no": 63,
+      "kana": "プラスチックせいひん",
+      "kanji": "プラスチック製品",
+      "arti": "Barang-barang yang terbuat dari plastik",
+      "romaji": "purasuchikkuseihin"
+    },
+    {
+      "no": 64,
+      "kana": "だい３かようび",
+      "kanji": "第3 火曜日",
+      "arti": "Hari selasa minggu ke 3",
+      "romaji": "dai3kayoubi"
+    }
+  ]
+}

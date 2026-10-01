@@ -1,0 +1,376 @@
+{
+  "bab": 39,
+  "items": [
+    {
+      "no": 1,
+      "kana": "こたえます （に）",
+      "kanji": "答えます",
+      "arti": "Menjawab (pertanyaan)",
+      "romaji": "kotaemasu (ni)"
+    },
+    {
+      "no": 2,
+      "kana": "たおれます （が）",
+      "kanji": "倒れます",
+      "arti": "Roboh, tumbang",
+      "romaji": "taoremasu (ga)"
+    },
+    {
+      "no": 3,
+      "kana": "やけます （が）",
+      "kanji": "焼けます",
+      "arti": "Terbakar, dipanggang",
+      "romaji": "yakemasu (ga)"
+    },
+    {
+      "no": 4,
+      "kana": "とおります （を）",
+      "kanji": "通ります",
+      "arti": "Lewat (jalan)",
+      "romaji": "toorimasu (wo)"
+    },
+    {
+      "no": 5,
+      "kana": "しにます",
+      "kanji": "死にます",
+      "arti": "Meninggal, mati",
+      "romaji": "shinimasu"
+    },
+    {
+      "no": 6,
+      "kana": "びっくりします",
+      "kanji": "",
+      "arti": "Terkejut",
+      "romaji": "bikkurishimasu"
+    },
+    {
+      "no": 7,
+      "kana": "がっかりします",
+      "kanji": "",
+      "arti": "Kecewa",
+      "romaji": "gakkarishimasu"
+    },
+    {
+      "no": 8,
+      "kana": "あんしんします",
+      "kanji": "安心します",
+      "arti": "Bersenang hati, merasa lega",
+      "romaji": "anshinshimasu"
+    },
+    {
+      "no": 9,
+      "kana": "ちこくします",
+      "kanji": "遅刻します",
+      "arti": "Terlambat",
+      "romaji": "chikokushimasu"
+    },
+    {
+      "no": 10,
+      "kana": "そうたいします",
+      "kanji": "早退します",
+      "arti": "Pulang sebelum waktunya",
+      "romaji": "soutaishimasu"
+    },
+    {
+      "no": 11,
+      "kana": "りこんします",
+      "kanji": "離婚します",
+      "arti": "Bercerai",
+      "romaji": "rikonshimasu"
+    },
+    {
+      "no": 12,
+      "kana": "けんかします",
+      "kanji": "",
+      "arti": "Bertengkar",
+      "romaji": "kenkashimasu"
+    },
+    {
+      "no": 13,
+      "kana": "ふくざつな",
+      "kanji": "複雑な",
+      "arti": "Rumit",
+      "romaji": "fukuzatsuna"
+    },
+    {
+      "no": 14,
+      "kana": "じゃまな",
+      "kanji": "邪魔な",
+      "arti": "Gangguan",
+      "romaji": "jamana"
+    },
+    {
+      "no": 15,
+      "kana": "きたない",
+      "kanji": "汚い",
+      "arti": "Kotor",
+      "romaji": "kitanai"
+    },
+    {
+      "no": 16,
+      "kana": "うれしい",
+      "kanji": "",
+      "arti": "Senang",
+      "romaji": "ureshii"
+    },
+    {
+      "no": 17,
+      "kana": "かなしい",
+      "kanji": "悲しい",
+      "arti": "Sedih",
+      "romaji": "kanashii"
+    },
+    {
+      "no": 18,
+      "kana": "はずかしい",
+      "kanji": "恥ずかしい",
+      "arti": "Malu",
+      "romaji": "hazukashii"
+    },
+    {
+      "no": 19,
+      "kana": "じしん",
+      "kanji": "地震",
+      "arti": "Gampe bumi",
+      "romaji": "jishin"
+    },
+    {
+      "no": 20,
+      "kana": "たいふう",
+      "kanji": "台風",
+      "arti": "Topan, taifun",
+      "romaji": "taifuu"
+    },
+    {
+      "no": 21,
+      "kana": "かじ",
+      "kanji": "火事",
+      "arti": "Kebakaran",
+      "romaji": "kaji"
+    },
+    {
+      "no": 22,
+      "kana": "じこ",
+      "kanji": "事故",
+      "arti": "Kecelakaan",
+      "romaji": "jiko"
+    },
+    {
+      "no": 23,
+      "kana": "おみあい",
+      "kanji": "お見合い",
+      "arti": "Pertemuan pertama perjodohan",
+      "romaji": "omiai"
+    },
+    {
+      "no": 24,
+      "kana": "でんわだい",
+      "kanji": "電話代",
+      "arti": "Rekening telepon, biaya telepon",
+      "romaji": "denwadai"
+    },
+    {
+      "no": 25,
+      "kana": "～だい",
+      "kanji": "～代",
+      "arti": "Rekening, ongkos, tarif, sewa, biaya",
+      "romaji": "~dai"
+    },
+    {
+      "no": 26,
+      "kana": "フロント",
+      "kanji": "",
+      "arti": "Bagian resepsionis di hotel",
+      "romaji": "furonto"
+    },
+    {
+      "no": 27,
+      "kana": "～ごうしつ",
+      "kanji": "～号室",
+      "arti": "Nomor kamar -",
+      "romaji": "~goushitsu"
+    },
+    {
+      "no": 28,
+      "kana": "あせ （あせをかきます）",
+      "kanji": "汗",
+      "arti": "Keringat (berkeringat)",
+      "romaji": "ase (asewokakimasu)"
+    },
+    {
+      "no": 29,
+      "kana": "タオル",
+      "kanji": "",
+      "arti": "Handuk",
+      "romaji": "taoru"
+    },
+    {
+      "no": 30,
+      "kana": "せっけん",
+      "kanji": "",
+      "arti": "Sabun",
+      "romaji": "sekken"
+    },
+    {
+      "no": 31,
+      "kana": "おおぜい",
+      "kanji": "大勢",
+      "arti": "Banyak orang",
+      "romaji": "oozei"
+    },
+    {
+      "no": 32,
+      "kana": "おつかれさまでした",
+      "kanji": "お疲れさまでした",
+      "arti": "Terima kasih atas kerjasamanya",
+      "romaji": "otsukaresamadeshita"
+    },
+    {
+      "no": 33,
+      "kana": "うかがいます",
+      "kanji": "伺います",
+      "arti": "Saya akan datang (bentuk hormat いきます)",
+      "romaji": "ukagaimasu"
+    },
+    {
+      "no": 34,
+      "kana": "とちゅう",
+      "kanji": "途中",
+      "arti": "Ditengah perjalanan",
+      "romaji": "tochuu"
+    },
+    {
+      "no": 35,
+      "kana": "トラック",
+      "kanji": "",
+      "arti": "Truk",
+      "romaji": "torakku"
+    },
+    {
+      "no": 36,
+      "kana": "ぶつかります",
+      "kanji": "",
+      "arti": "Bertubrukan",
+      "romaji": "butsukarimasu"
+    },
+    {
+      "no": 37,
+      "kana": "ならびます",
+      "kanji": "並びます",
+      "arti": "Antre",
+      "romaji": "narabimasu"
+    },
+    {
+      "no": 38,
+      "kana": "おとな",
+      "kanji": "大人",
+      "arti": "Orang dewasa",
+      "romaji": "otona"
+    },
+    {
+      "no": 39,
+      "kana": "ようふく",
+      "kanji": "洋服",
+      "arti": "Pakaian ala barat",
+      "romaji": "youfuku"
+    },
+    {
+      "no": 40,
+      "kana": "せいようかします",
+      "kanji": "西洋化します",
+      "arti": "Westernisasi",
+      "romaji": "seiyoukashimasu"
+    },
+    {
+      "no": 41,
+      "kana": "あいます",
+      "kanji": "合います",
+      "arti": "Cocok, sesuai",
+      "romaji": "aimasu"
+    },
+    {
+      "no": 42,
+      "kana": "いまでは",
+      "kanji": "今では",
+      "arti": "Sekarang",
+      "romaji": "imadeha"
+    },
+    {
+      "no": 43,
+      "kana": "せいじんしき",
+      "kanji": "成人式",
+      "arti": "Upacara hari dewasa",
+      "romaji": "seijinshiki"
+    },
+    {
+      "no": 44,
+      "kana": "きもち",
+      "kanji": "気持ち",
+      "arti": "Perasaan",
+      "romaji": "kimochi"
+    },
+    {
+      "no": 45,
+      "kana": "たのしい",
+      "kanji": "楽しい",
+      "arti": "Senang, gembira",
+      "romaji": "tanoshii"
+    },
+    {
+      "no": 46,
+      "kana": "さびしい",
+      "kanji": "寂しい",
+      "arti": "Kesepian",
+      "romaji": "sabishii"
+    },
+    {
+      "no": 47,
+      "kana": "うらやましい",
+      "kanji": "",
+      "arti": "Iri",
+      "romaji": "urayamashii"
+    },
+    {
+      "no": 48,
+      "kana": "なつかしい",
+      "kanji": "懐かしい",
+      "arti": "Rindu,kangen",
+      "romaji": "natsukashii"
+    },
+    {
+      "no": 49,
+      "kana": "うっとりする",
+      "kanji": "",
+      "arti": "Terpesona",
+      "romaji": "uttorisuru"
+    },
+    {
+      "no": 50,
+      "kana": "いらいらする",
+      "kanji": "",
+      "arti": "Gelisah, kesal",
+      "romaji": "irairasuru"
+    },
+    {
+      "no": 51,
+      "kana": "どきどきする",
+      "kanji": "",
+      "arti": "Berdebar-debar, dag dig dug",
+      "romaji": "dokidokisuru"
+    },
+    {
+      "no": 52,
+      "kana": "はらはらする",
+      "kanji": "",
+      "arti": "Hati berdebar-debar dan merasa khawatir",
+      "romaji": "haraharasuru"
+    },
+    {
+      "no": 53,
+      "kana": "わくわくする",
+      "kanji": "",
+      "arti": "Tidak sabar menunggu",
+      "romaji": "wakuwakusuru"
+    }
+  ]
+}

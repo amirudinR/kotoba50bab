@@ -1,0 +1,425 @@
+{
+  "bab": 21,
+  "items": [
+    {
+      "no": 1,
+      "kana": "おもいます",
+      "kanji": "思います",
+      "arti": "Mengira, berfikir",
+      "romaji": "omoimasu"
+    },
+    {
+      "no": 2,
+      "kana": "いいます",
+      "kanji": "言います",
+      "arti": "Berkata, mengatakan",
+      "romaji": "iimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かちます",
+      "kanji": "勝ちます",
+      "arti": "Menang",
+      "romaji": "kachimasu"
+    },
+    {
+      "no": 4,
+      "kana": "まけます",
+      "kanji": "負けます",
+      "arti": "Kalah",
+      "romaji": "makemasu"
+    },
+    {
+      "no": 5,
+      "kana": "やくにたちます",
+      "kanji": "役に立ちます",
+      "arti": "Bermanfaat, berguna",
+      "romaji": "yakunitachimasu"
+    },
+    {
+      "no": 6,
+      "kana": "うごきます",
+      "kanji": "動きます",
+      "arti": "Pindah, bergerak",
+      "romaji": "ugokimasu"
+    },
+    {
+      "no": 7,
+      "kana": "やめます （を）",
+      "kanji": "",
+      "arti": "Berhenti",
+      "romaji": "yamemasu (wo)"
+    },
+    {
+      "no": 8,
+      "kana": "きをつけます",
+      "kanji": "気を付けます",
+      "arti": "Berhati-hati, berwaspada",
+      "romaji": "kiwotsukemasu"
+    },
+    {
+      "no": 9,
+      "kana": "りゅうがくします",
+      "kanji": "留学します",
+      "arti": "Studi di luar negeri",
+      "romaji": "ryuugakushimasu"
+    },
+    {
+      "no": 10,
+      "kana": "むだな",
+      "kanji": "",
+      "arti": "Sia-sia, tidak berguna",
+      "romaji": "mudana"
+    },
+    {
+      "no": 11,
+      "kana": "ふべんな",
+      "kanji": "不便な",
+      "arti": "Tidak praktis",
+      "romaji": "fubenna"
+    },
+    {
+      "no": 12,
+      "kana": "すごい",
+      "kanji": "",
+      "arti": "Hebat",
+      "romaji": "sugoi"
+    },
+    {
+      "no": 13,
+      "kana": "ほんとう",
+      "kanji": "",
+      "arti": "Betul ,benar",
+      "romaji": "hontou"
+    },
+    {
+      "no": 14,
+      "kana": "うそ",
+      "kanji": "",
+      "arti": "Bohong",
+      "romaji": "uso"
+    },
+    {
+      "no": 15,
+      "kana": "じどうしゃ",
+      "kanji": "自動車",
+      "arti": "Mobil",
+      "romaji": "jidousha"
+    },
+    {
+      "no": 16,
+      "kana": "こうつう",
+      "kanji": "交通",
+      "arti": "Lalu lintas",
+      "romaji": "koutsuu"
+    },
+    {
+      "no": 17,
+      "kana": "ぶっか",
+      "kanji": "物価",
+      "arti": "Harga barang",
+      "romaji": "bukka"
+    },
+    {
+      "no": 18,
+      "kana": "ニュース",
+      "kanji": "",
+      "arti": "Siaran, pengumuman",
+      "romaji": "nyuusu"
+    },
+    {
+      "no": 19,
+      "kana": "アニメ",
+      "kanji": "",
+      "arti": "Animasi",
+      "romaji": "anime"
+    },
+    {
+      "no": 20,
+      "kana": "マンガ",
+      "kanji": "",
+      "arti": "Komik",
+      "romaji": "manga"
+    },
+    {
+      "no": 21,
+      "kana": "デザイン",
+      "kanji": "",
+      "arti": "Desain, model",
+      "romaji": "dezain"
+    },
+    {
+      "no": 22,
+      "kana": "ゆめ",
+      "kanji": "夢",
+      "arti": "Mimpi",
+      "romaji": "yume"
+    },
+    {
+      "no": 23,
+      "kana": "てんさい",
+      "kanji": "天才",
+      "arti": "Genius",
+      "romaji": "tensai"
+    },
+    {
+      "no": 24,
+      "kana": "しあい",
+      "kanji": "試合",
+      "arti": "Pertandingan",
+      "romaji": "shiai"
+    },
+    {
+      "no": 25,
+      "kana": "いけん",
+      "kanji": "意見",
+      "arti": "Pendapat",
+      "romaji": "iken"
+    },
+    {
+      "no": 26,
+      "kana": "はなし",
+      "kanji": "話",
+      "arti": "Cerita",
+      "romaji": "hanashi"
+    },
+    {
+      "no": 27,
+      "kana": "ちきゅう",
+      "kanji": "地球",
+      "arti": "Bumi",
+      "romaji": "chikyuu"
+    },
+    {
+      "no": 28,
+      "kana": "つき",
+      "kanji": "月",
+      "arti": "Bulan",
+      "romaji": "tsuki"
+    },
+    {
+      "no": 29,
+      "kana": "さいきん",
+      "kanji": "最近",
+      "arti": "Akhir-akhir ini",
+      "romaji": "saikin"
+    },
+    {
+      "no": 30,
+      "kana": "たぶん",
+      "kanji": "",
+      "arti": "Mungkin, barangkali",
+      "romaji": "tabun"
+    },
+    {
+      "no": 31,
+      "kana": "きっと",
+      "kanji": "",
+      "arti": "Pasti",
+      "romaji": "kitto"
+    },
+    {
+      "no": 32,
+      "kana": "ほんとうに",
+      "kanji": "",
+      "arti": "Betul-betul",
+      "romaji": "hontouni"
+    },
+    {
+      "no": 33,
+      "kana": "そんなに",
+      "kanji": "",
+      "arti": "Tidak begitu (diikuti kata negatif)",
+      "romaji": "sonnani"
+    },
+    {
+      "no": 34,
+      "kana": "～について",
+      "kanji": "",
+      "arti": "Tentang ~",
+      "romaji": "~nitsuite"
+    },
+    {
+      "no": 35,
+      "kana": "ひさしぶりですね",
+      "kanji": "久しぶりですね",
+      "arti": "Sudah lama tidak bertemu ya",
+      "romaji": "hisashiburidesune"
+    },
+    {
+      "no": 36,
+      "kana": "もちろん",
+      "kanji": "",
+      "arti": "Tentu saja",
+      "romaji": "mochiron"
+    },
+    {
+      "no": 37,
+      "kana": "やくしょくめい",
+      "kanji": "役職名",
+      "arti": "Nama-nama jabatan",
+      "romaji": "yakushokumei"
+    },
+    {
+      "no": 38,
+      "kana": "とどうふけん",
+      "kanji": "都道府県",
+      "arti": "Prefektur",
+      "romaji": "todoufuken"
+    },
+    {
+      "no": 39,
+      "kana": "し",
+      "kanji": "市",
+      "arti": "Kota",
+      "romaji": "shi"
+    },
+    {
+      "no": 40,
+      "kana": "まち",
+      "kanji": "町",
+      "arti": "Distrik,daerah",
+      "romaji": "machi"
+    },
+    {
+      "no": 41,
+      "kana": "むら",
+      "kanji": "村",
+      "arti": "Desa",
+      "romaji": "mura"
+    },
+    {
+      "no": 42,
+      "kana": "しゅしょう",
+      "kanji": "（ないかくそうりだいじん）",
+      "arti": "首相 （内閣総理大臣） Perdana menteri",
+      "romaji": "shushou"
+    },
+    {
+      "no": 43,
+      "kana": "ちじ",
+      "kanji": "知事",
+      "arti": "Gubernur",
+      "romaji": "chiji"
+    },
+    {
+      "no": 44,
+      "kana": "しちょう",
+      "kanji": "市長",
+      "arti": "Wali kota",
+      "romaji": "shichou"
+    },
+    {
+      "no": 45,
+      "kana": "ちょうちょう",
+      "kanji": "町長",
+      "arti": "Kepala daerah",
+      "romaji": "chouchou"
+    },
+    {
+      "no": 46,
+      "kana": "そんちょう",
+      "kanji": "村長",
+      "arti": "Kepala desa",
+      "romaji": "sonchou"
+    },
+    {
+      "no": 47,
+      "kana": "がくちょう",
+      "kanji": "学長",
+      "arti": "Rektor",
+      "romaji": "gakuchou"
+    },
+    {
+      "no": 48,
+      "kana": "こうちょう",
+      "kanji": "校長",
+      "arti": "Kepala sekolah",
+      "romaji": "kouchou"
+    },
+    {
+      "no": 49,
+      "kana": "えんちょう",
+      "kanji": "園長",
+      "arti": "Kepala TK",
+      "romaji": "enchou"
+    },
+    {
+      "no": 50,
+      "kana": "かいちょう",
+      "kanji": "会長",
+      "arti": "Ketua",
+      "romaji": "kaichou"
+    },
+    {
+      "no": 51,
+      "kana": "じゅうやく",
+      "kanji": "重役",
+      "arti": "Direktur",
+      "romaji": "juuyaku"
+    },
+    {
+      "no": 52,
+      "kana": "ぶちょう",
+      "kanji": "部長",
+      "arti": "Kepala bagian",
+      "romaji": "buchou"
+    },
+    {
+      "no": 53,
+      "kana": "かちょう",
+      "kanji": "課長",
+      "arti": "Kepala seksi",
+      "romaji": "kachou"
+    },
+    {
+      "no": 54,
+      "kana": "とうどり",
+      "kanji": "頭取",
+      "arti": "Direktur bank",
+      "romaji": "toudori"
+    },
+    {
+      "no": 55,
+      "kana": "してんちょう",
+      "kanji": "支店長",
+      "arti": "Kepala kantor cabang",
+      "romaji": "shitenchou"
+    },
+    {
+      "no": 56,
+      "kana": "えきちょう",
+      "kanji": "駅長",
+      "arti": "Kepala stasiun",
+      "romaji": "ekichou"
+    },
+    {
+      "no": 57,
+      "kana": "いんちょう",
+      "kanji": "院長",
+      "arti": "Direktur rumah sakit",
+      "romaji": "inchou"
+    },
+    {
+      "no": 58,
+      "kana": "かんごしちょう",
+      "kanji": "看護師長",
+      "arti": "Kepala perawat",
+      "romaji": "kangoshichou"
+    },
+    {
+      "no": 59,
+      "kana": "けいさつ",
+      "kanji": "警察",
+      "arti": "Kantor polisi",
+      "romaji": "keisatsu"
+    },
+    {
+      "no": 60,
+      "kana": "しょちょう",
+      "kanji": "署長",
+      "arti": "Kepala kantor polisi",
+      "romaji": "shochou"
+    }
+  ]
+}

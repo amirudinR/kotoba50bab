@@ -1,0 +1,565 @@
+{
+  "bab": 9,
+  "items": [
+    {
+      "no": 1,
+      "kana": "わかります",
+      "kanji": "分かります",
+      "arti": "Mengerti",
+      "romaji": "wakarimasu"
+    },
+    {
+      "no": 2,
+      "kana": "あります",
+      "kanji": "",
+      "arti": "Ada / mempunyai",
+      "romaji": "arimasu"
+    },
+    {
+      "no": 3,
+      "kana": "すき（な）",
+      "kanji": "好きな",
+      "arti": "Suka , gemar",
+      "romaji": "suki(na)"
+    },
+    {
+      "no": 4,
+      "kana": "きらい（な）",
+      "kanji": "嫌いな",
+      "arti": "Benci",
+      "romaji": "kirai(na)"
+    },
+    {
+      "no": 5,
+      "kana": "じょうず（な）",
+      "kanji": "上手な",
+      "arti": "Pandai , pintar",
+      "romaji": "jouzu(na)"
+    },
+    {
+      "no": 6,
+      "kana": "へた（な）",
+      "kanji": "下手な",
+      "arti": "Tidak pandai , tidak pintar , bodoh",
+      "romaji": "heta(na)"
+    },
+    {
+      "no": 7,
+      "kana": "のみもの",
+      "kanji": "飲み物",
+      "arti": "Minuman",
+      "romaji": "nomimono"
+    },
+    {
+      "no": 8,
+      "kana": "りょうり",
+      "kanji": "料理",
+      "arti": "Masakan",
+      "romaji": "ryouri"
+    },
+    {
+      "no": 9,
+      "kana": "スポーツ",
+      "kanji": "",
+      "arti": "Olahraga",
+      "romaji": "supootsu"
+    },
+    {
+      "no": 10,
+      "kana": "やきゅう",
+      "kanji": "野球",
+      "arti": "Baseball",
+      "romaji": "yakyuu"
+    },
+    {
+      "no": 11,
+      "kana": "ダンス",
+      "kanji": "",
+      "arti": "Dansa",
+      "romaji": "dansu"
+    },
+    {
+      "no": 12,
+      "kana": "りょこう",
+      "kanji": "旅行",
+      "arti": "Tamasya",
+      "romaji": "ryokou"
+    },
+    {
+      "no": 13,
+      "kana": "おんがく",
+      "kanji": "音楽",
+      "arti": "Musik",
+      "romaji": "ongaku"
+    },
+    {
+      "no": 14,
+      "kana": "うた",
+      "kanji": "歌",
+      "arti": "Lagu",
+      "romaji": "uta"
+    },
+    {
+      "no": 15,
+      "kana": "クラシック",
+      "kanji": "",
+      "arti": "Klasik",
+      "romaji": "kurashikku"
+    },
+    {
+      "no": 16,
+      "kana": "ジャズ",
+      "kanji": "",
+      "arti": "Jaz",
+      "romaji": "jazu"
+    },
+    {
+      "no": 17,
+      "kana": "コンサート",
+      "kanji": "",
+      "arti": "Konser",
+      "romaji": "konsaato"
+    },
+    {
+      "no": 18,
+      "kana": "カラオケ",
+      "kanji": "",
+      "arti": "Karaoke",
+      "romaji": "karaoke"
+    },
+    {
+      "no": 19,
+      "kana": "かぶき",
+      "kanji": "歌舞伎",
+      "arti": "Kabuki (drama tradisional jepang)",
+      "romaji": "kabuki"
+    },
+    {
+      "no": 20,
+      "kana": "え",
+      "kanji": "絵",
+      "arti": "Gambar",
+      "romaji": "e"
+    },
+    {
+      "no": 21,
+      "kana": "じ",
+      "kanji": "字",
+      "arti": "Huruf",
+      "romaji": "ji"
+    },
+    {
+      "no": 22,
+      "kana": "かんじ",
+      "kanji": "漢字",
+      "arti": "Kanji",
+      "romaji": "kanji"
+    },
+    {
+      "no": 23,
+      "kana": "ひらがな",
+      "kanji": "",
+      "arti": "Hiragana",
+      "romaji": "hiragana"
+    },
+    {
+      "no": 24,
+      "kana": "かたかな",
+      "kanji": "",
+      "arti": "Katakana",
+      "romaji": "katakana"
+    },
+    {
+      "no": 25,
+      "kana": "ローマじ",
+      "kanji": "",
+      "arti": "Huruf latin",
+      "romaji": "roomaji"
+    },
+    {
+      "no": 26,
+      "kana": "こまかいおかね",
+      "kanji": "細かいお金",
+      "arti": "Uang kecil, receh",
+      "romaji": "komakaiokane"
+    },
+    {
+      "no": 27,
+      "kana": "チケット",
+      "kanji": "",
+      "arti": "Tiket",
+      "romaji": "chiketto"
+    },
+    {
+      "no": 28,
+      "kana": "じかん",
+      "kanji": "時間",
+      "arti": "Waktu",
+      "romaji": "jikan"
+    },
+    {
+      "no": 29,
+      "kana": "ようじ",
+      "kanji": "用事",
+      "arti": "Urusan",
+      "romaji": "youji"
+    },
+    {
+      "no": 30,
+      "kana": "やくそく",
+      "kanji": "約束",
+      "arti": "Janji",
+      "romaji": "yakusoku"
+    },
+    {
+      "no": 31,
+      "kana": "アルバイト",
+      "kanji": "",
+      "arti": "Kerja paruh waktu",
+      "romaji": "arubaito"
+    },
+    {
+      "no": 32,
+      "kana": "ごしゅじん",
+      "kanji": "ご主人",
+      "arti": "Suami orang lain",
+      "romaji": "goshujin"
+    },
+    {
+      "no": 33,
+      "kana": "おっと／しゅじん",
+      "kanji": "夫／主人",
+      "arti": "Suami",
+      "romaji": "otto/shujin"
+    },
+    {
+      "no": 34,
+      "kana": "おくさん",
+      "kanji": "奥さん",
+      "arti": "Istri orang lain",
+      "romaji": "okusan"
+    },
+    {
+      "no": 35,
+      "kana": "つま／かない",
+      "kanji": "妻／家内",
+      "arti": "Istri",
+      "romaji": "tsuma/kanai"
+    },
+    {
+      "no": 36,
+      "kana": "こども",
+      "kanji": "子供",
+      "arti": "Anak",
+      "romaji": "kodomo"
+    },
+    {
+      "no": 37,
+      "kana": "よく",
+      "kanji": "",
+      "arti": "Dengan baik",
+      "romaji": "yoku"
+    },
+    {
+      "no": 38,
+      "kana": "だいたい",
+      "kanji": "",
+      "arti": "Kira-kira",
+      "romaji": "daitai"
+    },
+    {
+      "no": 39,
+      "kana": "たくさん",
+      "kanji": "",
+      "arti": "Banyak",
+      "romaji": "takusan"
+    },
+    {
+      "no": 40,
+      "kana": "すこし",
+      "kanji": "少し",
+      "arti": "Sedikit",
+      "romaji": "sukoshi"
+    },
+    {
+      "no": 41,
+      "kana": "ぜんぜん",
+      "kanji": "全然",
+      "arti": "Sama sekali",
+      "romaji": "zenzen"
+    },
+    {
+      "no": 42,
+      "kana": "はやく",
+      "kanji": "早く／速く",
+      "arti": "Dengan Cepat",
+      "romaji": "hayaku"
+    },
+    {
+      "no": 43,
+      "kana": "～から",
+      "kanji": "",
+      "arti": "Karena",
+      "romaji": "~kara"
+    },
+    {
+      "no": 44,
+      "kana": "どうして",
+      "kanji": "",
+      "arti": "Kenapa",
+      "romaji": "doushite"
+    },
+    {
+      "no": 45,
+      "kana": "かしてください",
+      "kanji": "貸してください",
+      "arti": "Tolong pinjamkan",
+      "romaji": "kashitekudasai"
+    },
+    {
+      "no": 46,
+      "kana": "いいですよ",
+      "kanji": "",
+      "arti": "Boleh",
+      "romaji": "iidesuyo"
+    },
+    {
+      "no": 47,
+      "kana": "ざんねんです",
+      "kanji": "残念です",
+      "arti": "Sayang sekali",
+      "romaji": "zannendesu"
+    },
+    {
+      "no": 48,
+      "kana": "いっしょにいかがですか",
+      "kanji": "",
+      "arti": "Bagaimana kalau bersama-sama",
+      "romaji": "isshoniikagadesuka"
+    },
+    {
+      "no": 49,
+      "kana": "～ちょっと。。。。",
+      "kanji": "",
+      "arti": "Maaf, saya tidak bisa",
+      "romaji": "~chotto...."
+    },
+    {
+      "no": 50,
+      "kana": "だめですか",
+      "kanji": "",
+      "arti": "Tidak bisa ya / tidak boleh ya",
+      "romaji": "damedesuka"
+    },
+    {
+      "no": 51,
+      "kana": "またこんどおねがいします",
+      "kanji": "また今度お願いします",
+      "arti": "Maaf lain kali saja",
+      "romaji": "matakondoonegaishimasu"
+    },
+    {
+      "no": 52,
+      "kana": "ポップス",
+      "kanji": "",
+      "arti": "Pop",
+      "romaji": "poppusu"
+    },
+    {
+      "no": 53,
+      "kana": "ロック",
+      "kanji": "",
+      "arti": "Rock",
+      "romaji": "rokku"
+    },
+    {
+      "no": 54,
+      "kana": "ラテン",
+      "kanji": "",
+      "arti": "Musik latin",
+      "romaji": "raten"
+    },
+    {
+      "no": 55,
+      "kana": "みんよう",
+      "kanji": "民謡",
+      "arti": "Musik rakyat / nyanyian daerah",
+      "romaji": "minyou"
+    },
+    {
+      "no": 56,
+      "kana": "えんか",
+      "kanji": "演歌",
+      "arti": "Lagu tradisional jepang populer",
+      "romaji": "enka"
+    },
+    {
+      "no": 57,
+      "kana": "ミュージカル",
+      "kanji": "",
+      "arti": "Drama musikal",
+      "romaji": "myuujikaru"
+    },
+    {
+      "no": 58,
+      "kana": "オペラ",
+      "kanji": "",
+      "arti": "Opera",
+      "romaji": "opera"
+    },
+    {
+      "no": 59,
+      "kana": "ホラー",
+      "kanji": "",
+      "arti": "Film horor",
+      "romaji": "horaa"
+    },
+    {
+      "no": 60,
+      "kana": "アニメ",
+      "kanji": "",
+      "arti": "Film kartun , animasi",
+      "romaji": "anime"
+    },
+    {
+      "no": 61,
+      "kana": "ドキュメンタリー",
+      "kanji": "",
+      "arti": "Film dokumentasi",
+      "romaji": "dokyumentarii"
+    },
+    {
+      "no": 62,
+      "kana": "れんあい",
+      "kanji": "恋愛",
+      "arti": "Film percintaan",
+      "romaji": "ren'ai"
+    },
+    {
+      "no": 63,
+      "kana": "ミステリー",
+      "kanji": "",
+      "arti": "Film misteri",
+      "romaji": "misuterii"
+    },
+    {
+      "no": 64,
+      "kana": "ぶんげい",
+      "kanji": "文芸",
+      "arti": "Film kesusastraan",
+      "romaji": "bungei"
+    },
+    {
+      "no": 65,
+      "kana": "せんそう",
+      "kanji": "戦争",
+      "arti": "Film peperangan",
+      "romaji": "sensou"
+    },
+    {
+      "no": 66,
+      "kana": "アクション",
+      "kanji": "",
+      "arti": "Film action",
+      "romaji": "akushon"
+    },
+    {
+      "no": 67,
+      "kana": "きげき",
+      "kanji": "喜劇",
+      "arti": "Film komedi",
+      "romaji": "kigeki"
+    },
+    {
+      "no": 68,
+      "kana": "ソフトボール",
+      "kanji": "",
+      "arti": "Softball",
+      "romaji": "sofutobooru"
+    },
+    {
+      "no": 69,
+      "kana": "サッカー",
+      "kanji": "",
+      "arti": "Sepak bola",
+      "romaji": "sakkaa"
+    },
+    {
+      "no": 70,
+      "kana": "ラグビー",
+      "kanji": "",
+      "arti": "Rugby",
+      "romaji": "ragubii"
+    },
+    {
+      "no": 71,
+      "kana": "バレーボール",
+      "kanji": "",
+      "arti": "Voli",
+      "romaji": "bareebooru"
+    },
+    {
+      "no": 72,
+      "kana": "テニス",
+      "kanji": "",
+      "arti": "Tenis",
+      "romaji": "tenisu"
+    },
+    {
+      "no": 73,
+      "kana": "ボウリング",
+      "kanji": "",
+      "arti": "Bowling",
+      "romaji": "bouringu"
+    },
+    {
+      "no": 74,
+      "kana": "スキー",
+      "kanji": "",
+      "arti": "Sky",
+      "romaji": "sukii"
+    },
+    {
+      "no": 75,
+      "kana": "スケート",
+      "kanji": "",
+      "arti": "Skate",
+      "romaji": "sukeeto"
+    },
+    {
+      "no": 76,
+      "kana": "たっきゅう／ピンポン",
+      "kanji": "卓球",
+      "arti": "Pingpong",
+      "romaji": "takkyuu/pinpon"
+    },
+    {
+      "no": 77,
+      "kana": "すもう",
+      "kanji": "相撲",
+      "arti": "Sumo",
+      "romaji": "sumou"
+    },
+    {
+      "no": 78,
+      "kana": "じゅうどう",
+      "kanji": "柔道",
+      "arti": "Judo",
+      "romaji": "juudou"
+    },
+    {
+      "no": 79,
+      "kana": "けんどう",
+      "kanji": "剣道",
+      "arti": "Kendo",
+      "romaji": "kendou"
+    },
+    {
+      "no": 80,
+      "kana": "すいえい",
+      "kanji": "水泳",
+      "arti": "Renang",
+      "romaji": "suiei"
+    }
+  ]
+}

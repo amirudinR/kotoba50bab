@@ -1,0 +1,313 @@
+{
+  "bab": 50,
+  "items": [
+    {
+      "no": 1,
+      "kana": "まいります",
+      "kanji": "参ります",
+      "arti": "Pergi,datang (bentuk merendah いきます、 きます)",
+      "romaji": "mairimasu"
+    },
+    {
+      "no": 2,
+      "kana": "おります",
+      "kanji": "",
+      "arti": "Ada(bentuk merendah います)",
+      "romaji": "orimasu"
+    },
+    {
+      "no": 3,
+      "kana": "いただきます",
+      "kanji": "",
+      "arti": "Makan,minum,menerima (bentuk merendah たべます、のみます、もらいます)",
+      "romaji": "itadakimasu"
+    },
+    {
+      "no": 4,
+      "kana": "もうします",
+      "kanji": "申します",
+      "arti": "Mengatakan (bentuk merendah いいます)",
+      "romaji": "moushimasu"
+    },
+    {
+      "no": 5,
+      "kana": "いたします",
+      "kanji": "",
+      "arti": "Melakukan (bentuk merendah します)",
+      "romaji": "itashimasu"
+    },
+    {
+      "no": 6,
+      "kana": "はいけんします",
+      "kanji": "拝見します",
+      "arti": "Melihat(bentuk merendah みます)",
+      "romaji": "haikenshimasu"
+    },
+    {
+      "no": 7,
+      "kana": "ぞんじます",
+      "kanji": "存じます",
+      "arti": "Mengetahui (bentuk merndah しります)",
+      "romaji": "zonjimasu"
+    },
+    {
+      "no": 8,
+      "kana": "うかがいます",
+      "kanji": "伺います",
+      "arti": "Bertanya,mendengar,mengunjungi (bentuk merendah ききます、いきます)",
+      "romaji": "ukagaimasu"
+    },
+    {
+      "no": 9,
+      "kana": "おめにかかります",
+      "kanji": "お目にかかります",
+      "arti": "Bertemu (bentuk merendah あいます)",
+      "romaji": "omenikakarimasu"
+    },
+    {
+      "no": 10,
+      "kana": "ございます",
+      "kanji": "",
+      "arti": "Ada (bentuk hormat あります)",
+      "romaji": "gozaimasu"
+    },
+    {
+      "no": 11,
+      "kana": "～でございます",
+      "kanji": "",
+      "arti": "Bentuk hormat です",
+      "romaji": "~degozaimasu"
+    },
+    {
+      "no": 12,
+      "kana": "わたくし",
+      "kanji": "私",
+      "arti": "Saya (bentuk merendah わたし)",
+      "romaji": "watakushi"
+    },
+    {
+      "no": 13,
+      "kana": "ガイド",
+      "kanji": "",
+      "arti": "Pemandu,guide",
+      "romaji": "gaido"
+    },
+    {
+      "no": 14,
+      "kana": "おたく",
+      "kanji": "お宅",
+      "arti": "Rumah (orang lain)",
+      "romaji": "otaku"
+    },
+    {
+      "no": 15,
+      "kana": "こうがい",
+      "kanji": "郊外",
+      "arti": "Pinggiran kota, luar kota",
+      "romaji": "kougai"
+    },
+    {
+      "no": 16,
+      "kana": "アルバム",
+      "kanji": "",
+      "arti": "Album",
+      "romaji": "arubamu"
+    },
+    {
+      "no": 17,
+      "kana": "さらいしゅう",
+      "kanji": "再来週",
+      "arti": "Dua minggu lagi",
+      "romaji": "saraishuu"
+    },
+    {
+      "no": 18,
+      "kana": "さらいげつ",
+      "kanji": "再来月",
+      "arti": "Dua bulan lagi",
+      "romaji": "saraigetsu"
+    },
+    {
+      "no": 19,
+      "kana": "さらいねん",
+      "kanji": "再来年",
+      "arti": "Dua tahun lagi",
+      "romaji": "sarainen"
+    },
+    {
+      "no": 20,
+      "kana": "はんとし",
+      "kanji": "半年",
+      "arti": "Setengah tahun",
+      "romaji": "hantoshi"
+    },
+    {
+      "no": 21,
+      "kana": "さいしょに",
+      "kanji": "最初に",
+      "arti": "Pertama, mula-mula",
+      "romaji": "saishoni"
+    },
+    {
+      "no": 22,
+      "kana": "さいごに",
+      "kanji": "最後に",
+      "arti": "Terakhir",
+      "romaji": "saigoni"
+    },
+    {
+      "no": 23,
+      "kana": "ただいま",
+      "kanji": "ただ今",
+      "arti": "いまsekarang (bentuk hormat いま)",
+      "romaji": "tadaima"
+    },
+    {
+      "no": 24,
+      "kana": "きんちょうします",
+      "kanji": "緊張します",
+      "arti": "Grogi, gugup",
+      "romaji": "kinchoushimasu"
+    },
+    {
+      "no": 25,
+      "kana": "ほうそうします",
+      "kanji": "放送します",
+      "arti": "Menyiarkan",
+      "romaji": "housoushimasu"
+    },
+    {
+      "no": 26,
+      "kana": "とります （に）",
+      "kanji": "撮ります",
+      "arti": "Merekam (video), membuat (video)",
+      "romaji": "torimasu (ni)"
+    },
+    {
+      "no": 27,
+      "kana": "しょうきん",
+      "kanji": "賞金",
+      "arti": "Hadiah uang",
+      "romaji": "shoukin"
+    },
+    {
+      "no": 28,
+      "kana": "しぜん",
+      "kanji": "自然",
+      "arti": "Alam",
+      "romaji": "shizen"
+    },
+    {
+      "no": 29,
+      "kana": "きりん",
+      "kanji": "",
+      "arti": "Jerapah",
+      "romaji": "kirin"
+    },
+    {
+      "no": 30,
+      "kana": "ぞう",
+      "kanji": "象",
+      "arti": "Gajah",
+      "romaji": "zou"
+    },
+    {
+      "no": 31,
+      "kana": "ころ",
+      "kanji": "",
+      "arti": "Masa",
+      "romaji": "koro"
+    },
+    {
+      "no": 32,
+      "kana": "かないます （が）",
+      "kanji": "",
+      "arti": "Menjadi kenyataan, terkabul",
+      "romaji": "kanaimasu (ga)"
+    },
+    {
+      "no": 33,
+      "kana": "ひとことよろしいでしょうか",
+      "kanji": "",
+      "arti": "Bolehkah saya menyampaikan sesuatu?",
+      "romaji": "hitokotoyoroshiideshouka"
+    },
+    {
+      "no": 34,
+      "kana": "きょうりょくします",
+      "kanji": "協力します",
+      "arti": "Bekerja sama",
+      "romaji": "kyouryokushimasu"
+    },
+    {
+      "no": 35,
+      "kana": "こころから",
+      "kanji": "心から",
+      "arti": "Setulusnya",
+      "romaji": "kokorokara"
+    },
+    {
+      "no": 36,
+      "kana": "かんしゃします",
+      "kanji": "感謝します",
+      "arti": "Mengucapkan terima kasih",
+      "romaji": "kanshashimasu"
+    },
+    {
+      "no": 37,
+      "kana": "おれい",
+      "kanji": "お礼",
+      "arti": "Ucapan terima kasih",
+      "romaji": "orei"
+    },
+    {
+      "no": 38,
+      "kana": "はいけい",
+      "kanji": "拝啓",
+      "arti": "Dengan hormat",
+      "romaji": "haikei"
+    },
+    {
+      "no": 39,
+      "kana": "うつくしい",
+      "kanji": "美しい",
+      "arti": "Indah",
+      "romaji": "utsukushii"
+    },
+    {
+      "no": 40,
+      "kana": "おげんきでいらっしゃいますか",
+      "kanji": "",
+      "arti": "Apa kabar ?(bentuk hormat おげんきですか)",
+      "romaji": "ogenkideirasshaimasuka"
+    },
+    {
+      "no": 41,
+      "kana": "めいわくをかけます",
+      "kanji": "迷惑をかけます",
+      "arti": "Merepotkan",
+      "romaji": "meiwakuwokakemasu"
+    },
+    {
+      "no": 42,
+      "kana": "いかします",
+      "kanji": "生かします",
+      "arti": "Memanfaatkan",
+      "romaji": "ikashimasu"
+    },
+    {
+      "no": 43,
+      "kana": "おしろ",
+      "kanji": "お城",
+      "arti": "Kastil ,istana",
+      "romaji": "oshiro"
+    },
+    {
+      "no": 44,
+      "kana": "けいぐ",
+      "kanji": "敬具",
+      "arti": "Hormat saya",
+      "romaji": "keigu"
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "bab": 15,
+  "items": [
+    {
+      "no": 1,
+      "kana": "おきます",
+      "kanji": "置きます",
+      "arti": "Meletakkan",
+      "romaji": "okimasu"
+    },
+    {
+      "no": 2,
+      "kana": "つくります",
+      "kanji": "作ります",
+      "arti": "Membuat",
+      "romaji": "tsukurimasu"
+    },
+    {
+      "no": 3,
+      "kana": "うります",
+      "kanji": "売ります",
+      "arti": "Menjual",
+      "romaji": "urimasu"
+    },
+    {
+      "no": 4,
+      "kana": "しります",
+      "kanji": "知ります",
+      "arti": "Mengenal, mengetahui",
+      "romaji": "shirimasu"
+    },
+    {
+      "no": 5,
+      "kana": "すみます",
+      "kanji": "住みます",
+      "arti": "Tinggal",
+      "romaji": "sumimasu"
+    },
+    {
+      "no": 6,
+      "kana": "けんきゅうします",
+      "kanji": "研究します",
+      "arti": "Meneliti",
+      "romaji": "kenkyuushimasu"
+    },
+    {
+      "no": 7,
+      "kana": "しりょう",
+      "kanji": "資料",
+      "arti": "Data, bahan",
+      "romaji": "shiryou"
+    },
+    {
+      "no": 8,
+      "kana": "カタログ",
+      "kanji": "",
+      "arti": "Katalog",
+      "romaji": "katarogu"
+    },
+    {
+      "no": 9,
+      "kana": "ふく",
+      "kanji": "服",
+      "arti": "Pakaian",
+      "romaji": "fuku"
+    },
+    {
+      "no": 10,
+      "kana": "せいひん",
+      "kanji": "製品",
+      "arti": "Produk",
+      "romaji": "seihin"
+    },
+    {
+      "no": 11,
+      "kana": "ソフト",
+      "kanji": "",
+      "arti": "Perangkat lunak",
+      "romaji": "sofuto"
+    },
+    {
+      "no": 12,
+      "kana": "でんしじしょ",
+      "kanji": "電子辞書",
+      "arti": "Kamus elektronik",
+      "romaji": "denshijisho"
+    },
+    {
+      "no": 13,
+      "kana": "けいざい",
+      "kanji": "経済",
+      "arti": "Ekonomi",
+      "romaji": "keizai"
+    },
+    {
+      "no": 14,
+      "kana": "はいしゃ",
+      "kanji": "歯医者",
+      "arti": "Dokter gigi",
+      "romaji": "haisha"
+    },
+    {
+      "no": 15,
+      "kana": "どくしん",
+      "kanji": "独身",
+      "arti": "Bujangan, jomblo",
+      "romaji": "dokushin"
+    },
+    {
+      "no": 16,
+      "kana": "おもいだします",
+      "kanji": "思い出します",
+      "arti": "Teringat",
+      "romaji": "omoidashimasu"
+    },
+    {
+      "no": 17,
+      "kana": "いらっしゃいます",
+      "kanji": "",
+      "arti": "Ada (hidup)",
+      "romaji": "irasshaimasu"
+    },
+    {
+      "no": 18,
+      "kana": "しょくぎょう",
+      "kanji": "職業",
+      "arti": "Pekerjaan , profesi",
+      "romaji": "shokugyou"
+    },
+    {
+      "no": 19,
+      "kana": "かいしゃいん",
+      "kanji": "会社員",
+      "arti": "Pegawai perusahaan",
+      "romaji": "kaishain"
+    },
+    {
+      "no": 20,
+      "kana": "こうむいん",
+      "kanji": "公務員",
+      "arti": "Pegawai negeri",
+      "romaji": "koumuin"
+    },
+    {
+      "no": 21,
+      "kana": "えきいん",
+      "kanji": "駅員",
+      "arti": "Pegawai stasiun",
+      "romaji": "ekiin"
+    },
+    {
+      "no": 22,
+      "kana": "ぎんこういん",
+      "kanji": "銀行員",
+      "arti": "Pegawai bank",
+      "romaji": "ginkouin"
+    },
+    {
+      "no": 23,
+      "kana": "ゆうびんきょくいん",
+      "kanji": "郵便局員",
+      "arti": "Pegawai kantor pos",
+      "romaji": "yuubinkyokuin"
+    },
+    {
+      "no": 24,
+      "kana": "てんいん",
+      "kanji": "店員",
+      "arti": "Pegawai toko",
+      "romaji": "ten'in"
+    },
+    {
+      "no": 25,
+      "kana": "ちょうりし",
+      "kanji": "調理師",
+      "arti": "Tukang masak",
+      "romaji": "chourishi"
+    },
+    {
+      "no": 26,
+      "kana": "りようし",
+      "kanji": "理容師",
+      "arti": "Tukang potong rambut",
+      "romaji": "riyoushi"
+    },
+    {
+      "no": 27,
+      "kana": "びようし",
+      "kanji": "美容師",
+      "arti": "Ahli kecantikan",
+      "romaji": "biyoushi"
+    },
+    {
+      "no": 28,
+      "kana": "きょうし",
+      "kanji": "教師",
+      "arti": "Guru",
+      "romaji": "kyoushi"
+    },
+    {
+      "no": 29,
+      "kana": "べんごし",
+      "kanji": "弁護士",
+      "arti": "Pengacara",
+      "romaji": "bengoshi"
+    },
+    {
+      "no": 30,
+      "kana": "けんきゅうしゃ",
+      "kanji": "研究者",
+      "arti": "Peneliti",
+      "romaji": "kenkyuusha"
+    },
+    {
+      "no": 31,
+      "kana": "いしゃ",
+      "kanji": "医者",
+      "arti": "Dokter",
+      "romaji": "isha"
+    },
+    {
+      "no": 32,
+      "kana": "かんごし",
+      "kanji": "看護師",
+      "arti": "Perawat",
+      "romaji": "kangoshi"
+    },
+    {
+      "no": 33,
+      "kana": "うんてんしゅ",
+      "kanji": "運転手",
+      "arti": "Sopir",
+      "romaji": "untenshu"
+    },
+    {
+      "no": 34,
+      "kana": "けいさつかん",
+      "kanji": "警察官",
+      "arti": "Polisi",
+      "romaji": "keisatsukan"
+    },
+    {
+      "no": 35,
+      "kana": "がいこうかん",
+      "kanji": "外交官",
+      "arti": "Diplomat",
+      "romaji": "gaikoukan"
+    },
+    {
+      "no": 36,
+      "kana": "せいじか",
+      "kanji": "政治家",
+      "arti": "Politikus",
+      "romaji": "seijika"
+    },
+    {
+      "no": 37,
+      "kana": "がか",
+      "kanji": "画家",
+      "arti": "Pelukis",
+      "romaji": "gaka"
+    },
+    {
+      "no": 38,
+      "kana": "さっか",
+      "kanji": "作家",
+      "arti": "Pengarang",
+      "romaji": "sakka"
+    },
+    {
+      "no": 39,
+      "kana": "おんがくか",
+      "kanji": "音楽家",
+      "arti": "Musisi",
+      "romaji": "ongakuka"
+    },
+    {
+      "no": 40,
+      "kana": "けんちくか",
+      "kanji": "建築家",
+      "arti": "Arsitek",
+      "romaji": "kenchikuka"
+    },
+    {
+      "no": 41,
+      "kana": "エンジニア",
+      "kanji": "",
+      "arti": "Insinyur",
+      "romaji": "enjinia"
+    },
+    {
+      "no": 42,
+      "kana": "デザイナー",
+      "kanji": "",
+      "arti": "Perancang busana",
+      "romaji": "dezainaa"
+    },
+    {
+      "no": 43,
+      "kana": "ジャーナリスト",
+      "kanji": "",
+      "arti": "Wartawan",
+      "romaji": "jaanarisuto"
+    },
+    {
+      "no": 44,
+      "kana": "かしゅ",
+      "kanji": "歌手",
+      "arti": "Penyanyi",
+      "romaji": "kashu"
+    },
+    {
+      "no": 45,
+      "kana": "はいゆう",
+      "kanji": "俳優",
+      "arti": "Aktor / artis",
+      "romaji": "haiyuu"
+    },
+    {
+      "no": 46,
+      "kana": "スポーツせんしゅ",
+      "kanji": "スポーツ選手",
+      "arti": "Olahragawan / atlit",
+      "romaji": "supootsusenshu"
+    }
+  ]
+}

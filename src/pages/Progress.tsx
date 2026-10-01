@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { BABS, TOTAL_KOTOBA } from "../data";
-import { useProgress, kataKey } from "../store/progress";
+import { BABS_META, TOTAL_KOTOBA } from "../data";
+import { useProgress } from "../store/progress";
 import TopBar from "../components/TopBar";
 import PaperCard from "../components/PaperCard";
 import ProgressBar from "../components/ProgressBar";
@@ -33,19 +33,21 @@ export default function Progress({ onBack }: Props) {
   const pctHafal =
     TOTAL_KOTOBA > 0 ? Math.round((hafal.length / TOTAL_KOTOBA) * 1000) / 10 : 0;
 
+  // Jumlah kata per bab sudah ada di metadata index.json, jadi tidak perlu
+  // memuat isi bab. Kata yang ditandai hafal dihitung dari awalan "bab-".
   const rows = useMemo(
     () =>
-      BABS.map((b) => {
-        const total = b.items.length;
+      BABS_META.map((b) => {
+        const total = b.count;
         let done = 0;
-        for (const it of b.items) {
-          if (hafalSet.has(kataKey(b.bab, it.no))) done += 1;
+        for (const k of hafalSet) {
+          if (k.startsWith(`${b.bab}-`)) done += 1;
         }
         return {
           bab: b.bab,
-          done,
+          done: Math.min(done, total),
           total,
-          pct: total > 0 ? Math.round((done / total) * 100) : 0,
+          pct: total > 0 ? Math.round((Math.min(done, total) / total) * 100) : 0,
         };
       }),
     [hafalSet],

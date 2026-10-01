@@ -1,0 +1,502 @@
+{
+  "bab": 14,
+  "items": [
+    {
+      "no": 1,
+      "kana": "つけます",
+      "kanji": "",
+      "arti": "Menyalakan, memasang, menghidupkan",
+      "romaji": "tsukemasu"
+    },
+    {
+      "no": 2,
+      "kana": "けします",
+      "kanji": "消します",
+      "arti": "Mematikan, memadamkan",
+      "romaji": "keshimasu"
+    },
+    {
+      "no": 3,
+      "kana": "あけます",
+      "kanji": "開けます",
+      "arti": "Membuka",
+      "romaji": "akemasu"
+    },
+    {
+      "no": 4,
+      "kana": "しめます",
+      "kanji": "閉めます",
+      "arti": "Menutup",
+      "romaji": "shimemasu"
+    },
+    {
+      "no": 5,
+      "kana": "いそぎます",
+      "kanji": "急ぎます",
+      "arti": "Buru-buru",
+      "romaji": "isogimasu"
+    },
+    {
+      "no": 6,
+      "kana": "まちまｓう",
+      "kanji": "待ちます",
+      "arti": "Menunggu",
+      "romaji": "machimasu"
+    },
+    {
+      "no": 7,
+      "kana": "もちます",
+      "kanji": "持ちます",
+      "arti": "Membawa",
+      "romaji": "mochimasu"
+    },
+    {
+      "no": 8,
+      "kana": "とります",
+      "kanji": "取ります",
+      "arti": "Mengambil",
+      "romaji": "torimasu"
+    },
+    {
+      "no": 9,
+      "kana": "てつだいます",
+      "kanji": "手伝います",
+      "arti": "Membantu",
+      "romaji": "tetsudaimasu"
+    },
+    {
+      "no": 10,
+      "kana": "よびます",
+      "kanji": "呼びます",
+      "arti": "Memanggil",
+      "romaji": "yobimasu"
+    },
+    {
+      "no": 11,
+      "kana": "はなします",
+      "kanji": "話します",
+      "arti": "Berbicara",
+      "romaji": "hanashimasu"
+    },
+    {
+      "no": 12,
+      "kana": "つかいます",
+      "kanji": "使います",
+      "arti": "Memakai",
+      "romaji": "tsukaimasu"
+    },
+    {
+      "no": 13,
+      "kana": "とめます",
+      "kanji": "止めます",
+      "arti": "Menghentikan",
+      "romaji": "tomemasu"
+    },
+    {
+      "no": 14,
+      "kana": "みせます",
+      "kanji": "見せます",
+      "arti": "Memperlihatkan",
+      "romaji": "misemasu"
+    },
+    {
+      "no": 15,
+      "kana": "おしえます",
+      "kanji": "教えます",
+      "arti": "Memberitahu",
+      "romaji": "oshiemasu"
+    },
+    {
+      "no": 16,
+      "kana": "すわります",
+      "kanji": "座ります",
+      "arti": "Duduk",
+      "romaji": "suwarimasu"
+    },
+    {
+      "no": 17,
+      "kana": "たちます",
+      "kanji": "立ちます",
+      "arti": "Berdiri",
+      "romaji": "tachimasu"
+    },
+    {
+      "no": 18,
+      "kana": "はいります",
+      "kanji": "入ります",
+      "arti": "Masuk",
+      "romaji": "hairimasu"
+    },
+    {
+      "no": 19,
+      "kana": "でます",
+      "kanji": "出ます",
+      "arti": "Keluar",
+      "romaji": "demasu"
+    },
+    {
+      "no": 20,
+      "kana": "ふります",
+      "kanji": "降ります",
+      "arti": "Turun hujan",
+      "romaji": "furimasu"
+    },
+    {
+      "no": 21,
+      "kana": "コピーします",
+      "kanji": "",
+      "arti": "Memfotocopy",
+      "romaji": "kopiishimasu"
+    },
+    {
+      "no": 22,
+      "kana": "でんき",
+      "kanji": "電気",
+      "arti": "Listrik, lampu",
+      "romaji": "denki"
+    },
+    {
+      "no": 23,
+      "kana": "エアコン",
+      "kanji": "",
+      "arti": "AC",
+      "romaji": "eakon"
+    },
+    {
+      "no": 24,
+      "kana": "パスポート",
+      "kanji": "",
+      "arti": "Paspor",
+      "romaji": "pasupooto"
+    },
+    {
+      "no": 25,
+      "kana": "なまえ",
+      "kanji": "名前",
+      "arti": "Nama",
+      "romaji": "namae"
+    },
+    {
+      "no": 26,
+      "kana": "じゅうしょ",
+      "kanji": "住所",
+      "arti": "Alamat",
+      "romaji": "juusho"
+    },
+    {
+      "no": 27,
+      "kana": "ちず",
+      "kanji": "地図",
+      "arti": "Peta",
+      "romaji": "chizu"
+    },
+    {
+      "no": 28,
+      "kana": "しお",
+      "kanji": "塩",
+      "arti": "Garam",
+      "romaji": "shio"
+    },
+    {
+      "no": 29,
+      "kana": "さとう",
+      "kanji": "佐藤",
+      "arti": "Gula",
+      "romaji": "satou"
+    },
+    {
+      "no": 30,
+      "kana": "もんだい",
+      "kanji": "問題",
+      "arti": "Masalah, soal",
+      "romaji": "mondai"
+    },
+    {
+      "no": 31,
+      "kana": "こたえ",
+      "kanji": "答え",
+      "arti": "Jawaban",
+      "romaji": "kotae"
+    },
+    {
+      "no": 32,
+      "kana": "よみかた",
+      "kanji": "読み方",
+      "arti": "Cara membaca",
+      "romaji": "yomikata"
+    },
+    {
+      "no": 33,
+      "kana": "～かた",
+      "kanji": "～方",
+      "arti": "Cara~",
+      "romaji": "~kata"
+    },
+    {
+      "no": 34,
+      "kana": "まっすぐ",
+      "kanji": "",
+      "arti": "Lurus",
+      "romaji": "massugu"
+    },
+    {
+      "no": 35,
+      "kana": "ゆっくり",
+      "kanji": "",
+      "arti": "Pelan-pelan, istirahat dengan baik",
+      "romaji": "yukkuri"
+    },
+    {
+      "no": 36,
+      "kana": "すぐ",
+      "kanji": "",
+      "arti": "Segera, langsung",
+      "romaji": "sugu"
+    },
+    {
+      "no": 37,
+      "kana": "また",
+      "kanji": "",
+      "arti": "Lagi",
+      "romaji": "mata"
+    },
+    {
+      "no": 38,
+      "kana": "あとで",
+      "kanji": "",
+      "arti": "Nanti",
+      "romaji": "atode"
+    },
+    {
+      "no": 39,
+      "kana": "もうすこし",
+      "kanji": "もう少し",
+      "arti": "Sedikit lagi",
+      "romaji": "mousukoshi"
+    },
+    {
+      "no": 40,
+      "kana": "もう～",
+      "kanji": "",
+      "arti": "~lagi",
+      "romaji": "mou~"
+    },
+    {
+      "no": 41,
+      "kana": "さあ",
+      "kanji": "",
+      "arti": "Mari",
+      "romaji": "saa"
+    },
+    {
+      "no": 42,
+      "kana": "あれ？",
+      "kanji": "",
+      "arti": "Ah (saat heran atau kaget)",
+      "romaji": "are？"
+    },
+    {
+      "no": 43,
+      "kana": "これでおねがいします",
+      "kanji": "これでお願いします",
+      "arti": "Minta dengan ini",
+      "romaji": "koredeonegaishimasu"
+    },
+    {
+      "no": 44,
+      "kana": "おつり",
+      "kanji": "お釣り",
+      "arti": "Kembalian",
+      "romaji": "otsuri"
+    },
+    {
+      "no": 45,
+      "kana": "きっぷうりば",
+      "kanji": "切符売り場",
+      "arti": "Loket penjualan karcis",
+      "romaji": "kippuuriba"
+    },
+    {
+      "no": 46,
+      "kana": "じどうけんばいき",
+      "kanji": "自動券売機",
+      "arti": "Mesin karcis otomatis",
+      "romaji": "jidoukenbaiki"
+    },
+    {
+      "no": 47,
+      "kana": "せいさんき",
+      "kanji": "精算機",
+      "arti": "Alat penghitung otomatis",
+      "romaji": "seisanki"
+    },
+    {
+      "no": 48,
+      "kana": "かいさつぐち",
+      "kanji": "改札口",
+      "arti": "Pintu pemeriksaan karcis",
+      "romaji": "kaisatsuguchi"
+    },
+    {
+      "no": 49,
+      "kana": "でぐち",
+      "kanji": "出口",
+      "arti": "Pintu keluar",
+      "romaji": "deguchi"
+    },
+    {
+      "no": 50,
+      "kana": "いりぐち",
+      "kanji": "入口",
+      "arti": "Pintu masuk",
+      "romaji": "iriguchi"
+    },
+    {
+      "no": 51,
+      "kana": "ひがしぐち",
+      "kanji": "東口",
+      "arti": "Pintu timur",
+      "romaji": "higashiguchi"
+    },
+    {
+      "no": 52,
+      "kana": "にしぐち",
+      "kanji": "西口",
+      "arti": "Pintu barat",
+      "romaji": "nishiguchi"
+    },
+    {
+      "no": 53,
+      "kana": "みなみぐち",
+      "kanji": "南口",
+      "arti": "Pintu selatan",
+      "romaji": "minamiguchi"
+    },
+    {
+      "no": 54,
+      "kana": "きたぐち",
+      "kanji": "北口",
+      "arti": "Pintu utara",
+      "romaji": "kitaguchi"
+    },
+    {
+      "no": 55,
+      "kana": "ちゅうおうぐち",
+      "kanji": "中央口",
+      "arti": "Pintu tengah",
+      "romaji": "chuuouguchi"
+    },
+    {
+      "no": 56,
+      "kana": "プラットホーム",
+      "kanji": "",
+      "arti": "Peron",
+      "romaji": "purattohoomu"
+    },
+    {
+      "no": 57,
+      "kana": "ばいてん",
+      "kanji": "売店",
+      "arti": "Kios, kedai",
+      "romaji": "baiten"
+    },
+    {
+      "no": 58,
+      "kana": "コインロッカー",
+      "kanji": "",
+      "arti": "Loker",
+      "romaji": "koinrokkaa"
+    },
+    {
+      "no": 59,
+      "kana": "タクシーのりば",
+      "kanji": "",
+      "arti": "Tempat naik taksi",
+      "romaji": "takushiinoriba"
+    },
+    {
+      "no": 60,
+      "kana": "バスターミナル",
+      "kanji": "",
+      "arti": "Terminal bis",
+      "romaji": "basutaaminaru"
+    },
+    {
+      "no": 61,
+      "kana": "バスてい",
+      "kanji": "バス停",
+      "arti": "Halte bis",
+      "romaji": "basutei"
+    },
+    {
+      "no": 62,
+      "kana": "かいそく",
+      "kanji": "快速",
+      "arti": "Kereta cepat yang lewat pinggir kota",
+      "romaji": "kaisoku"
+    },
+    {
+      "no": 63,
+      "kana": "じゅんきゅう",
+      "kanji": "準急",
+      "arti": "Kereta semi cepat",
+      "romaji": "junkyuu"
+    },
+    {
+      "no": 64,
+      "kana": "じこくひょう",
+      "kanji": "時刻表",
+      "arti": "Jadwal keberangkatan bis,kereta dll",
+      "romaji": "jikokuhyou"
+    },
+    {
+      "no": 65,
+      "kana": "～はつ",
+      "kanji": "～発",
+      "arti": "Berangkat dari / berangkat pukul",
+      "romaji": "~hatsu"
+    },
+    {
+      "no": 66,
+      "kana": "～ちゃく",
+      "kanji": "～着",
+      "arti": "Berangkat ke / tiba pukul",
+      "romaji": "~chaku"
+    },
+    {
+      "no": 67,
+      "kana": "とうきょういき",
+      "kanji": "東京行き",
+      "arti": "Tujuan tokyo",
+      "romaji": "toukyouiki"
+    },
+    {
+      "no": 68,
+      "kana": "ていきけん",
+      "kanji": "定期券",
+      "arti": "Kartu langganan berjangka",
+      "romaji": "teikiken"
+    },
+    {
+      "no": 69,
+      "kana": "かいすうけん",
+      "kanji": "回数券",
+      "arti": "Karcis kupon",
+      "romaji": "kaisuuken"
+    },
+    {
+      "no": 70,
+      "kana": "かたみち",
+      "kanji": "片道",
+      "arti": "Sekali jalan",
+      "romaji": "katamichi"
+    },
+    {
+      "no": 71,
+      "kana": "おうふく",
+      "kanji": "往復",
+      "arti": "Pulang pergi",
+      "romaji": "oufuku"
+    }
+  ]
+}

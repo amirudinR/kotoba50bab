@@ -1,0 +1,383 @@
+{
+  "bab": 47,
+  "items": [
+    {
+      "no": 1,
+      "kana": "あつまります （が）",
+      "kanji": "集まります",
+      "arti": "berkumpul",
+      "romaji": "atsumarimasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "わかれます （が）",
+      "kanji": "別れます",
+      "arti": "Berpisah",
+      "romaji": "wakaremasu (ga)"
+    },
+    {
+      "no": 3,
+      "kana": "ながいきします",
+      "kanji": "長生きします",
+      "arti": "Berumur panjang",
+      "romaji": "nagaikishimasu"
+    },
+    {
+      "no": 4,
+      "kana": "おとがします",
+      "kanji": "音がします",
+      "arti": "Terdengar suara",
+      "romaji": "otogashimasu"
+    },
+    {
+      "no": 5,
+      "kana": "こえがします",
+      "kanji": "声がします",
+      "arti": "Terdengar suara",
+      "romaji": "koegashimasu"
+    },
+    {
+      "no": 6,
+      "kana": "あじがします",
+      "kanji": "味がします",
+      "arti": "Terasa",
+      "romaji": "ajigashimasu"
+    },
+    {
+      "no": 7,
+      "kana": "においがします",
+      "kanji": "",
+      "arti": "Tercium, berbau",
+      "romaji": "nioigashimasu"
+    },
+    {
+      "no": 8,
+      "kana": "さします （を）",
+      "kanji": "",
+      "arti": "Membuka (payung)",
+      "romaji": "sashimasu (wo)"
+    },
+    {
+      "no": 9,
+      "kana": "ひどい",
+      "kanji": "",
+      "arti": "Luar biasa",
+      "romaji": "hidoi"
+    },
+    {
+      "no": 10,
+      "kana": "こわい",
+      "kanji": "怖い",
+      "arti": "Takut",
+      "romaji": "kowai"
+    },
+    {
+      "no": 11,
+      "kana": "てんきよほう",
+      "kanji": "天気予報",
+      "arti": "Prakiraan cuaca",
+      "romaji": "tenkiyohou"
+    },
+    {
+      "no": 12,
+      "kana": "はっぴょう",
+      "kanji": "発表",
+      "arti": "Pengumuman, presentasi",
+      "romaji": "happyou"
+    },
+    {
+      "no": 13,
+      "kana": "じっけん",
+      "kanji": "実験",
+      "arti": "Percobaan",
+      "romaji": "jikken"
+    },
+    {
+      "no": 14,
+      "kana": "じんこう",
+      "kanji": "人口",
+      "arti": "Jumlah penduduk",
+      "romaji": "jinkou"
+    },
+    {
+      "no": 15,
+      "kana": "におい",
+      "kanji": "",
+      "arti": "Bau",
+      "romaji": "nioi"
+    },
+    {
+      "no": 16,
+      "kana": "かがく",
+      "kanji": "科学",
+      "arti": "Ilmu pengetahuan",
+      "romaji": "kagaku"
+    },
+    {
+      "no": 17,
+      "kana": "いがく",
+      "kanji": "医学",
+      "arti": "Ilmu kedokteran",
+      "romaji": "igaku"
+    },
+    {
+      "no": 18,
+      "kana": "ぶんがく",
+      "kanji": "文学",
+      "arti": "Kesusastraan",
+      "romaji": "bungaku"
+    },
+    {
+      "no": 19,
+      "kana": "パトカー",
+      "kanji": "",
+      "arti": "Mobil patroli",
+      "romaji": "patokaa"
+    },
+    {
+      "no": 20,
+      "kana": "きゅうきゅうしゃ",
+      "kanji": "救急車",
+      "arti": "Mobil ambulans",
+      "romaji": "kyuukyuusha"
+    },
+    {
+      "no": 21,
+      "kana": "さんせい",
+      "kanji": "賛成",
+      "arti": "Setuju",
+      "romaji": "sansei"
+    },
+    {
+      "no": 22,
+      "kana": "はんたい",
+      "kanji": "反対",
+      "arti": "Tidak setuju",
+      "romaji": "hantai"
+    },
+    {
+      "no": 23,
+      "kana": "だんせい",
+      "kanji": "男性",
+      "arti": "Pria",
+      "romaji": "dansei"
+    },
+    {
+      "no": 24,
+      "kana": "じょせい",
+      "kanji": "女性",
+      "arti": "Wanita",
+      "romaji": "josei"
+    },
+    {
+      "no": 25,
+      "kana": "どうも",
+      "kanji": "",
+      "arti": "Kelihatannya(digunakan ketika menyatakan prakiraan)",
+      "romaji": "doumo"
+    },
+    {
+      "no": 26,
+      "kana": "～によると",
+      "kanji": "",
+      "arti": "Menurut ----",
+      "romaji": "~niyoruto"
+    },
+    {
+      "no": 27,
+      "kana": "バリとう",
+      "kanji": "バリ島",
+      "arti": "Pulau bali",
+      "romaji": "baritou"
+    },
+    {
+      "no": 28,
+      "kana": "こんやくします",
+      "kanji": "婚約します",
+      "arti": "Bertunangan",
+      "romaji": "konyakushimasu"
+    },
+    {
+      "no": 29,
+      "kana": "あいて",
+      "kanji": "相手",
+      "arti": "Jodoh, pasangan",
+      "romaji": "aite"
+    },
+    {
+      "no": 30,
+      "kana": "しりあいます",
+      "kanji": "知合います",
+      "arti": "Saling mengenal",
+      "romaji": "shiriaimasu"
+    },
+    {
+      "no": 31,
+      "kana": "へいきんじゅみょう",
+      "kanji": "平均寿命",
+      "arti": "Rata-rata usia lanjut",
+      "romaji": "heikinjumyou"
+    },
+    {
+      "no": 32,
+      "kana": "くらべます （と）",
+      "kanji": "比べます",
+      "arti": "Dibandingkan dengan",
+      "romaji": "kurabemasu (to)"
+    },
+    {
+      "no": 33,
+      "kana": "はかせ",
+      "kanji": "博士",
+      "arti": "Doktor",
+      "romaji": "hakase"
+    },
+    {
+      "no": 34,
+      "kana": "のう",
+      "kanji": "脳",
+      "arti": "Otak",
+      "romaji": "nou"
+    },
+    {
+      "no": 35,
+      "kana": "ホルモン",
+      "kanji": "",
+      "arti": "Hormon",
+      "romaji": "horumon"
+    },
+    {
+      "no": 36,
+      "kana": "けしょうひん",
+      "kanji": "化粧品",
+      "arti": "Kosmetik",
+      "romaji": "keshouhin"
+    },
+    {
+      "no": 37,
+      "kana": "しらべ",
+      "kanji": "調べ",
+      "arti": "Penelitian, pemeriksaan",
+      "romaji": "shirabe"
+    },
+    {
+      "no": 38,
+      "kana": "けしょう （を）します",
+      "kanji": "化粧",
+      "arti": "Dandanan (berdandan)",
+      "romaji": "keshou (wo)shimasu"
+    },
+    {
+      "no": 39,
+      "kana": "ぎおんご。ぎたいご",
+      "kanji": "擬音語。擬態語",
+      "arti": "Onomatope",
+      "romaji": "giongo.gitaigo"
+    },
+    {
+      "no": 40,
+      "kana": "ザーザー（ふる）",
+      "kanji": "降る",
+      "arti": "Hujan lebat",
+      "romaji": "zaazaa(furu)"
+    },
+    {
+      "no": 41,
+      "kana": "ピューピュー（ふく）",
+      "kanji": "吹く",
+      "arti": "Angin bertiup kencang",
+      "romaji": "pyuupyuu(fuku)"
+    },
+    {
+      "no": 42,
+      "kana": "ゴロゴロ（なる）",
+      "kanji": "鳴る",
+      "arti": "Petir menggelegar",
+      "romaji": "gorogoro(naru)"
+    },
+    {
+      "no": 43,
+      "kana": "ワンワン（ほえる）",
+      "kanji": "",
+      "arti": "Guk!guk! (menggonggong)",
+      "romaji": "wanwan(hoeru)"
+    },
+    {
+      "no": 44,
+      "kana": "ニャーニャー（なく）",
+      "kanji": "鳴く",
+      "arti": "Meong! Meong!",
+      "romaji": "nyaanyaa(naku)"
+    },
+    {
+      "no": 45,
+      "kana": "カーカー（なく）",
+      "kanji": "鳴く",
+      "arti": "Gak! Gak!",
+      "romaji": "kaakaa(naku)"
+    },
+    {
+      "no": 46,
+      "kana": "げらげら（わらう）",
+      "kanji": "笑う",
+      "arti": "Tertawa terbahak-bahak",
+      "romaji": "geragera(warau)"
+    },
+    {
+      "no": 47,
+      "kana": "しくしく（なく）",
+      "kanji": "泣く",
+      "arti": "Menangis terisak-isak",
+      "romaji": "shikushiku(naku)"
+    },
+    {
+      "no": 48,
+      "kana": "きょろきょろ（みる）",
+      "kanji": "見る",
+      "arti": "Menoleh kanan kiri",
+      "romaji": "kyorokyoro(miru)"
+    },
+    {
+      "no": 49,
+      "kana": "ぱくぱく（たべる）",
+      "kanji": "食べる",
+      "arti": "Makan dengan lahap",
+      "romaji": "pakupaku(taberu)"
+    },
+    {
+      "no": 50,
+      "kana": "ぐうぐう（ねる）",
+      "kanji": "寝る",
+      "arti": "Tidur nyenyak",
+      "romaji": "guuguu(neru)"
+    },
+    {
+      "no": 51,
+      "kana": "すらすら（よむ）",
+      "kanji": "読む",
+      "arti": "Membaca dengan lancar",
+      "romaji": "surasura(yomu)"
+    },
+    {
+      "no": 52,
+      "kana": "ざらざら（している）",
+      "kanji": "",
+      "arti": "Terasa kasar",
+      "romaji": "zarazara(shiteiru)"
+    },
+    {
+      "no": 53,
+      "kana": "べたべた（している）",
+      "kanji": "",
+      "arti": "Terasa lengket",
+      "romaji": "betabeta(shiteiru)"
+    },
+    {
+      "no": 54,
+      "kana": "つるつる（している）",
+      "kanji": "",
+      "arti": "Terasa licin",
+      "romaji": "tsurutsuru(shiteiru)"
+    }
+  ]
+}

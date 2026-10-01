@@ -13,9 +13,11 @@ interface Props {
 }
 
 /**
- * Lebar kolom dalam px. Sengaja tidak memakai `table-fixed` yang membagi rata
- * seluruh lebar — kolom "No" hanya berisi 1–2 digit sehingga akan menyisakan
- * ruang kosong besar, sementara kolom "Arti" justru butuh ruang paling lebar.
+ * Lebar kolom dalam px. Dipakai bersama `table-layout: fixed` + `<colgroup>`,
+ * sehingga lebar yang ditulis di sini dipatuhi persis. Versi sebelumnya
+ * memakai `table-fixed` tanpa `colgroup`, yang membuat browser membagi rata
+ * seluruh lebar — kolom "No" berisi 1–2 digit jadi menyisakan ruang kosong
+ * besar, sedangkan kolom "Arti" justru terpotong.
  */
 const WIDTH: Record<ColKey, number> = {
   no: 52,
@@ -60,7 +62,7 @@ export default function KotobaTable({
     <div className="overflow-x-auto">
       <table
         className="w-full border-separate border-spacing-0 text-[14px]"
-        style={{ minWidth: fixed + 120 }}
+        style={{ minWidth: fixed + 120, tableLayout: "fixed" }}
       >
         <colgroup>
           {keys.map((k) => (

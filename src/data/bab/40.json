@@ -1,0 +1,698 @@
+{
+  "bab": 40,
+  "items": [
+    {
+      "no": 1,
+      "kana": "かぞえます",
+      "kanji": "数えます",
+      "arti": "Menghitung",
+      "romaji": "kazoemasu"
+    },
+    {
+      "no": 2,
+      "kana": "はかります",
+      "kanji": "測ります、量ります",
+      "arti": "Mengukur, menimbang",
+      "romaji": "hakarimasu"
+    },
+    {
+      "no": 3,
+      "kana": "たしかめます",
+      "kanji": "確かめます",
+      "arti": "Memastikan",
+      "romaji": "tashikamemasu"
+    },
+    {
+      "no": 4,
+      "kana": "あいます （が）",
+      "kanji": "合います",
+      "arti": "Tepat,cocok",
+      "romaji": "aimasu (ga)"
+    },
+    {
+      "no": 5,
+      "kana": "しゅっぱつします",
+      "kanji": "出発します",
+      "arti": "Berangkat",
+      "romaji": "shuppatsushimasu"
+    },
+    {
+      "no": 6,
+      "kana": "とうちゃくします",
+      "kanji": "到着します",
+      "arti": "Tiba",
+      "romaji": "touchakushimasu"
+    },
+    {
+      "no": 7,
+      "kana": "よいます",
+      "kanji": "酔います",
+      "arti": "Mabuk",
+      "romaji": "yoimasu"
+    },
+    {
+      "no": 8,
+      "kana": "きけんな",
+      "kanji": "危険な",
+      "arti": "Berbahaya",
+      "romaji": "kikenna"
+    },
+    {
+      "no": 9,
+      "kana": "ひつような",
+      "kanji": "必要な",
+      "arti": "Perlu",
+      "romaji": "hitsuyouna"
+    },
+    {
+      "no": 10,
+      "kana": "うちゅう",
+      "kanji": "宇宙",
+      "arti": "Luar angkasa",
+      "romaji": "uchuu"
+    },
+    {
+      "no": 11,
+      "kana": "ちきゅう",
+      "kanji": "地球",
+      "arti": "Bumi",
+      "romaji": "chikyuu"
+    },
+    {
+      "no": 12,
+      "kana": "ぼうねんかい",
+      "kanji": "忘年会",
+      "arti": "Pesta akhir tahun",
+      "romaji": "bounenkai"
+    },
+    {
+      "no": 13,
+      "kana": "しんねんかい",
+      "kanji": "新年会",
+      "arti": "Pesta tahun baru",
+      "romaji": "shinnenkai"
+    },
+    {
+      "no": 14,
+      "kana": "にじかい",
+      "kanji": "二次会",
+      "arti": "Perlombaan",
+      "romaji": "nijikai"
+    },
+    {
+      "no": 15,
+      "kana": "たいかい",
+      "kanji": "大会",
+      "arti": "Pertemuan berikutnya",
+      "romaji": "taikai"
+    },
+    {
+      "no": 16,
+      "kana": "マラソン",
+      "kanji": "",
+      "arti": "Lari maraton",
+      "romaji": "marason"
+    },
+    {
+      "no": 17,
+      "kana": "コンテスト",
+      "kanji": "",
+      "arti": "Lomba, kontes",
+      "romaji": "kontesuto"
+    },
+    {
+      "no": 18,
+      "kana": "おもて",
+      "kanji": "表",
+      "arti": "Bagian muka/depan",
+      "romaji": "omote"
+    },
+    {
+      "no": 19,
+      "kana": "うら",
+      "kanji": "裏",
+      "arti": "Bagian belakang",
+      "romaji": "ura"
+    },
+    {
+      "no": 20,
+      "kana": "へんじ",
+      "kanji": "返事",
+      "arti": "Balasan, jawaban",
+      "romaji": "henji"
+    },
+    {
+      "no": 21,
+      "kana": "もうしこみ",
+      "kanji": "申し込み",
+      "arti": "Lamaran, pendaftaran",
+      "romaji": "moushikomi"
+    },
+    {
+      "no": 22,
+      "kana": "ほんとう",
+      "kanji": "",
+      "arti": "Kebenaran, fakta",
+      "romaji": "hontou"
+    },
+    {
+      "no": 23,
+      "kana": "まちがい",
+      "kanji": "",
+      "arti": "Kesalahan",
+      "romaji": "machigai"
+    },
+    {
+      "no": 24,
+      "kana": "きず",
+      "kanji": "傷",
+      "arti": "Luka",
+      "romaji": "kizu"
+    },
+    {
+      "no": 25,
+      "kana": "ズボン",
+      "kanji": "",
+      "arti": "Celana panjang",
+      "romaji": "zubon"
+    },
+    {
+      "no": 26,
+      "kana": "ながさ",
+      "kanji": "長さ",
+      "arti": "Panjangnya",
+      "romaji": "nagasa"
+    },
+    {
+      "no": 27,
+      "kana": "おもさ",
+      "kanji": "重さ",
+      "arti": "Beratnya",
+      "romaji": "omosa"
+    },
+    {
+      "no": 28,
+      "kana": "たかさ",
+      "kanji": "高さ",
+      "arti": "Tingginya",
+      "romaji": "takasa"
+    },
+    {
+      "no": 29,
+      "kana": "おおきさ",
+      "kanji": "大きさ",
+      "arti": "Besarnya",
+      "romaji": "ookisa"
+    },
+    {
+      "no": 30,
+      "kana": "～びん",
+      "kanji": "～便",
+      "arti": "Nomor pesawat terbang",
+      "romaji": "~bin"
+    },
+    {
+      "no": 31,
+      "kana": "～ごう",
+      "kanji": "～号",
+      "arti": "Nomor kereta api",
+      "romaji": "~gou"
+    },
+    {
+      "no": 32,
+      "kana": "～こ",
+      "kanji": "～個",
+      "arti": "Satuan benda kecil",
+      "romaji": "~ko"
+    },
+    {
+      "no": 33,
+      "kana": "～ほん、ぼん、ぽん",
+      "kanji": "～本",
+      "arti": "Satuan barang panjang",
+      "romaji": "~hon,bon,pon"
+    },
+    {
+      "no": 34,
+      "kana": "～はい、ばい、ぱい",
+      "kanji": "～杯",
+      "arti": "Satuan untuk cangkir, gelas",
+      "romaji": "~hai,bai,pai"
+    },
+    {
+      "no": 35,
+      "kana": "～キロ",
+      "kanji": "",
+      "arti": "Kg, km",
+      "romaji": "~kiro"
+    },
+    {
+      "no": 36,
+      "kana": "～グラム",
+      "kanji": "",
+      "arti": "Gram",
+      "romaji": "~guramu"
+    },
+    {
+      "no": 37,
+      "kana": "～センチ",
+      "kanji": "",
+      "arti": "Cm",
+      "romaji": "~senchi"
+    },
+    {
+      "no": 38,
+      "kana": "～ミリ",
+      "kanji": "",
+      "arti": "Mm",
+      "romaji": "~miri"
+    },
+    {
+      "no": 39,
+      "kana": "～いじょう",
+      "kanji": "～以上",
+      "arti": "Lebih dari",
+      "romaji": "~ijou"
+    },
+    {
+      "no": 40,
+      "kana": "～いか",
+      "kanji": "～以下",
+      "arti": "Kurang dari",
+      "romaji": "~ika"
+    },
+    {
+      "no": 41,
+      "kana": "さあ",
+      "kanji": "",
+      "arti": "Bagaimana ya?( jawaban yang belum pasti)",
+      "romaji": "saa"
+    },
+    {
+      "no": 42,
+      "kana": "どうでしょうか",
+      "kanji": "",
+      "arti": "Bagaimana ? (bentuk sopan dari どうですか)",
+      "romaji": "doudeshouka"
+    },
+    {
+      "no": 43,
+      "kana": "テスト",
+      "kanji": "",
+      "arti": "Ujian",
+      "romaji": "tesuto"
+    },
+    {
+      "no": 44,
+      "kana": "せいせき",
+      "kanji": "成績",
+      "arti": "Hasil, tanda prestasi",
+      "romaji": "seiseki"
+    },
+    {
+      "no": 45,
+      "kana": "ところで",
+      "kanji": "",
+      "arti": "Ngomong-ngomong",
+      "romaji": "tokorode"
+    },
+    {
+      "no": 46,
+      "kana": "いらっしゃいます",
+      "kanji": "",
+      "arti": "Datang (bentuk sopan dari きます)",
+      "romaji": "irasshaimasu"
+    },
+    {
+      "no": 47,
+      "kana": "ようす",
+      "kanji": "様子",
+      "arti": "Keadaan, sikap, tingkah laku",
+      "romaji": "yousu"
+    },
+    {
+      "no": 48,
+      "kana": "じけん",
+      "kanji": "事件",
+      "arti": "Peristiwa, perkara",
+      "romaji": "jiken"
+    },
+    {
+      "no": 49,
+      "kana": "オートバイ",
+      "kanji": "",
+      "arti": "Sepeda motor",
+      "romaji": "ootobai"
+    },
+    {
+      "no": 50,
+      "kana": "ばくだん",
+      "kanji": "爆弾",
+      "arti": "Bom",
+      "romaji": "bakudan"
+    },
+    {
+      "no": 51,
+      "kana": "つみます",
+      "kanji": "積みます",
+      "arti": "Memuat",
+      "romaji": "tsumimasu"
+    },
+    {
+      "no": 52,
+      "kana": "うんてんしゅ",
+      "kanji": "運転手",
+      "arti": "Supir",
+      "romaji": "untenshu"
+    },
+    {
+      "no": 53,
+      "kana": "はなれた",
+      "kanji": "離れた",
+      "arti": "Terpencil, jauh",
+      "romaji": "hanareta"
+    },
+    {
+      "no": 54,
+      "kana": "きゅうに",
+      "kanji": "急に",
+      "arti": "Tiba-tiba",
+      "romaji": "kyuuni"
+    },
+    {
+      "no": 55,
+      "kana": "うごかします",
+      "kanji": "動かします",
+      "arti": "Menjalankan",
+      "romaji": "ugokashimasu"
+    },
+    {
+      "no": 56,
+      "kana": "はんにん",
+      "kanji": "犯人",
+      "arti": "Pelaku kejahatan",
+      "romaji": "hannin"
+    },
+    {
+      "no": 57,
+      "kana": "てにいれます",
+      "kanji": "手に入れます",
+      "arti": "Mendapat, memperoleh",
+      "romaji": "teniiremasu"
+    },
+    {
+      "no": 58,
+      "kana": "いまでも",
+      "kanji": "今でも",
+      "arti": "Sekarangpun",
+      "romaji": "imademo"
+    },
+    {
+      "no": 59,
+      "kana": "うわさします",
+      "kanji": "",
+      "arti": "Menggunjing, menggosip",
+      "romaji": "uwasashimasu"
+    },
+    {
+      "no": 60,
+      "kana": "たんい",
+      "kanji": "単位",
+      "arti": "Ukuran",
+      "romaji": "tan'i"
+    },
+    {
+      "no": 61,
+      "kana": "せん",
+      "kanji": "線",
+      "arti": "Garis",
+      "romaji": "sen"
+    },
+    {
+      "no": 62,
+      "kana": "かたち",
+      "kanji": "形",
+      "arti": "Bentuk",
+      "romaji": "katachi"
+    },
+    {
+      "no": 63,
+      "kana": "もよう",
+      "kanji": "模様",
+      "arti": "Pola",
+      "romaji": "moyou"
+    },
+    {
+      "no": 64,
+      "kana": "めんせき",
+      "kanji": "面積",
+      "arti": "Luas",
+      "romaji": "menseki"
+    },
+    {
+      "no": 65,
+      "kana": "へいほうセンチメートル",
+      "kanji": "平方",
+      "arti": "Sentimeter persegi",
+      "romaji": "heihousenchimeetoru"
+    },
+    {
+      "no": 66,
+      "kana": "へいほうメートル",
+      "kanji": "",
+      "arti": "Meter persegi",
+      "romaji": "heihoumeetoru"
+    },
+    {
+      "no": 67,
+      "kana": "へいほうキロメートル",
+      "kanji": "",
+      "arti": "Kilometer persegi",
+      "romaji": "heihoukiromeetoru"
+    },
+    {
+      "no": 68,
+      "kana": "ミリメートル",
+      "kanji": "",
+      "arti": "Milimeter",
+      "romaji": "mirimeetoru"
+    },
+    {
+      "no": 69,
+      "kana": "センチメートル",
+      "kanji": "",
+      "arti": "Centimeter",
+      "romaji": "senchimeetoru"
+    },
+    {
+      "no": 70,
+      "kana": "メートル",
+      "kanji": "",
+      "arti": "Meter",
+      "romaji": "meetoru"
+    },
+    {
+      "no": 71,
+      "kana": "キロメートル",
+      "kanji": "",
+      "arti": "Kilometer",
+      "romaji": "kiromeetoru"
+    },
+    {
+      "no": 72,
+      "kana": "たいせき／ようせき",
+      "kanji": "体積／容積",
+      "arti": "Volume",
+      "romaji": "taiseki/youseki"
+    },
+    {
+      "no": 73,
+      "kana": "りっぽうセンチメートル",
+      "kanji": "立方",
+      "arti": "Sentimeter kubik",
+      "romaji": "rippousenchimeetoru"
+    },
+    {
+      "no": 74,
+      "kana": "りっぽうメートル",
+      "kanji": "",
+      "arti": "Meter kubik",
+      "romaji": "rippoumeetoru"
+    },
+    {
+      "no": 75,
+      "kana": "ミリリットル",
+      "kanji": "",
+      "arti": "Mililiter",
+      "romaji": "miririttoru"
+    },
+    {
+      "no": 76,
+      "kana": "シーシー",
+      "kanji": "",
+      "arti": "Cc",
+      "romaji": "shiishii"
+    },
+    {
+      "no": 77,
+      "kana": "リットル",
+      "kanji": "",
+      "arti": "Liter",
+      "romaji": "rittoru"
+    },
+    {
+      "no": 78,
+      "kana": "ミリグラム",
+      "kanji": "",
+      "arti": "Miligram",
+      "romaji": "miriguramu"
+    },
+    {
+      "no": 79,
+      "kana": "グラム",
+      "kanji": "",
+      "arti": "Gram",
+      "romaji": "guramu"
+    },
+    {
+      "no": 80,
+      "kana": "キログラム",
+      "kanji": "",
+      "arti": "Kilogram",
+      "romaji": "kiroguramu"
+    },
+    {
+      "no": 81,
+      "kana": "トン",
+      "kanji": "",
+      "arti": "Ton",
+      "romaji": "ton"
+    },
+    {
+      "no": 82,
+      "kana": "けいさん",
+      "kanji": "計算",
+      "arti": "Hitungan",
+      "romaji": "keisan"
+    },
+    {
+      "no": 83,
+      "kana": "たす",
+      "kanji": "",
+      "arti": "Tambah",
+      "romaji": "tasu"
+    },
+    {
+      "no": 84,
+      "kana": "ひく",
+      "kanji": "",
+      "arti": "Kurang",
+      "romaji": "hiku"
+    },
+    {
+      "no": 85,
+      "kana": "かける",
+      "kanji": "",
+      "arti": "Kali",
+      "romaji": "kakeru"
+    },
+    {
+      "no": 86,
+      "kana": "わる",
+      "kanji": "",
+      "arti": "Bagi",
+      "romaji": "waru"
+    },
+    {
+      "no": 87,
+      "kana": "は（イコール）",
+      "kanji": "",
+      "arti": "Sama dengan",
+      "romaji": "ha(ikooru)"
+    },
+    {
+      "no": 88,
+      "kana": "ちょくせん",
+      "kanji": "直線",
+      "arti": "Garis lurus",
+      "romaji": "chokusen"
+    },
+    {
+      "no": 89,
+      "kana": "きょくせん",
+      "kanji": "曲線",
+      "arti": "Garis lengkung",
+      "romaji": "kyokusen"
+    },
+    {
+      "no": 90,
+      "kana": "てんせん",
+      "kanji": "点線",
+      "arti": "Garis titik-titik",
+      "romaji": "tensen"
+    },
+    {
+      "no": 91,
+      "kana": "えん（まる）",
+      "kanji": "円（丸）",
+      "arti": "Lingkaran",
+      "romaji": "en(maru)"
+    },
+    {
+      "no": 92,
+      "kana": "さんかくけい",
+      "kanji": "三角形",
+      "arti": "Segitiga",
+      "romaji": "sankakukei"
+    },
+    {
+      "no": 93,
+      "kana": "しかくけい",
+      "kanji": "四角形",
+      "arti": "Segiempat",
+      "romaji": "shikakukei"
+    },
+    {
+      "no": 94,
+      "kana": "たてじま",
+      "kanji": "縦じま",
+      "arti": "Garis vertikal",
+      "romaji": "tatejima"
+    },
+    {
+      "no": 95,
+      "kana": "よこじま",
+      "kanji": "横じま",
+      "arti": "Garis horisontal",
+      "romaji": "yokojima"
+    },
+    {
+      "no": 96,
+      "kana": "チェック",
+      "kanji": "",
+      "arti": "Kotak-kotak",
+      "romaji": "chekku"
+    },
+    {
+      "no": 97,
+      "kana": "みずたま",
+      "kanji": "水玉",
+      "arti": "Polkadot",
+      "romaji": "mizutama"
+    },
+    {
+      "no": 98,
+      "kana": "はながら",
+      "kanji": "花柄",
+      "arti": "Motif bunga",
+      "romaji": "hanagara"
+    },
+    {
+      "no": 99,
+      "kana": "むじ",
+      "kanji": "無地",
+      "arti": "Polos",
+      "romaji": "muji"
+    }
+  ]
+}

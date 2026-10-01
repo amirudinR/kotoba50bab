@@ -1,0 +1,271 @@
+{
+  "bab": 1,
+  "items": [
+    {
+      "no": 1,
+      "kana": "わたし",
+      "kanji": "私",
+      "arti": "Saya",
+      "romaji": "watashi"
+    },
+    {
+      "no": 2,
+      "kana": "あなた",
+      "kanji": "",
+      "arti": "Kamu",
+      "romaji": "anata"
+    },
+    {
+      "no": 3,
+      "kana": "あのひと",
+      "kanji": "あの人",
+      "arti": "Orang itu (biasa)",
+      "romaji": "anohito"
+    },
+    {
+      "no": 4,
+      "kana": "あのかた",
+      "kanji": "あの方",
+      "arti": "Orang itu (sopan)",
+      "romaji": "anokata"
+    },
+    {
+      "no": 5,
+      "kana": "～さん",
+      "kanji": "",
+      "arti": "Saudara…….",
+      "romaji": "~san"
+    },
+    {
+      "no": 6,
+      "kana": "～ちゃん",
+      "kanji": "",
+      "arti": "Panggilan untuk anak laki/perempuan",
+      "romaji": "~chan"
+    },
+    {
+      "no": 7,
+      "kana": "～じん",
+      "kanji": "～人",
+      "arti": "Orang…….",
+      "romaji": "~jin"
+    },
+    {
+      "no": 8,
+      "kana": "せんせい",
+      "kanji": "先生",
+      "arti": "Guru,dosen",
+      "romaji": "sensei"
+    },
+    {
+      "no": 9,
+      "kana": "きょうし",
+      "kanji": "教師",
+      "arti": "Guru,dosen (dipakai untuk kalangan sendiri)",
+      "romaji": "kyoushi"
+    },
+    {
+      "no": 10,
+      "kana": "がくせい",
+      "kanji": "学生",
+      "arti": "Siswa,murid",
+      "romaji": "gakusei"
+    },
+    {
+      "no": 11,
+      "kana": "かいしゃいん",
+      "kanji": "会社員",
+      "arti": "Pegawai perusahaan",
+      "romaji": "kaishain"
+    },
+    {
+      "no": 12,
+      "kana": "しゃいん",
+      "kanji": "社員",
+      "arti": "Pegawai perusahaan",
+      "romaji": "shain"
+    },
+    {
+      "no": 13,
+      "kana": "ぎんこういん",
+      "kanji": "銀行員",
+      "arti": "Pegawai bank",
+      "romaji": "ginkouin"
+    },
+    {
+      "no": 14,
+      "kana": "いしゃ",
+      "kanji": "医者",
+      "arti": "Dokter",
+      "romaji": "isha"
+    },
+    {
+      "no": 15,
+      "kana": "けんきゅうしゃ",
+      "kanji": "研究者",
+      "arti": "Peneliti",
+      "romaji": "kenkyuusha"
+    },
+    {
+      "no": 16,
+      "kana": "だいがく",
+      "kanji": "大学",
+      "arti": "Universitas",
+      "romaji": "daigaku"
+    },
+    {
+      "no": 17,
+      "kana": "びょういん",
+      "kanji": "病院",
+      "arti": "Rumah sakit",
+      "romaji": "byouin"
+    },
+    {
+      "no": 18,
+      "kana": "だれ",
+      "kanji": "",
+      "arti": "Siapa (biasa)",
+      "romaji": "dare"
+    },
+    {
+      "no": 19,
+      "kana": "どなた",
+      "kanji": "",
+      "arti": "Siapa (sopan)",
+      "romaji": "donata"
+    },
+    {
+      "no": 20,
+      "kana": "～さい",
+      "kanji": "～歳",
+      "arti": "Umur…..",
+      "romaji": "~sai"
+    },
+    {
+      "no": 21,
+      "kana": "なんさい",
+      "kanji": "何歳",
+      "arti": "Umur berapa?(biasa)",
+      "romaji": "nansai"
+    },
+    {
+      "no": 22,
+      "kana": "おいくつ",
+      "kanji": "",
+      "arti": "Umur berapa?(sopan)",
+      "romaji": "oikutsu"
+    },
+    {
+      "no": 23,
+      "kana": "はい",
+      "kanji": "",
+      "arti": "Iya",
+      "romaji": "hai"
+    },
+    {
+      "no": 24,
+      "kana": "いいえ",
+      "kanji": "",
+      "arti": "Tidak",
+      "romaji": "iie"
+    },
+    {
+      "no": 25,
+      "kana": "はじめまして",
+      "kanji": "",
+      "arti": "Perkenalkan",
+      "romaji": "hajimemashite"
+    },
+    {
+      "no": 26,
+      "kana": "～からきました",
+      "kanji": "～から来ました",
+      "arti": "Datang dari…..",
+      "romaji": "~karakimashita"
+    },
+    {
+      "no": 27,
+      "kana": "どうぞよろしくおねがいします",
+      "kanji": "どうぞよろしくお願します",
+      "arti": "Terimalah perkenalan saya",
+      "romaji": "douzoyoroshikuonegaishimasu"
+    },
+    {
+      "no": 28,
+      "kana": "しつれいですが",
+      "kanji": "失礼ですが",
+      "arti": "Permisi",
+      "romaji": "shitsureidesuga"
+    },
+    {
+      "no": 29,
+      "kana": "おなまえは",
+      "kanji": "お名前は",
+      "arti": "Nama anda siapa?",
+      "romaji": "onamaeha"
+    },
+    {
+      "no": 30,
+      "kana": "アメリカ",
+      "kanji": "",
+      "arti": "Amerika",
+      "romaji": "amerika"
+    },
+    {
+      "no": 31,
+      "kana": "イギリス",
+      "kanji": "",
+      "arti": "Inggris",
+      "romaji": "igirisu"
+    },
+    {
+      "no": 32,
+      "kana": "インド",
+      "kanji": "",
+      "arti": "India",
+      "romaji": "indo"
+    },
+    {
+      "no": 33,
+      "kana": "インドネシア",
+      "kanji": "",
+      "arti": "Indonesia",
+      "romaji": "indoneshia"
+    },
+    {
+      "no": 34,
+      "kana": "かんこく",
+      "kanji": "韓国",
+      "arti": "Korea",
+      "romaji": "kankoku"
+    },
+    {
+      "no": 35,
+      "kana": "ちゅうごく",
+      "kanji": "中国",
+      "arti": "China",
+      "romaji": "chuugoku"
+    },
+    {
+      "no": 36,
+      "kana": "ドイツ",
+      "kanji": "",
+      "arti": "Jerman",
+      "romaji": "doitsu"
+    },
+    {
+      "no": 37,
+      "kana": "にほん",
+      "kanji": "日本",
+      "arti": "Jepang",
+      "romaji": "nihon"
+    },
+    {
+      "no": 38,
+      "kana": "フランス",
+      "kanji": "",
+      "arti": "Perancis",
+      "romaji": "furansu"
+    }
+  ]
+}

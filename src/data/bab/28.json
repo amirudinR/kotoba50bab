@@ -1,0 +1,341 @@
+{
+  "bab": 28,
+  "items": [
+    {
+      "no": 1,
+      "kana": "うれます （が）",
+      "kanji": "売れます",
+      "arti": "Terjual",
+      "romaji": "uremasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "おどります",
+      "kanji": "踊ります",
+      "arti": "Menari",
+      "romaji": "odorimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かみます",
+      "kanji": "",
+      "arti": "Mengunyah, menggigit",
+      "romaji": "kamimasu"
+    },
+    {
+      "no": 4,
+      "kana": "えらびます",
+      "kanji": "選びます",
+      "arti": "Memilih",
+      "romaji": "erabimasu"
+    },
+    {
+      "no": 5,
+      "kana": "ちがいます",
+      "kanji": "違います",
+      "arti": "Berbeda",
+      "romaji": "chigaimasu"
+    },
+    {
+      "no": 6,
+      "kana": "かよいます （に）",
+      "kanji": "通います",
+      "arti": "Pulang pergi",
+      "romaji": "kayoimasu (ni)"
+    },
+    {
+      "no": 7,
+      "kana": "メモします",
+      "kanji": "",
+      "arti": "Membuat catatan",
+      "romaji": "memoshimasu"
+    },
+    {
+      "no": 8,
+      "kana": "まじめな",
+      "kanji": "",
+      "arti": "Rajin,sungguh-sungguh",
+      "romaji": "majimena"
+    },
+    {
+      "no": 9,
+      "kana": "ねっしんな",
+      "kanji": "熱心な",
+      "arti": "Tekun",
+      "romaji": "nesshinna"
+    },
+    {
+      "no": 10,
+      "kana": "やさしい",
+      "kanji": "優しい",
+      "arti": "Lemah lembut, baik hati",
+      "romaji": "yasashii"
+    },
+    {
+      "no": 11,
+      "kana": "えらい",
+      "kanji": "偉い",
+      "arti": "Hebat",
+      "romaji": "erai"
+    },
+    {
+      "no": 12,
+      "kana": "ちょうどいい",
+      "kanji": "",
+      "arti": "Pas benar, cocok betul",
+      "romaji": "choudoii"
+    },
+    {
+      "no": 13,
+      "kana": "しゅうかん",
+      "kanji": "週間",
+      "arti": "kebiasaan",
+      "romaji": "shuukan"
+    },
+    {
+      "no": 14,
+      "kana": "けいけん",
+      "kanji": "経験",
+      "arti": "Pengalaman",
+      "romaji": "keiken"
+    },
+    {
+      "no": 15,
+      "kana": "きゅうりょう",
+      "kanji": "給料",
+      "arti": "Gaji",
+      "romaji": "kyuuryou"
+    },
+    {
+      "no": 16,
+      "kana": "ボーナス",
+      "kanji": "",
+      "arti": "Bonus",
+      "romaji": "boonasu"
+    },
+    {
+      "no": 17,
+      "kana": "ばんぐみ",
+      "kanji": "番組",
+      "arti": "Acara, program",
+      "romaji": "bangumi"
+    },
+    {
+      "no": 18,
+      "kana": "ドラマ",
+      "kanji": "",
+      "arti": "Drama",
+      "romaji": "dorama"
+    },
+    {
+      "no": 19,
+      "kana": "しょうせつ",
+      "kanji": "小説",
+      "arti": "Roman,novel",
+      "romaji": "shousetsu"
+    },
+    {
+      "no": 20,
+      "kana": "しょうせつか",
+      "kanji": "小説家",
+      "arti": "Pengarang cerita novel",
+      "romaji": "shousetsuka"
+    },
+    {
+      "no": 21,
+      "kana": "かしゅ",
+      "kanji": "歌手",
+      "arti": "Penyanyi",
+      "romaji": "kashu"
+    },
+    {
+      "no": 22,
+      "kana": "かんりにん",
+      "kanji": "管理人",
+      "arti": "Pengawas, penjaga",
+      "romaji": "kanrinin"
+    },
+    {
+      "no": 23,
+      "kana": "むすこ",
+      "kanji": "息子",
+      "arti": "Putra (sendiri)",
+      "romaji": "musuko"
+    },
+    {
+      "no": 24,
+      "kana": "むすこさん",
+      "kanji": "息子さん",
+      "arti": "Putra (orang lain)",
+      "romaji": "musukosan"
+    },
+    {
+      "no": 25,
+      "kana": "むすめ",
+      "kanji": "娘",
+      "arti": "Putri sendiri",
+      "romaji": "musume"
+    },
+    {
+      "no": 26,
+      "kana": "むすめさん",
+      "kanji": "娘さん",
+      "arti": "Putri (orang lain)",
+      "romaji": "musumesan"
+    },
+    {
+      "no": 27,
+      "kana": "じぶん",
+      "kanji": "自分",
+      "arti": "Sendiri",
+      "romaji": "jibun"
+    },
+    {
+      "no": 28,
+      "kana": "しょうらい",
+      "kanji": "将来",
+      "arti": "Masa depan, hari depan",
+      "romaji": "shourai"
+    },
+    {
+      "no": 29,
+      "kana": "しばらく",
+      "kanji": "",
+      "arti": "Sementara,sementara waktu,sebentar",
+      "romaji": "shibaraku"
+    },
+    {
+      "no": 30,
+      "kana": "たいてい",
+      "kanji": "",
+      "arti": "Biasanya, kebanyakan",
+      "romaji": "taitei"
+    },
+    {
+      "no": 31,
+      "kana": "それに",
+      "kanji": "",
+      "arti": "Dan lagi",
+      "romaji": "soreni"
+    },
+    {
+      "no": 32,
+      "kana": "それで",
+      "kanji": "",
+      "arti": "Jadi,lalu",
+      "romaji": "sorede"
+    },
+    {
+      "no": 33,
+      "kana": "ちょっとおねがいがある",
+      "kanji": "",
+      "arti": "Ada sedikit permintaan",
+      "romaji": "chottoonegaigaaru"
+    },
+    {
+      "no": 34,
+      "kana": "ホームステイ",
+      "kanji": "",
+      "arti": "Homestay",
+      "romaji": "hoomusutei"
+    },
+    {
+      "no": 35,
+      "kana": "かいわ",
+      "kanji": "会話",
+      "arti": "Percakapan",
+      "romaji": "kaiwa"
+    },
+    {
+      "no": 36,
+      "kana": "おしゃべりします",
+      "kanji": "",
+      "arti": "Ngobrol",
+      "romaji": "oshaberishimasu"
+    },
+    {
+      "no": 37,
+      "kana": "おしらせ",
+      "kanji": "お知らせ",
+      "arti": "Pengumuman, pemberitahuan",
+      "romaji": "oshirase"
+    },
+    {
+      "no": 38,
+      "kana": "ひにち",
+      "kanji": "日にち",
+      "arti": "Tanggal",
+      "romaji": "hinichi"
+    },
+    {
+      "no": 39,
+      "kana": "たいいくかん",
+      "kanji": "体育館",
+      "arti": "Ruang/gedung olahraga",
+      "romaji": "taiikukan"
+    },
+    {
+      "no": 40,
+      "kana": "むりょう",
+      "kanji": "無料",
+      "arti": "Gratis",
+      "romaji": "muryou"
+    },
+    {
+      "no": 41,
+      "kana": "ちから",
+      "kanji": "力",
+      "arti": "Kekuatan , tenaga",
+      "romaji": "chikara"
+    },
+    {
+      "no": 42,
+      "kana": "にんき",
+      "kanji": "人気",
+      "arti": "Popularitas",
+      "romaji": "ninki"
+    },
+    {
+      "no": 43,
+      "kana": "かたち",
+      "kanji": "形",
+      "arti": "Bentuk",
+      "romaji": "katachi"
+    },
+    {
+      "no": 44,
+      "kana": "いろ",
+      "kanji": "色",
+      "arti": "Warna",
+      "romaji": "iro"
+    },
+    {
+      "no": 45,
+      "kana": "あじ",
+      "kanji": "味",
+      "arti": "Rasa",
+      "romaji": "aji"
+    },
+    {
+      "no": 46,
+      "kana": "ガム",
+      "kanji": "",
+      "arti": "Permen karet",
+      "romaji": "gamu"
+    },
+    {
+      "no": 47,
+      "kana": "しなもの",
+      "kanji": "品物",
+      "arti": "Barang",
+      "romaji": "shinamono"
+    },
+    {
+      "no": 48,
+      "kana": "ねだん",
+      "kanji": "値段",
+      "arti": "Harga",
+      "romaji": "nedan"
+    }
+  ]
+}

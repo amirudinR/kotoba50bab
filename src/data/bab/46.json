@@ -1,0 +1,614 @@
+{
+  "bab": 46,
+  "items": [
+    {
+      "no": 1,
+      "kana": "やきます",
+      "kanji": "焼きます",
+      "arti": "Membakar",
+      "romaji": "yakimasu"
+    },
+    {
+      "no": 2,
+      "kana": "わたします",
+      "kanji": "渡します",
+      "arti": "Menyerahkan",
+      "romaji": "watashimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かえってきます",
+      "kanji": "帰って来ます",
+      "arti": "Kembali lagi",
+      "romaji": "kaettekimasu"
+    },
+    {
+      "no": 4,
+      "kana": "でます （が）",
+      "kanji": "出ます",
+      "arti": "Berangkat (bis)",
+      "romaji": "demasu (ga)"
+    },
+    {
+      "no": 5,
+      "kana": "るす",
+      "kanji": "留守",
+      "arti": "Tidak ada di rumah",
+      "romaji": "rusu"
+    },
+    {
+      "no": 6,
+      "kana": "たくはいびん",
+      "kanji": "宅配便",
+      "arti": "Jasa pengatnatan barang",
+      "romaji": "takuhaibin"
+    },
+    {
+      "no": 7,
+      "kana": "げんいん",
+      "kanji": "原因",
+      "arti": "Penyebab",
+      "romaji": "gen'in"
+    },
+    {
+      "no": 8,
+      "kana": "ちゅうしゃ",
+      "kanji": "注射",
+      "arti": "Suntikan",
+      "romaji": "chuusha"
+    },
+    {
+      "no": 9,
+      "kana": "しょくよく",
+      "kanji": "",
+      "arti": "Nafsu makan",
+      "romaji": "shokuyoku"
+    },
+    {
+      "no": 10,
+      "kana": "パンフレット",
+      "kanji": "",
+      "arti": "Pamflet, brosur",
+      "romaji": "panfuretto"
+    },
+    {
+      "no": 11,
+      "kana": "ステレオ",
+      "kanji": "",
+      "arti": "Stereo",
+      "romaji": "sutereo"
+    },
+    {
+      "no": 12,
+      "kana": "こちら",
+      "kanji": "",
+      "arti": "Sebelah sini",
+      "romaji": "kochira"
+    },
+    {
+      "no": 13,
+      "kana": "～のところ",
+      "kanji": "～の所",
+      "arti": "Sekitar---",
+      "romaji": "~notokoro"
+    },
+    {
+      "no": 14,
+      "kana": "ちょうど",
+      "kanji": "",
+      "arti": "Pas, tepat",
+      "romaji": "choudo"
+    },
+    {
+      "no": 15,
+      "kana": "たったいま",
+      "kanji": "たった今",
+      "arti": "Baru saja",
+      "romaji": "tattaima"
+    },
+    {
+      "no": 16,
+      "kana": "いまいいでしょうか",
+      "kanji": "",
+      "arti": "Bolehkah saya bicara sekarang",
+      "romaji": "imaiideshouka"
+    },
+    {
+      "no": 17,
+      "kana": "ガスサービスセンター",
+      "kanji": "",
+      "arti": "Pusat pelayanan gas",
+      "romaji": "gasusaabisusentaa"
+    },
+    {
+      "no": 18,
+      "kana": "ガスレンジ",
+      "kanji": "",
+      "arti": "Tungku gas",
+      "romaji": "gasurenji"
+    },
+    {
+      "no": 19,
+      "kana": "ぐあい",
+      "kanji": "具合",
+      "arti": "Keadaan",
+      "romaji": "guai"
+    },
+    {
+      "no": 20,
+      "kana": "どちらさまでしょうか",
+      "kanji": "",
+      "arti": "Anda siapa?",
+      "romaji": "dochirasamadeshouka"
+    },
+    {
+      "no": 21,
+      "kana": "むかいます",
+      "kanji": "向かいます",
+      "arti": "Menuju ke",
+      "romaji": "mukaimasu"
+    },
+    {
+      "no": 22,
+      "kana": "おまたせしました",
+      "kanji": "お待たせしました",
+      "arti": "Maaf anda telah menunggu lama",
+      "romaji": "omataseshimashita"
+    },
+    {
+      "no": 23,
+      "kana": "ちしき",
+      "kanji": "知識",
+      "arti": "Pengetahuan",
+      "romaji": "chishiki"
+    },
+    {
+      "no": 24,
+      "kana": "ほうこ",
+      "kanji": "宝庫",
+      "arti": "Khazanah",
+      "romaji": "houko"
+    },
+    {
+      "no": 25,
+      "kana": "てにはいります （が）",
+      "kanji": "手に入ります",
+      "arti": "Mendapatkan (informasi)",
+      "romaji": "tenihairimasu (ga)"
+    },
+    {
+      "no": 26,
+      "kana": "システム",
+      "kanji": "",
+      "arti": "Sistem",
+      "romaji": "shisutemu"
+    },
+    {
+      "no": 27,
+      "kana": "キーワード",
+      "kanji": "",
+      "arti": "Kata kunci",
+      "romaji": "kiiwaado"
+    },
+    {
+      "no": 28,
+      "kana": "いちぶぶん",
+      "kanji": "一部分",
+      "arti": "Satu bagian",
+      "romaji": "ichibubun"
+    },
+    {
+      "no": 29,
+      "kana": "にゅうりょくします",
+      "kanji": "入力します",
+      "arti": "Memasukkan",
+      "romaji": "nyuuryokushimasu"
+    },
+    {
+      "no": 30,
+      "kana": "びょう",
+      "kanji": "秒",
+      "arti": "Detik",
+      "romaji": "byou"
+    },
+    {
+      "no": 31,
+      "kana": "ジャム",
+      "kanji": "",
+      "arti": "Selai",
+      "romaji": "jamu"
+    },
+    {
+      "no": 32,
+      "kana": "ハム",
+      "kanji": "",
+      "arti": "Ham",
+      "romaji": "hamu"
+    },
+    {
+      "no": 33,
+      "kana": "クッキー",
+      "kanji": "",
+      "arti": "Biskuit",
+      "romaji": "kukkii"
+    },
+    {
+      "no": 34,
+      "kana": "チーズ",
+      "kanji": "",
+      "arti": "Keju",
+      "romaji": "chiizu"
+    },
+    {
+      "no": 35,
+      "kana": "エプロン",
+      "kanji": "",
+      "arti": "Celemek",
+      "romaji": "epuron"
+    },
+    {
+      "no": 36,
+      "kana": "スカート",
+      "kanji": "",
+      "arti": "Rok",
+      "romaji": "sukaato"
+    },
+    {
+      "no": 37,
+      "kana": "スーツ",
+      "kanji": "",
+      "arti": "Setelan",
+      "romaji": "suutsu"
+    },
+    {
+      "no": 38,
+      "kana": "インフルエンザ",
+      "kanji": "",
+      "arti": "Flu",
+      "romaji": "infuruenza"
+    },
+    {
+      "no": 39,
+      "kana": "ストレス",
+      "kanji": "",
+      "arti": "Stress",
+      "romaji": "sutoresu"
+    },
+    {
+      "no": 40,
+      "kana": "ドラマ",
+      "kanji": "",
+      "arti": "Drama",
+      "romaji": "dorama"
+    },
+    {
+      "no": 41,
+      "kana": "コーラス",
+      "kanji": "",
+      "arti": "Paduan suara",
+      "romaji": "koorasu"
+    },
+    {
+      "no": 42,
+      "kana": "メロディー",
+      "kanji": "",
+      "arti": "Melodi",
+      "romaji": "merodii"
+    },
+    {
+      "no": 43,
+      "kana": "スケジュール",
+      "kanji": "",
+      "arti": "Jadwal",
+      "romaji": "sukejuuru"
+    },
+    {
+      "no": 44,
+      "kana": "ティッシュペーパー",
+      "kanji": "",
+      "arti": "Tisu",
+      "romaji": "teisshupeepaa"
+    },
+    {
+      "no": 45,
+      "kana": "トラブル",
+      "kanji": "",
+      "arti": "Kesulitan",
+      "romaji": "toraburu"
+    },
+    {
+      "no": 46,
+      "kana": "レジャー",
+      "kanji": "",
+      "arti": "Waktu santai",
+      "romaji": "rejaa"
+    },
+    {
+      "no": 47,
+      "kana": "コロッケ",
+      "kanji": "",
+      "arti": "Kroket",
+      "romaji": "korokke"
+    },
+    {
+      "no": 48,
+      "kana": "オムレツ",
+      "kanji": "",
+      "arti": "Telur dadar",
+      "romaji": "omuretsu"
+    },
+    {
+      "no": 49,
+      "kana": "ピーマン",
+      "kanji": "",
+      "arti": "Paprika",
+      "romaji": "piiman"
+    },
+    {
+      "no": 50,
+      "kana": "ズボン",
+      "kanji": "",
+      "arti": "Celana",
+      "romaji": "zubon"
+    },
+    {
+      "no": 51,
+      "kana": "ランジェリー",
+      "kanji": "",
+      "arti": "Pakaian dalam wanita",
+      "romaji": "ranjierii"
+    },
+    {
+      "no": 52,
+      "kana": "キュロット",
+      "kanji": "",
+      "arti": "Kulot",
+      "romaji": "kyurotto"
+    },
+    {
+      "no": 53,
+      "kana": "バレエ",
+      "kanji": "",
+      "arti": "Balet",
+      "romaji": "baree"
+    },
+    {
+      "no": 54,
+      "kana": "シャンソン",
+      "kanji": "",
+      "arti": "Lagu rakyat perancis",
+      "romaji": "shanson"
+    },
+    {
+      "no": 55,
+      "kana": "アトリエ",
+      "kanji": "",
+      "arti": "Studio",
+      "romaji": "atorie"
+    },
+    {
+      "no": 56,
+      "kana": "アンケート",
+      "kanji": "",
+      "arti": "Angket",
+      "romaji": "ankeeto"
+    },
+    {
+      "no": 57,
+      "kana": "コンクール",
+      "kanji": "",
+      "arti": "Konkurensi",
+      "romaji": "konkuuru"
+    },
+    {
+      "no": 58,
+      "kana": "ピエロ",
+      "kanji": "",
+      "arti": "Badut",
+      "romaji": "piero"
+    },
+    {
+      "no": 59,
+      "kana": "フランクフルト",
+      "kanji": "",
+      "arti": "Frankurt",
+      "romaji": "furankufuruto"
+    },
+    {
+      "no": 60,
+      "kana": "ソーセージ",
+      "kanji": "",
+      "arti": "Sosis",
+      "romaji": "sooseeji"
+    },
+    {
+      "no": 61,
+      "kana": "レントゲン",
+      "kanji": "",
+      "arti": "Sinar rontgen",
+      "romaji": "rentogen"
+    },
+    {
+      "no": 62,
+      "kana": "ノイローゼ",
+      "kanji": "",
+      "arti": "Sakit saraf",
+      "romaji": "noirooze"
+    },
+    {
+      "no": 63,
+      "kana": "アレルギー",
+      "kanji": "",
+      "arti": "Alergi",
+      "romaji": "arerugii"
+    },
+    {
+      "no": 64,
+      "kana": "メルヘン",
+      "kanji": "",
+      "arti": "Cerita dongeng",
+      "romaji": "meruhen"
+    },
+    {
+      "no": 65,
+      "kana": "アルバイト",
+      "kanji": "",
+      "arti": "Kerja sambilan",
+      "romaji": "arubaito"
+    },
+    {
+      "no": 66,
+      "kana": "エネルギー",
+      "kanji": "",
+      "arti": "Energi",
+      "romaji": "enerugii"
+    },
+    {
+      "no": 67,
+      "kana": "ゲレンデ",
+      "kanji": "",
+      "arti": "Tempat bermain ski",
+      "romaji": "gerende"
+    },
+    {
+      "no": 68,
+      "kana": "テーマ",
+      "kanji": "",
+      "arti": "Tema",
+      "romaji": "teema"
+    },
+    {
+      "no": 69,
+      "kana": "ビール",
+      "kanji": "",
+      "arti": "Bir",
+      "romaji": "biiru"
+    },
+    {
+      "no": 70,
+      "kana": "コーヒー",
+      "kanji": "",
+      "arti": "Kopi",
+      "romaji": "koohii"
+    },
+    {
+      "no": 71,
+      "kana": "ズック",
+      "kanji": "",
+      "arti": "Sepatu karet",
+      "romaji": "zukku"
+    },
+    {
+      "no": 72,
+      "kana": "ホック",
+      "kanji": "",
+      "arti": "Kancing hak",
+      "romaji": "hokku"
+    },
+    {
+      "no": 73,
+      "kana": "メス",
+      "kanji": "",
+      "arti": "Pisau bedah",
+      "romaji": "mesu"
+    },
+    {
+      "no": 74,
+      "kana": "ピンセット",
+      "kanji": "",
+      "arti": "Pinset",
+      "romaji": "pinsetto"
+    },
+    {
+      "no": 75,
+      "kana": "ゴム",
+      "kanji": "",
+      "arti": "Karet",
+      "romaji": "gomu"
+    },
+    {
+      "no": 76,
+      "kana": "ペンキ",
+      "kanji": "",
+      "arti": "Cat",
+      "romaji": "penki"
+    },
+    {
+      "no": 77,
+      "kana": "ガラス",
+      "kanji": "",
+      "arti": "Kaca",
+      "romaji": "garasu"
+    },
+    {
+      "no": 78,
+      "kana": "コック",
+      "kanji": "",
+      "arti": "Koki",
+      "romaji": "kokku"
+    },
+    {
+      "no": 79,
+      "kana": "パン",
+      "kanji": "",
+      "arti": "Roti",
+      "romaji": "pan"
+    },
+    {
+      "no": 80,
+      "kana": "カステラ",
+      "kanji": "",
+      "arti": "Sponge cake",
+      "romaji": "kasutera"
+    },
+    {
+      "no": 81,
+      "kana": "ビロード",
+      "kanji": "",
+      "arti": "Beludru",
+      "romaji": "biroodo"
+    },
+    {
+      "no": 82,
+      "kana": "チョッキ",
+      "kanji": "",
+      "arti": "Rompi",
+      "romaji": "chokki"
+    },
+    {
+      "no": 83,
+      "kana": "カルタ",
+      "kanji": "",
+      "arti": "Kartu",
+      "romaji": "karuta"
+    },
+    {
+      "no": 84,
+      "kana": "マカロニ",
+      "kanji": "",
+      "arti": "Makaroni",
+      "romaji": "makaroni"
+    },
+    {
+      "no": 85,
+      "kana": "スパゲッティ",
+      "kanji": "",
+      "arti": "Spageti",
+      "romaji": "supagettei"
+    },
+    {
+      "no": 86,
+      "kana": "オペラ",
+      "kanji": "",
+      "arti": "Opera",
+      "romaji": "opera"
+    },
+    {
+      "no": 87,
+      "kana": "バレリーナ",
+      "kanji": "",
+      "arti": "Ballerina",
+      "romaji": "bareriina"
+    }
+  ]
+}

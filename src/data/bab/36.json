@@ -1,0 +1,516 @@
+{
+  "bab": 36,
+  "items": [
+    {
+      "no": 1,
+      "kana": "とどきます （が）",
+      "kanji": "届きます",
+      "arti": "Sampai (barang)",
+      "romaji": "todokimasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "でます （に）",
+      "kanji": "出ます",
+      "arti": "Ikut (pertandingan)",
+      "romaji": "demasu (ni)"
+    },
+    {
+      "no": 3,
+      "kana": "うちます （を）",
+      "kanji": "打ちます",
+      "arti": "Mengetik",
+      "romaji": "uchimasu (wo)"
+    },
+    {
+      "no": 4,
+      "kana": "ちょきんします",
+      "kanji": "貯金します",
+      "arti": "Menabung",
+      "romaji": "chokinshimasu"
+    },
+    {
+      "no": 5,
+      "kana": "ふとります",
+      "kanji": "太ります",
+      "arti": "Menjadi gemuk",
+      "romaji": "futorimasu"
+    },
+    {
+      "no": 6,
+      "kana": "やせます",
+      "kanji": "",
+      "arti": "Menjadi kurus",
+      "romaji": "yasemasu"
+    },
+    {
+      "no": 7,
+      "kana": "すぎます （７じを）",
+      "kanji": "過ぎます",
+      "arti": "Berlalu,melewati (pukul 7)",
+      "romaji": "sugimasu (7jiwo)"
+    },
+    {
+      "no": 8,
+      "kana": "なれます （に）",
+      "kanji": "慣れます",
+      "arti": "Terbiasa",
+      "romaji": "naremasu (ni)"
+    },
+    {
+      "no": 9,
+      "kana": "かたい",
+      "kanji": "硬い",
+      "arti": "Keras",
+      "romaji": "katai"
+    },
+    {
+      "no": 10,
+      "kana": "やわらかい",
+      "kanji": "軟らかい",
+      "arti": "Lunak",
+      "romaji": "yawarakai"
+    },
+    {
+      "no": 11,
+      "kana": "でんし～",
+      "kanji": "電子～",
+      "arti": "- elektronik",
+      "romaji": "denshi~"
+    },
+    {
+      "no": 12,
+      "kana": "けいたい～",
+      "kanji": "携帯～",
+      "arti": "- yang mudah dibawa",
+      "romaji": "keitai~"
+    },
+    {
+      "no": 13,
+      "kana": "こうじょう",
+      "kanji": "工場",
+      "arti": "Pabrik",
+      "romaji": "koujou"
+    },
+    {
+      "no": 14,
+      "kana": "けんこう",
+      "kanji": "健康",
+      "arti": "Kesehatan",
+      "romaji": "kenkou"
+    },
+    {
+      "no": 15,
+      "kana": "けんどう",
+      "kanji": "剣道",
+      "arti": "Kendo",
+      "romaji": "kendou"
+    },
+    {
+      "no": 16,
+      "kana": "まいしゅう",
+      "kanji": "毎週",
+      "arti": "Setiap minggu",
+      "romaji": "maishuu"
+    },
+    {
+      "no": 17,
+      "kana": "まいつき",
+      "kanji": "毎月",
+      "arti": "Setiap bulan",
+      "romaji": "maitsuki"
+    },
+    {
+      "no": 18,
+      "kana": "まいとし／まいねん",
+      "kanji": "毎年",
+      "arti": "Setiap tahun",
+      "romaji": "maitoshi/mainen"
+    },
+    {
+      "no": 19,
+      "kana": "やっと",
+      "kanji": "",
+      "arti": "Akhirnya",
+      "romaji": "yatto"
+    },
+    {
+      "no": 20,
+      "kana": "かなり",
+      "kanji": "",
+      "arti": "Lumayan, agak",
+      "romaji": "kanari"
+    },
+    {
+      "no": 21,
+      "kana": "かならず",
+      "kanji": "必ず",
+      "arti": "Selalu,pasti",
+      "romaji": "kanarazu"
+    },
+    {
+      "no": 22,
+      "kana": "ぜったいに",
+      "kanji": "絶対に",
+      "arti": "Sama sekali,bagaimanapun (diikuti bentuk negatif)",
+      "romaji": "zettaini"
+    },
+    {
+      "no": 23,
+      "kana": "じょうずに",
+      "kanji": "上手に",
+      "arti": "Dengan pandai",
+      "romaji": "jouzuni"
+    },
+    {
+      "no": 24,
+      "kana": "できるだけ",
+      "kanji": "",
+      "arti": "Sedapat mungkin, sebisa mungkin,sebisanya",
+      "romaji": "dekirudake"
+    },
+    {
+      "no": 25,
+      "kana": "このごろ",
+      "kanji": "",
+      "arti": "Akhir-akhir ini",
+      "romaji": "konogoro"
+    },
+    {
+      "no": 26,
+      "kana": "～ずつ",
+      "kanji": "",
+      "arti": "- demi -",
+      "romaji": "~zutsu"
+    },
+    {
+      "no": 27,
+      "kana": "そのほうが～",
+      "kanji": "",
+      "arti": "Yang itu lebih -",
+      "romaji": "sonohouga~"
+    },
+    {
+      "no": 28,
+      "kana": "おきゃくさま",
+      "kanji": "お客様",
+      "arti": "Langganan, tamu",
+      "romaji": "okyakusama"
+    },
+    {
+      "no": 29,
+      "kana": "とくべつな",
+      "kanji": "特別な",
+      "arti": "Istimewa, khusus",
+      "romaji": "tokubetsuna"
+    },
+    {
+      "no": 30,
+      "kana": "していらっしゃいます",
+      "kanji": "",
+      "arti": "Sedang melakukan (hormat)",
+      "romaji": "shiteirasshaimasu"
+    },
+    {
+      "no": 31,
+      "kana": "すいえい",
+      "kanji": "水泳",
+      "arti": "Renang",
+      "romaji": "suiei"
+    },
+    {
+      "no": 32,
+      "kana": "～とか～とか",
+      "kanji": "",
+      "arti": "Atau,atau dan lain-lain",
+      "romaji": "~toka~toka"
+    },
+    {
+      "no": 33,
+      "kana": "タンゴ",
+      "kanji": "",
+      "arti": "Tango(tarian argentina)",
+      "romaji": "tango"
+    },
+    {
+      "no": 34,
+      "kana": "チャレンジします",
+      "kanji": "",
+      "arti": "Menantang",
+      "romaji": "charenjishimasu"
+    },
+    {
+      "no": 35,
+      "kana": "きもち",
+      "kanji": "気持ち",
+      "arti": "Keinginan,perasaan",
+      "romaji": "kimochi"
+    },
+    {
+      "no": 36,
+      "kana": "のりもの",
+      "kanji": "乗り物",
+      "arti": "Kendaraan",
+      "romaji": "norimono"
+    },
+    {
+      "no": 37,
+      "kana": "れきし",
+      "kanji": "歴史",
+      "arti": "Sejarah",
+      "romaji": "rekishi"
+    },
+    {
+      "no": 38,
+      "kana": "～せいき",
+      "kanji": "～世紀",
+      "arti": "Abad",
+      "romaji": "~seiki"
+    },
+    {
+      "no": 39,
+      "kana": "とおく",
+      "kanji": "遠く",
+      "arti": "Jauh, tempat yang jauh",
+      "romaji": "tooku"
+    },
+    {
+      "no": 40,
+      "kana": "きしゃ",
+      "kanji": "汽車",
+      "arti": "Kereta api",
+      "romaji": "kisha"
+    },
+    {
+      "no": 41,
+      "kana": "きせん",
+      "kanji": "汽船",
+      "arti": "Kapal api",
+      "romaji": "kisen"
+    },
+    {
+      "no": 42,
+      "kana": "おおぜいの～",
+      "kanji": "大勢の～",
+      "arti": "Banyak (orang)",
+      "romaji": "oozeino~"
+    },
+    {
+      "no": 43,
+      "kana": "はこびます",
+      "kanji": "運びます",
+      "arti": "Membawa, mengangkut",
+      "romaji": "hakobimasu"
+    },
+    {
+      "no": 44,
+      "kana": "とびます",
+      "kanji": "飛びます",
+      "arti": "Terbang",
+      "romaji": "tobimasu"
+    },
+    {
+      "no": 45,
+      "kana": "あんぜんな",
+      "kanji": "安全な",
+      "arti": "Aman",
+      "romaji": "anzenna"
+    },
+    {
+      "no": 46,
+      "kana": "うちゅう",
+      "kanji": "宇宙",
+      "arti": "Luar angkasa",
+      "romaji": "uchuu"
+    },
+    {
+      "no": 47,
+      "kana": "ちきゅう",
+      "kanji": "地球",
+      "arti": "Bumi",
+      "romaji": "chikyuu"
+    },
+    {
+      "no": 48,
+      "kana": "きそくただしいせいかつをする",
+      "kanji": "",
+      "arti": "Hidup secara teratur",
+      "romaji": "kisokutadashiiseikatsuwosuru"
+    },
+    {
+      "no": 49,
+      "kana": "はやね、はやおきをする",
+      "kanji": "",
+      "arti": "Cepat tidur dan bangun lebih awal",
+      "romaji": "hayane,hayaokiwosuru"
+    },
+    {
+      "no": 50,
+      "kana": "うんどうする",
+      "kanji": "",
+      "arti": "Berolahraga",
+      "romaji": "undousuru"
+    },
+    {
+      "no": 51,
+      "kana": "よくあるく",
+      "kanji": "",
+      "arti": "Banyak berjalan kaki",
+      "romaji": "yokuaruku"
+    },
+    {
+      "no": 52,
+      "kana": "すききらいがない",
+      "kanji": "",
+      "arti": "Tidak pilih-pilih makanan",
+      "romaji": "sukikiraiganai"
+    },
+    {
+      "no": 53,
+      "kana": "えいようのバランスをかんがえて",
+      "kanji": "たべる",
+      "arti": "Makan dengan mempertimbangkan keseimbangan gizi",
+      "romaji": "eiyounobaransuwokangaete"
+    },
+    {
+      "no": 54,
+      "kana": "けんこうしだんをうける",
+      "kanji": "",
+      "arti": "Memeriksa kesehatan",
+      "romaji": "kenkoushidanwoukeru"
+    },
+    {
+      "no": 55,
+      "kana": "よふかしをする",
+      "kanji": "",
+      "arti": "Sering bergadang",
+      "romaji": "yofukashiwosuru"
+    },
+    {
+      "no": 56,
+      "kana": "あまりうんどうしない",
+      "kanji": "",
+      "arti": "Kurang berolahraga",
+      "romaji": "amariundoushinai"
+    },
+    {
+      "no": 57,
+      "kana": "すききらいがある",
+      "kanji": "",
+      "arti": "Pilih-pilih makanan",
+      "romaji": "sukikiraigaaru"
+    },
+    {
+      "no": 58,
+      "kana": "よくインスタントしょくひんを",
+      "kanji": "たべる",
+      "arti": "Sering mengkonsumsi makanan instan",
+      "romaji": "yokuinsutantoshokuhinwo"
+    },
+    {
+      "no": 59,
+      "kana": "がいしょくがおおい",
+      "kanji": "",
+      "arti": "Sering makan di luar",
+      "romaji": "gaishokugaooi"
+    },
+    {
+      "no": 60,
+      "kana": "たばこをすう",
+      "kanji": "",
+      "arti": "Banyak merokok",
+      "romaji": "tabakowosuu"
+    },
+    {
+      "no": 61,
+      "kana": "よくおさけをのむ",
+      "kanji": "",
+      "arti": "Sering minum-minuman keras",
+      "romaji": "yokuosakewonomu"
+    },
+    {
+      "no": 62,
+      "kana": "えいようそ",
+      "kanji": "栄養素",
+      "arti": "Nutrisi",
+      "romaji": "eiyouso"
+    },
+    {
+      "no": 63,
+      "kana": "ふくむ",
+      "kanji": "含む",
+      "arti": "mengandung",
+      "romaji": "fukumu"
+    },
+    {
+      "no": 64,
+      "kana": "たんすいかぶつ",
+      "kanji": "炭水化物",
+      "arti": "Karbohidrat",
+      "romaji": "tansuikabutsu"
+    },
+    {
+      "no": 65,
+      "kana": "いも",
+      "kanji": "",
+      "arti": "Lemak",
+      "romaji": "imo"
+    },
+    {
+      "no": 66,
+      "kana": "しぼう",
+      "kanji": "脂肪",
+      "arti": "Umbi-umbian",
+      "romaji": "shibou"
+    },
+    {
+      "no": 67,
+      "kana": "とうふ",
+      "kanji": "",
+      "arti": "Tahu",
+      "romaji": "toufu"
+    },
+    {
+      "no": 68,
+      "kana": "たんぱくしつ",
+      "kanji": "たんぱく質",
+      "arti": "Protein",
+      "romaji": "tanpakushitsu"
+    },
+    {
+      "no": 69,
+      "kana": "まめ",
+      "kanji": "豆",
+      "arti": "Kacang-kacangan",
+      "romaji": "mame"
+    },
+    {
+      "no": 70,
+      "kana": "のり",
+      "kanji": "",
+      "arti": "Rumput laut kering",
+      "romaji": "nori"
+    },
+    {
+      "no": 71,
+      "kana": "カルシウム",
+      "kanji": "",
+      "arti": "Kalsium",
+      "romaji": "karushiumu"
+    },
+    {
+      "no": 72,
+      "kana": "かいそう",
+      "kanji": "海草",
+      "arti": "Rumput laut basah",
+      "romaji": "kaisou"
+    },
+    {
+      "no": 73,
+      "kana": "ビタミン",
+      "kanji": "",
+      "arti": "Vitamin",
+      "romaji": "bitamin"
+    }
+  ]
+}

@@ -1,0 +1,530 @@
+{
+  "bab": 5,
+  "items": [
+    {
+      "no": 1,
+      "kana": "いきます",
+      "kanji": "行きます",
+      "arti": "Pergi",
+      "romaji": "ikimasu"
+    },
+    {
+      "no": 2,
+      "kana": "きます",
+      "kanji": "来ます",
+      "arti": "Datang",
+      "romaji": "kimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かえります",
+      "kanji": "帰ります",
+      "arti": "Pulang",
+      "romaji": "kaerimasu"
+    },
+    {
+      "no": 4,
+      "kana": "がっこう",
+      "kanji": "学校",
+      "arti": "Sekolahan",
+      "romaji": "gakkou"
+    },
+    {
+      "no": 5,
+      "kana": "スーパー",
+      "kanji": "",
+      "arti": "Supermarket",
+      "romaji": "suupaa"
+    },
+    {
+      "no": 6,
+      "kana": "えき",
+      "kanji": "駅",
+      "arti": "Stasiun",
+      "romaji": "eki"
+    },
+    {
+      "no": 7,
+      "kana": "ひこうき",
+      "kanji": "飛行機",
+      "arti": "Pesawat terbang",
+      "romaji": "hikouki"
+    },
+    {
+      "no": 8,
+      "kana": "ふね",
+      "kanji": "船",
+      "arti": "Kapal laut",
+      "romaji": "fune"
+    },
+    {
+      "no": 9,
+      "kana": "でんしゃ",
+      "kanji": "電車",
+      "arti": "Kereta listrik",
+      "romaji": "densha"
+    },
+    {
+      "no": 10,
+      "kana": "ちかてつ",
+      "kanji": "地下鉄",
+      "arti": "Kereta bawah tanah",
+      "romaji": "chikatetsu"
+    },
+    {
+      "no": 11,
+      "kana": "しんかんせん",
+      "kanji": "新幹線",
+      "arti": "Shinkansen",
+      "romaji": "shinkansen"
+    },
+    {
+      "no": 12,
+      "kana": "バス",
+      "kanji": "",
+      "arti": "Bus",
+      "romaji": "basu"
+    },
+    {
+      "no": 13,
+      "kana": "タクシー",
+      "kanji": "",
+      "arti": "Taksi",
+      "romaji": "takushii"
+    },
+    {
+      "no": 14,
+      "kana": "じてんしゃ",
+      "kanji": "自転車",
+      "arti": "Sepeda",
+      "romaji": "jitensha"
+    },
+    {
+      "no": 15,
+      "kana": "あるいて",
+      "kanji": "歩いて",
+      "arti": "Jalan kaki",
+      "romaji": "aruite"
+    },
+    {
+      "no": 16,
+      "kana": "ひと",
+      "kanji": "人",
+      "arti": "Orang",
+      "romaji": "hito"
+    },
+    {
+      "no": 17,
+      "kana": "ともだち",
+      "kanji": "友達",
+      "arti": "Teman",
+      "romaji": "tomodachi"
+    },
+    {
+      "no": 18,
+      "kana": "かれ",
+      "kanji": "彼",
+      "arti": "Dia (laki-laki)",
+      "romaji": "kare"
+    },
+    {
+      "no": 19,
+      "kana": "かのじょ",
+      "kanji": "彼女",
+      "arti": "Dia (perempuan)",
+      "romaji": "kanojo"
+    },
+    {
+      "no": 20,
+      "kana": "かぞく",
+      "kanji": "家族",
+      "arti": "Keluarga",
+      "romaji": "kazoku"
+    },
+    {
+      "no": 21,
+      "kana": "ひとりで",
+      "kanji": "一人で",
+      "arti": "Sendirian",
+      "romaji": "hitoride"
+    },
+    {
+      "no": 22,
+      "kana": "せんしゅう",
+      "kanji": "先週",
+      "arti": "Minggu lalu",
+      "romaji": "senshuu"
+    },
+    {
+      "no": 23,
+      "kana": "こんしゅう",
+      "kanji": "今週",
+      "arti": "Minggu ini",
+      "romaji": "konshuu"
+    },
+    {
+      "no": 24,
+      "kana": "らいしゅう",
+      "kanji": "来週",
+      "arti": "Minggu depan",
+      "romaji": "raishuu"
+    },
+    {
+      "no": 25,
+      "kana": "せんげつ",
+      "kanji": "先月",
+      "arti": "Bulan lalu",
+      "romaji": "sengetsu"
+    },
+    {
+      "no": 26,
+      "kana": "こんげつ",
+      "kanji": "今月",
+      "arti": "Bulan ini",
+      "romaji": "kongetsu"
+    },
+    {
+      "no": 27,
+      "kana": "らいげつ",
+      "kanji": "来月",
+      "arti": "Bulan depan",
+      "romaji": "raigetsu"
+    },
+    {
+      "no": 28,
+      "kana": "きょねん",
+      "kanji": "去年",
+      "arti": "Tahun lalu",
+      "romaji": "kyonen"
+    },
+    {
+      "no": 29,
+      "kana": "ことし",
+      "kanji": "今年",
+      "arti": "Tahun ini",
+      "romaji": "kotoshi"
+    },
+    {
+      "no": 30,
+      "kana": "らいねん",
+      "kanji": "来年",
+      "arti": "Tahun depan",
+      "romaji": "rainen"
+    },
+    {
+      "no": 31,
+      "kana": "～ねん",
+      "kanji": "～年",
+      "arti": "Tahun",
+      "romaji": "~nen"
+    },
+    {
+      "no": 32,
+      "kana": "なんねん",
+      "kanji": "何年",
+      "arti": "Tahun berapa?",
+      "romaji": "nannen"
+    },
+    {
+      "no": 33,
+      "kana": "～がつ",
+      "kanji": "～月",
+      "arti": "Bulan",
+      "romaji": "~gatsu"
+    },
+    {
+      "no": 34,
+      "kana": "なんがつ",
+      "kanji": "何月",
+      "arti": "Bulan apa?",
+      "romaji": "nangatsu"
+    },
+    {
+      "no": 35,
+      "kana": "ついたち",
+      "kanji": "一日",
+      "arti": "Tanggal 1",
+      "romaji": "tsuitachi"
+    },
+    {
+      "no": 36,
+      "kana": "ふつか",
+      "kanji": "二日",
+      "arti": "Tanggal 2 , 2 hari",
+      "romaji": "futsuka"
+    },
+    {
+      "no": 37,
+      "kana": "みっか",
+      "kanji": "三日",
+      "arti": "Tanggal 3 , 3 hari",
+      "romaji": "mikka"
+    },
+    {
+      "no": 38,
+      "kana": "よっか",
+      "kanji": "四日",
+      "arti": "Tanggal 4 , 4 hari",
+      "romaji": "yokka"
+    },
+    {
+      "no": 39,
+      "kana": "いつか",
+      "kanji": "五日",
+      "arti": "Tanggal 5 , 5 hari",
+      "romaji": "itsuka"
+    },
+    {
+      "no": 40,
+      "kana": "むいか",
+      "kanji": "六日",
+      "arti": "Tanggal 6 , 6 hari",
+      "romaji": "muika"
+    },
+    {
+      "no": 41,
+      "kana": "なのか",
+      "kanji": "七日",
+      "arti": "Tanggal 7 , 7 hari",
+      "romaji": "nanoka"
+    },
+    {
+      "no": 42,
+      "kana": "ようか",
+      "kanji": "八日",
+      "arti": "Tanggal 8, 8 hari",
+      "romaji": "youka"
+    },
+    {
+      "no": 43,
+      "kana": "ここのか",
+      "kanji": "九日",
+      "arti": "Tanggal 9 , 9 hari",
+      "romaji": "kokonoka"
+    },
+    {
+      "no": 44,
+      "kana": "とおか",
+      "kanji": "十日",
+      "arti": "Tanggal 10, 10 hari",
+      "romaji": "tooka"
+    },
+    {
+      "no": 45,
+      "kana": "じゅうよっか",
+      "kanji": "十四日",
+      "arti": "Tanggal 14 , 14 hari",
+      "romaji": "juuyokka"
+    },
+    {
+      "no": 46,
+      "kana": "はつか",
+      "kanji": "二十日",
+      "arti": "Tanggal 20 , 20 hari",
+      "romaji": "hatsuka"
+    },
+    {
+      "no": 47,
+      "kana": "にじゅうよっか",
+      "kanji": "二十四日",
+      "arti": "Tanggal 24 , 24 hari",
+      "romaji": "nijuuyokka"
+    },
+    {
+      "no": 48,
+      "kana": "～にち",
+      "kanji": "～日",
+      "arti": "Tanggal , hari",
+      "romaji": "~nichi"
+    },
+    {
+      "no": 49,
+      "kana": "なんにち",
+      "kanji": "何日",
+      "arti": "Tanggal berapa, berapa hari",
+      "romaji": "nannichi"
+    },
+    {
+      "no": 50,
+      "kana": "いつ",
+      "kanji": "",
+      "arti": "Kapan",
+      "romaji": "itsu"
+    },
+    {
+      "no": 51,
+      "kana": "たんじょうび",
+      "kanji": "誕生日",
+      "arti": "Hari ulang tahun",
+      "romaji": "tanjoubi"
+    },
+    {
+      "no": 52,
+      "kana": "そうですね",
+      "kanji": "",
+      "arti": "Ya begitulah",
+      "romaji": "soudesune"
+    },
+    {
+      "no": 53,
+      "kana": "どういたしまして",
+      "kanji": "",
+      "arti": "Sama-sama",
+      "romaji": "douitashimashite"
+    },
+    {
+      "no": 54,
+      "kana": "～ばんせん",
+      "kanji": "～番線",
+      "arti": "Peron nomor , jalur nomor",
+      "romaji": "~bansen"
+    },
+    {
+      "no": 55,
+      "kana": "つぎの",
+      "kanji": "次の",
+      "arti": "Yang berikutnya",
+      "romaji": "tsugino"
+    },
+    {
+      "no": 56,
+      "kana": "ふつう",
+      "kanji": "普通",
+      "arti": "Biasa",
+      "romaji": "futsuu"
+    },
+    {
+      "no": 57,
+      "kana": "きゅうこう",
+      "kanji": "急行",
+      "arti": "Ekspres",
+      "romaji": "kyuukou"
+    },
+    {
+      "no": 58,
+      "kana": "とっきゅう",
+      "kanji": "特急",
+      "arti": "Super ekspres",
+      "romaji": "tokkyuu"
+    },
+    {
+      "no": 59,
+      "kana": "しゅくさいじつ",
+      "kanji": "祝祭日",
+      "arti": "Hari libur nasional",
+      "romaji": "shukusaijitsu"
+    },
+    {
+      "no": 60,
+      "kana": "がんじつ",
+      "kanji": "元日",
+      "arti": "Tahun baru",
+      "romaji": "ganjitsu"
+    },
+    {
+      "no": 61,
+      "kana": "せいじんのひ",
+      "kanji": "成人の日",
+      "arti": "Hari perayaan menjadi dewasa",
+      "romaji": "seijinnohi"
+    },
+    {
+      "no": 62,
+      "kana": "けんこくきねんのひ",
+      "kanji": "建国記念の日",
+      "arti": "Hari pembangunan nasional",
+      "romaji": "kenkokukinennohi"
+    },
+    {
+      "no": 63,
+      "kana": "しゅんぶんのひ",
+      "kanji": "春分の日",
+      "arti": "Hari equinox pada musim semi",
+      "romaji": "shunbunnohi"
+    },
+    {
+      "no": 64,
+      "kana": "しょうわのひ",
+      "kanji": "昭和の日",
+      "arti": "Hari showa",
+      "romaji": "shouwanohi"
+    },
+    {
+      "no": 65,
+      "kana": "けんぽうきねんび",
+      "kanji": "憲法記念日",
+      "arti": "Hari peringatan konstitusi",
+      "romaji": "kenpoukinenbi"
+    },
+    {
+      "no": 66,
+      "kana": "みどりのひ",
+      "kanji": "",
+      "arti": "Hari penghijauan",
+      "romaji": "midorinohi"
+    },
+    {
+      "no": 67,
+      "kana": "こどものひ",
+      "kanji": "",
+      "arti": "Hari anak",
+      "romaji": "kodomonohi"
+    },
+    {
+      "no": 68,
+      "kana": "うみのひ",
+      "kanji": "海の日",
+      "arti": "Hari bahari",
+      "romaji": "uminohi"
+    },
+    {
+      "no": 69,
+      "kana": "やまのひ",
+      "kanji": "山の日",
+      "arti": "Hari gunung",
+      "romaji": "yamanohi"
+    },
+    {
+      "no": 70,
+      "kana": "けいろうのひ",
+      "kanji": "敬老の日",
+      "arti": "Hari hormat kepada orang tua",
+      "romaji": "keirounohi"
+    },
+    {
+      "no": 71,
+      "kana": "しゅうぶんのひ",
+      "kanji": "秋分の日",
+      "arti": "Hari equinox pada musim gugur",
+      "romaji": "shuubunnohi"
+    },
+    {
+      "no": 72,
+      "kana": "たいいくのひ",
+      "kanji": "体育の日",
+      "arti": "Hari kesehatan olahraga",
+      "romaji": "taiikunohi"
+    },
+    {
+      "no": 73,
+      "kana": "ぶんかのひ",
+      "kanji": "文化の日",
+      "arti": "Hari kebudayaan",
+      "romaji": "bunkanohi"
+    },
+    {
+      "no": 74,
+      "kana": "きんろうかんしゃのひ",
+      "kanji": "勤労感謝の日",
+      "arti": "Hari bersyukur untuk pekerjaan",
+      "romaji": "kinroukanshanohi"
+    },
+    {
+      "no": 75,
+      "kana": "てんのうたんじょうび",
+      "kanji": "天皇誕生日",
+      "arti": "Hari ulang tahun kaisar",
+      "romaji": "tennoutanjoubi"
+    }
+  ]
+}

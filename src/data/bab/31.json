@@ -1,0 +1,551 @@
+{
+  "bab": 31,
+  "items": [
+    {
+      "no": 1,
+      "kana": "はじまります （が）",
+      "kanji": "始まります",
+      "arti": "Mulai, dimulai",
+      "romaji": "hajimarimasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "つづけます",
+      "kanji": "続けます",
+      "arti": "Meneruskan, melanjutkan",
+      "romaji": "tsuzukemasu"
+    },
+    {
+      "no": 3,
+      "kana": "みつけます",
+      "kanji": "見つけます",
+      "arti": "Menemukan",
+      "romaji": "mitsukemasu"
+    },
+    {
+      "no": 4,
+      "kana": "うけます （を）",
+      "kanji": "受けます",
+      "arti": "Menempuh , mengikuti (ujian)",
+      "romaji": "ukemasu (wo)"
+    },
+    {
+      "no": 5,
+      "kana": "にゅうがくします （に）",
+      "kanji": "入学します",
+      "arti": "Masuk (universitas)",
+      "romaji": "nyuugakushimasu (ni)"
+    },
+    {
+      "no": 6,
+      "kana": "そつぎょうします （を）",
+      "kanji": "卒業します",
+      "arti": "Lulus (universitas)",
+      "romaji": "sotsugyoushimasu (wo)"
+    },
+    {
+      "no": 7,
+      "kana": "しゅっせきします （に）",
+      "kanji": "出席します",
+      "arti": "Menghadiri",
+      "romaji": "shussekishimasu (ni)"
+    },
+    {
+      "no": 8,
+      "kana": "きゅうけいします",
+      "kanji": "休憩します",
+      "arti": "Beristirahat, istirahat sebentar",
+      "romaji": "kyuukeishimasu"
+    },
+    {
+      "no": 9,
+      "kana": "れんきゅう",
+      "kanji": "連休",
+      "arti": "Hari-hari libur yang berurutan",
+      "romaji": "renkyuu"
+    },
+    {
+      "no": 10,
+      "kana": "さくぶん",
+      "kanji": "作文",
+      "arti": "Karangan",
+      "romaji": "sakubun"
+    },
+    {
+      "no": 11,
+      "kana": "てんらんかい",
+      "kanji": "展覧会",
+      "arti": "Pameran",
+      "romaji": "tenrankai"
+    },
+    {
+      "no": 12,
+      "kana": "けっこんしき",
+      "kanji": "結婚式",
+      "arti": "Upacara perkawinan",
+      "romaji": "kekkonshiki"
+    },
+    {
+      "no": 13,
+      "kana": "おそうしき",
+      "kanji": "お葬式",
+      "arti": "Upacara kematian",
+      "romaji": "osoushiki"
+    },
+    {
+      "no": 14,
+      "kana": "しき",
+      "kanji": "式",
+      "arti": "Upacara",
+      "romaji": "shiki"
+    },
+    {
+      "no": 15,
+      "kana": "ほんしゃ",
+      "kanji": "本社",
+      "arti": "Kantor pusat",
+      "romaji": "honsha"
+    },
+    {
+      "no": 16,
+      "kana": "してん",
+      "kanji": "支店",
+      "arti": "Kantor cabang",
+      "romaji": "shiten"
+    },
+    {
+      "no": 17,
+      "kana": "きょうかい",
+      "kanji": "教会",
+      "arti": "Gereja",
+      "romaji": "kyoukai"
+    },
+    {
+      "no": 18,
+      "kana": "だいがくいん",
+      "kanji": "大学院",
+      "arti": "Pasca sarjana",
+      "romaji": "daigakuin"
+    },
+    {
+      "no": 19,
+      "kana": "どうぶつえん",
+      "kanji": "動物園",
+      "arti": "Kebun binatang",
+      "romaji": "doubutsuen"
+    },
+    {
+      "no": 20,
+      "kana": "おんせん",
+      "kanji": "温泉",
+      "arti": "Sumber air panas, pemandian air panas",
+      "romaji": "onsen"
+    },
+    {
+      "no": 21,
+      "kana": "おきゃく",
+      "kanji": "お客",
+      "arti": "Tamu, langganan",
+      "romaji": "okyaku"
+    },
+    {
+      "no": 22,
+      "kana": "だれか",
+      "kanji": "",
+      "arti": "Seseorang",
+      "romaji": "dareka"
+    },
+    {
+      "no": 23,
+      "kana": "～のほう",
+      "kanji": "～の 方",
+      "arti": "(tempat duduk) bagian",
+      "romaji": "~nohou"
+    },
+    {
+      "no": 24,
+      "kana": "ずっと",
+      "kanji": "",
+      "arti": "Terus menerus, selamanya",
+      "romaji": "zutto"
+    },
+    {
+      "no": 25,
+      "kana": "のこります",
+      "kanji": "残ります",
+      "arti": "Tinggal, sisa",
+      "romaji": "nokorimasu"
+    },
+    {
+      "no": 26,
+      "kana": "つきに",
+      "kanji": "月に",
+      "arti": "Sebulan",
+      "romaji": "tsukini"
+    },
+    {
+      "no": 27,
+      "kana": "ふつうの",
+      "kanji": "普通の",
+      "arti": "Umum, biasa",
+      "romaji": "futsuuno"
+    },
+    {
+      "no": 28,
+      "kana": "インターネット",
+      "kanji": "",
+      "arti": "Internet",
+      "romaji": "intaanetto"
+    },
+    {
+      "no": 29,
+      "kana": "むら",
+      "kanji": "村",
+      "arti": "Kampung, desa",
+      "romaji": "mura"
+    },
+    {
+      "no": 30,
+      "kana": "えいがかん",
+      "kanji": "映画館",
+      "arti": "Gedung bioskop",
+      "romaji": "eigakan"
+    },
+    {
+      "no": 31,
+      "kana": "そら",
+      "kanji": "空",
+      "arti": "Langit",
+      "romaji": "sora"
+    },
+    {
+      "no": 32,
+      "kana": "とじます",
+      "kanji": "閉じます",
+      "arti": "Menutup, memejamkan",
+      "romaji": "tojimasu"
+    },
+    {
+      "no": 33,
+      "kana": "とかい",
+      "kanji": "都会",
+      "arti": "Kota",
+      "romaji": "tokai"
+    },
+    {
+      "no": 34,
+      "kana": "こどもたち",
+      "kanji": "子供たち",
+      "arti": "Anak-anak",
+      "romaji": "kodomotachi"
+    },
+    {
+      "no": 35,
+      "kana": "じゆうに",
+      "kanji": "自由に",
+      "arti": "Dengan bebas",
+      "romaji": "jiyuuni"
+    },
+    {
+      "no": 36,
+      "kana": "せかいじゅう",
+      "kanji": "世界中",
+      "arti": "Seluruh dunia",
+      "romaji": "sekaijuu"
+    },
+    {
+      "no": 37,
+      "kana": "あつまります",
+      "kanji": "集まります",
+      "arti": "Berkumpul",
+      "romaji": "atsumarimasu"
+    },
+    {
+      "no": 38,
+      "kana": "うつくしい",
+      "kanji": "美しい",
+      "arti": "Indah",
+      "romaji": "utsukushii"
+    },
+    {
+      "no": 39,
+      "kana": "しぜん",
+      "kanji": "自然",
+      "arti": "Alam",
+      "romaji": "shizen"
+    },
+    {
+      "no": 40,
+      "kana": "すばらしさ",
+      "kanji": "",
+      "arti": "Kebaikan,kenijakan",
+      "romaji": "subarashisa"
+    },
+    {
+      "no": 41,
+      "kana": "きがつきます",
+      "kanji": "気が付きます",
+      "arti": "Menyadari",
+      "romaji": "kigatsukimasu"
+    },
+    {
+      "no": 42,
+      "kana": "せんもん",
+      "kanji": "専門",
+      "arti": "Bidang keilmuan",
+      "romaji": "senmon"
+    },
+    {
+      "no": 43,
+      "kana": "いがく",
+      "kanji": "医学",
+      "arti": "Kedokteran",
+      "romaji": "igaku"
+    },
+    {
+      "no": 44,
+      "kana": "やくがく",
+      "kanji": "薬学",
+      "arti": "Farmasi",
+      "romaji": "yakugaku"
+    },
+    {
+      "no": 45,
+      "kana": "かがく",
+      "kanji": "化学",
+      "arti": "Kimia",
+      "romaji": "kagaku"
+    },
+    {
+      "no": 46,
+      "kana": "せいかがく",
+      "kanji": "生化学",
+      "arti": "Biokimia",
+      "romaji": "seikagaku"
+    },
+    {
+      "no": 47,
+      "kana": "せいぶつがく",
+      "kanji": "生物学",
+      "arti": "Biologi",
+      "romaji": "seibutsugaku"
+    },
+    {
+      "no": 48,
+      "kana": "のうがく",
+      "kanji": "農学",
+      "arti": "Pertanian",
+      "romaji": "nougaku"
+    },
+    {
+      "no": 49,
+      "kana": "ちがく",
+      "kanji": "地学",
+      "arti": "Geologi",
+      "romaji": "chigaku"
+    },
+    {
+      "no": 50,
+      "kana": "ちりがく",
+      "kanji": "地理学",
+      "arti": "Geografi",
+      "romaji": "chirigaku"
+    },
+    {
+      "no": 51,
+      "kana": "すうがく",
+      "kanji": "数学",
+      "arti": "Matematika",
+      "romaji": "suugaku"
+    },
+    {
+      "no": 52,
+      "kana": "ぶつりがく",
+      "kanji": "物理学",
+      "arti": "Fisika",
+      "romaji": "butsurigaku"
+    },
+    {
+      "no": 53,
+      "kana": "こうがく",
+      "kanji": "工学",
+      "arti": "Teknik",
+      "romaji": "kougaku"
+    },
+    {
+      "no": 54,
+      "kana": "どぼくこうがく",
+      "kanji": "土木工学",
+      "arti": "Teknik sipil",
+      "romaji": "dobokukougaku"
+    },
+    {
+      "no": 55,
+      "kana": "でんしこうがく",
+      "kanji": "電子工学",
+      "arti": "Elektronika",
+      "romaji": "denshikougaku"
+    },
+    {
+      "no": 56,
+      "kana": "でんきこうがく",
+      "kanji": "電気工学",
+      "arti": "Teknik listrik",
+      "romaji": "denkikougaku"
+    },
+    {
+      "no": 57,
+      "kana": "きかいこうがく",
+      "kanji": "機械工学",
+      "arti": "Teknik mesin",
+      "romaji": "kikaikougaku"
+    },
+    {
+      "no": 58,
+      "kana": "コンピューターこうがく",
+      "kanji": "",
+      "arti": "Informatika",
+      "romaji": "konpyuutaakougaku"
+    },
+    {
+      "no": 59,
+      "kana": "いでんしこうがく",
+      "kanji": "遺伝子工学",
+      "arti": "Genetika",
+      "romaji": "idenshikougaku"
+    },
+    {
+      "no": 60,
+      "kana": "けんちくがく",
+      "kanji": "建築学",
+      "arti": "Arsitektur",
+      "romaji": "kenchikugaku"
+    },
+    {
+      "no": 61,
+      "kana": "てんもんがく",
+      "kanji": "天文学",
+      "arti": "Astronomi",
+      "romaji": "tenmongaku"
+    },
+    {
+      "no": 62,
+      "kana": "かんきょうかがく",
+      "kanji": "環境科学",
+      "arti": "Ilmu tata lingkungan",
+      "romaji": "kankyoukagaku"
+    },
+    {
+      "no": 63,
+      "kana": "せいじがく",
+      "kanji": "政治学",
+      "arti": "Ilmu politik",
+      "romaji": "seijigaku"
+    },
+    {
+      "no": 64,
+      "kana": "こくさいかんけいがく",
+      "kanji": "国際関係学",
+      "arti": "Hubungan internasional",
+      "romaji": "kokusaikankeigaku"
+    },
+    {
+      "no": 65,
+      "kana": "ほうりつがく",
+      "kanji": "法律学",
+      "arti": "Hukum",
+      "romaji": "houritsugaku"
+    },
+    {
+      "no": 66,
+      "kana": "けいざいがく",
+      "kanji": "経済学",
+      "arti": "Ekonomi",
+      "romaji": "keizaigaku"
+    },
+    {
+      "no": 67,
+      "kana": "けいえいがく",
+      "kanji": "経営学",
+      "arti": "Manajemen bisnis",
+      "romaji": "keieigaku"
+    },
+    {
+      "no": 68,
+      "kana": "しゃかいがく",
+      "kanji": "社会学",
+      "arti": "Sosiologi",
+      "romaji": "shakaigaku"
+    },
+    {
+      "no": 69,
+      "kana": "きょういくがく",
+      "kanji": "教育学",
+      "arti": "Kependidikan",
+      "romaji": "kyouikugaku"
+    },
+    {
+      "no": 70,
+      "kana": "ぶんがく",
+      "kanji": "文学",
+      "arti": "Sastra",
+      "romaji": "bungaku"
+    },
+    {
+      "no": 71,
+      "kana": "げんごがく",
+      "kanji": "言語学",
+      "arti": "Linguistik",
+      "romaji": "gengogaku"
+    },
+    {
+      "no": 72,
+      "kana": "しんりがく",
+      "kanji": "心理学",
+      "arti": "Psikologi",
+      "romaji": "shinrigaku"
+    },
+    {
+      "no": 73,
+      "kana": "てつがく",
+      "kanji": "哲学",
+      "arti": "Filsafat",
+      "romaji": "tetsugaku"
+    },
+    {
+      "no": 74,
+      "kana": "しゅうきょうがく",
+      "kanji": "宗教学",
+      "arti": "Teologi",
+      "romaji": "shuukyougaku"
+    },
+    {
+      "no": 75,
+      "kana": "げいじゅつ",
+      "kanji": "芸術",
+      "arti": "Seni",
+      "romaji": "geijutsu"
+    },
+    {
+      "no": 76,
+      "kana": "びじゅつ",
+      "kanji": "美術",
+      "arti": "Seni murni",
+      "romaji": "bijutsu"
+    },
+    {
+      "no": 77,
+      "kana": "おんがく",
+      "kanji": "音楽",
+      "arti": "Seni musik",
+      "romaji": "ongaku"
+    },
+    {
+      "no": 78,
+      "kana": "たいいくがく",
+      "kanji": "体育学",
+      "arti": "Pendidikan jasmani",
+      "romaji": "taiikugaku"
+    }
+  ]
+}

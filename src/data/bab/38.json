@@ -1,0 +1,355 @@
+{
+  "bab": 38,
+  "items": [
+    {
+      "no": 1,
+      "kana": "そだてます",
+      "kanji": "育てます",
+      "arti": "Memelihara, membesarkan",
+      "romaji": "sodatemasu"
+    },
+    {
+      "no": 2,
+      "kana": "はこびます",
+      "kanji": "運びます",
+      "arti": "Membawa, mengangkut",
+      "romaji": "hakobimasu"
+    },
+    {
+      "no": 3,
+      "kana": "なくなります",
+      "kanji": "亡くなります",
+      "arti": "Meninggal (hormat)",
+      "romaji": "nakunarimasu"
+    },
+    {
+      "no": 4,
+      "kana": "にゅういんします",
+      "kanji": "入院します",
+      "arti": "Masuk rumah sakit",
+      "romaji": "nyuuinshimasu"
+    },
+    {
+      "no": 5,
+      "kana": "たいいんします",
+      "kanji": "退院します",
+      "arti": "Keluar dari rumah sakit",
+      "romaji": "taiinshimasu"
+    },
+    {
+      "no": 6,
+      "kana": "いれます （を）",
+      "kanji": "入れます",
+      "arti": "Menghidupkan (aliran listrik)",
+      "romaji": "iremasu (wo)"
+    },
+    {
+      "no": 7,
+      "kana": "きります （を）",
+      "kanji": "切ります",
+      "arti": "Mematikan (aliran listrik)",
+      "romaji": "kirimasu (wo)"
+    },
+    {
+      "no": 8,
+      "kana": "かけます （を）",
+      "kanji": "掛けます",
+      "arti": "Mengunci",
+      "romaji": "kakemasu (wo)"
+    },
+    {
+      "no": 9,
+      "kana": "きもちがいい",
+      "kanji": "気持ちがいい",
+      "arti": "Senang, merasa enak",
+      "romaji": "kimochigaii"
+    },
+    {
+      "no": 10,
+      "kana": "きもちがわるい",
+      "kanji": "気持ちが悪い",
+      "arti": "Jijik, merasa tidak enak",
+      "romaji": "kimochigawarui"
+    },
+    {
+      "no": 11,
+      "kana": "おおきな～",
+      "kanji": "大きな～",
+      "arti": "Besar",
+      "romaji": "ookina~"
+    },
+    {
+      "no": 12,
+      "kana": "ちいさな～",
+      "kanji": "小さな～",
+      "arti": "Kecil",
+      "romaji": "chiisana~"
+    },
+    {
+      "no": 13,
+      "kana": "あかちゃん",
+      "kanji": "赤ちゃん",
+      "arti": "Bayi",
+      "romaji": "akachan"
+    },
+    {
+      "no": 14,
+      "kana": "しょうがっこう",
+      "kanji": "小学校",
+      "arti": "SD",
+      "romaji": "shougakkou"
+    },
+    {
+      "no": 15,
+      "kana": "ちゅうがっこう",
+      "kanji": "中学校",
+      "arti": "SMP",
+      "romaji": "chuugakkou"
+    },
+    {
+      "no": 16,
+      "kana": "えきまえ",
+      "kanji": "駅前",
+      "arti": "Depan stasiun",
+      "romaji": "ekimae"
+    },
+    {
+      "no": 17,
+      "kana": "かいがん",
+      "kanji": "海岸",
+      "arti": "Pantai",
+      "romaji": "kaigan"
+    },
+    {
+      "no": 18,
+      "kana": "うそ",
+      "kanji": "",
+      "arti": "Bohong, kebohongan",
+      "romaji": "uso"
+    },
+    {
+      "no": 19,
+      "kana": "しょるい",
+      "kanji": "書類",
+      "arti": "Dokumen , surat",
+      "romaji": "shorui"
+    },
+    {
+      "no": 20,
+      "kana": "でんげん",
+      "kanji": "電源",
+      "arti": "Aliran listrik",
+      "romaji": "dengen"
+    },
+    {
+      "no": 21,
+      "kana": "～せい",
+      "kanji": "～製",
+      "arti": "Buatan -",
+      "romaji": "~sei"
+    },
+    {
+      "no": 22,
+      "kana": "あ、いけない",
+      "kanji": "",
+      "arti": "Aduh celaka (dipakai saat keliru/gagal)",
+      "romaji": "a,ikenai"
+    },
+    {
+      "no": 23,
+      "kana": "おさきにしつれいします",
+      "kanji": "お先に失礼します",
+      "arti": "Saya permisi duluan",
+      "romaji": "osakinishitsureishimasu"
+    },
+    {
+      "no": 24,
+      "kana": "かいらん",
+      "kanji": "回覧",
+      "arti": "Edaran",
+      "romaji": "kairan"
+    },
+    {
+      "no": 25,
+      "kana": "けんきゅうしつ",
+      "kanji": "研究室",
+      "arti": "Ruang penelitian",
+      "romaji": "kenkyuushitsu"
+    },
+    {
+      "no": 26,
+      "kana": "きちんと",
+      "kanji": "",
+      "arti": "Dengan rapi",
+      "romaji": "kichinto"
+    },
+    {
+      "no": 27,
+      "kana": "せいりします",
+      "kanji": "整理します",
+      "arti": "Merapikan",
+      "romaji": "seirishimasu"
+    },
+    {
+      "no": 28,
+      "kana": "～さつ",
+      "kanji": "～冊",
+      "arti": "Buah (satuan untuk buku)",
+      "romaji": "~satsu"
+    },
+    {
+      "no": 29,
+      "kana": "はんこ",
+      "kanji": "",
+      "arti": "Cap/stempel",
+      "romaji": "hanko"
+    },
+    {
+      "no": 30,
+      "kana": "おします （を）",
+      "kanji": "押します",
+      "arti": "Mencap/menyetempel",
+      "romaji": "oshimasu (wo)"
+    },
+    {
+      "no": 31,
+      "kana": "ふたご",
+      "kanji": "双子",
+      "arti": "Kembar",
+      "romaji": "futago"
+    },
+    {
+      "no": 32,
+      "kana": "しまい",
+      "kanji": "姉妹",
+      "arti": "Saudara perempuan",
+      "romaji": "shimai"
+    },
+    {
+      "no": 33,
+      "kana": "５ねんせい",
+      "kanji": "５年生",
+      "arti": "Kelas 5",
+      "romaji": "5nensei"
+    },
+    {
+      "no": 34,
+      "kana": "にています",
+      "kanji": "似ています",
+      "arti": "Mirip, menyerupai",
+      "romaji": "niteimasu"
+    },
+    {
+      "no": 35,
+      "kana": "せいかく",
+      "kanji": "性格",
+      "arti": "Sifat, tabiat",
+      "romaji": "seikaku"
+    },
+    {
+      "no": 36,
+      "kana": "おとなしい",
+      "kanji": "",
+      "arti": "Pendiam, patuh",
+      "romaji": "otonashii"
+    },
+    {
+      "no": 37,
+      "kana": "せわをします",
+      "kanji": "世話をします",
+      "arti": "Mengurus",
+      "romaji": "sewawoshimasu"
+    },
+    {
+      "no": 38,
+      "kana": "じかんがたちます",
+      "kanji": "時間がたちます",
+      "arti": "Waktu berlalu",
+      "romaji": "jikangatachimasu"
+    },
+    {
+      "no": 39,
+      "kana": "だいすきな",
+      "kanji": "大好きな",
+      "arti": "Suka sekali",
+      "romaji": "daisukina"
+    },
+    {
+      "no": 40,
+      "kana": "～てん",
+      "kanji": "～点",
+      "arti": "Angka- , skor -",
+      "romaji": "~ten"
+    },
+    {
+      "no": 41,
+      "kana": "クラス",
+      "kanji": "",
+      "arti": "Kelas",
+      "romaji": "kurasu"
+    },
+    {
+      "no": 42,
+      "kana": "けんかします",
+      "kanji": "",
+      "arti": "Bertengkar, berkelahi",
+      "romaji": "kenkashimasu"
+    },
+    {
+      "no": 43,
+      "kana": "ふしぎな",
+      "kanji": "不思議な",
+      "arti": "Luar biasa, aneh",
+      "romaji": "fushigina"
+    },
+    {
+      "no": 44,
+      "kana": "ねんちゅうぎょうじ",
+      "kanji": "年中行事",
+      "arti": "Acara tahunan di jepang",
+      "romaji": "nenchuugyouji"
+    },
+    {
+      "no": 45,
+      "kana": "おしょうがつ",
+      "kanji": "お正月",
+      "arti": "Tahun baru",
+      "romaji": "oshougatsu"
+    },
+    {
+      "no": 46,
+      "kana": "ひなまつり",
+      "kanji": "",
+      "arti": "Festival anak perempuan",
+      "romaji": "hinamatsuri"
+    },
+    {
+      "no": 47,
+      "kana": "たなばた",
+      "kanji": "七夕",
+      "arti": "Festival bintang",
+      "romaji": "tanabata"
+    },
+    {
+      "no": 48,
+      "kana": "おぼん",
+      "kanji": "お盆",
+      "arti": "Festival bon",
+      "romaji": "obon"
+    },
+    {
+      "no": 49,
+      "kana": "おつきみ",
+      "kanji": "お月見",
+      "arti": "Memandang bulan",
+      "romaji": "otsukimi"
+    },
+    {
+      "no": 50,
+      "kana": "おおみそか",
+      "kanji": "大みそか",
+      "arti": "Hari terakhir tahun",
+      "romaji": "oomisoka"
+    }
+  ]
+}

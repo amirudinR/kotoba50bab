@@ -1,0 +1,278 @@
+{
+  "bab": 19,
+  "items": [
+    {
+      "no": 1,
+      "kana": "のぼります",
+      "kanji": "登ります、上ります",
+      "arti": "Naik , mendaki",
+      "romaji": "noborimasu"
+    },
+    {
+      "no": 2,
+      "kana": "とまります （に）",
+      "kanji": "泊まります",
+      "arti": "Menginap",
+      "romaji": "tomarimasu (ni)"
+    },
+    {
+      "no": 3,
+      "kana": "そうじします",
+      "kanji": "掃除します",
+      "arti": "Membersihkan",
+      "romaji": "soujishimasu"
+    },
+    {
+      "no": 4,
+      "kana": "せんたくします",
+      "kanji": "洗濯します",
+      "arti": "Mencuci pakaian",
+      "romaji": "sentakushimasu"
+    },
+    {
+      "no": 5,
+      "kana": "なります",
+      "kanji": "",
+      "arti": "Menjadi",
+      "romaji": "narimasu"
+    },
+    {
+      "no": 6,
+      "kana": "ねむい",
+      "kanji": "眠い",
+      "arti": "Mengantuk",
+      "romaji": "nemui"
+    },
+    {
+      "no": 7,
+      "kana": "つよい",
+      "kanji": "強い",
+      "arti": "Kuat",
+      "romaji": "tsuyoi"
+    },
+    {
+      "no": 8,
+      "kana": "よわい",
+      "kanji": "弱い",
+      "arti": "Lemah",
+      "romaji": "yowai"
+    },
+    {
+      "no": 9,
+      "kana": "れんしゅう",
+      "kanji": "練習",
+      "arti": "Latihan",
+      "romaji": "renshuu"
+    },
+    {
+      "no": 10,
+      "kana": "ゴルフ",
+      "kanji": "",
+      "arti": "Golf",
+      "romaji": "gorufu"
+    },
+    {
+      "no": 11,
+      "kana": "すもう",
+      "kanji": "相撲",
+      "arti": "Sumo",
+      "romaji": "sumou"
+    },
+    {
+      "no": 12,
+      "kana": "おちゃ",
+      "kanji": "お茶",
+      "arti": "Teh",
+      "romaji": "ocha"
+    },
+    {
+      "no": 13,
+      "kana": "ひ",
+      "kanji": "日",
+      "arti": "Hari",
+      "romaji": "hi"
+    },
+    {
+      "no": 14,
+      "kana": "ちょうし",
+      "kanji": "調子",
+      "arti": "Kondisi",
+      "romaji": "choushi"
+    },
+    {
+      "no": 15,
+      "kana": "いちど",
+      "kanji": "一度",
+      "arti": "Sekali",
+      "romaji": "ichido"
+    },
+    {
+      "no": 16,
+      "kana": "いちども",
+      "kanji": "一度も",
+      "arti": "Sekalipun",
+      "romaji": "ichidomo"
+    },
+    {
+      "no": 17,
+      "kana": "だんだん",
+      "kanji": "",
+      "arti": "Sedikit demi sedikit, berangsur-angsur",
+      "romaji": "dandan"
+    },
+    {
+      "no": 18,
+      "kana": "もうすぐ",
+      "kanji": "",
+      "arti": "Tidak lama lagi , sebentar lagi",
+      "romaji": "mousugu"
+    },
+    {
+      "no": 19,
+      "kana": "おかげさまで",
+      "kanji": "",
+      "arti": "Atas berkat ( doa ) anda",
+      "romaji": "okagesamade"
+    },
+    {
+      "no": 20,
+      "kana": "でも",
+      "kanji": "",
+      "arti": "Tetapi",
+      "romaji": "demo"
+    },
+    {
+      "no": 21,
+      "kana": "かんぱい",
+      "kanji": "乾杯",
+      "arti": "Toast",
+      "romaji": "kanpai"
+    },
+    {
+      "no": 22,
+      "kana": "ダイエット",
+      "kanji": "",
+      "arti": "Diet",
+      "romaji": "daietto"
+    },
+    {
+      "no": 23,
+      "kana": "むりな",
+      "kanji": "無理な",
+      "arti": "Paksa, berlebihan, tidak mungkin",
+      "romaji": "murina"
+    },
+    {
+      "no": 24,
+      "kana": "からだにいい",
+      "kanji": "体にいい",
+      "arti": "Baik untuk tubuh",
+      "romaji": "karadaniii"
+    },
+    {
+      "no": 25,
+      "kana": "とうきょうスカイツリー",
+      "kanji": "",
+      "arti": "Tokyo sky tree",
+      "romaji": "toukyousukaitsurii"
+    },
+    {
+      "no": 26,
+      "kana": "さどう",
+      "kanji": "茶道",
+      "arti": "Upacara minum teh",
+      "romaji": "sadou"
+    },
+    {
+      "no": 27,
+      "kana": "かどう",
+      "kanji": "華道",
+      "arti": "Seni merangkai bunga",
+      "romaji": "kadou"
+    },
+    {
+      "no": 28,
+      "kana": "しょどう",
+      "kanji": "書道",
+      "arti": "Seni menulis huruf jepang",
+      "romaji": "shodou"
+    },
+    {
+      "no": 29,
+      "kana": "かぶき",
+      "kanji": "歌舞伎",
+      "arti": "Kabuki (Drama tradisional jepang)",
+      "romaji": "kabuki"
+    },
+    {
+      "no": 30,
+      "kana": "のう",
+      "kanji": "能",
+      "arti": "Noh (Drama topeng tradisional)",
+      "romaji": "nou"
+    },
+    {
+      "no": 31,
+      "kana": "ぶんらく",
+      "kanji": "文楽",
+      "arti": "Bunraku (Wayang golek tradisional jepang)",
+      "romaji": "bunraku"
+    },
+    {
+      "no": 32,
+      "kana": "じゅうどう",
+      "kanji": "柔道",
+      "arti": "Judo (Olahraga tradisional jepang)",
+      "romaji": "juudou"
+    },
+    {
+      "no": 33,
+      "kana": "けんどう",
+      "kanji": "剣道",
+      "arti": "Kendo (Olahraga tradisional jepang)",
+      "romaji": "kendou"
+    },
+    {
+      "no": 34,
+      "kana": "からて",
+      "kanji": "空手",
+      "arti": "Karate (olahraga beladiri jepang)",
+      "romaji": "karate"
+    },
+    {
+      "no": 35,
+      "kana": "まんざい。らくご",
+      "kanji": "漫才。落語",
+      "arti": "Lelucon, komedi",
+      "romaji": "manzai.rakugo"
+    },
+    {
+      "no": 36,
+      "kana": "いご。しょうぎ",
+      "kanji": "囲碁。将棋",
+      "arti": "Catur jepang",
+      "romaji": "igo.shougi"
+    },
+    {
+      "no": 37,
+      "kana": "パチンコ",
+      "kanji": "",
+      "arti": "Pacinko",
+      "romaji": "pachinko"
+    },
+    {
+      "no": 38,
+      "kana": "カラオケ",
+      "kanji": "",
+      "arti": "Karaoke",
+      "romaji": "karaoke"
+    },
+    {
+      "no": 39,
+      "kana": "ぼんおどり",
+      "kanji": "盆踊り",
+      "arti": "Tarian bon",
+      "romaji": "bon'odori"
+    }
+  ]
+}

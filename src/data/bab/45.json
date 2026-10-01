@@ -1,0 +1,404 @@
+{
+  "bab": 45,
+  "items": [
+    {
+      "no": 1,
+      "kana": "あやまります",
+      "kanji": "謝ります",
+      "arti": "Meminta maaf",
+      "romaji": "ayamarimasu"
+    },
+    {
+      "no": 2,
+      "kana": "あいます （に）",
+      "kanji": "",
+      "arti": "Mendapat (kecelakaan)",
+      "romaji": "aimasu (ni)"
+    },
+    {
+      "no": 3,
+      "kana": "しんじます",
+      "kanji": "信じます",
+      "arti": "Percaya",
+      "romaji": "shinjimasu"
+    },
+    {
+      "no": 4,
+      "kana": "よういします",
+      "kanji": "用意します",
+      "arti": "Mempersiapkan",
+      "romaji": "youishimasu"
+    },
+    {
+      "no": 5,
+      "kana": "キャンセルします",
+      "kanji": "",
+      "arti": "Membatalkan",
+      "romaji": "kyanserushimasu"
+    },
+    {
+      "no": 6,
+      "kana": "うまくいきます",
+      "kanji": "",
+      "arti": "Berhasil dengan baik",
+      "romaji": "umakuikimasu"
+    },
+    {
+      "no": 7,
+      "kana": "ほしょうしょ",
+      "kanji": "保証書",
+      "arti": "Garansi",
+      "romaji": "hoshousho"
+    },
+    {
+      "no": 8,
+      "kana": "りょうしゅうしょ",
+      "kanji": "領収書",
+      "arti": "Kwitansi",
+      "romaji": "ryoushuusho"
+    },
+    {
+      "no": 9,
+      "kana": "おくりもの  （を）します",
+      "kanji": "贈り物",
+      "arti": "Hadiah , memberikan hadiah",
+      "romaji": "okurimono  (wo)shimasu"
+    },
+    {
+      "no": 10,
+      "kana": "まちがいでんわ",
+      "kanji": "間違い電話",
+      "arti": "Salah sambung",
+      "romaji": "machigaidenwa"
+    },
+    {
+      "no": 11,
+      "kana": "キャンプ",
+      "kanji": "",
+      "arti": "Camping, berkemah",
+      "romaji": "kyanpu"
+    },
+    {
+      "no": 12,
+      "kana": "かかり",
+      "kanji": "係",
+      "arti": "Tugas, petugas",
+      "romaji": "kakari"
+    },
+    {
+      "no": 13,
+      "kana": "ちゅうし",
+      "kanji": "中止",
+      "arti": "Membatalkan",
+      "romaji": "chuushi"
+    },
+    {
+      "no": 14,
+      "kana": "てん",
+      "kanji": "点",
+      "arti": "Angka,skor",
+      "romaji": "ten"
+    },
+    {
+      "no": 15,
+      "kana": "レバー",
+      "kanji": "",
+      "arti": "Pengungkit, tuas",
+      "romaji": "rebaa"
+    },
+    {
+      "no": 16,
+      "kana": "～さつ",
+      "kanji": "～札",
+      "arti": "Lembaran",
+      "romaji": "~satsu"
+    },
+    {
+      "no": 17,
+      "kana": "ちゃんと",
+      "kanji": "",
+      "arti": "Secara teratur",
+      "romaji": "chanto"
+    },
+    {
+      "no": 18,
+      "kana": "たのしみにしています",
+      "kanji": "",
+      "arti": "Akan senang sekali",
+      "romaji": "tanoshiminishiteimasu"
+    },
+    {
+      "no": 19,
+      "kana": "いじょうです",
+      "kanji": "以上です",
+      "arti": "Sekian, selesai",
+      "romaji": "ijoudesu"
+    },
+    {
+      "no": 20,
+      "kana": "かかりいん",
+      "kanji": "係員",
+      "arti": "Petugas",
+      "romaji": "kakariin"
+    },
+    {
+      "no": 21,
+      "kana": "コース",
+      "kanji": "",
+      "arti": "Lintasan",
+      "romaji": "koosu"
+    },
+    {
+      "no": 22,
+      "kana": "スタート",
+      "kanji": "",
+      "arti": "Start",
+      "romaji": "sutaato"
+    },
+    {
+      "no": 23,
+      "kana": "～い",
+      "kanji": "～位",
+      "arti": "Ke— (urutan)",
+      "romaji": "~i"
+    },
+    {
+      "no": 24,
+      "kana": "ゆうしょうします",
+      "kanji": "優勝します",
+      "arti": "Menjadi juara",
+      "romaji": "yuushoushimasu"
+    },
+    {
+      "no": 25,
+      "kana": "なやみ",
+      "kanji": "悩み",
+      "arti": "Kesusahan, kesulitan",
+      "romaji": "nayami"
+    },
+    {
+      "no": 26,
+      "kana": "めざましとけい",
+      "kanji": "目覚まし時計",
+      "arti": "Jam beker",
+      "romaji": "mezamashitokei"
+    },
+    {
+      "no": 27,
+      "kana": "ねむります",
+      "kanji": "眠ります",
+      "arti": "Tidur",
+      "romaji": "nemurimasu"
+    },
+    {
+      "no": 28,
+      "kana": "めがさめます",
+      "kanji": "目が覚めます",
+      "arti": "Terbangun",
+      "romaji": "megasamemasu"
+    },
+    {
+      "no": 29,
+      "kana": "かいとう",
+      "kanji": "回答",
+      "arti": "Jawaban",
+      "romaji": "kaitou"
+    },
+    {
+      "no": 30,
+      "kana": "なります",
+      "kanji": "鳴ります",
+      "arti": "Berbunyi",
+      "romaji": "narimasu"
+    },
+    {
+      "no": 31,
+      "kana": "セットします",
+      "kanji": "",
+      "arti": "Menyetel",
+      "romaji": "settoshimasu"
+    },
+    {
+      "no": 32,
+      "kana": "それでも",
+      "kanji": "",
+      "arti": "Meskipun demikian",
+      "romaji": "soredemo"
+    },
+    {
+      "no": 33,
+      "kana": "ひじょうのばあい",
+      "kanji": "非情の場合",
+      "arti": "Keadaan gempa",
+      "romaji": "hijounobaai"
+    },
+    {
+      "no": 34,
+      "kana": "そなえ",
+      "kanji": "備え",
+      "arti": "Persiapan",
+      "romaji": "sonae"
+    },
+    {
+      "no": 35,
+      "kana": "そなえる",
+      "kanji": "備える",
+      "arti": "Menyediakan/menyiapkan",
+      "romaji": "sonaeru"
+    },
+    {
+      "no": 36,
+      "kana": "かぐ",
+      "kanji": "家具",
+      "arti": "Perabotan",
+      "romaji": "kagu"
+    },
+    {
+      "no": 37,
+      "kana": "しょうかき",
+      "kanji": "消火器",
+      "arti": "Alat pemadam kebakaran",
+      "romaji": "shoukaki"
+    },
+    {
+      "no": 38,
+      "kana": "たくわえる",
+      "kanji": "貯える",
+      "arti": "Menyiapkan",
+      "romaji": "takuwaeru"
+    },
+    {
+      "no": 39,
+      "kana": "ひじょうよう",
+      "kanji": "非常用",
+      "arti": "Keperluan darurat",
+      "romaji": "hijouyou"
+    },
+    {
+      "no": 40,
+      "kana": "ふくろ",
+      "kanji": "袋",
+      "arti": "Tas",
+      "romaji": "fukuro"
+    },
+    {
+      "no": 41,
+      "kana": "ちいき",
+      "kanji": "地域",
+      "arti": "Tempat,lokasi",
+      "romaji": "chiiki"
+    },
+    {
+      "no": 42,
+      "kana": "ひなんばしょ",
+      "kanji": "避難場所",
+      "arti": "Tempat mengungsi",
+      "romaji": "hinanbasho"
+    },
+    {
+      "no": 43,
+      "kana": "ひなんする",
+      "kanji": "避難する",
+      "arti": "Mengungsi",
+      "romaji": "hinansuru"
+    },
+    {
+      "no": 44,
+      "kana": "かくにんします",
+      "kanji": "確認します",
+      "arti": "Memastikan",
+      "romaji": "kakuninshimasu"
+    },
+    {
+      "no": 45,
+      "kana": "ちじん",
+      "kanji": "知人",
+      "arti": "Kenalan",
+      "romaji": "chijin"
+    },
+    {
+      "no": 46,
+      "kana": "ゆうじん",
+      "kanji": "友人",
+      "arti": "Teman",
+      "romaji": "yuujin"
+    },
+    {
+      "no": 47,
+      "kana": "れんらくさき",
+      "kanji": "連絡先",
+      "arti": "alamat yang bisa dihubungi",
+      "romaji": "renrakusaki"
+    },
+    {
+      "no": 48,
+      "kana": "きめます",
+      "kanji": "決めます",
+      "arti": "Menentukan",
+      "romaji": "kimemasu"
+    },
+    {
+      "no": 49,
+      "kana": "すばやくひのしまつ",
+      "kanji": "",
+      "arti": "Cepat-cepat matikan api",
+      "romaji": "subayakuhinoshimatsu"
+    },
+    {
+      "no": 50,
+      "kana": "と",
+      "kanji": "戸",
+      "arti": "Pintu",
+      "romaji": "to"
+    },
+    {
+      "no": 51,
+      "kana": "あわてて",
+      "kanji": "慌てて",
+      "arti": "Berebut",
+      "romaji": "awatete"
+    },
+    {
+      "no": 52,
+      "kana": "もぐる",
+      "kanji": "",
+      "arti": "Berlindung",
+      "romaji": "moguru"
+    },
+    {
+      "no": 53,
+      "kana": "じしんがおさまる",
+      "kanji": "地震が収まる",
+      "arti": "Gempanya berhenti",
+      "romaji": "jishingaosamaru"
+    },
+    {
+      "no": 54,
+      "kana": "がけくずれ",
+      "kanji": "崖崩れ",
+      "arti": "Tanah longsor",
+      "romaji": "gakekuzure"
+    },
+    {
+      "no": 55,
+      "kana": "やまくずれ",
+      "kanji": "山崩れ",
+      "arti": "Gunung longsor",
+      "romaji": "yamakuzure"
+    },
+    {
+      "no": 56,
+      "kana": "てんけんする",
+      "kanji": "点検する",
+      "arti": "Memeriksa , mengecek",
+      "romaji": "tenkensuru"
+    },
+    {
+      "no": 57,
+      "kana": "きんきゅう",
+      "kanji": "緊急",
+      "arti": "Keadaan darurat",
+      "romaji": "kinkyuu"
+    }
+  ]
+}

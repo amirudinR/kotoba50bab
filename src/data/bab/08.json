@@ -1,0 +1,474 @@
+{
+  "bab": 8,
+  "items": [
+    {
+      "no": 1,
+      "kana": "ハンサム（な）",
+      "kanji": "",
+      "arti": "Tampan / gagah / ganteng",
+      "romaji": "hansamu(na)"
+    },
+    {
+      "no": 2,
+      "kana": "きれい（な）",
+      "kanji": "",
+      "arti": "Cantik / bersih",
+      "romaji": "kirei(na)"
+    },
+    {
+      "no": 3,
+      "kana": "しずか（な）",
+      "kanji": "静香（な）",
+      "arti": "Sunyi / tenang",
+      "romaji": "shizuka(na)"
+    },
+    {
+      "no": 4,
+      "kana": "にぎやか（な）",
+      "kanji": "",
+      "arti": "Ramai",
+      "romaji": "nigiyaka(na)"
+    },
+    {
+      "no": 5,
+      "kana": "ゆうめい（な）",
+      "kanji": "有名（な）",
+      "arti": "Terkenal",
+      "romaji": "yuumei(na)"
+    },
+    {
+      "no": 6,
+      "kana": "しんせつ（な）",
+      "kanji": "新設（な）",
+      "arti": "Baik hati",
+      "romaji": "shinsetsu(na)"
+    },
+    {
+      "no": 7,
+      "kana": "げんき（な）",
+      "kanji": "元気（な）",
+      "arti": "Sehat",
+      "romaji": "genki(na)"
+    },
+    {
+      "no": 8,
+      "kana": "ひま（な）",
+      "kanji": "暇（な）",
+      "arti": "Senggang",
+      "romaji": "hima(na)"
+    },
+    {
+      "no": 9,
+      "kana": "べんり（な）",
+      "kanji": "便利（な）",
+      "arti": "Praktis",
+      "romaji": "benri(na)"
+    },
+    {
+      "no": 10,
+      "kana": "すてき（な）",
+      "kanji": "",
+      "arti": "Bagus",
+      "romaji": "suteki(na)"
+    },
+    {
+      "no": 11,
+      "kana": "おおきい",
+      "kanji": "大きい",
+      "arti": "Besar",
+      "romaji": "ookii"
+    },
+    {
+      "no": 12,
+      "kana": "ちいさい",
+      "kanji": "小さい",
+      "arti": "Kecil",
+      "romaji": "chiisai"
+    },
+    {
+      "no": 13,
+      "kana": "あたらしい",
+      "kanji": "新しい",
+      "arti": "Baru",
+      "romaji": "atarashii"
+    },
+    {
+      "no": 14,
+      "kana": "ふるい",
+      "kanji": "古い",
+      "arti": "Lama / tua",
+      "romaji": "furui"
+    },
+    {
+      "no": 15,
+      "kana": "いい（よい）",
+      "kanji": "",
+      "arti": "Baik / bagus",
+      "romaji": "ii(yoi)"
+    },
+    {
+      "no": 16,
+      "kana": "わるい",
+      "kanji": "悪い",
+      "arti": "Jelek",
+      "romaji": "warui"
+    },
+    {
+      "no": 17,
+      "kana": "あつい",
+      "kanji": "暑い、熱い",
+      "arti": "Panas",
+      "romaji": "atsui"
+    },
+    {
+      "no": 18,
+      "kana": "さむい",
+      "kanji": "寒い",
+      "arti": "Dingin suhu",
+      "romaji": "samui"
+    },
+    {
+      "no": 19,
+      "kana": "つめたい",
+      "kanji": "冷たい",
+      "arti": "Dingin benda",
+      "romaji": "tsumetai"
+    },
+    {
+      "no": 20,
+      "kana": "むずかしい",
+      "kanji": "難しい",
+      "arti": "Sulit / susah",
+      "romaji": "muzukashii"
+    },
+    {
+      "no": 21,
+      "kana": "やさしい",
+      "kanji": "易しい",
+      "arti": "Mudah / gampang",
+      "romaji": "yasashii"
+    },
+    {
+      "no": 22,
+      "kana": "たかい",
+      "kanji": "高い",
+      "arti": "Mahal / tinggi",
+      "romaji": "takai"
+    },
+    {
+      "no": 23,
+      "kana": "やすい",
+      "kanji": "安い",
+      "arti": "Murah",
+      "romaji": "yasui"
+    },
+    {
+      "no": 24,
+      "kana": "ひくい",
+      "kanji": "低い",
+      "arti": "Rendah",
+      "romaji": "hikui"
+    },
+    {
+      "no": 25,
+      "kana": "おもしろい",
+      "kanji": "",
+      "arti": "Menarik",
+      "romaji": "omoshiroi"
+    },
+    {
+      "no": 26,
+      "kana": "おいしい",
+      "kanji": "",
+      "arti": "Enak",
+      "romaji": "oishii"
+    },
+    {
+      "no": 27,
+      "kana": "いそがしい",
+      "kanji": "忙しい",
+      "arti": "Sibuk",
+      "romaji": "isogashii"
+    },
+    {
+      "no": 28,
+      "kana": "たのしい",
+      "kanji": "楽しい",
+      "arti": "Senang",
+      "romaji": "tanoshii"
+    },
+    {
+      "no": 29,
+      "kana": "しろい",
+      "kanji": "白い",
+      "arti": "Putih",
+      "romaji": "shiroi"
+    },
+    {
+      "no": 30,
+      "kana": "くろい",
+      "kanji": "黒い",
+      "arti": "Hitam",
+      "romaji": "kuroi"
+    },
+    {
+      "no": 31,
+      "kana": "あかい",
+      "kanji": "赤い",
+      "arti": "Merah",
+      "romaji": "akai"
+    },
+    {
+      "no": 32,
+      "kana": "あおい",
+      "kanji": "青い",
+      "arti": "Biru",
+      "romaji": "aoi"
+    },
+    {
+      "no": 33,
+      "kana": "さくら",
+      "kanji": "桜",
+      "arti": "Sakura",
+      "romaji": "sakura"
+    },
+    {
+      "no": 34,
+      "kana": "やま",
+      "kanji": "山",
+      "arti": "Gunung",
+      "romaji": "yama"
+    },
+    {
+      "no": 35,
+      "kana": "まち",
+      "kanji": "町",
+      "arti": "Kota",
+      "romaji": "machi"
+    },
+    {
+      "no": 36,
+      "kana": "たべもの",
+      "kanji": "食べ物",
+      "arti": "Makanan",
+      "romaji": "tabemono"
+    },
+    {
+      "no": 37,
+      "kana": "ところ",
+      "kanji": "所",
+      "arti": "Tempat",
+      "romaji": "tokoro"
+    },
+    {
+      "no": 38,
+      "kana": "りょう",
+      "kanji": "寮",
+      "arti": "Asrama",
+      "romaji": "ryou"
+    },
+    {
+      "no": 39,
+      "kana": "レストラン",
+      "kanji": "",
+      "arti": "Restoran",
+      "romaji": "resutoran"
+    },
+    {
+      "no": 40,
+      "kana": "せいかつ",
+      "kanji": "生活",
+      "arti": "Kehidupan",
+      "romaji": "seikatsu"
+    },
+    {
+      "no": 41,
+      "kana": "しごと",
+      "kanji": "仕事",
+      "arti": "Pekerjaan",
+      "romaji": "shigoto"
+    },
+    {
+      "no": 42,
+      "kana": "どう",
+      "kanji": "",
+      "arti": "Bagaimana?",
+      "romaji": "dou"
+    },
+    {
+      "no": 43,
+      "kana": "どんな～",
+      "kanji": "",
+      "arti": "Yang bagaimana ?",
+      "romaji": "donna~"
+    },
+    {
+      "no": 44,
+      "kana": "とても",
+      "kanji": "",
+      "arti": "Sangat / ~sekali",
+      "romaji": "totemo"
+    },
+    {
+      "no": 45,
+      "kana": "あまり",
+      "kanji": "",
+      "arti": "Tidak begitu ~ / kurang begitu ~",
+      "romaji": "amari"
+    },
+    {
+      "no": 46,
+      "kana": "そして",
+      "kanji": "",
+      "arti": "Kemudian",
+      "romaji": "soshite"
+    },
+    {
+      "no": 47,
+      "kana": "～が～",
+      "kanji": "",
+      "arti": "Tetapi",
+      "romaji": "~ga~"
+    },
+    {
+      "no": 48,
+      "kana": "おげんきですか",
+      "kanji": "お元気ですか",
+      "arti": "Apa kabar ?",
+      "romaji": "ogenkidesuka"
+    },
+    {
+      "no": 49,
+      "kana": "そうですね",
+      "kanji": "",
+      "arti": "Bagaimana ya?",
+      "romaji": "soudesune"
+    },
+    {
+      "no": 50,
+      "kana": "～もういっぱいいかがですか",
+      "kanji": "",
+      "arti": "Mau nambah secangkir lagi ?",
+      "romaji": "~mouippaiikagadesuka"
+    },
+    {
+      "no": 51,
+      "kana": "（いいえ）けっこうです",
+      "kanji": "",
+      "arti": "Cukup",
+      "romaji": "(iie)kekkoudesu"
+    },
+    {
+      "no": 52,
+      "kana": "そろそろしつれいします",
+      "kanji": "そろそろ失礼します",
+      "arti": "Maaf saya mau pamit dulu",
+      "romaji": "sorosoroshitsureishimasu"
+    },
+    {
+      "no": 53,
+      "kana": "いいえ",
+      "kanji": "",
+      "arti": "Sama-sama",
+      "romaji": "iie"
+    },
+    {
+      "no": 54,
+      "kana": "またいらっしゃってください",
+      "kanji": "",
+      "arti": "Silakan datang lagi",
+      "romaji": "matairasshattekudasai"
+    },
+    {
+      "no": 55,
+      "kana": "シャンハイ",
+      "kanji": "",
+      "arti": "Shanghai",
+      "romaji": "shanhai"
+    },
+    {
+      "no": 56,
+      "kana": "みどり",
+      "kanji": "",
+      "arti": "Hijau",
+      "romaji": "midori"
+    },
+    {
+      "no": 57,
+      "kana": "むらさき",
+      "kanji": "",
+      "arti": "Ungu",
+      "romaji": "murasaki"
+    },
+    {
+      "no": 58,
+      "kana": "きいろい",
+      "kanji": "",
+      "arti": "Kuning",
+      "romaji": "kiiroi"
+    },
+    {
+      "no": 59,
+      "kana": "ちゃいろい",
+      "kanji": "",
+      "arti": "coklat",
+      "romaji": "chairoi"
+    },
+    {
+      "no": 60,
+      "kana": "ピンク",
+      "kanji": "",
+      "arti": "Merah muda",
+      "romaji": "pinku"
+    },
+    {
+      "no": 61,
+      "kana": "オレンジ",
+      "kanji": "",
+      "arti": "Oranye",
+      "romaji": "orenji"
+    },
+    {
+      "no": 62,
+      "kana": "グレー",
+      "kanji": "",
+      "arti": "Abu-abu",
+      "romaji": "guree"
+    },
+    {
+      "no": 63,
+      "kana": "ベージュ",
+      "kanji": "",
+      "arti": "krem",
+      "romaji": "beeju"
+    },
+    {
+      "no": 64,
+      "kana": "はる",
+      "kanji": "春",
+      "arti": "Musim semi",
+      "romaji": "haru"
+    },
+    {
+      "no": 65,
+      "kana": "なつ",
+      "kanji": "夏",
+      "arti": "Musim panas",
+      "romaji": "natsu"
+    },
+    {
+      "no": 66,
+      "kana": "あき",
+      "kanji": "秋",
+      "arti": "Musim gugur",
+      "romaji": "aki"
+    },
+    {
+      "no": 67,
+      "kana": "ふゆ",
+      "kanji": "冬",
+      "arti": "Musim dingin",
+      "romaji": "fuyu"
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "bab": 32,
+  "items": [
+    {
+      "no": 1,
+      "kana": "うんどうします",
+      "kanji": "運動します",
+      "arti": "Berolahraga",
+      "romaji": "undoushimasu"
+    },
+    {
+      "no": 2,
+      "kana": "せいこうします",
+      "kanji": "成功します",
+      "arti": "Berhasil",
+      "romaji": "seikoushimasu"
+    },
+    {
+      "no": 3,
+      "kana": "しっぱいします （に）",
+      "kanji": "失敗します",
+      "arti": "Mengalami kegagalan /gagal",
+      "romaji": "shippaishimasu (ni)"
+    },
+    {
+      "no": 4,
+      "kana": "ごうかくします （に）",
+      "kanji": "合格します",
+      "arti": "Lulus",
+      "romaji": "goukakushimasu (ni)"
+    },
+    {
+      "no": 5,
+      "kana": "もどります",
+      "kanji": "戻ります",
+      "arti": "Kembali",
+      "romaji": "modorimasu"
+    },
+    {
+      "no": 6,
+      "kana": "やみます （が）",
+      "kanji": "",
+      "arti": "Berhenti (hujan)",
+      "romaji": "yamimasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "はれます",
+      "kanji": "晴れます",
+      "arti": "Menjadi cerah",
+      "romaji": "haremasu"
+    },
+    {
+      "no": 8,
+      "kana": "くもります",
+      "kanji": "曇ります",
+      "arti": "Menjadi mendung",
+      "romaji": "kumorimasu"
+    },
+    {
+      "no": 9,
+      "kana": "ふきます （が）",
+      "kanji": "吹きます",
+      "arti": "Bertiup(angin)",
+      "romaji": "fukimasu (ga)"
+    },
+    {
+      "no": 10,
+      "kana": "なおります （が）",
+      "kanji": "治ります",
+      "arti": "Sembuh (dari penyakit)",
+      "romaji": "naorimasu (ga)"
+    },
+    {
+      "no": 11,
+      "kana": "なおります （が）",
+      "kanji": "直ります",
+      "arti": "Diperbaiki (mesin)",
+      "romaji": "naorimasu (ga)"
+    },
+    {
+      "no": 12,
+      "kana": "つづきます （が）",
+      "kanji": "続きます",
+      "arti": "Berlanjut (demam)",
+      "romaji": "tsuzukimasu (ga)"
+    },
+    {
+      "no": 13,
+      "kana": "ひきます （を）",
+      "kanji": "",
+      "arti": "Masuk angin",
+      "romaji": "hikimasu (wo)"
+    },
+    {
+      "no": 14,
+      "kana": "ひやします",
+      "kanji": "冷やします",
+      "arti": "Mendinginkan",
+      "romaji": "hiyashimasu"
+    },
+    {
+      "no": 15,
+      "kana": "しんぱいな",
+      "kanji": "心配な",
+      "arti": "Khawatir",
+      "romaji": "shinpaina"
+    },
+    {
+      "no": 16,
+      "kana": "じゅうぶんな",
+      "kanji": "十分な",
+      "arti": "Cukup",
+      "romaji": "juubunna"
+    },
+    {
+      "no": 17,
+      "kana": "おかしい",
+      "kanji": "",
+      "arti": "Lucu, aneh",
+      "romaji": "okashii"
+    },
+    {
+      "no": 18,
+      "kana": "うるさい",
+      "kanji": "",
+      "arti": "Berisik, cerewet",
+      "romaji": "urusai"
+    },
+    {
+      "no": 19,
+      "kana": "やけど （を）します",
+      "kanji": "",
+      "arti": "Luka bakar",
+      "romaji": "yakedo (wo)shimasu"
+    },
+    {
+      "no": 20,
+      "kana": "けが （を）します",
+      "kanji": "",
+      "arti": "Luka,cedera",
+      "romaji": "kega (wo)shimasu"
+    },
+    {
+      "no": 21,
+      "kana": "せき （が）でます",
+      "kanji": "",
+      "arti": "Batuk",
+      "romaji": "seki (ga)demasu"
+    },
+    {
+      "no": 22,
+      "kana": "インフルエンザ",
+      "kanji": "",
+      "arti": "Influenza",
+      "romaji": "infuruenza"
+    },
+    {
+      "no": 23,
+      "kana": "そら",
+      "kanji": "空",
+      "arti": "Langit",
+      "romaji": "sora"
+    },
+    {
+      "no": 24,
+      "kana": "たいよう",
+      "kanji": "太陽",
+      "arti": "Matahari",
+      "romaji": "taiyou"
+    },
+    {
+      "no": 25,
+      "kana": "ほし",
+      "kanji": "星",
+      "arti": "Bintang",
+      "romaji": "hoshi"
+    },
+    {
+      "no": 26,
+      "kana": "つき",
+      "kanji": "月",
+      "arti": "Bulan",
+      "romaji": "tsuki"
+    },
+    {
+      "no": 27,
+      "kana": "かぜ",
+      "kanji": "風",
+      "arti": "Angin",
+      "romaji": "kaze"
+    },
+    {
+      "no": 28,
+      "kana": "きた",
+      "kanji": "北",
+      "arti": "Utara",
+      "romaji": "kita"
+    },
+    {
+      "no": 29,
+      "kana": "みなみ",
+      "kanji": "南",
+      "arti": "Selatan",
+      "romaji": "minami"
+    },
+    {
+      "no": 30,
+      "kana": "にし",
+      "kanji": "西",
+      "arti": "Barat",
+      "romaji": "nishi"
+    },
+    {
+      "no": 31,
+      "kana": "ひがし",
+      "kanji": "東",
+      "arti": "Timur",
+      "romaji": "higashi"
+    },
+    {
+      "no": 32,
+      "kana": "すいどう",
+      "kanji": "水道",
+      "arti": "Air ledeng",
+      "romaji": "suidou"
+    },
+    {
+      "no": 33,
+      "kana": "エンジン",
+      "kanji": "",
+      "arti": "Mesin,motor",
+      "romaji": "enjin"
+    },
+    {
+      "no": 34,
+      "kana": "チーム",
+      "kanji": "",
+      "arti": "Tim",
+      "romaji": "chiimu"
+    },
+    {
+      "no": 35,
+      "kana": "こんや",
+      "kanji": "今夜",
+      "arti": "Malam ini",
+      "romaji": "konya"
+    },
+    {
+      "no": 36,
+      "kana": "ゆうがた",
+      "kanji": "夕方",
+      "arti": "Sore",
+      "romaji": "yuugata"
+    },
+    {
+      "no": 37,
+      "kana": "まえ",
+      "kanji": "",
+      "arti": "Sebelumnya",
+      "romaji": "mae"
+    },
+    {
+      "no": 38,
+      "kana": "おそく",
+      "kanji": "遅く",
+      "arti": "Malam sekali/telat",
+      "romaji": "osoku"
+    },
+    {
+      "no": 39,
+      "kana": "こんな",
+      "kanji": "",
+      "arti": "Seperti ini",
+      "romaji": "konna"
+    },
+    {
+      "no": 40,
+      "kana": "そんな",
+      "kanji": "",
+      "arti": "Seperti itu",
+      "romaji": "sonna"
+    },
+    {
+      "no": 41,
+      "kana": "あんな",
+      "kanji": "",
+      "arti": "Seperti itu",
+      "romaji": "anna"
+    },
+    {
+      "no": 42,
+      "kana": "もしかしたら",
+      "kanji": "",
+      "arti": "Kemungkinannya",
+      "romaji": "moshikashitara"
+    },
+    {
+      "no": 43,
+      "kana": "それはいけませんね",
+      "kanji": "",
+      "arti": "Kasihan ya.",
+      "romaji": "sorehaikemasenne"
+    },
+    {
+      "no": 44,
+      "kana": "げんき",
+      "kanji": "元気",
+      "arti": "Sehat",
+      "romaji": "genki"
+    },
+    {
+      "no": 45,
+      "kana": "い",
+      "kanji": "胃",
+      "arti": "Lambung",
+      "romaji": "i"
+    },
+    {
+      "no": 46,
+      "kana": "はたらきすぎ",
+      "kanji": "働きすぎ",
+      "arti": "Terlalu banyak bekerja",
+      "romaji": "hatarakisugi"
+    },
+    {
+      "no": 47,
+      "kana": "ストレス",
+      "kanji": "",
+      "arti": "Stress",
+      "romaji": "sutoresu"
+    },
+    {
+      "no": 48,
+      "kana": "むりをします",
+      "kanji": "無理をします",
+      "arti": "Dipaksakan",
+      "romaji": "muriwoshimasu"
+    },
+    {
+      "no": 49,
+      "kana": "ゆっくりします",
+      "kanji": "",
+      "arti": "Beristirahat",
+      "romaji": "yukkurishimasu"
+    },
+    {
+      "no": 50,
+      "kana": "ほしうらない",
+      "kanji": "星占い",
+      "arti": "Primbon, ramalan zodiak",
+      "romaji": "hoshiuranai"
+    },
+    {
+      "no": 51,
+      "kana": "おうしざ",
+      "kanji": "牡牛座",
+      "arti": "Bintang taurus",
+      "romaji": "oushiza"
+    },
+    {
+      "no": 52,
+      "kana": "こまります",
+      "kanji": "困ります",
+      "arti": "Mengalami kesulitan",
+      "romaji": "komarimasu"
+    },
+    {
+      "no": 53,
+      "kana": "たからくじ",
+      "kanji": "宝くじ",
+      "arti": "Lotre",
+      "romaji": "takarakuji"
+    },
+    {
+      "no": 54,
+      "kana": "あたります （が）",
+      "kanji": "当たります",
+      "arti": "Menang (lotre) , nembus (lotre)",
+      "romaji": "atarimasu (ga)"
+    },
+    {
+      "no": 55,
+      "kana": "けんこう",
+      "kanji": "健康",
+      "arti": "Kesehatan",
+      "romaji": "kenkou"
+    },
+    {
+      "no": 56,
+      "kana": "れんあい",
+      "kanji": "恋愛",
+      "arti": "Percintaan",
+      "romaji": "ren'ai"
+    },
+    {
+      "no": 57,
+      "kana": "おかねもち",
+      "kanji": "お金持ち",
+      "arti": "Orang kaya",
+      "romaji": "okanemochi"
+    },
+    {
+      "no": 58,
+      "kana": "てんきよほう",
+      "kanji": "天気予報",
+      "arti": "Prakiraan cuaca",
+      "romaji": "tenkiyohou"
+    },
+    {
+      "no": 59,
+      "kana": "こうすいかくりつ",
+      "kanji": "降水確率",
+      "arti": "Kemungkinan hujan",
+      "romaji": "kousuikakuritsu"
+    },
+    {
+      "no": 60,
+      "kana": "さいこうきおん",
+      "kanji": "最高気温",
+      "arti": "Suhu tertinggi",
+      "romaji": "saikoukion"
+    },
+    {
+      "no": 61,
+      "kana": "さいていきおん",
+      "kanji": "最低気温",
+      "arti": "Suhu terendah",
+      "romaji": "saiteikion"
+    },
+    {
+      "no": 62,
+      "kana": "はれのちくもり",
+      "kanji": "晴れのち曇り",
+      "arti": "Cerah kemudian berawan",
+      "romaji": "harenochikumori"
+    },
+    {
+      "no": 63,
+      "kana": "くもりところによってあめ",
+      "kanji": "曇り所によって雨",
+      "arti": "Berawan dan hujan di beberapa tempat",
+      "romaji": "kumoritokoroniyotteame"
+    },
+    {
+      "no": 64,
+      "kana": "ちほう",
+      "kanji": "地方",
+      "arti": "Wilayah",
+      "romaji": "chihou"
+    },
+    {
+      "no": 65,
+      "kana": "にわかあめ／ゆうだち",
+      "kanji": "にわか雨／夕立",
+      "arti": "Hujan mendadak",
+      "romaji": "niwakaame/yuudachi"
+    },
+    {
+      "no": 66,
+      "kana": "たいふう",
+      "kanji": "台風",
+      "arti": "Topan",
+      "romaji": "taifuu"
+    },
+    {
+      "no": 67,
+      "kana": "にじ",
+      "kanji": "虹",
+      "arti": "Pelangi",
+      "romaji": "niji"
+    },
+    {
+      "no": 68,
+      "kana": "しつど",
+      "kanji": "湿度",
+      "arti": "Kelembaban",
+      "romaji": "shitsudo"
+    },
+    {
+      "no": 69,
+      "kana": "むしあつい",
+      "kanji": "蒸し暑い",
+      "arti": "Panas lembab",
+      "romaji": "mushiatsui"
+    },
+    {
+      "no": 70,
+      "kana": "さわやかな",
+      "kanji": "",
+      "arti": "Segar",
+      "romaji": "sawayakana"
+    },
+    {
+      "no": 71,
+      "kana": "かみなり",
+      "kanji": "雷",
+      "arti": "Petir",
+      "romaji": "kaminari"
+    }
+  ]
+}

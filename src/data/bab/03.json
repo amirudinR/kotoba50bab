@@ -1,0 +1,474 @@
+{
+  "bab": 3,
+  "items": [
+    {
+      "no": 1,
+      "kana": "ここ",
+      "kanji": "",
+      "arti": "Disini",
+      "romaji": "koko"
+    },
+    {
+      "no": 2,
+      "kana": "そこ",
+      "kanji": "",
+      "arti": "Disitu",
+      "romaji": "soko"
+    },
+    {
+      "no": 3,
+      "kana": "あそこ",
+      "kanji": "",
+      "arti": "Disana",
+      "romaji": "asoko"
+    },
+    {
+      "no": 4,
+      "kana": "どこ",
+      "kanji": "",
+      "arti": "Dimana?",
+      "romaji": "doko"
+    },
+    {
+      "no": 5,
+      "kana": "こちら",
+      "kanji": "",
+      "arti": "Disini",
+      "romaji": "kochira"
+    },
+    {
+      "no": 6,
+      "kana": "そちら",
+      "kanji": "",
+      "arti": "Disitu",
+      "romaji": "sochira"
+    },
+    {
+      "no": 7,
+      "kana": "あちら",
+      "kanji": "",
+      "arti": "Disana",
+      "romaji": "achira"
+    },
+    {
+      "no": 8,
+      "kana": "どちら",
+      "kanji": "",
+      "arti": "Dimana ?",
+      "romaji": "dochira"
+    },
+    {
+      "no": 9,
+      "kana": "きょうしつ",
+      "kanji": "教室",
+      "arti": "Ruang kelas",
+      "romaji": "kyoushitsu"
+    },
+    {
+      "no": 10,
+      "kana": "しょくどう",
+      "kanji": "食堂",
+      "arti": "Ruang makan, Kantin",
+      "romaji": "shokudou"
+    },
+    {
+      "no": 11,
+      "kana": "じむしょ",
+      "kanji": "事務所",
+      "arti": "Kantor",
+      "romaji": "jimusho"
+    },
+    {
+      "no": 12,
+      "kana": "かいぎしつ",
+      "kanji": "会議室",
+      "arti": "Ruang rapat",
+      "romaji": "kaigishitsu"
+    },
+    {
+      "no": 13,
+      "kana": "うけつけ",
+      "kanji": "受付",
+      "arti": "Meja informasi",
+      "romaji": "uketsuke"
+    },
+    {
+      "no": 14,
+      "kana": "ロビー",
+      "kanji": "",
+      "arti": "Ruang tunggu, lobi",
+      "romaji": "robii"
+    },
+    {
+      "no": 15,
+      "kana": "へや",
+      "kanji": "部屋",
+      "arti": "Kamar",
+      "romaji": "heya"
+    },
+    {
+      "no": 16,
+      "kana": "おてあらい",
+      "kanji": "お手洗い",
+      "arti": "Kamar kecil, WC",
+      "romaji": "otearai"
+    },
+    {
+      "no": 17,
+      "kana": "トイレ",
+      "kanji": "",
+      "arti": "Toilet",
+      "romaji": "toire"
+    },
+    {
+      "no": 18,
+      "kana": "かいだん",
+      "kanji": "階段",
+      "arti": "Tangga",
+      "romaji": "kaidan"
+    },
+    {
+      "no": 19,
+      "kana": "エレベーター",
+      "kanji": "",
+      "arti": "Lift",
+      "romaji": "erebeetaa"
+    },
+    {
+      "no": 20,
+      "kana": "エスカレーター",
+      "kanji": "",
+      "arti": "Eskalator, tangga berjalan",
+      "romaji": "esukareetaa"
+    },
+    {
+      "no": 21,
+      "kana": "じどうはんばいき",
+      "kanji": "自動販売機",
+      "arti": "Mesin jual otomatis",
+      "romaji": "jidouhanbaiki"
+    },
+    {
+      "no": 22,
+      "kana": "でんわ",
+      "kanji": "電話",
+      "arti": "Telepon",
+      "romaji": "denwa"
+    },
+    {
+      "no": 23,
+      "kana": "おくに",
+      "kanji": "お国",
+      "arti": "Negara",
+      "romaji": "okuni"
+    },
+    {
+      "no": 24,
+      "kana": "かいしゃ",
+      "kanji": "会社",
+      "arti": "Perusahaan",
+      "romaji": "kaisha"
+    },
+    {
+      "no": 25,
+      "kana": "うち",
+      "kanji": "家",
+      "arti": "Rumah",
+      "romaji": "uchi"
+    },
+    {
+      "no": 26,
+      "kana": "くつ",
+      "kanji": "靴",
+      "arti": "Sepatu",
+      "romaji": "kutsu"
+    },
+    {
+      "no": 27,
+      "kana": "ネクタイ",
+      "kanji": "",
+      "arti": "Dasi",
+      "romaji": "nekutai"
+    },
+    {
+      "no": 28,
+      "kana": "ワイン",
+      "kanji": "",
+      "arti": "Anggur putih",
+      "romaji": "wain"
+    },
+    {
+      "no": 29,
+      "kana": "うりば",
+      "kanji": "売り場",
+      "arti": "Tempat penjualan",
+      "romaji": "uriba"
+    },
+    {
+      "no": 30,
+      "kana": "ちか",
+      "kanji": "地下",
+      "arti": "Bawah tanah , basement",
+      "romaji": "chika"
+    },
+    {
+      "no": 31,
+      "kana": "～かい",
+      "kanji": "～階",
+      "arti": "lantai～/ tingkat～",
+      "romaji": "~kai"
+    },
+    {
+      "no": 32,
+      "kana": "なんがい",
+      "kanji": "何階",
+      "arti": "Lantai berapa?",
+      "romaji": "nangai"
+    },
+    {
+      "no": 33,
+      "kana": "～えん",
+      "kanji": "～円",
+      "arti": "～yen",
+      "romaji": "~en"
+    },
+    {
+      "no": 34,
+      "kana": "いくら",
+      "kanji": "",
+      "arti": "Berapa?",
+      "romaji": "ikura"
+    },
+    {
+      "no": 35,
+      "kana": "ひゃく",
+      "kanji": "百",
+      "arti": "Seratus",
+      "romaji": "hyaku"
+    },
+    {
+      "no": 36,
+      "kana": "せん",
+      "kanji": "千",
+      "arti": "Seribu",
+      "romaji": "sen"
+    },
+    {
+      "no": 37,
+      "kana": "まん",
+      "kanji": "万",
+      "arti": "Puluh ribu",
+      "romaji": "man"
+    },
+    {
+      "no": 38,
+      "kana": "すみません",
+      "kanji": "",
+      "arti": "Maaf",
+      "romaji": "sumimasen"
+    },
+    {
+      "no": 39,
+      "kana": "どうも",
+      "kanji": "",
+      "arti": "Terima kasih",
+      "romaji": "doumo"
+    },
+    {
+      "no": 40,
+      "kana": "いらっしゃいませ",
+      "kanji": "",
+      "arti": "Selamat datang",
+      "romaji": "irasshaimase"
+    },
+    {
+      "no": 41,
+      "kana": "みせてください",
+      "kanji": "見せてください",
+      "arti": "Tolong perlihatkan",
+      "romaji": "misetekudasai"
+    },
+    {
+      "no": 42,
+      "kana": "じゃ",
+      "kanji": "",
+      "arti": "Kalau begitu",
+      "romaji": "ja"
+    },
+    {
+      "no": 43,
+      "kana": "～をください",
+      "kanji": "",
+      "arti": "Tolong ～",
+      "romaji": "~wokudasai"
+    },
+    {
+      "no": 44,
+      "kana": "イタリア",
+      "kanji": "",
+      "arti": "Italia",
+      "romaji": "itaria"
+    },
+    {
+      "no": 45,
+      "kana": "スイス",
+      "kanji": "",
+      "arti": "Swis",
+      "romaji": "suisu"
+    },
+    {
+      "no": 46,
+      "kana": "フランス",
+      "kanji": "",
+      "arti": "Perancis",
+      "romaji": "furansu"
+    },
+    {
+      "no": 47,
+      "kana": "ジャカルタ",
+      "kanji": "",
+      "arti": "Jakarta",
+      "romaji": "jakaruta"
+    },
+    {
+      "no": 48,
+      "kana": "バンコク",
+      "kanji": "",
+      "arti": "Bangkok",
+      "romaji": "bankoku"
+    },
+    {
+      "no": 49,
+      "kana": "ベルリン",
+      "kanji": "",
+      "arti": "Berlin",
+      "romaji": "berurin"
+    },
+    {
+      "no": 50,
+      "kana": "おくじょう",
+      "kanji": "屋上",
+      "arti": "Lantai atas",
+      "romaji": "okujou"
+    },
+    {
+      "no": 51,
+      "kana": "レストラン",
+      "kanji": "",
+      "arti": "Restoran",
+      "romaji": "resutoran"
+    },
+    {
+      "no": 52,
+      "kana": "ゆうえんち",
+      "kanji": "遊園地",
+      "arti": "Tempat hiburan",
+      "romaji": "yuuenchi"
+    },
+    {
+      "no": 53,
+      "kana": "もよおしものかいじょう",
+      "kanji": "催し物会場",
+      "arti": "Tempat pertunjukan",
+      "romaji": "moyooshimonokaijou"
+    },
+    {
+      "no": 54,
+      "kana": "めがね",
+      "kanji": "眼鏡",
+      "arti": "Kacamata",
+      "romaji": "megane"
+    },
+    {
+      "no": 55,
+      "kana": "スポーツようひん",
+      "kanji": "スポーツ用品",
+      "arti": "Peralatan olahraga",
+      "romaji": "supootsuyouhin"
+    },
+    {
+      "no": 56,
+      "kana": "りょこうようひん",
+      "kanji": "旅行用品",
+      "arti": "Peralatan wisata",
+      "romaji": "ryokouyouhin"
+    },
+    {
+      "no": 57,
+      "kana": "こどものふく",
+      "kanji": "子供の服",
+      "arti": "Pakaian anak",
+      "romaji": "kodomonofuku"
+    },
+    {
+      "no": 58,
+      "kana": "おもちゃ",
+      "kanji": "",
+      "arti": "Mainan",
+      "romaji": "omocha"
+    },
+    {
+      "no": 59,
+      "kana": "ぶんぼうぐ",
+      "kanji": "文房具",
+      "arti": "Alat tulis",
+      "romaji": "bunbougu"
+    },
+    {
+      "no": 60,
+      "kana": "かぐ",
+      "kanji": "家具",
+      "arti": "Perlengkapan rumah",
+      "romaji": "kagu"
+    },
+    {
+      "no": 61,
+      "kana": "しょっき",
+      "kanji": "食器",
+      "arti": "Peralatan makan",
+      "romaji": "shokki"
+    },
+    {
+      "no": 62,
+      "kana": "でんかせいひん",
+      "kanji": "電化製品",
+      "arti": "Barang elektronik",
+      "romaji": "denkaseihin"
+    },
+    {
+      "no": 63,
+      "kana": "しんしふく",
+      "kanji": "紳士服",
+      "arti": "Pakaian pria",
+      "romaji": "shinshifuku"
+    },
+    {
+      "no": 64,
+      "kana": "ふじんふく",
+      "kanji": "婦人服",
+      "arti": "Pakaian wanita",
+      "romaji": "fujinfuku"
+    },
+    {
+      "no": 65,
+      "kana": "アクセサリー",
+      "kanji": "",
+      "arti": "Perhiasan, aksesoris",
+      "romaji": "akusesarii"
+    },
+    {
+      "no": 66,
+      "kana": "けしょうひん",
+      "kanji": "化粧品",
+      "arti": "Kosmetik",
+      "romaji": "keshouhin"
+    },
+    {
+      "no": 67,
+      "kana": "しょくひん",
+      "kanji": "食品",
+      "arti": "Makanan",
+      "romaji": "shokuhin"
+    }
+  ]
+}

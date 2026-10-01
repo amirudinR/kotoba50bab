@@ -1,0 +1,432 @@
+{
+  "bab": 30,
+  "items": [
+    {
+      "no": 1,
+      "kana": "はります",
+      "kanji": "",
+      "arti": "Menempelkan",
+      "romaji": "harimasu"
+    },
+    {
+      "no": 2,
+      "kana": "かけます",
+      "kanji": "掛けます",
+      "arti": "Menggantungkan",
+      "romaji": "kakemasu"
+    },
+    {
+      "no": 3,
+      "kana": "かざります",
+      "kanji": "飾ります",
+      "arti": "Menghias,mendekor",
+      "romaji": "kazarimasu"
+    },
+    {
+      "no": 4,
+      "kana": "ならべます",
+      "kanji": "並べます",
+      "arti": "Menjajarkan, meletakkan (secara teratur)",
+      "romaji": "narabemasu"
+    },
+    {
+      "no": 5,
+      "kana": "うえます",
+      "kanji": "植えます",
+      "arti": "Menanam",
+      "romaji": "uemasu"
+    },
+    {
+      "no": 6,
+      "kana": "もどします",
+      "kanji": "戻します",
+      "arti": "Mengembalikan",
+      "romaji": "modoshimasu"
+    },
+    {
+      "no": 7,
+      "kana": "まとめます",
+      "kanji": "",
+      "arti": "Menyusun",
+      "romaji": "matomemasu"
+    },
+    {
+      "no": 8,
+      "kana": "かたづけます",
+      "kanji": "片づけます",
+      "arti": "Membereskan",
+      "romaji": "katazukemasu"
+    },
+    {
+      "no": 9,
+      "kana": "しまいます",
+      "kanji": "",
+      "arti": "Memasukkan, menyimpan",
+      "romaji": "shimaimasu"
+    },
+    {
+      "no": 10,
+      "kana": "きめます",
+      "kanji": "決めます",
+      "arti": "Menentukan",
+      "romaji": "kimemasu"
+    },
+    {
+      "no": 11,
+      "kana": "しらせます",
+      "kanji": "知らせます",
+      "arti": "Memberitahukan, mengumumkan",
+      "romaji": "shirasemasu"
+    },
+    {
+      "no": 12,
+      "kana": "そうだんします",
+      "kanji": "相談します",
+      "arti": "Berunding, membicarakan",
+      "romaji": "soudanshimasu"
+    },
+    {
+      "no": 13,
+      "kana": "よしゅうします",
+      "kanji": "予習します",
+      "arti": "Mempersiapkan pelajaran",
+      "romaji": "yoshuushimasu"
+    },
+    {
+      "no": 14,
+      "kana": "ふくしゅうします",
+      "kanji": "復習します",
+      "arti": "Mengulang pelajaran kembali",
+      "romaji": "fukushuushimasu"
+    },
+    {
+      "no": 15,
+      "kana": "そのままにします",
+      "kanji": "",
+      "arti": "Membiarkan begitu saja",
+      "romaji": "sonomamanishimasu"
+    },
+    {
+      "no": 16,
+      "kana": "おこさん",
+      "kanji": "お子さん",
+      "arti": "Anak (orang lain)",
+      "romaji": "okosan"
+    },
+    {
+      "no": 17,
+      "kana": "じゅぎょう",
+      "kanji": "授業",
+      "arti": "Pelajaran di sekolah",
+      "romaji": "jugyou"
+    },
+    {
+      "no": 18,
+      "kana": "こうぎ",
+      "kanji": "講義",
+      "arti": "Kuliah",
+      "romaji": "kougi"
+    },
+    {
+      "no": 19,
+      "kana": "ミーティング",
+      "kanji": "",
+      "arti": "Rapat, pertemuan",
+      "romaji": "miiteingu"
+    },
+    {
+      "no": 20,
+      "kana": "よてい",
+      "kanji": "予定",
+      "arti": "Acara, rencana",
+      "romaji": "yotei"
+    },
+    {
+      "no": 21,
+      "kana": "おしらせ",
+      "kanji": "お知らせ",
+      "arti": "Pemberitahuan, berita",
+      "romaji": "oshirase"
+    },
+    {
+      "no": 22,
+      "kana": "あんないしょ",
+      "kanji": "案内書",
+      "arti": "Buku/lembaran panduan",
+      "romaji": "annaisho"
+    },
+    {
+      "no": 23,
+      "kana": "カレンダー",
+      "kanji": "",
+      "arti": "Kalender",
+      "romaji": "karendaa"
+    },
+    {
+      "no": 24,
+      "kana": "ポスター",
+      "kanji": "",
+      "arti": "Poster",
+      "romaji": "posutaa"
+    },
+    {
+      "no": 25,
+      "kana": "ごみばこ",
+      "kanji": "ごみ箱",
+      "arti": "Tempat sampah",
+      "romaji": "gomibako"
+    },
+    {
+      "no": 26,
+      "kana": "にんぎょう",
+      "kanji": "人形",
+      "arti": "Boneka",
+      "romaji": "ningyou"
+    },
+    {
+      "no": 27,
+      "kana": "かびん",
+      "kanji": "花瓶",
+      "arti": "Jambangan, vas bunga",
+      "romaji": "kabin"
+    },
+    {
+      "no": 28,
+      "kana": "かがみ",
+      "kanji": "鏡",
+      "arti": "Cermin, kaca",
+      "romaji": "kagami"
+    },
+    {
+      "no": 29,
+      "kana": "ひきだし",
+      "kanji": "引き出し",
+      "arti": "Laci",
+      "romaji": "hikidashi"
+    },
+    {
+      "no": 30,
+      "kana": "げんかん",
+      "kanji": "玄関",
+      "arti": "Pintu masuk, ruang muka",
+      "romaji": "genkan"
+    },
+    {
+      "no": 31,
+      "kana": "ろうか",
+      "kanji": "廊下",
+      "arti": "Lorong, koridor, gang",
+      "romaji": "rouka"
+    },
+    {
+      "no": 32,
+      "kana": "かべ",
+      "kanji": "壁",
+      "arti": "Dinding",
+      "romaji": "kabe"
+    },
+    {
+      "no": 33,
+      "kana": "いけ",
+      "kanji": "池",
+      "arti": "Kolam",
+      "romaji": "ike"
+    },
+    {
+      "no": 34,
+      "kana": "こうばん",
+      "kanji": "交番",
+      "arti": "Pos polisi",
+      "romaji": "kouban"
+    },
+    {
+      "no": 35,
+      "kana": "もとのところ",
+      "kanji": "元の所",
+      "arti": "Tempat semula",
+      "romaji": "motonotokoro"
+    },
+    {
+      "no": 36,
+      "kana": "まわり",
+      "kanji": "周り",
+      "arti": "Sekitar, keliling",
+      "romaji": "mawari"
+    },
+    {
+      "no": 37,
+      "kana": "まんなか",
+      "kanji": "真ん中",
+      "arti": "Di tengah-tengah",
+      "romaji": "mannaka"
+    },
+    {
+      "no": 38,
+      "kana": "すみ",
+      "kanji": "隅",
+      "arti": "Pojok,sudut",
+      "romaji": "sumi"
+    },
+    {
+      "no": 39,
+      "kana": "まだ（＋）",
+      "kanji": "",
+      "arti": "Masih",
+      "romaji": "mada(+)"
+    },
+    {
+      "no": 40,
+      "kana": "～ほど",
+      "kanji": "",
+      "arti": "Kira-kira",
+      "romaji": "~hodo"
+    },
+    {
+      "no": 41,
+      "kana": "よていひょう",
+      "kanji": "予定表",
+      "arti": "Daftar/rencana",
+      "romaji": "yoteihyou"
+    },
+    {
+      "no": 42,
+      "kana": "ごくろうさまです",
+      "kanji": "ご苦労様です",
+      "arti": "Terima kasih atas jerih payah anda (diucapkan atasan kepada bawahan)",
+      "romaji": "gokurousamadesu"
+    },
+    {
+      "no": 43,
+      "kana": "きぼう",
+      "kanji": "希望",
+      "arti": "Keinginan, permintaan",
+      "romaji": "kibou"
+    },
+    {
+      "no": 44,
+      "kana": "なにかごきぼうがありますか",
+      "kanji": "",
+      "arti": "Apakah ada sesuatu keinginan?",
+      "romaji": "nanikagokibougaarimasuka"
+    },
+    {
+      "no": 45,
+      "kana": "ミュージカル",
+      "kanji": "",
+      "arti": "Drama musik",
+      "romaji": "myuujikaru"
+    },
+    {
+      "no": 46,
+      "kana": "まるい",
+      "kanji": "丸い",
+      "arti": "Bulat",
+      "romaji": "marui"
+    },
+    {
+      "no": 47,
+      "kana": "つき",
+      "kanji": "月",
+      "arti": "Bulan",
+      "romaji": "tsuki"
+    },
+    {
+      "no": 48,
+      "kana": "ちきゅう",
+      "kanji": "地球",
+      "arti": "Bumi",
+      "romaji": "chikyuu"
+    },
+    {
+      "no": 49,
+      "kana": "うれしい",
+      "kanji": "",
+      "arti": "Senang, gembira",
+      "romaji": "ureshii"
+    },
+    {
+      "no": 50,
+      "kana": "いやな",
+      "kanji": "嫌な",
+      "arti": "Tidak suka",
+      "romaji": "iyana"
+    },
+    {
+      "no": 51,
+      "kana": "すると",
+      "kanji": "",
+      "arti": "Jadi,lalu",
+      "romaji": "suruto"
+    },
+    {
+      "no": 52,
+      "kana": "めがさめます",
+      "kanji": "目が覚めます",
+      "arti": "Terbangun",
+      "romaji": "megasamemasu"
+    },
+    {
+      "no": 53,
+      "kana": "うえから２だんめ",
+      "kanji": "上から2 段目",
+      "arti": "Ke 2 dari atas",
+      "romaji": "uekara2danme"
+    },
+    {
+      "no": 54,
+      "kana": "おく",
+      "kanji": "奥",
+      "arti": "Bagian dalam",
+      "romaji": "oku"
+    },
+    {
+      "no": 55,
+      "kana": "てまえ",
+      "kanji": "手前",
+      "arti": "Bagian depan",
+      "romaji": "temae"
+    },
+    {
+      "no": 56,
+      "kana": "まえから２れつめ",
+      "kanji": "前から２列目",
+      "arti": "Baris ke 2 dari depan (barisan orang)",
+      "romaji": "maekara2retsume"
+    },
+    {
+      "no": 57,
+      "kana": "ななめうしろ",
+      "kanji": "斜め後ろ",
+      "arti": "Samping belakang",
+      "romaji": "nanameushiro"
+    },
+    {
+      "no": 58,
+      "kana": "ななめまえ",
+      "kanji": "斜め前",
+      "arti": "Samping depan",
+      "romaji": "nanamemae"
+    },
+    {
+      "no": 59,
+      "kana": "そば",
+      "kanji": "そば",
+      "arti": "Samping,sebelah",
+      "romaji": "soba"
+    },
+    {
+      "no": 60,
+      "kana": "いち",
+      "kanji": "位置",
+      "arti": "Letak , arah",
+      "romaji": "ichi"
+    },
+    {
+      "no": 61,
+      "kana": "２ぎょうめ",
+      "kanji": "２行目",
+      "arti": "Baris ke 2 (buku)",
+      "romaji": "2gyoume"
+    }
+  ]
+}

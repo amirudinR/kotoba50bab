@@ -1,0 +1,635 @@
+{
+  "bab": 6,
+  "items": [
+    {
+      "no": 1,
+      "kana": "たべます",
+      "kanji": "食べます",
+      "arti": "Makan",
+      "romaji": "tabemasu"
+    },
+    {
+      "no": 2,
+      "kana": "のみます",
+      "kanji": "飲みます",
+      "arti": "Minum",
+      "romaji": "nomimasu"
+    },
+    {
+      "no": 3,
+      "kana": "すいます",
+      "kanji": "吸います",
+      "arti": "Menghisap / merokok",
+      "romaji": "suimasu"
+    },
+    {
+      "no": 4,
+      "kana": "みます",
+      "kanji": "見ます",
+      "arti": "Melihat / menonton",
+      "romaji": "mimasu"
+    },
+    {
+      "no": 5,
+      "kana": "ききます",
+      "kanji": "聞きます",
+      "arti": "Mendengar",
+      "romaji": "kikimasu"
+    },
+    {
+      "no": 6,
+      "kana": "よみます",
+      "kanji": "読みます",
+      "arti": "Membaca",
+      "romaji": "yomimasu"
+    },
+    {
+      "no": 7,
+      "kana": "かきます",
+      "kanji": "書きます",
+      "arti": "Menulis / menggambar",
+      "romaji": "kakimasu"
+    },
+    {
+      "no": 8,
+      "kana": "かいます",
+      "kanji": "買います",
+      "arti": "Membeli",
+      "romaji": "kaimasu"
+    },
+    {
+      "no": 9,
+      "kana": "とります",
+      "kanji": "撮ります",
+      "arti": "Mengambi (foto) / memotret",
+      "romaji": "torimasu"
+    },
+    {
+      "no": 10,
+      "kana": "します",
+      "kanji": "",
+      "arti": "Melakukan / mengerjakan / berbuat",
+      "romaji": "shimasu"
+    },
+    {
+      "no": 11,
+      "kana": "あいます",
+      "kanji": "会います",
+      "arti": "Bertemu",
+      "romaji": "aimasu"
+    },
+    {
+      "no": 12,
+      "kana": "ごはん",
+      "kanji": "ご飯",
+      "arti": "Nasi",
+      "romaji": "gohan"
+    },
+    {
+      "no": 13,
+      "kana": "あさごはん",
+      "kanji": "朝ご飯",
+      "arti": "Makan pagi / sarapan",
+      "romaji": "asagohan"
+    },
+    {
+      "no": 14,
+      "kana": "ひるごはん",
+      "kanji": "昼ご飯",
+      "arti": "Makan siang",
+      "romaji": "hirugohan"
+    },
+    {
+      "no": 15,
+      "kana": "ばんごはん",
+      "kanji": "晩ご飯",
+      "arti": "Makan malam",
+      "romaji": "bangohan"
+    },
+    {
+      "no": 16,
+      "kana": "パン",
+      "kanji": "",
+      "arti": "Roti",
+      "romaji": "pan"
+    },
+    {
+      "no": 17,
+      "kana": "たまご",
+      "kanji": "卵",
+      "arti": "Telur",
+      "romaji": "tamago"
+    },
+    {
+      "no": 18,
+      "kana": "にく",
+      "kanji": "肉",
+      "arti": "Daging",
+      "romaji": "niku"
+    },
+    {
+      "no": 19,
+      "kana": "さかな",
+      "kanji": "魚",
+      "arti": "Ikan",
+      "romaji": "sakana"
+    },
+    {
+      "no": 20,
+      "kana": "やさい",
+      "kanji": "野菜",
+      "arti": "Sayuran",
+      "romaji": "yasai"
+    },
+    {
+      "no": 21,
+      "kana": "くだもの",
+      "kanji": "果物",
+      "arti": "Buah-buahan",
+      "romaji": "kudamono"
+    },
+    {
+      "no": 22,
+      "kana": "みず",
+      "kanji": "水",
+      "arti": "Air",
+      "romaji": "mizu"
+    },
+    {
+      "no": 23,
+      "kana": "おちゃ",
+      "kanji": "お茶",
+      "arti": "Teh jepang / teh hijau",
+      "romaji": "ocha"
+    },
+    {
+      "no": 24,
+      "kana": "こうちゃ",
+      "kanji": "紅茶",
+      "arti": "Teh",
+      "romaji": "koucha"
+    },
+    {
+      "no": 25,
+      "kana": "ぎゅうにゅう",
+      "kanji": "牛乳",
+      "arti": "Susu",
+      "romaji": "gyuunyuu"
+    },
+    {
+      "no": 26,
+      "kana": "ジュース",
+      "kanji": "",
+      "arti": "Jus",
+      "romaji": "juusu"
+    },
+    {
+      "no": 27,
+      "kana": "ビール",
+      "kanji": "",
+      "arti": "Bir",
+      "romaji": "biiru"
+    },
+    {
+      "no": 28,
+      "kana": "おさけ",
+      "kanji": "お酒",
+      "arti": "Minuman keras",
+      "romaji": "osake"
+    },
+    {
+      "no": 29,
+      "kana": "たばこ",
+      "kanji": "",
+      "arti": "Rokok",
+      "romaji": "tabako"
+    },
+    {
+      "no": 30,
+      "kana": "てがみ",
+      "kanji": "手紙",
+      "arti": "Surat",
+      "romaji": "tegami"
+    },
+    {
+      "no": 31,
+      "kana": "レポート",
+      "kanji": "",
+      "arti": "Laporan",
+      "romaji": "repooto"
+    },
+    {
+      "no": 32,
+      "kana": "しゃしん",
+      "kanji": "写真",
+      "arti": "Foto",
+      "romaji": "shashin"
+    },
+    {
+      "no": 33,
+      "kana": "ビデオ",
+      "kanji": "",
+      "arti": "Kaset video",
+      "romaji": "bideo"
+    },
+    {
+      "no": 34,
+      "kana": "みせ",
+      "kanji": "店",
+      "arti": "Toko",
+      "romaji": "mise"
+    },
+    {
+      "no": 35,
+      "kana": "にわ",
+      "kanji": "庭",
+      "arti": "Halaman",
+      "romaji": "niwa"
+    },
+    {
+      "no": 36,
+      "kana": "しゅくだい",
+      "kanji": "宿題",
+      "arti": "Pekerjaan rumah / PR",
+      "romaji": "shukudai"
+    },
+    {
+      "no": 37,
+      "kana": "テニス",
+      "kanji": "",
+      "arti": "Tenis",
+      "romaji": "tenisu"
+    },
+    {
+      "no": 38,
+      "kana": "サッカー",
+      "kanji": "",
+      "arti": "Sepak bola",
+      "romaji": "sakkaa"
+    },
+    {
+      "no": 39,
+      "kana": "はなみ",
+      "kanji": "花見",
+      "arti": "Hanami (menikmati bunga sakura)",
+      "romaji": "hanami"
+    },
+    {
+      "no": 40,
+      "kana": "なに",
+      "kanji": "何",
+      "arti": "Apa",
+      "romaji": "nani"
+    },
+    {
+      "no": 41,
+      "kana": "いっしょに",
+      "kanji": "",
+      "arti": "Bersama-sama",
+      "romaji": "isshoni"
+    },
+    {
+      "no": 42,
+      "kana": "ちょっと",
+      "kanji": "",
+      "arti": "Sebentar / sedikit",
+      "romaji": "chotto"
+    },
+    {
+      "no": 43,
+      "kana": "いつも",
+      "kanji": "",
+      "arti": "Selalu",
+      "romaji": "itsumo"
+    },
+    {
+      "no": 44,
+      "kana": "ときどき",
+      "kanji": "時々",
+      "arti": "Kadang-kadang",
+      "romaji": "tokidoki"
+    },
+    {
+      "no": 45,
+      "kana": "それから",
+      "kanji": "",
+      "arti": "Setelah itu / kemudian",
+      "romaji": "sorekara"
+    },
+    {
+      "no": 46,
+      "kana": "ええ",
+      "kanji": "",
+      "arti": "Ya",
+      "romaji": "ee"
+    },
+    {
+      "no": 47,
+      "kana": "いいですね",
+      "kanji": "",
+      "arti": "Bagus ya / baik ya",
+      "romaji": "iidesune"
+    },
+    {
+      "no": 48,
+      "kana": "わかりました",
+      "kanji": "分かりました",
+      "arti": "Mengerti / baik",
+      "romaji": "wakarimashita"
+    },
+    {
+      "no": 49,
+      "kana": "じゃ、また",
+      "kanji": "",
+      "arti": "Ok, sampai jumpa besok",
+      "romaji": "ja,mata"
+    },
+    {
+      "no": 50,
+      "kana": "メキシコ",
+      "kanji": "",
+      "arti": "Meksiko",
+      "romaji": "mekishiko"
+    },
+    {
+      "no": 51,
+      "kana": "きゅうり",
+      "kanji": "",
+      "arti": "Timun",
+      "romaji": "kyuuri"
+    },
+    {
+      "no": 52,
+      "kana": "トマト",
+      "kanji": "",
+      "arti": "Tomat",
+      "romaji": "tomato"
+    },
+    {
+      "no": 53,
+      "kana": "なす",
+      "kanji": "",
+      "arti": "Terong",
+      "romaji": "nasu"
+    },
+    {
+      "no": 54,
+      "kana": "まめ",
+      "kanji": "",
+      "arti": "Kacang-kacangan",
+      "romaji": "mame"
+    },
+    {
+      "no": 55,
+      "kana": "キャベツ",
+      "kanji": "",
+      "arti": "Kol",
+      "romaji": "kyabetsu"
+    },
+    {
+      "no": 56,
+      "kana": "ねぎ",
+      "kanji": "",
+      "arti": "Daun bawang",
+      "romaji": "negi"
+    },
+    {
+      "no": 57,
+      "kana": "はくさい",
+      "kanji": "",
+      "arti": "Sawi",
+      "romaji": "hakusai"
+    },
+    {
+      "no": 58,
+      "kana": "ほうれんそう",
+      "kanji": "",
+      "arti": "Bayam",
+      "romaji": "hourensou"
+    },
+    {
+      "no": 59,
+      "kana": "レタス",
+      "kanji": "",
+      "arti": "Letas",
+      "romaji": "retasu"
+    },
+    {
+      "no": 60,
+      "kana": "じゃがいも",
+      "kanji": "",
+      "arti": "Kentang",
+      "romaji": "jagaimo"
+    },
+    {
+      "no": 61,
+      "kana": "だいこん",
+      "kanji": "",
+      "arti": "Lobak",
+      "romaji": "daikon"
+    },
+    {
+      "no": 62,
+      "kana": "たまねぎ",
+      "kanji": "",
+      "arti": "Bawang",
+      "romaji": "tamanegi"
+    },
+    {
+      "no": 63,
+      "kana": "にんじん",
+      "kanji": "",
+      "arti": "Wortel",
+      "romaji": "ninjin"
+    },
+    {
+      "no": 64,
+      "kana": "いちご",
+      "kanji": "",
+      "arti": "Stroberi",
+      "romaji": "ichigo"
+    },
+    {
+      "no": 65,
+      "kana": "もも",
+      "kanji": "",
+      "arti": "Buah peach",
+      "romaji": "momo"
+    },
+    {
+      "no": 66,
+      "kana": "すいか",
+      "kanji": "",
+      "arti": "Semangka",
+      "romaji": "suika"
+    },
+    {
+      "no": 67,
+      "kana": "ぶどう",
+      "kanji": "",
+      "arti": "Anggur",
+      "romaji": "budou"
+    },
+    {
+      "no": 68,
+      "kana": "なし",
+      "kanji": "",
+      "arti": "Pir",
+      "romaji": "nashi"
+    },
+    {
+      "no": 69,
+      "kana": "かき",
+      "kanji": "",
+      "arti": "Kesemek",
+      "romaji": "kaki"
+    },
+    {
+      "no": 70,
+      "kana": "みかん",
+      "kanji": "",
+      "arti": "Jeruk",
+      "romaji": "mikan"
+    },
+    {
+      "no": 71,
+      "kana": "りんご",
+      "kanji": "",
+      "arti": "Apel",
+      "romaji": "ringo"
+    },
+    {
+      "no": 72,
+      "kana": "バナナ",
+      "kanji": "",
+      "arti": "Pisang",
+      "romaji": "banana"
+    },
+    {
+      "no": 73,
+      "kana": "ぎゅうにく",
+      "kanji": "",
+      "arti": "Daging sapi",
+      "romaji": "gyuuniku"
+    },
+    {
+      "no": 74,
+      "kana": "とりにく",
+      "kanji": "",
+      "arti": "Daging ayam",
+      "romaji": "toriniku"
+    },
+    {
+      "no": 75,
+      "kana": "ぶたにく",
+      "kanji": "",
+      "arti": "Daging babi",
+      "romaji": "butaniku"
+    },
+    {
+      "no": 76,
+      "kana": "ソーセージ",
+      "kanji": "",
+      "arti": "Sosis",
+      "romaji": "sooseeji"
+    },
+    {
+      "no": 77,
+      "kana": "ハム",
+      "kanji": "",
+      "arti": "Ham",
+      "romaji": "hamu"
+    },
+    {
+      "no": 78,
+      "kana": "あじ",
+      "kanji": "",
+      "arti": "Ikan mackerel",
+      "romaji": "aji"
+    },
+    {
+      "no": 79,
+      "kana": "いわし",
+      "kanji": "",
+      "arti": "Ikan sarden",
+      "romaji": "iwashi"
+    },
+    {
+      "no": 80,
+      "kana": "さば",
+      "kanji": "",
+      "arti": "Ikan kembung",
+      "romaji": "saba"
+    },
+    {
+      "no": 81,
+      "kana": "さんま",
+      "kanji": "",
+      "arti": "Ikan sauri pasifik",
+      "romaji": "sanma"
+    },
+    {
+      "no": 82,
+      "kana": "さけ",
+      "kanji": "",
+      "arti": "Ikan salmon",
+      "romaji": "sake"
+    },
+    {
+      "no": 83,
+      "kana": "まぐろ",
+      "kanji": "",
+      "arti": "Ikan tuna",
+      "romaji": "maguro"
+    },
+    {
+      "no": 84,
+      "kana": "たい",
+      "kanji": "",
+      "arti": "Ikan kakap",
+      "romaji": "tai"
+    },
+    {
+      "no": 85,
+      "kana": "たら",
+      "kanji": "",
+      "arti": "Ikan gabus",
+      "romaji": "tara"
+    },
+    {
+      "no": 86,
+      "kana": "えび",
+      "kanji": "",
+      "arti": "Udang",
+      "romaji": "ebi"
+    },
+    {
+      "no": 87,
+      "kana": "かに",
+      "kanji": "",
+      "arti": "Kepiting",
+      "romaji": "kani"
+    },
+    {
+      "no": 88,
+      "kana": "いか",
+      "kanji": "",
+      "arti": "Cumi-cumi",
+      "romaji": "ika"
+    },
+    {
+      "no": 89,
+      "kana": "たこ",
+      "kanji": "",
+      "arti": "Gurita",
+      "romaji": "tako"
+    },
+    {
+      "no": 90,
+      "kana": "こめ",
+      "kanji": "",
+      "arti": "Beras",
+      "romaji": "kome"
+    }
+  ]
+}

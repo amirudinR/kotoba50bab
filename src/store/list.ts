@@ -88,10 +88,16 @@ export function maybeKatakana(s: string, mode: KatakanaMode): string {
   return s;
 }
 
+const COLLAPSED_ALL: Record<number, boolean> = Object.fromEntries(
+  Array.from({ length: 50 }, (_, i) => [i + 1, true]),
+);
+
 export const useList = create<ListState>()(
   persist(
     (set) => ({
-      collapsed: {},
+      // Default semua bab tertutup: halaman List jadi instan (tidak perlu
+      // mengunduh 50 chunk data), dan bab yang dibuka dimuat saat itu juga.
+      collapsed: { ...COLLAPSED_ALL },
       focusBabs: [],
       visible: { ...COL_DEFAULT },
       katakanaMode: "auto",
@@ -100,7 +106,7 @@ export const useList = create<ListState>()(
         set((s) => ({ collapsed: { ...s.collapsed, [bab]: !s.collapsed[bab] } })),
       setBabCollapsed: (bab, v) =>
         set((s) => ({ collapsed: { ...s.collapsed, [bab]: v } })),
-        setFocusBabs: (babs) => set({ focusBabs: babs }),
+      setFocusBabs: (babs) => set({ focusBabs: babs }),
       toggleFocusBab: (bab) =>
         set((s) => ({
           focusBabs: s.focusBabs.includes(bab)

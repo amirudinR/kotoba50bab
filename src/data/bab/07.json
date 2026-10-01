@@ -1,0 +1,530 @@
+{
+  "bab": 7,
+  "items": [
+    {
+      "no": 1,
+      "kana": "きります",
+      "kanji": "切ります",
+      "arti": "Memotong / menggunting",
+      "romaji": "kirimasu"
+    },
+    {
+      "no": 2,
+      "kana": "おくります",
+      "kanji": "送ります",
+      "arti": "Mengirim",
+      "romaji": "okurimasu"
+    },
+    {
+      "no": 3,
+      "kana": "あげます",
+      "kanji": "",
+      "arti": "Memberikan",
+      "romaji": "agemasu"
+    },
+    {
+      "no": 4,
+      "kana": "もらいます",
+      "kanji": "",
+      "arti": "Menerima / mendapatkan",
+      "romaji": "moraimasu"
+    },
+    {
+      "no": 5,
+      "kana": "かします",
+      "kanji": "貸します",
+      "arti": "Meminjamkan / menyewakan",
+      "romaji": "kashimasu"
+    },
+    {
+      "no": 6,
+      "kana": "かります",
+      "kanji": "借ります",
+      "arti": "Meminjam / menyewa",
+      "romaji": "karimasu"
+    },
+    {
+      "no": 7,
+      "kana": "おしえます",
+      "kanji": "教えます",
+      "arti": "Mengajar",
+      "romaji": "oshiemasu"
+    },
+    {
+      "no": 8,
+      "kana": "ならいます",
+      "kanji": "習います",
+      "arti": "Belajar (kepada)",
+      "romaji": "naraimasu"
+    },
+    {
+      "no": 9,
+      "kana": "かけます （を）",
+      "kanji": "",
+      "arti": "Menelpon",
+      "romaji": "kakemasu (wo)"
+    },
+    {
+      "no": 10,
+      "kana": "て",
+      "kanji": "手",
+      "arti": "Tangan",
+      "romaji": "te"
+    },
+    {
+      "no": 11,
+      "kana": "はし",
+      "kanji": "",
+      "arti": "Sumpit",
+      "romaji": "hashi"
+    },
+    {
+      "no": 12,
+      "kana": "スプーン",
+      "kanji": "",
+      "arti": "Sendok",
+      "romaji": "supuun"
+    },
+    {
+      "no": 13,
+      "kana": "ナイフ",
+      "kanji": "",
+      "arti": "Pisau",
+      "romaji": "naifu"
+    },
+    {
+      "no": 14,
+      "kana": "フォーク",
+      "kanji": "",
+      "arti": "Garpu",
+      "romaji": "fooku"
+    },
+    {
+      "no": 15,
+      "kana": "はさみ",
+      "kanji": "",
+      "arti": "Gunting",
+      "romaji": "hasami"
+    },
+    {
+      "no": 16,
+      "kana": "パソコン",
+      "kanji": "",
+      "arti": "Laptop",
+      "romaji": "pasokon"
+    },
+    {
+      "no": 17,
+      "kana": "ケータイ",
+      "kanji": "",
+      "arti": "HP",
+      "romaji": "keetai"
+    },
+    {
+      "no": 18,
+      "kana": "メール",
+      "kanji": "",
+      "arti": "Email",
+      "romaji": "meeru"
+    },
+    {
+      "no": 19,
+      "kana": "ねんがじょう",
+      "kanji": "年賀状",
+      "arti": "Kartu tahun baru",
+      "romaji": "nengajou"
+    },
+    {
+      "no": 20,
+      "kana": "パンチ",
+      "kanji": "",
+      "arti": "Pelubang kertas",
+      "romaji": "panchi"
+    },
+    {
+      "no": 21,
+      "kana": "ホッチキス",
+      "kanji": "",
+      "arti": "Stapler",
+      "romaji": "hotchikisu"
+    },
+    {
+      "no": 22,
+      "kana": "セロテープ",
+      "kanji": "",
+      "arti": "Selotip",
+      "romaji": "seroteepu"
+    },
+    {
+      "no": 23,
+      "kana": "けしゴム",
+      "kanji": "消しゴム",
+      "arti": "Penghapus karet",
+      "romaji": "keshigomu"
+    },
+    {
+      "no": 24,
+      "kana": "かみ",
+      "kanji": "紙",
+      "arti": "Kertas",
+      "romaji": "kami"
+    },
+    {
+      "no": 25,
+      "kana": "はな",
+      "kanji": "花",
+      "arti": "Bunga",
+      "romaji": "hana"
+    },
+    {
+      "no": 26,
+      "kana": "シャツ",
+      "kanji": "",
+      "arti": "Kemeja",
+      "romaji": "shatsu"
+    },
+    {
+      "no": 27,
+      "kana": "プレゼント",
+      "kanji": "",
+      "arti": "Hadiah / kado",
+      "romaji": "purezento"
+    },
+    {
+      "no": 28,
+      "kana": "にもつ",
+      "kanji": "荷物",
+      "arti": "Barang",
+      "romaji": "nimotsu"
+    },
+    {
+      "no": 29,
+      "kana": "おかね",
+      "kanji": "お金",
+      "arti": "Uang",
+      "romaji": "okane"
+    },
+    {
+      "no": 30,
+      "kana": "きっぷ",
+      "kanji": "切符",
+      "arti": "Karcis",
+      "romaji": "kippu"
+    },
+    {
+      "no": 31,
+      "kana": "クリスマス",
+      "kanji": "",
+      "arti": "Natal",
+      "romaji": "kurisumasu"
+    },
+    {
+      "no": 32,
+      "kana": "ちち",
+      "kanji": "父",
+      "arti": "Ayah",
+      "romaji": "chichi"
+    },
+    {
+      "no": 33,
+      "kana": "はは",
+      "kanji": "母",
+      "arti": "Ibu",
+      "romaji": "haha"
+    },
+    {
+      "no": 34,
+      "kana": "おとうさん",
+      "kanji": "お父さん",
+      "arti": "Ayah orang lain",
+      "romaji": "otousan"
+    },
+    {
+      "no": 35,
+      "kana": "おかあさん",
+      "kanji": "お母さん",
+      "arti": "Ibu orang lain",
+      "romaji": "okaasan"
+    },
+    {
+      "no": 36,
+      "kana": "もう",
+      "kanji": "",
+      "arti": "Sudah",
+      "romaji": "mou"
+    },
+    {
+      "no": 37,
+      "kana": "まだ",
+      "kanji": "",
+      "arti": "Belum",
+      "romaji": "mada"
+    },
+    {
+      "no": 38,
+      "kana": "これから",
+      "kanji": "",
+      "arti": "Mulai dari sekarang",
+      "romaji": "korekara"
+    },
+    {
+      "no": 39,
+      "kana": "すてきですね",
+      "kanji": "",
+      "arti": "Bagus ya / indah ya",
+      "romaji": "sutekidesune"
+    },
+    {
+      "no": 40,
+      "kana": "いらっしゃい",
+      "kanji": "",
+      "arti": "Selamat datang",
+      "romaji": "irasshai"
+    },
+    {
+      "no": 41,
+      "kana": "どうぞおあがりください",
+      "kanji": "",
+      "arti": "Silakan masuk",
+      "romaji": "douzooagarikudasai"
+    },
+    {
+      "no": 42,
+      "kana": "しつれいします",
+      "kanji": "失礼します",
+      "arti": "Permisi",
+      "romaji": "shitsureishimasu"
+    },
+    {
+      "no": 43,
+      "kana": "～いかがですか",
+      "kanji": "",
+      "arti": "Bagaimana ? (menawarkan sesuatu kepada orang)",
+      "romaji": "~ikagadesuka"
+    },
+    {
+      "no": 44,
+      "kana": "いただきます",
+      "kanji": "",
+      "arti": "Selamat makan",
+      "romaji": "itadakimasu"
+    },
+    {
+      "no": 45,
+      "kana": "ごちそうさまでした",
+      "kanji": "",
+      "arti": "Terima kasih atas hidangannya",
+      "romaji": "gochisousamadeshita"
+    },
+    {
+      "no": 46,
+      "kana": "スペイン",
+      "kanji": "",
+      "arti": "Spanyol",
+      "romaji": "supein"
+    },
+    {
+      "no": 47,
+      "kana": "かぞく",
+      "kanji": "家族",
+      "arti": "Keluarga",
+      "romaji": "kazoku"
+    },
+    {
+      "no": 48,
+      "kana": "そぼ",
+      "kanji": "祖母",
+      "arti": "Nenek",
+      "romaji": "sobo"
+    },
+    {
+      "no": 49,
+      "kana": "そふ",
+      "kanji": "祖父",
+      "arti": "Kakek",
+      "romaji": "sofu"
+    },
+    {
+      "no": 50,
+      "kana": "そふぼ",
+      "kanji": "祖父母",
+      "arti": "Kakek nenek",
+      "romaji": "sofubo"
+    },
+    {
+      "no": 51,
+      "kana": "りょうしん",
+      "kanji": "両親",
+      "arti": "Orang tua",
+      "romaji": "ryoushin"
+    },
+    {
+      "no": 52,
+      "kana": "いもうと",
+      "kanji": "妹",
+      "arti": "Adik perempuan",
+      "romaji": "imouto"
+    },
+    {
+      "no": 53,
+      "kana": "おとうと",
+      "kanji": "弟",
+      "arti": "Adik laki-laki",
+      "romaji": "otouto"
+    },
+    {
+      "no": 54,
+      "kana": "あね",
+      "kanji": "姉",
+      "arti": "Kakak perempuan",
+      "romaji": "ane"
+    },
+    {
+      "no": 55,
+      "kana": "あに",
+      "kanji": "兄",
+      "arti": "Kakak laki-laki",
+      "romaji": "ani"
+    },
+    {
+      "no": 56,
+      "kana": "きょうだい",
+      "kanji": "兄弟",
+      "arti": "Saudara kandung",
+      "romaji": "kyoudai"
+    },
+    {
+      "no": 57,
+      "kana": "つま",
+      "kanji": "妻",
+      "arti": "Istri",
+      "romaji": "tsuma"
+    },
+    {
+      "no": 58,
+      "kana": "おっと",
+      "kanji": "夫",
+      "arti": "Suami",
+      "romaji": "otto"
+    },
+    {
+      "no": 59,
+      "kana": "ふうふ",
+      "kanji": "夫婦",
+      "arti": "Pasangan suami istri",
+      "romaji": "fuufu"
+    },
+    {
+      "no": 60,
+      "kana": "むすめ",
+      "kanji": "娘",
+      "arti": "Anak perempuan",
+      "romaji": "musume"
+    },
+    {
+      "no": 61,
+      "kana": "むすこ",
+      "kanji": "息子",
+      "arti": "Anak laki-laki",
+      "romaji": "musuko"
+    },
+    {
+      "no": 62,
+      "kana": "こども",
+      "kanji": "子供",
+      "arti": "Anak",
+      "romaji": "kodomo"
+    },
+    {
+      "no": 63,
+      "kana": "おばあさん",
+      "kanji": "",
+      "arti": "Nenek (orang lain)",
+      "romaji": "obaasan"
+    },
+    {
+      "no": 64,
+      "kana": "おじいさん",
+      "kanji": "",
+      "arti": "Kakek (orang lain)",
+      "romaji": "ojiisan"
+    },
+    {
+      "no": 65,
+      "kana": "ごりょうしん",
+      "kanji": "",
+      "arti": "Orang tua (orang lain)",
+      "romaji": "goryoushin"
+    },
+    {
+      "no": 66,
+      "kana": "いもうとさん",
+      "kanji": "",
+      "arti": "Adik perempuan (orang lain)",
+      "romaji": "imoutosan"
+    },
+    {
+      "no": 67,
+      "kana": "おとうとさん",
+      "kanji": "",
+      "arti": "Adik laki-laki (orang lain)",
+      "romaji": "otoutosan"
+    },
+    {
+      "no": 68,
+      "kana": "おねえさん",
+      "kanji": "",
+      "arti": "Kakak perempuan (orang lain)",
+      "romaji": "oneesan"
+    },
+    {
+      "no": 69,
+      "kana": "おにいさん",
+      "kanji": "",
+      "arti": "Kakak laki-laki (orang lain)",
+      "romaji": "oniisan"
+    },
+    {
+      "no": 70,
+      "kana": "ごきょうだい",
+      "kanji": "",
+      "arti": "Saudara kandung (orang lain)",
+      "romaji": "gokyoudai"
+    },
+    {
+      "no": 71,
+      "kana": "おくさん",
+      "kanji": "",
+      "arti": "Istri (orang lain)",
+      "romaji": "okusan"
+    },
+    {
+      "no": 72,
+      "kana": "ごふうふ",
+      "kanji": "",
+      "arti": "Pasangan suami istri (orang lain)",
+      "romaji": "gofuufu"
+    },
+    {
+      "no": 73,
+      "kana": "むすめさん",
+      "kanji": "",
+      "arti": "Anak perempuan (orang lain)",
+      "romaji": "musumesan"
+    },
+    {
+      "no": 74,
+      "kana": "むすこさん",
+      "kanji": "",
+      "arti": "Anak laki-laki (orang lain)",
+      "romaji": "musukosan"
+    },
+    {
+      "no": 75,
+      "kana": "おこさん",
+      "kanji": "",
+      "arti": "Anak (orang lain)",
+      "romaji": "okosan"
+    }
+  ]
+}

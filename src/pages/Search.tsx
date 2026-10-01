@@ -1,193 +1,127 @@
-import { useMemo, useState } from "react";
-import { ALL_KOTOBA } from "../data";
 import { useProgress } from "../store/progress";
-import { normalize } from "../lib/utils";
+import { TOTAL_KOTOBA, useSearchIndex } from "../data";
 import TopBar from "../components/TopBar";
 import AppIcon from "../components/Icon";
-import HankoSeal from "../components/HankoSeal";
+import PaperCard from "../components/PaperCard";
 
 interface Props {
   onBack: () => void;
 }
 
-const MAX_HASIL = 120;
-
 export default function Search({ onBack }: Props) {
-  const [q, setQ] = useState("");
+  const { query: q, setQuery: setQ, results, loading } = useSearchIndex();
   const { isHafal, toggleHafal } = useProgress();
-
-  const results = useMemo(() => {
-    const query = normalize(q);
-    if (!query) return [];
-    return ALL_KOTOBA.filter(
-      (k) =>
-        normalize(k.kana).includes(query) ||
-        normalize(k.kanji).includes(query) ||
-        normalize(k.arti).includes(query),
-    ).slice(0, MAX_HASIL);
-  }, [q]);
-
-  const kosong = q.trim() === "";
 
   return (
     <div className="min-h-full pb-24">
-      <TopBar
-        title="Cari Kosakata"
-        subtitle="kana · kanji · arti Indonesia"
-        onBack={onBack}
-      />
+      <TopBar title="Cari Kosakata" subtitle="kana · kanji · arti" onBack={onBack} />
 
       <div className="mx-auto max-w-xl px-4 pt-4">
-        {/* —— Input pencarian —— */}
-        <div className="sticky top-16 z-20 -mx-4 bg-bg/85 px-4 pb-3 pt-1 backdrop-blur-md">
+        <div className="sticky top-[4.25rem] z-10 pb-3">
           <div className="relative">
-            <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-muted">
-              <AppIcon icon="ph:magnifying-glass" className="text-xl" />
-            </span>
+            <AppIcon
+              icon="ph:magnifying-glass"
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-lg text-muted"
+            />
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               autoFocus
-              enterKeyHint="search"
-              aria-label="Cari kosakata Jepang"
               placeholder="わたし / 私 / saya"
-              className="h-12 w-full rounded-xl border border-line/15 bg-surface pl-11 pr-11 font-display text-lg text-ink shadow-soft transition placeholder:font-sans placeholder:text-[15px] placeholder:text-muted focus:border-accent/70"
+              aria-label="Cari kosakata"
+              className="h-12 w-full rounded-2xl border-2 border-line/20 bg-surface pl-11 pr-10 font-display text-lg text-ink outline-none transition placeholder:font-sans placeholder:text-[15px] placeholder:text-muted focus:border-accent/60"
             />
-            {q.length > 0 && (
+            {q && (
               <button
                 onClick={() => setQ("")}
-                aria-label="Hapus pencarian"
-                className="absolute right-1.5 top-1/2 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full text-muted transition hover:bg-ink/[0.07] hover:text-ink active:scale-90"
+                aria-label="Bersihkan"
+                className="absolute right-2.5 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-full text-muted transition hover:bg-ink/10 hover:text-ink"
               >
-                <AppIcon icon="ph:x" className="text-lg" />
+                <AppIcon icon="ph:x" className="text-base" />
               </button>
             )}
           </div>
         </div>
 
-        {kosong ? (
-          <div className="flex flex-col items-center px-4 py-16 text-center">
-            <span className="grid h-16 w-16 place-items-center rounded-2xl bg-sunken text-muted">
-              <AppIcon icon="ph:book-open" className="text-3xl" />
-            </span>
-            <p className="mt-5 font-display text-2xl text-ink">ことばをさがす</p>
-            <p className="mt-1.5 text-sm text-muted">
-              Cari dengan kana, kanji, atau arti Indonesia.
+        {loading ? (
+          <div className="py-14 text-center">
+            <AppIcon icon="ph:circle-notch" className="mx-auto animate-spin text-3xl text-muted" />
+            <p className="mt-3 text-sm text-muted">Memuat index pencarian…</p>
+          </div>
+        ) : q.trim() === "" ? (
+          <div className="py-14 text-center">
+            <AppIcon
+              icon="ph:book-open"
+              className="mx-auto text-4xl text-muted/50"
+            />
+            <p className="mt-3 font-display text-2xl text-ink">
+              ことばをさがす
             </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-2">
-              <ExampleChip text="わたし" />
-              <ExampleChip text="私" />
-              <ExampleChip text="saya" />
+            <p className="mt-1.5 text-sm text-muted">
+              Cari kata dari {TOTAL_KOTOBA.toLocaleString("id-ID")} kosakata
+            </p>
+            <div className="mt-4 flex flex-wrap justify-center gap-1.5">
+              {["わたし", "私", "saya", "がっこう"].map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setQ(s)}
+                  className="rounded-pill border border-line/15 bg-sunken/60 px-2.5 py-1 font-display text-sm text-ink-soft transition hover:bg-sunken hover:text-ink"
+                >
+                  {s}
+                </button>
+              ))}
             </div>
           </div>
         ) : results.length === 0 ? (
-          <div className="flex flex-col items-center px-4 py-16 text-center">
-            <span className="grid h-16 w-16 place-items-center rounded-2xl bg-sunken text-muted">
-              <AppIcon icon="ph:magnifying-glass" className="text-3xl" />
-            </span>
-            <p className="mt-5 font-display text-2xl text-ink">見つかりません</p>
+          <div className="py-14 text-center">
+            <AppIcon icon="ph:magnifying-glass" className="mx-auto text-4xl text-muted/50" />
+            <p className="mt-3 font-display text-2xl text-ink">見つかりません</p>
             <p className="mt-1.5 text-sm text-muted">
-              Tidak ditemukan. Coba kata kunci lain atau periksa ejaan kana.
+              Coba kata lain, atau pakai ejaan lain.
             </p>
           </div>
         ) : (
           <>
-            <div className="mb-2 flex items-baseline justify-between gap-3">
-              <p className="k-eyebrow">{results.length} hasil</p>
-              {results.length === MAX_HASIL && (
-                <p className="k-eyebrow normal-case">dipotong 120</p>
-              )}
-            </div>
-
-            <div className="max-h-[calc(100vh-15rem)] space-y-2 overflow-y-auto scroll-slim pb-2 pr-1">
-              {results.map((k) => (
-                <ResultRow
-                  key={`${k.bab}-${k.no}`}
-                  kanji={k.kanji}
-                  kana={k.kana}
-                  arti={k.arti}
-                  bab={k.bab}
-                  marked={isHafal(k.bab, k.no)}
-                  onToggle={() => toggleHafal(k.bab, k.no)}
-                />
-              ))}
+            <p className="mb-2 text-xs text-muted">
+              {results.length} hasil
+            </p>
+            <div className="space-y-2">
+              {results.map((k) => {
+                const marked = isHafal(k.bab, k.no);
+                return (
+                  <PaperCard key={`${k.bab}-${k.no}`} className="flex items-center gap-3 p-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-display text-xl text-ink">
+                          {k.kana}
+                        </span>
+                        {k.kanji && (
+                          <span className="font-display text-sm text-muted">
+                            {k.kanji}
+                          </span>
+                        )}
+                        <span className="ml-auto shrink-0 rounded-md bg-ink/10 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-ink">
+                          bab {k.bab}
+                        </span>
+                      </div>
+                      <p className="mt-0.5 text-sm text-ink-soft">{k.arti}</p>
+                    </div>
+                    <button
+                      onClick={() => toggleHafal(k.bab, k.no)}
+                      aria-label={marked ? "Sudah hafal" : "Tandai sudah hafal"}
+                      className={`grid h-10 w-10 shrink-0 place-items-center rounded-full text-lg transition active:scale-90 ${
+                        marked ? "bg-success-soft text-success" : "bg-sunken/60 text-muted"
+                      }`}
+                    >
+                      <AppIcon icon={marked ? "ph:check-circle" : "ph:star"} className="text-lg" />
+                    </button>
+                  </PaperCard>
+                );
+              })}
             </div>
           </>
         )}
       </div>
-    </div>
-  );
-}
-
-function ExampleChip({ text }: { text: string }) {
-  return (
-    <span className="k-num rounded-pill border border-line/15 bg-surface px-3 py-1.5 font-display text-sm text-ink-soft">
-      {text}
-    </span>
-  );
-}
-
-function ResultRow({
-  kana,
-  kanji,
-  arti,
-  bab,
-  marked,
-  onToggle,
-}: {
-  kana: string;
-  kanji: string;
-  arti: string;
-  bab: number;
-  marked: boolean;
-  onToggle: () => void;
-}) {
-  return (
-    <div
-      className={`k-card flex items-center gap-3 p-3 transition ${
-        marked ? "bg-success-soft/60" : ""
-      }`}
-    >
-      <div className="min-w-0 flex-1">
-        <div className="flex items-baseline gap-2">
-          {kanji ? (
-            <>
-              <span className="font-display text-[22px] leading-tight text-ink">
-                {kanji}
-              </span>
-              <span className="min-w-0 truncate font-display text-[15px] text-ink-soft">
-                {kana}
-              </span>
-            </>
-          ) : (
-            <span className="font-display text-[22px] leading-tight text-ink">
-              {kana}
-            </span>
-          )}
-          <span className="k-num ml-auto shrink-0 rounded-md bg-ink/[0.07] px-1.5 py-0.5 font-mono text-[10px] tracking-wider text-ink-soft">
-            BAB {String(bab).padStart(2, "0")}
-          </span>
-        </div>
-        <p className="mt-0.5 text-sm leading-snug text-body">{arti}</p>
-      </div>
-
-      <button
-        onClick={onToggle}
-        aria-pressed={marked}
-        aria-label={
-          marked ? `Batalkan hafalan ${kanji || kana}` : `Tandai hafal ${kanji || kana}`
-        }
-        title={marked ? "Sudah hafal" : "Tandai sudah hafal"}
-        className="group grid h-11 w-11 shrink-0 place-items-center rounded-full transition active:scale-90"
-      >
-        {marked ? (
-          <HankoSeal mark="済" size="sm" />
-        ) : (
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-line/20 text-muted transition group-hover:border-ink/45 group-hover:text-ink-soft">
-            <AppIcon icon="ph:check" className="text-base" />
-          </span>
-        )}
-      </button>
     </div>
   );
 }

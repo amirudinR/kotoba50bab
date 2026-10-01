@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { BABS, TOTAL_KOTOBA } from "../data";
+import { BABS_META, TOTAL_KOTOBA } from "../data";
 import { useSettings } from "../store/settings";
-import { useProgress, kataKey } from "../store/progress";
+import { useProgress } from "../store/progress";
 import { useApp } from "../store/app";
 import PaperCard from "../components/PaperCard";
 import ProgressBar from "../components/ProgressBar";
@@ -17,15 +17,25 @@ export default function Home() {
 
   const hafalSet = useMemo(() => new Set(hafal), [hafal]);
 
-  const selectedKata = useMemo(
+  // Jumlah kata per bab sudah ada di metadata, jadi tidak perlu memuat isi bab.
+  const selectedTotal = useMemo(
     () =>
-      BABS.filter((b) => selectedBabs.includes(b.bab)).flatMap((b) =>
-        b.items.map((it) => kataKey(b.bab, it.no)),
+      BABS_META.filter((b) => selectedBabs.includes(b.bab)).reduce(
+        (n, b) => n + b.count,
+        0,
       ),
     [selectedBabs],
   );
 
-  const hafalCount = selectedKata.filter((k) => hafalSet.has(k)).length;
+  // Kata yang sudah hafal dihitung dari awalan "bab-", bukan dari isi bab.
+  const hafalCount = useMemo(() => {
+    let n = 0;
+    for (const k of hafalSet) {
+      if (selectedBabs.includes(Number(k.split("-")[0]))) n += 1;
+    }
+    return n;
+  }, [hafalSet, selectedBabs]);
+
   const totalWords = TOTAL_KOTOBA.toLocaleString("id-ID");
   const belumAdaBab = selectedBabs.length === 0;
 
@@ -35,7 +45,7 @@ export default function Home() {
       <div className="mx-auto max-w-3xl px-4 pt-6 sm:pt-9">
         <PaperCard raised tape className="k-margin overflow-hidden pl-10 pr-5 pt-7 pb-6">
           <p className="k-eyebrow">
-            Minna no Nihongo · {totalWords} kata · {BABS.length} bab
+            Minna no Nihongo · {totalWords} kata · {BABS_META.length} bab
           </p>
 
           <div className="mt-3 flex items-end gap-4 sm:gap-6">
@@ -67,7 +77,7 @@ export default function Home() {
         {/* —— Statistik: kesan produk serius, tanpa chart —— */}
         <div className="mt-4 grid grid-cols-3 divide-x divide-line/15 border-y border-line/15 py-4">
           <Stat value={totalWords} label="Kosakata" />
-          <Stat value={String(BABS.length)} label="Bab" />
+          <Stat value={String(BABS_META.length)} label="Bab" />
           <Stat value={String(hafal.length)} label="Dihafal" />
         </div>
 
@@ -176,14 +186,14 @@ export default function Home() {
             role="group"
             aria-label="Daftar bab 1 sampai 50"
           >
-            {BABS.map((b) => {
+            {BABS_META.map((b) => {
               const active = selectedBabs.includes(b.bab);
               return (
                 <button
                   key={b.bab}
                   onClick={() => toggleBab(b.bab)}
                   aria-pressed={active}
-                  title={`Bab ${b.bab} · ${b.items.length} kata`}
+                  title={`Bab ${b.bab} · ${b.count} kata`}
                   className={`k-num h-10 rounded-lg border font-mono text-sm transition duration-150 active:scale-95 ${
                     active
                       ? "border-ink bg-ink text-surface shadow-soft"
@@ -204,12 +214,12 @@ export default function Home() {
               <h2 className="k-eyebrow">Kemajuan hafalan · bab terpilih</h2>
               <span className="k-num shrink-0 font-display text-lg text-ink">
                 {hafalCount}
-                <span className="text-muted">/{selectedKata.length}</span>
+                <span className="text-muted">/{selectedTotal}</span>
               </span>
             </div>
             <ProgressBar
               value={hafalCount}
-              max={selectedKata.length}
+              max={selectedTotal}
               tone="seal"
             />
             <p className="mt-2.5 text-xs text-muted">

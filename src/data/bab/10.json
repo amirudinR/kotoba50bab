@@ -1,0 +1,390 @@
+{
+  "bab": 10,
+  "items": [
+    {
+      "no": 1,
+      "kana": "あります",
+      "kanji": "",
+      "arti": "Ada (benda mati)",
+      "romaji": "arimasu"
+    },
+    {
+      "no": 2,
+      "kana": "います",
+      "kanji": "",
+      "arti": "Ada (benda hidup)",
+      "romaji": "imasu"
+    },
+    {
+      "no": 3,
+      "kana": "いろいろ（な）",
+      "kanji": "",
+      "arti": "Berbagai / macam-macam",
+      "romaji": "iroiro(na)"
+    },
+    {
+      "no": 4,
+      "kana": "おとこのひと",
+      "kanji": "男の人",
+      "arti": "Orang laki-laki",
+      "romaji": "otokonohito"
+    },
+    {
+      "no": 5,
+      "kana": "おんなのひと",
+      "kanji": "女の人",
+      "arti": "Orang perempuan",
+      "romaji": "onnanohito"
+    },
+    {
+      "no": 6,
+      "kana": "おとこのこ",
+      "kanji": "男の子",
+      "arti": "Anak laki-laki",
+      "romaji": "otokonoko"
+    },
+    {
+      "no": 7,
+      "kana": "おんなのこ",
+      "kanji": "女の子",
+      "arti": "Anak perempuan",
+      "romaji": "onnanoko"
+    },
+    {
+      "no": 8,
+      "kana": "いぬ",
+      "kanji": "犬",
+      "arti": "Anjing",
+      "romaji": "inu"
+    },
+    {
+      "no": 9,
+      "kana": "ねこ",
+      "kanji": "猫",
+      "arti": "Kucing",
+      "romaji": "neko"
+    },
+    {
+      "no": 10,
+      "kana": "パンダ",
+      "kanji": "",
+      "arti": "Panda",
+      "romaji": "panda"
+    },
+    {
+      "no": 11,
+      "kana": "ぞう",
+      "kanji": "像",
+      "arti": "Gajah",
+      "romaji": "zou"
+    },
+    {
+      "no": 12,
+      "kana": "き",
+      "kanji": "木",
+      "arti": "Pohon",
+      "romaji": "ki"
+    },
+    {
+      "no": 13,
+      "kana": "もの",
+      "kanji": "物",
+      "arti": "Barang",
+      "romaji": "mono"
+    },
+    {
+      "no": 14,
+      "kana": "でんち",
+      "kanji": "電池",
+      "arti": "Baterai",
+      "romaji": "denchi"
+    },
+    {
+      "no": 15,
+      "kana": "はこ",
+      "kanji": "箱",
+      "arti": "Kotak",
+      "romaji": "hako"
+    },
+    {
+      "no": 16,
+      "kana": "スイッチ",
+      "kanji": "",
+      "arti": "Saklar",
+      "romaji": "suitchi"
+    },
+    {
+      "no": 17,
+      "kana": "れいぞうこ",
+      "kanji": "冷蔵庫",
+      "arti": "Kulkas",
+      "romaji": "reizouko"
+    },
+    {
+      "no": 18,
+      "kana": "テーブル",
+      "kanji": "",
+      "arti": "Meja makan",
+      "romaji": "teeburu"
+    },
+    {
+      "no": 19,
+      "kana": "ベッド",
+      "kanji": "",
+      "arti": "Tempat tidur",
+      "romaji": "beddo"
+    },
+    {
+      "no": 20,
+      "kana": "たな",
+      "kanji": "棚",
+      "arti": "Lemari",
+      "romaji": "tana"
+    },
+    {
+      "no": 21,
+      "kana": "ドア",
+      "kanji": "",
+      "arti": "Pintu",
+      "romaji": "doa"
+    },
+    {
+      "no": 22,
+      "kana": "まど",
+      "kanji": "窓",
+      "arti": "Jendela",
+      "romaji": "mado"
+    },
+    {
+      "no": 23,
+      "kana": "ポスト",
+      "kanji": "",
+      "arti": "Kotak surat",
+      "romaji": "posuto"
+    },
+    {
+      "no": 24,
+      "kana": "ビル",
+      "kanji": "",
+      "arti": "Gedung",
+      "romaji": "biru"
+    },
+    {
+      "no": 25,
+      "kana": "ＡＴＭ",
+      "kanji": "",
+      "arti": "Atm",
+      "romaji": "ATM"
+    },
+    {
+      "no": 26,
+      "kana": "コンビニ",
+      "kanji": "",
+      "arti": "Toko 24 jam",
+      "romaji": "konbini"
+    },
+    {
+      "no": 27,
+      "kana": "こうえん",
+      "kanji": "公園",
+      "arti": "Taman",
+      "romaji": "kouen"
+    },
+    {
+      "no": 28,
+      "kana": "きっさてん",
+      "kanji": "喫茶店",
+      "arti": "Coffe shop / cafe",
+      "romaji": "kissaten"
+    },
+    {
+      "no": 29,
+      "kana": "～や",
+      "kanji": "～屋",
+      "arti": "Toko ~",
+      "romaji": "~ya"
+    },
+    {
+      "no": 30,
+      "kana": "のりば",
+      "kanji": "乗り場",
+      "arti": "Tempat naik",
+      "romaji": "noriba"
+    },
+    {
+      "no": 31,
+      "kana": "けん",
+      "kanji": "県",
+      "arti": "Prefektur",
+      "romaji": "ken"
+    },
+    {
+      "no": 32,
+      "kana": "うえ",
+      "kanji": "上",
+      "arti": "Atas",
+      "romaji": "ue"
+    },
+    {
+      "no": 33,
+      "kana": "した",
+      "kanji": "下",
+      "arti": "Bawah",
+      "romaji": "shita"
+    },
+    {
+      "no": 34,
+      "kana": "まえ",
+      "kanji": "前",
+      "arti": "Depan",
+      "romaji": "mae"
+    },
+    {
+      "no": 35,
+      "kana": "うしろ",
+      "kanji": "後ろ",
+      "arti": "Belakang",
+      "romaji": "ushiro"
+    },
+    {
+      "no": 36,
+      "kana": "みぎ",
+      "kanji": "右",
+      "arti": "Kanan",
+      "romaji": "migi"
+    },
+    {
+      "no": 37,
+      "kana": "ひだり",
+      "kanji": "左",
+      "arti": "Kiri",
+      "romaji": "hidari"
+    },
+    {
+      "no": 38,
+      "kana": "なか",
+      "kanji": "中",
+      "arti": "Dalam",
+      "romaji": "naka"
+    },
+    {
+      "no": 39,
+      "kana": "そと",
+      "kanji": "外",
+      "arti": "Luar",
+      "romaji": "soto"
+    },
+    {
+      "no": 40,
+      "kana": "となり",
+      "kanji": "隣",
+      "arti": "Samping / sebelah",
+      "romaji": "tonari"
+    },
+    {
+      "no": 41,
+      "kana": "ちかく",
+      "kanji": "近く",
+      "arti": "Dekat",
+      "romaji": "chikaku"
+    },
+    {
+      "no": 42,
+      "kana": "あいだ",
+      "kanji": "間",
+      "arti": "Antara",
+      "romaji": "aida"
+    },
+    {
+      "no": 43,
+      "kana": "どうもすみません",
+      "kanji": "",
+      "arti": "Maaf / terima kasih banyak",
+      "romaji": "doumosumimasen"
+    },
+    {
+      "no": 44,
+      "kana": "ナンプラー",
+      "kanji": "",
+      "arti": "Kecap ikan",
+      "romaji": "nanpuraa"
+    },
+    {
+      "no": 45,
+      "kana": "コーナー",
+      "kanji": "",
+      "arti": "Tempat / bagian penjualan",
+      "romaji": "koonaa"
+    },
+    {
+      "no": 46,
+      "kana": "いちばんした",
+      "kanji": "一番下",
+      "arti": "Paling bawah",
+      "romaji": "ichibanshita"
+    },
+    {
+      "no": 47,
+      "kana": "げんかん",
+      "kanji": "玄関",
+      "arti": "Pintu masuk",
+      "romaji": "genkan"
+    },
+    {
+      "no": 48,
+      "kana": "ふろば",
+      "kanji": "風呂場",
+      "arti": "Kamar mandi",
+      "romaji": "furoba"
+    },
+    {
+      "no": 49,
+      "kana": "せんめんじょ",
+      "kanji": "洗面所",
+      "arti": "Tempat cuci tangan",
+      "romaji": "senmenjo"
+    },
+    {
+      "no": 50,
+      "kana": "だいどころ",
+      "kanji": "台所",
+      "arti": "Dapur",
+      "romaji": "daidokoro"
+    },
+    {
+      "no": 51,
+      "kana": "しょくどう",
+      "kanji": "食堂",
+      "arti": "Kantin / ruang makan",
+      "romaji": "shokudou"
+    },
+    {
+      "no": 52,
+      "kana": "いま",
+      "kanji": "居間",
+      "arti": "Ruang tamu",
+      "romaji": "ima"
+    },
+    {
+      "no": 53,
+      "kana": "しんしつ",
+      "kanji": "寝室",
+      "arti": "Kamar tidur",
+      "romaji": "shinshitsu"
+    },
+    {
+      "no": 54,
+      "kana": "ろうか",
+      "kanji": "廊下",
+      "arti": "Koridor",
+      "romaji": "rouka"
+    },
+    {
+      "no": 55,
+      "kana": "ベランダ",
+      "kanji": "",
+      "arti": "teras",
+      "romaji": "beranda"
+    }
+  ]
+}

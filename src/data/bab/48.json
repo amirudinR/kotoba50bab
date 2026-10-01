@@ -1,0 +1,285 @@
+{
+  "bab": 48,
+  "items": [
+    {
+      "no": 1,
+      "kana": "おろします",
+      "kanji": "下ろします",
+      "arti": "Menurunkan",
+      "romaji": "oroshimasu"
+    },
+    {
+      "no": 2,
+      "kana": "とどけます",
+      "kanji": "届けます",
+      "arti": "Mengantarkan",
+      "romaji": "todokemasu"
+    },
+    {
+      "no": 3,
+      "kana": "せわをします",
+      "kanji": "世話をします",
+      "arti": "Mengurus",
+      "romaji": "sewawoshimasu"
+    },
+    {
+      "no": 4,
+      "kana": "いやな",
+      "kanji": "嫌な",
+      "arti": "Tak suka, tak diingini",
+      "romaji": "iyana"
+    },
+    {
+      "no": 5,
+      "kana": "きびしい",
+      "kanji": "厳しい",
+      "arti": "Disiplin,galak,keras",
+      "romaji": "kibishii"
+    },
+    {
+      "no": 6,
+      "kana": "じゅく",
+      "kanji": "塾",
+      "arti": "Les, kursus, bimbel",
+      "romaji": "juku"
+    },
+    {
+      "no": 7,
+      "kana": "スケジュール",
+      "kanji": "",
+      "arti": "Jadwal,rencana,daftar",
+      "romaji": "sukejuuru"
+    },
+    {
+      "no": 8,
+      "kana": "せいと",
+      "kanji": "生徒",
+      "arti": "Murid",
+      "romaji": "seito"
+    },
+    {
+      "no": 9,
+      "kana": "もの",
+      "kanji": "者",
+      "arti": "Orang (berhubungan dengan sanak,famili,bawahan)",
+      "romaji": "mono"
+    },
+    {
+      "no": 10,
+      "kana": "にゅうかん",
+      "kanji": "入管",
+      "arti": "Kantor imigrasi",
+      "romaji": "nyuukan"
+    },
+    {
+      "no": 11,
+      "kana": "さいにゅうこくビザ",
+      "kanji": "再入国ビザ",
+      "arti": "Visa masuk kembali",
+      "romaji": "sainyuukokubiza"
+    },
+    {
+      "no": 12,
+      "kana": "じゆうに",
+      "kanji": "自由に",
+      "arti": "Dengan bebas",
+      "romaji": "jiyuuni"
+    },
+    {
+      "no": 13,
+      "kana": "～かん",
+      "kanji": "～間",
+      "arti": "Selama---",
+      "romaji": "~kan"
+    },
+    {
+      "no": 14,
+      "kana": "いいことですね",
+      "kanji": "",
+      "arti": "Itu hal yang baik ya",
+      "romaji": "iikotodesune"
+    },
+    {
+      "no": 15,
+      "kana": "ひさしぶり",
+      "kanji": "久しぶり",
+      "arti": "Sudah lama tidak bertemu",
+      "romaji": "hisashiburi"
+    },
+    {
+      "no": 16,
+      "kana": "えいぎょう",
+      "kanji": "営業",
+      "arti": "Bisnis, pemasaran",
+      "romaji": "eigyou"
+    },
+    {
+      "no": 17,
+      "kana": "それまでに",
+      "kanji": "",
+      "arti": "Sampai pada waktu itu",
+      "romaji": "soremadeni"
+    },
+    {
+      "no": 18,
+      "kana": "かまいません",
+      "kanji": "",
+      "arti": "Tidk apa-apa/boleh",
+      "romaji": "kamaimasen"
+    },
+    {
+      "no": 19,
+      "kana": "たのしみます",
+      "kanji": "楽しみます",
+      "arti": "Menikmati, bersenang-senang",
+      "romaji": "tanoshimimasu"
+    },
+    {
+      "no": 20,
+      "kana": "もともと",
+      "kanji": "",
+      "arti": "Dasarnya",
+      "romaji": "motomoto"
+    },
+    {
+      "no": 21,
+      "kana": "かわりをします",
+      "kanji": "代わりをします",
+      "arti": "Menggantikan",
+      "romaji": "kawariwoshimasu"
+    },
+    {
+      "no": 22,
+      "kana": "スピード",
+      "kanji": "",
+      "arti": "kecepatan",
+      "romaji": "supiido"
+    },
+    {
+      "no": 23,
+      "kana": "きょうそうします",
+      "kanji": "競走します",
+      "arti": "Berlomba lari",
+      "romaji": "kyousoushimasu"
+    },
+    {
+      "no": 24,
+      "kana": "サーカス",
+      "kanji": "",
+      "arti": "Sirkus",
+      "romaji": "saakasu"
+    },
+    {
+      "no": 25,
+      "kana": "げい",
+      "kanji": "芸",
+      "arti": "Keahlian",
+      "romaji": "gei"
+    },
+    {
+      "no": 26,
+      "kana": "うつくしい",
+      "kanji": "美しい",
+      "arti": "Indah",
+      "romaji": "utsukushii"
+    },
+    {
+      "no": 27,
+      "kana": "すがた",
+      "kanji": "姿",
+      "arti": "Penampilan",
+      "romaji": "sugata"
+    },
+    {
+      "no": 28,
+      "kana": "こころ",
+      "kanji": "心",
+      "arti": "Hati",
+      "romaji": "kokoro"
+    },
+    {
+      "no": 29,
+      "kana": "とらえます",
+      "kanji": "",
+      "arti": "Berkesan",
+      "romaji": "toraemasu"
+    },
+    {
+      "no": 30,
+      "kana": "～にとって",
+      "kanji": "",
+      "arti": "Bagi",
+      "romaji": "~nitotte"
+    },
+    {
+      "no": 31,
+      "kana": "しつける",
+      "kanji": "",
+      "arti": "Mendidik",
+      "romaji": "shitsukeru"
+    },
+    {
+      "no": 32,
+      "kana": "きたえる",
+      "kanji": "鍛える",
+      "arti": "Melatih kedisiplinan",
+      "romaji": "kitaeru"
+    },
+    {
+      "no": 33,
+      "kana": "しぜん",
+      "kanji": "自然",
+      "arti": "Alam",
+      "romaji": "shizen"
+    },
+    {
+      "no": 34,
+      "kana": "けいけんをする",
+      "kanji": "経験をする",
+      "arti": "Berpengalaman",
+      "romaji": "keikenwosuru"
+    },
+    {
+      "no": 35,
+      "kana": "おとしより",
+      "kanji": "お年寄り",
+      "arti": "Orang tua",
+      "romaji": "otoshiyori"
+    },
+    {
+      "no": 36,
+      "kana": "ボランティア",
+      "kanji": "",
+      "arti": "Sukarelawan",
+      "romaji": "boranteia"
+    },
+    {
+      "no": 37,
+      "kana": "さんかする",
+      "kanji": "参加する",
+      "arti": "Mengikuti",
+      "romaji": "sankasuru"
+    },
+    {
+      "no": 38,
+      "kana": "じしん",
+      "kanji": "自身",
+      "arti": "Percaya diri",
+      "romaji": "jishin"
+    },
+    {
+      "no": 39,
+      "kana": "せきにんをもつ",
+      "kanji": "責任を持つ",
+      "arti": "Memiliki rasa tanggung jawab",
+      "romaji": "sekininwomotsu"
+    },
+    {
+      "no": 40,
+      "kana": "がまんする",
+      "kanji": "我慢する",
+      "arti": "Bersabar",
+      "romaji": "gamansuru"
+    }
+  ]
+}

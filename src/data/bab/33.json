@@ -1,0 +1,488 @@
+{
+  "bab": 33,
+  "items": [
+    {
+      "no": 1,
+      "kana": "にげます",
+      "kanji": "逃げます",
+      "arti": "Melarikan diri",
+      "romaji": "nigemasu"
+    },
+    {
+      "no": 2,
+      "kana": "さわぎます",
+      "kanji": "騒ぎます",
+      "arti": "Berbuat gaduh, ribut",
+      "romaji": "sawagimasu"
+    },
+    {
+      "no": 3,
+      "kana": "あきらめます",
+      "kanji": "",
+      "arti": "Menerima nasib, putus asa",
+      "romaji": "akiramemasu"
+    },
+    {
+      "no": 4,
+      "kana": "なげます",
+      "kanji": "投げます",
+      "arti": "Melempar",
+      "romaji": "nagemasu"
+    },
+    {
+      "no": 5,
+      "kana": "まもります",
+      "kanji": "守ります",
+      "arti": "Mematuhi",
+      "romaji": "mamorimasu"
+    },
+    {
+      "no": 6,
+      "kana": "あげます",
+      "kanji": "上げます",
+      "arti": "Menaikkan",
+      "romaji": "agemasu"
+    },
+    {
+      "no": 7,
+      "kana": "さげます",
+      "kanji": "下げます",
+      "arti": "Menurunkan",
+      "romaji": "sagemasu"
+    },
+    {
+      "no": 8,
+      "kana": "つたえます",
+      "kanji": "伝えます",
+      "arti": "Menyampaikan",
+      "romaji": "tsutaemasu"
+    },
+    {
+      "no": 9,
+      "kana": "ちゅういします （に）",
+      "kanji": "注意します",
+      "arti": "Memperhatikan",
+      "romaji": "chuuishimasu (ni)"
+    },
+    {
+      "no": 10,
+      "kana": "はずします （せきを）",
+      "kanji": "外します",
+      "arti": "Tidak ada (ditempat)",
+      "romaji": "hazushimasu (sekiwo)"
+    },
+    {
+      "no": 11,
+      "kana": "だめな",
+      "kanji": "",
+      "arti": "Jangan,tidak boleh,tidak bisa",
+      "romaji": "damena"
+    },
+    {
+      "no": 12,
+      "kana": "せき",
+      "kanji": "席",
+      "arti": "Tempat duduk",
+      "romaji": "seki"
+    },
+    {
+      "no": 13,
+      "kana": "ファイト",
+      "kanji": "",
+      "arti": "Berjuang",
+      "romaji": "faito"
+    },
+    {
+      "no": 14,
+      "kana": "マーク",
+      "kanji": "",
+      "arti": "Tanda",
+      "romaji": "maaku"
+    },
+    {
+      "no": 15,
+      "kana": "ボール",
+      "kanji": "",
+      "arti": "Bola",
+      "romaji": "booru"
+    },
+    {
+      "no": 16,
+      "kana": "せんたくき",
+      "kanji": "洗濯機",
+      "arti": "Mesin cuci",
+      "romaji": "sentakuki"
+    },
+    {
+      "no": 17,
+      "kana": "～き",
+      "kanji": "～機",
+      "arti": "Mesin ～",
+      "romaji": "~ki"
+    },
+    {
+      "no": 18,
+      "kana": "きそく",
+      "kanji": "規則",
+      "arti": "Peraturan",
+      "romaji": "kisoku"
+    },
+    {
+      "no": 19,
+      "kana": "しようきんし",
+      "kanji": "使用禁止",
+      "arti": "Dilarang pakai",
+      "romaji": "shiyoukinshi"
+    },
+    {
+      "no": 20,
+      "kana": "たちいりきんし",
+      "kanji": "立入禁止",
+      "arti": "Dilarang masuk",
+      "romaji": "tachiirikinshi"
+    },
+    {
+      "no": 21,
+      "kana": "いりぐち",
+      "kanji": "入口",
+      "arti": "Pintu masuk",
+      "romaji": "iriguchi"
+    },
+    {
+      "no": 22,
+      "kana": "でぐち",
+      "kanji": "出口",
+      "arti": "Pintu keluar",
+      "romaji": "deguchi"
+    },
+    {
+      "no": 23,
+      "kana": "ひじょうぐち",
+      "kanji": "非常口",
+      "arti": "Pintu darurat",
+      "romaji": "hijouguchi"
+    },
+    {
+      "no": 24,
+      "kana": "むりょう",
+      "kanji": "無料",
+      "arti": "Gratis",
+      "romaji": "muryou"
+    },
+    {
+      "no": 25,
+      "kana": "ほんじつきゅうぎょう",
+      "kanji": "本日休業",
+      "arti": "Hari ini tutup",
+      "romaji": "honjitsukyuugyou"
+    },
+    {
+      "no": 26,
+      "kana": "えいぎょうちゅう",
+      "kanji": "営業中",
+      "arti": "Buka",
+      "romaji": "eigyouchuu"
+    },
+    {
+      "no": 27,
+      "kana": "しようちゅう",
+      "kanji": "使用中",
+      "arti": "Sedang dipakai",
+      "romaji": "shiyouchuu"
+    },
+    {
+      "no": 28,
+      "kana": "～ちゅう",
+      "kanji": "～中",
+      "arti": "Sedang～/dalam ～",
+      "romaji": "~chuu"
+    },
+    {
+      "no": 29,
+      "kana": "どういう～",
+      "kanji": "",
+      "arti": "Apa ～/ bagaimana ～",
+      "romaji": "douiu~"
+    },
+    {
+      "no": 30,
+      "kana": "もう",
+      "kanji": "",
+      "arti": "Tidak ～lagi (diikuti dengan bentuk negatif)",
+      "romaji": "mou"
+    },
+    {
+      "no": 31,
+      "kana": "あと～",
+      "kanji": "",
+      "arti": "Tinggal ～lagi",
+      "romaji": "ato~"
+    },
+    {
+      "no": 32,
+      "kana": "ちゅうしゃいはん",
+      "kanji": "駐車違反",
+      "arti": "Pelanggaran parkir",
+      "romaji": "chuushaihan"
+    },
+    {
+      "no": 33,
+      "kana": "そりゃあ",
+      "kanji": "",
+      "arti": "Hal itu",
+      "romaji": "soryaa"
+    },
+    {
+      "no": 34,
+      "kana": "～いない",
+      "kanji": "～以内",
+      "arti": "Dalam ～",
+      "romaji": "~inai"
+    },
+    {
+      "no": 35,
+      "kana": "けいさつ",
+      "kanji": "警察",
+      "arti": "Polisi",
+      "romaji": "keisatsu"
+    },
+    {
+      "no": 36,
+      "kana": "ばっきん",
+      "kanji": "罰金",
+      "arti": "Denda",
+      "romaji": "bakkin"
+    },
+    {
+      "no": 37,
+      "kana": "でんぽう",
+      "kanji": "電報",
+      "arti": "Telegram",
+      "romaji": "denpou"
+    },
+    {
+      "no": 38,
+      "kana": "ひとびと",
+      "kanji": "人々",
+      "arti": "Orang-orang",
+      "romaji": "hitobito"
+    },
+    {
+      "no": 39,
+      "kana": "きゅうよう",
+      "kanji": "急用",
+      "arti": "Urusan/tugas mendadak",
+      "romaji": "kyuuyou"
+    },
+    {
+      "no": 40,
+      "kana": "うちます （を）",
+      "kanji": "打ちます",
+      "arti": "Mengirim (telegram)",
+      "romaji": "uchimasu (wo)"
+    },
+    {
+      "no": 41,
+      "kana": "でんぽうだい",
+      "kanji": "電報代",
+      "arti": "Biaya telegram",
+      "romaji": "denpoudai"
+    },
+    {
+      "no": 42,
+      "kana": "できるだけ",
+      "kanji": "",
+      "arti": "Sebisa mungkin / sedapat mungkin",
+      "romaji": "dekirudake"
+    },
+    {
+      "no": 43,
+      "kana": "みじかく",
+      "kanji": "短く",
+      "arti": "Dengan pendek/singkat",
+      "romaji": "mijikaku"
+    },
+    {
+      "no": 44,
+      "kana": "また",
+      "kanji": "",
+      "arti": "Dan",
+      "romaji": "mata"
+    },
+    {
+      "no": 45,
+      "kana": "たとえば",
+      "kanji": "例えば",
+      "arti": "Misalnya,contohnya",
+      "romaji": "tatoeba"
+    },
+    {
+      "no": 46,
+      "kana": "キトク",
+      "kanji": "",
+      "arti": "Yang gawat, koma",
+      "romaji": "kitoku"
+    },
+    {
+      "no": 47,
+      "kana": "おもいびょうき",
+      "kanji": "重い病気",
+      "arti": "Sakit keras/parah",
+      "romaji": "omoibyouki"
+    },
+    {
+      "no": 48,
+      "kana": "あす",
+      "kanji": "明日",
+      "arti": "Besok",
+      "romaji": "asu"
+    },
+    {
+      "no": 49,
+      "kana": "るす",
+      "kanji": "留守",
+      "arti": "Tidak ada di rumah",
+      "romaji": "rusu"
+    },
+    {
+      "no": 50,
+      "kana": "るすばん",
+      "kanji": "留守番",
+      "arti": "Penjaga rumah (ketika yang punya rumah bepergian)",
+      "romaji": "rusuban"
+    },
+    {
+      "no": 51,
+      "kana": "おいわい",
+      "kanji": "お祝い",
+      "arti": "Perayaan",
+      "romaji": "oiwai"
+    },
+    {
+      "no": 52,
+      "kana": "なくなります",
+      "kanji": "亡くなります",
+      "arti": "Meninggal",
+      "romaji": "nakunarimasu"
+    },
+    {
+      "no": 53,
+      "kana": "かなしみ",
+      "kanji": "悲しみ",
+      "arti": "Kesedihan,rasa sedih",
+      "romaji": "kanashimi"
+    },
+    {
+      "no": 54,
+      "kana": "りようします",
+      "kanji": "利用します",
+      "arti": "Memakai,menggunakan",
+      "romaji": "riyoushimasu"
+    },
+    {
+      "no": 55,
+      "kana": "ひょうしき",
+      "kanji": "標識",
+      "arti": "Petunjuk",
+      "romaji": "hyoushiki"
+    },
+    {
+      "no": 56,
+      "kana": "じゅんびちゅう",
+      "kanji": "準備中",
+      "arti": "Dalam persiapan",
+      "romaji": "junbichuu"
+    },
+    {
+      "no": 57,
+      "kana": "へいてん",
+      "kanji": "閉店",
+      "arti": "Tutup",
+      "romaji": "heiten"
+    },
+    {
+      "no": 58,
+      "kana": "ていきゅうび",
+      "kanji": "定休日",
+      "arti": "Hari libur tetap",
+      "romaji": "teikyuubi"
+    },
+    {
+      "no": 59,
+      "kana": "けしょうしつ",
+      "kanji": "化粧室",
+      "arti": "Kamar kecil",
+      "romaji": "keshoushitsu"
+    },
+    {
+      "no": 60,
+      "kana": "きんえんせき",
+      "kanji": "禁煙席",
+      "arti": "Tempat duduk bebas rokok",
+      "romaji": "kin'enseki"
+    },
+    {
+      "no": 61,
+      "kana": "よやくせき",
+      "kanji": "予約席",
+      "arti": "Tempat duduk yang telah dipesan",
+      "romaji": "yoyakuseki"
+    },
+    {
+      "no": 62,
+      "kana": "かきげんきん",
+      "kanji": "火気厳禁",
+      "arti": "Mudah terbakar, larangan menyalakan api",
+      "romaji": "kakigenkin"
+    },
+    {
+      "no": 63,
+      "kana": "われものちゅうい",
+      "kanji": "割れ物注意",
+      "arti": "",
+      "romaji": "waremonochuui"
+    },
+    {
+      "no": 64,
+      "kana": "うんてんしょしんしゃちゅうい",
+      "kanji": "運転初心者注意",
+      "arti": "Tanda bagi pengemudi yang baru mendapatkan SIM",
+      "romaji": "untenshoshinshachuui"
+    },
+    {
+      "no": 65,
+      "kana": "こうじちゅう",
+      "kanji": "工事中",
+      "arti": "Dalam perbaikan",
+      "romaji": "koujichuu"
+    },
+    {
+      "no": 66,
+      "kana": "えんそけいひょうはくざいふか",
+      "kanji": "塩素系漂白剤不可",
+      "arti": "Jangan gunakan pemutih",
+      "romaji": "ensokeihyouhakuzaifuka"
+    },
+    {
+      "no": 67,
+      "kana": "てあらい",
+      "kanji": "手洗い",
+      "arti": "Cuci dengan tangan",
+      "romaji": "tearai"
+    },
+    {
+      "no": 68,
+      "kana": "アイロン（ていおん）",
+      "kanji": "アイロン（低温）",
+      "arti": "Harus disetrika dalam suhu rendah",
+      "romaji": "airon(teion)"
+    },
+    {
+      "no": 69,
+      "kana": "ドライクリーニング",
+      "kanji": "",
+      "arti": "Hanya untuk di dry cleaning",
+      "romaji": "doraikuriiningu"
+    }
+  ]
+}

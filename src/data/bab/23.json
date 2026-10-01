@@ -1,0 +1,271 @@
+{
+  "bab": 23,
+  "items": [
+    {
+      "no": 1,
+      "kana": "ききます （に）",
+      "kanji": "聞きます",
+      "arti": "Bertanya",
+      "romaji": "kikimasu (ni)"
+    },
+    {
+      "no": 2,
+      "kana": "まわします",
+      "kanji": "回します",
+      "arti": "Memutar",
+      "romaji": "mawashimasu"
+    },
+    {
+      "no": 3,
+      "kana": "ひきます",
+      "kanji": "引きます",
+      "arti": "Menarik, tarik",
+      "romaji": "hikimasu"
+    },
+    {
+      "no": 4,
+      "kana": "かえます",
+      "kanji": "変えます",
+      "arti": "Mengubah",
+      "romaji": "kaemasu"
+    },
+    {
+      "no": 5,
+      "kana": "さわります （に）",
+      "kanji": "触ります",
+      "arti": "Menyentuh",
+      "romaji": "sawarimasu (ni)"
+    },
+    {
+      "no": 6,
+      "kana": "でます （が）",
+      "kanji": "出ます",
+      "arti": "Keluar",
+      "romaji": "demasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "あるきます",
+      "kanji": "歩きます",
+      "arti": "Berjalan kaki",
+      "romaji": "arukimasu"
+    },
+    {
+      "no": 8,
+      "kana": "わたります （を）",
+      "kanji": "渡ります",
+      "arti": "Menyeberang",
+      "romaji": "watarimasu (wo)"
+    },
+    {
+      "no": 9,
+      "kana": "まがります （へ）",
+      "kanji": "曲がります",
+      "arti": "Belok",
+      "romaji": "magarimasu (he)"
+    },
+    {
+      "no": 10,
+      "kana": "さびしい",
+      "kanji": "寂しい",
+      "arti": "Sepi",
+      "romaji": "sabishii"
+    },
+    {
+      "no": 11,
+      "kana": "おゆ",
+      "kanji": "お湯",
+      "arti": "Air panas",
+      "romaji": "oyu"
+    },
+    {
+      "no": 12,
+      "kana": "おと",
+      "kanji": "音",
+      "arti": "Suara, bunyi",
+      "romaji": "oto"
+    },
+    {
+      "no": 13,
+      "kana": "サイズ",
+      "kanji": "",
+      "arti": "Ukuran",
+      "romaji": "saizu"
+    },
+    {
+      "no": 14,
+      "kana": "こしょう",
+      "kanji": "故障",
+      "arti": "Kerusakan",
+      "romaji": "koshou"
+    },
+    {
+      "no": 15,
+      "kana": "みち",
+      "kanji": "道",
+      "arti": "Jalan",
+      "romaji": "michi"
+    },
+    {
+      "no": 16,
+      "kana": "こうさてん",
+      "kanji": "交差点",
+      "arti": "Perempatan",
+      "romaji": "kousaten"
+    },
+    {
+      "no": 17,
+      "kana": "しんごう",
+      "kanji": "信号",
+      "arti": "Lampu lalu lintas",
+      "romaji": "shingou"
+    },
+    {
+      "no": 18,
+      "kana": "かど",
+      "kanji": "角",
+      "arti": "Sudut",
+      "romaji": "kado"
+    },
+    {
+      "no": 19,
+      "kana": "はし",
+      "kanji": "橋",
+      "arti": "Jembatan",
+      "romaji": "hashi"
+    },
+    {
+      "no": 20,
+      "kana": "ちゅうしゃじょう",
+      "kanji": "駐車場",
+      "arti": "Tempat parkir",
+      "romaji": "chuushajou"
+    },
+    {
+      "no": 21,
+      "kana": "たてもの",
+      "kanji": "建物",
+      "arti": "Bangunan, gedung",
+      "romaji": "tatemono"
+    },
+    {
+      "no": 22,
+      "kana": "なんかいも",
+      "kanji": "何回も",
+      "arti": "Berkali-kali",
+      "romaji": "nankaimo"
+    },
+    {
+      "no": 23,
+      "kana": "～め",
+      "kanji": "～目",
+      "arti": "Yang ke -",
+      "romaji": "~me"
+    },
+    {
+      "no": 24,
+      "kana": "どうろ",
+      "kanji": "道路",
+      "arti": "Jalan",
+      "romaji": "douro"
+    },
+    {
+      "no": 25,
+      "kana": "ほどう",
+      "kanji": "歩道",
+      "arti": "Trotoar",
+      "romaji": "hodou"
+    },
+    {
+      "no": 26,
+      "kana": "しゃどう",
+      "kanji": "車道",
+      "arti": "Jalan mobil",
+      "romaji": "shadou"
+    },
+    {
+      "no": 27,
+      "kana": "こうそくどうろ",
+      "kanji": "高速道路",
+      "arti": "Jalan tol",
+      "romaji": "kousokudouro"
+    },
+    {
+      "no": 28,
+      "kana": "とおり",
+      "kanji": "通り",
+      "arti": "Jalan",
+      "romaji": "toori"
+    },
+    {
+      "no": 29,
+      "kana": "おうだんほどう",
+      "kanji": "横断歩道",
+      "arti": "Tempat menyeberang, zebra cros",
+      "romaji": "oudanhodou"
+    },
+    {
+      "no": 30,
+      "kana": "ほどうきょう",
+      "kanji": "歩道橋",
+      "arti": "Jembatan penyeberangan",
+      "romaji": "hodoukyou"
+    },
+    {
+      "no": 31,
+      "kana": "さか",
+      "kanji": "坂",
+      "arti": "Lereng",
+      "romaji": "saka"
+    },
+    {
+      "no": 32,
+      "kana": "ふみきり",
+      "kanji": "踏切",
+      "arti": "Lintasan kereta api",
+      "romaji": "fumikiri"
+    },
+    {
+      "no": 33,
+      "kana": "ガソリンスタンド",
+      "kanji": "",
+      "arti": "Pompa bensin , pom bensin",
+      "romaji": "gasorinsutando"
+    },
+    {
+      "no": 34,
+      "kana": "とまれ",
+      "kanji": "止まれ",
+      "arti": "Berhenti",
+      "romaji": "tomare"
+    },
+    {
+      "no": 35,
+      "kana": "しんにゅうきんし",
+      "kanji": "進入禁止",
+      "arti": "Dilarang masuk",
+      "romaji": "shinnyuukinshi"
+    },
+    {
+      "no": 36,
+      "kana": "いっぽうつうこう",
+      "kanji": "一方通行",
+      "arti": "Satu arah",
+      "romaji": "ippoutsuukou"
+    },
+    {
+      "no": 37,
+      "kana": "ちゅうしゃきんし",
+      "kanji": "駐車禁止",
+      "arti": "Dilarang parkir",
+      "romaji": "chuushakinshi"
+    },
+    {
+      "no": 38,
+      "kana": "うせつきんし",
+      "kanji": "右折禁止",
+      "arti": "Dilarang belok kanan",
+      "romaji": "usetsukinshi"
+    }
+  ]
+}

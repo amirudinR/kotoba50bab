@@ -1,0 +1,327 @@
+{
+  "bab": 18,
+  "items": [
+    {
+      "no": 1,
+      "kana": "できます",
+      "kanji": "",
+      "arti": "Dapat, bisa, mampu",
+      "romaji": "dekimasu"
+    },
+    {
+      "no": 2,
+      "kana": "あらいます",
+      "kanji": "洗います",
+      "arti": "Mencuci",
+      "romaji": "araimasu"
+    },
+    {
+      "no": 3,
+      "kana": "ひきます",
+      "kanji": "弾きます",
+      "arti": "Bermain (alat musik , piano)",
+      "romaji": "hikimasu"
+    },
+    {
+      "no": 4,
+      "kana": "うたいます",
+      "kanji": "歌います",
+      "arti": "Menyanyi",
+      "romaji": "utaimasu"
+    },
+    {
+      "no": 5,
+      "kana": "あつめます",
+      "kanji": "集めます",
+      "arti": "Mengumpulkan",
+      "romaji": "atsumemasu"
+    },
+    {
+      "no": 6,
+      "kana": "すてます",
+      "kanji": "捨てます",
+      "arti": "Membuang",
+      "romaji": "sutemasu"
+    },
+    {
+      "no": 7,
+      "kana": "かえます",
+      "kanji": "換えます",
+      "arti": "Menukar, mengganti",
+      "romaji": "kaemasu"
+    },
+    {
+      "no": 8,
+      "kana": "うんてんします",
+      "kanji": "運転します",
+      "arti": "Menyetir, mengendarai",
+      "romaji": "untenshimasu"
+    },
+    {
+      "no": 9,
+      "kana": "よやくします",
+      "kanji": "予約します",
+      "arti": "Memesan",
+      "romaji": "yoyakushimasu"
+    },
+    {
+      "no": 10,
+      "kana": "ピアノ",
+      "kanji": "",
+      "arti": "Piano",
+      "romaji": "piano"
+    },
+    {
+      "no": 11,
+      "kana": "～メートル",
+      "kanji": "",
+      "arti": "Meter",
+      "romaji": "~meetoru"
+    },
+    {
+      "no": 12,
+      "kana": "げんきん",
+      "kanji": "現金",
+      "arti": "Uang tunai",
+      "romaji": "genkin"
+    },
+    {
+      "no": 13,
+      "kana": "しゅみ",
+      "kanji": "趣味",
+      "arti": "Hobi , kegemaran",
+      "romaji": "shumi"
+    },
+    {
+      "no": 14,
+      "kana": "にっき",
+      "kanji": "日記",
+      "arti": "Catatan harian",
+      "romaji": "nikki"
+    },
+    {
+      "no": 15,
+      "kana": "おいのり",
+      "kanji": "お祈り",
+      "arti": "Doa",
+      "romaji": "oinori"
+    },
+    {
+      "no": 16,
+      "kana": "かちょう",
+      "kanji": "課長",
+      "arti": "Kepala seksi",
+      "romaji": "kachou"
+    },
+    {
+      "no": 17,
+      "kana": "ぶちょう",
+      "kanji": "部長",
+      "arti": "Kepala bagian",
+      "romaji": "buchou"
+    },
+    {
+      "no": 18,
+      "kana": "しゃちょう",
+      "kanji": "社長",
+      "arti": "Direktur utama",
+      "romaji": "shachou"
+    },
+    {
+      "no": 19,
+      "kana": "どうぶつ",
+      "kanji": "動物",
+      "arti": "Hewan",
+      "romaji": "doubutsu"
+    },
+    {
+      "no": 20,
+      "kana": "うま",
+      "kanji": "馬",
+      "arti": "Kuda",
+      "romaji": "uma"
+    },
+    {
+      "no": 21,
+      "kana": "インターネット",
+      "kanji": "",
+      "arti": "Internet",
+      "romaji": "intaanetto"
+    },
+    {
+      "no": 22,
+      "kana": "とくに",
+      "kanji": "特に",
+      "arti": "Terutama, khususnya",
+      "romaji": "tokuni"
+    },
+    {
+      "no": 23,
+      "kana": "それはおもしろいですね",
+      "kanji": "",
+      "arti": "Itu menarik ya...",
+      "romaji": "sorehaomoshiroidesune"
+    },
+    {
+      "no": 24,
+      "kana": "ほんとうですか",
+      "kanji": "",
+      "arti": "Betulkah , benarkah",
+      "romaji": "hontoudesuka"
+    },
+    {
+      "no": 25,
+      "kana": "ぜひ",
+      "kanji": "",
+      "arti": "Pasti, benar-benar",
+      "romaji": "zehi"
+    },
+    {
+      "no": 26,
+      "kana": "なかなか",
+      "kanji": "",
+      "arti": "Jarang, tidak mudah (diikuti bentuk negatif)",
+      "romaji": "nakanaka"
+    },
+    {
+      "no": 27,
+      "kana": "とぶ",
+      "kanji": "飛ぶ",
+      "arti": "Terbang",
+      "romaji": "tobu"
+    },
+    {
+      "no": 28,
+      "kana": "とぶ",
+      "kanji": "跳ぶ",
+      "arti": "Meloncat",
+      "romaji": "tobu"
+    },
+    {
+      "no": 29,
+      "kana": "のぼる",
+      "kanji": "登る",
+      "arti": "Memanjat",
+      "romaji": "noboru"
+    },
+    {
+      "no": 30,
+      "kana": "はしる",
+      "kanji": "走る",
+      "arti": "Berlari",
+      "romaji": "hashiru"
+    },
+    {
+      "no": 31,
+      "kana": "およぐ",
+      "kanji": "泳ぐ",
+      "arti": "Berenang",
+      "romaji": "oyogu"
+    },
+    {
+      "no": 32,
+      "kana": "もぐる",
+      "kanji": "",
+      "arti": "Menyelam",
+      "romaji": "moguru"
+    },
+    {
+      "no": 33,
+      "kana": "とびこむ",
+      "kanji": "飛び込む",
+      "arti": "Terjun",
+      "romaji": "tobikomu"
+    },
+    {
+      "no": 34,
+      "kana": "さかだちする",
+      "kanji": "逆立ちする",
+      "arti": "Berjungkir balik",
+      "romaji": "sakadachisuru"
+    },
+    {
+      "no": 35,
+      "kana": "はう",
+      "kanji": "",
+      "arti": "Merayap",
+      "romaji": "hau"
+    },
+    {
+      "no": 36,
+      "kana": "ける",
+      "kanji": "",
+      "arti": "Menendang",
+      "romaji": "keru"
+    },
+    {
+      "no": 37,
+      "kana": "ふる",
+      "kanji": "振る",
+      "arti": "Melambaikan",
+      "romaji": "furu"
+    },
+    {
+      "no": 38,
+      "kana": "もちあげる",
+      "kanji": "持ち上げる",
+      "arti": "Mengangkat",
+      "romaji": "mochiageru"
+    },
+    {
+      "no": 39,
+      "kana": "なげる",
+      "kanji": "投げる",
+      "arti": "Melempar",
+      "romaji": "nageru"
+    },
+    {
+      "no": 40,
+      "kana": "たたく",
+      "kanji": "",
+      "arti": "Memukul",
+      "romaji": "tataku"
+    },
+    {
+      "no": 41,
+      "kana": "ひく",
+      "kanji": "引く",
+      "arti": "Menarik",
+      "romaji": "hiku"
+    },
+    {
+      "no": 42,
+      "kana": "おす",
+      "kanji": "押す",
+      "arti": "Menekan, mendorong",
+      "romaji": "osu"
+    },
+    {
+      "no": 43,
+      "kana": "まげる",
+      "kanji": "曲げる",
+      "arti": "Membengkokkan",
+      "romaji": "mageru"
+    },
+    {
+      "no": 44,
+      "kana": "のばす",
+      "kanji": "伸ばす",
+      "arti": "Meluruskan",
+      "romaji": "nobasu"
+    },
+    {
+      "no": 45,
+      "kana": "ころぶ",
+      "kanji": "転ぶ",
+      "arti": "Jatuh",
+      "romaji": "korobu"
+    },
+    {
+      "no": 46,
+      "kana": "ふりむく",
+      "kanji": "振り向く",
+      "arti": "Menengok ke belakang",
+      "romaji": "furimuku"
+    }
+  ]
+}

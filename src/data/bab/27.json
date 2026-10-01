@@ -1,0 +1,530 @@
+{
+  "bab": 27,
+  "items": [
+    {
+      "no": 1,
+      "kana": "かいます",
+      "kanji": "飼います",
+      "arti": "Memelihara (binatang)",
+      "romaji": "kaimasu"
+    },
+    {
+      "no": 2,
+      "kana": "たてます",
+      "kanji": "建てます",
+      "arti": "Membangun, mendirikan",
+      "romaji": "tatemasu"
+    },
+    {
+      "no": 3,
+      "kana": "はしります （を）",
+      "kanji": "走ります",
+      "arti": "Berlari",
+      "romaji": "hashirimasu (wo)"
+    },
+    {
+      "no": 4,
+      "kana": "とります （を）",
+      "kanji": "取ります",
+      "arti": "Mengambil, cuti",
+      "romaji": "torimasu (wo)"
+    },
+    {
+      "no": 5,
+      "kana": "みえます （が）",
+      "kanji": "見えます",
+      "arti": "Kelihatan",
+      "romaji": "miemasu (ga)"
+    },
+    {
+      "no": 6,
+      "kana": "きこえます （が）",
+      "kanji": "聞こえます",
+      "arti": "Kedengaran",
+      "romaji": "kikoemasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "できます",
+      "kanji": "",
+      "arti": "Rampung, sudah jadi",
+      "romaji": "dekimasu"
+    },
+    {
+      "no": 8,
+      "kana": "ひらきます （を）",
+      "kanji": "開きます",
+      "arti": "Membuka (kursus)",
+      "romaji": "hirakimasu (wo)"
+    },
+    {
+      "no": 9,
+      "kana": "ペット",
+      "kanji": "",
+      "arti": "Binatang peliharaan",
+      "romaji": "petto"
+    },
+    {
+      "no": 10,
+      "kana": "とり",
+      "kanji": "鳥",
+      "arti": "Burung",
+      "romaji": "tori"
+    },
+    {
+      "no": 11,
+      "kana": "こえ",
+      "kanji": "声",
+      "arti": "Suara",
+      "romaji": "koe"
+    },
+    {
+      "no": 12,
+      "kana": "なみ",
+      "kanji": "波",
+      "arti": "Ombak",
+      "romaji": "nami"
+    },
+    {
+      "no": 13,
+      "kana": "はなび",
+      "kanji": "花火",
+      "arti": "Kembang api",
+      "romaji": "hanabi"
+    },
+    {
+      "no": 14,
+      "kana": "けしき",
+      "kanji": "景色",
+      "arti": "Pemandangan",
+      "romaji": "keshiki"
+    },
+    {
+      "no": 15,
+      "kana": "ひるま",
+      "kanji": "昼間",
+      "arti": "Waktu siang",
+      "romaji": "hiruma"
+    },
+    {
+      "no": 16,
+      "kana": "むかし",
+      "kanji": "昔",
+      "arti": "Masa lampau, dahulu kala",
+      "romaji": "mukashi"
+    },
+    {
+      "no": 17,
+      "kana": "どうぐ",
+      "kanji": "道具",
+      "arti": "Perkakas, alat",
+      "romaji": "dougu"
+    },
+    {
+      "no": 18,
+      "kana": "じどうはんばいき",
+      "kanji": "自動販売機",
+      "arti": "Mesin penjual otomatis",
+      "romaji": "jidouhanbaiki"
+    },
+    {
+      "no": 19,
+      "kana": "つうしんはんばい",
+      "kanji": "通信販売",
+      "arti": "Penjualan memalui pos",
+      "romaji": "tsuushinhanbai"
+    },
+    {
+      "no": 20,
+      "kana": "クリーニング",
+      "kanji": "",
+      "arti": "Pembersihan,pencucian",
+      "romaji": "kuriiningu"
+    },
+    {
+      "no": 21,
+      "kana": "マンション",
+      "kanji": "",
+      "arti": "Kondominium, apartemen",
+      "romaji": "manshon"
+    },
+    {
+      "no": 22,
+      "kana": "だいどころ",
+      "kanji": "台所",
+      "arti": "Dapur",
+      "romaji": "daidokoro"
+    },
+    {
+      "no": 23,
+      "kana": "～きょうしつ",
+      "kanji": "～教室",
+      "arti": "Kursus ~",
+      "romaji": "~kyoushitsu"
+    },
+    {
+      "no": 24,
+      "kana": "パーティールーム",
+      "kanji": "",
+      "arti": "Tempat/ruang untuk pesta",
+      "romaji": "paateiiruumu"
+    },
+    {
+      "no": 25,
+      "kana": "～ご",
+      "kanji": "～後",
+      "arti": "Sedudah, setelah",
+      "romaji": "~go"
+    },
+    {
+      "no": 26,
+      "kana": "～しか",
+      "kanji": "",
+      "arti": "Hanya",
+      "romaji": "~shika"
+    },
+    {
+      "no": 27,
+      "kana": "ほかの",
+      "kanji": "",
+      "arti": "Lain",
+      "romaji": "hokano"
+    },
+    {
+      "no": 28,
+      "kana": "はっきり",
+      "kanji": "",
+      "arti": "Dengan jelas",
+      "romaji": "hakkiri"
+    },
+    {
+      "no": 29,
+      "kana": "ほとんど",
+      "kanji": "",
+      "arti": "Hampir",
+      "romaji": "hotondo"
+    },
+    {
+      "no": 30,
+      "kana": "にちようだいく",
+      "kanji": "日曜大工",
+      "arti": "Bertukang dihari minggu",
+      "romaji": "nichiyoudaiku"
+    },
+    {
+      "no": 31,
+      "kana": "ほんだな",
+      "kanji": "本棚",
+      "arti": "Lemari buku",
+      "romaji": "hondana"
+    },
+    {
+      "no": 32,
+      "kana": "ゆめ",
+      "kanji": "夢",
+      "arti": "Mimpi, impian",
+      "romaji": "yume"
+    },
+    {
+      "no": 33,
+      "kana": "いつか",
+      "kanji": "",
+      "arti": "Suatu saat, suatu hari,kapan-kapan",
+      "romaji": "itsuka"
+    },
+    {
+      "no": 34,
+      "kana": "いえ",
+      "kanji": "家",
+      "arti": "Rumah",
+      "romaji": "ie"
+    },
+    {
+      "no": 35,
+      "kana": "すばらしい",
+      "kanji": "",
+      "arti": "Sangat menarik,cemerlang,hebat",
+      "romaji": "subarashii"
+    },
+    {
+      "no": 36,
+      "kana": "こどもたち",
+      "kanji": "子供たち",
+      "arti": "Anak-anak",
+      "romaji": "kodomotachi"
+    },
+    {
+      "no": 37,
+      "kana": "だいすきな",
+      "kanji": "大好きな",
+      "arti": "Suka sekali",
+      "romaji": "daisukina"
+    },
+    {
+      "no": 38,
+      "kana": "まんが",
+      "kanji": "漫画",
+      "arti": "Komik,kartun",
+      "romaji": "manga"
+    },
+    {
+      "no": 39,
+      "kana": "しゅじんこう",
+      "kanji": "主人公",
+      "arti": "Peran utama, tokoh utama",
+      "romaji": "shujinkou"
+    },
+    {
+      "no": 40,
+      "kana": "かたち",
+      "kanji": "形",
+      "arti": "Bentuk",
+      "romaji": "katachi"
+    },
+    {
+      "no": 41,
+      "kana": "ロボット",
+      "kanji": "",
+      "arti": "Robot",
+      "romaji": "robotto"
+    },
+    {
+      "no": 42,
+      "kana": "ふしぎな",
+      "kanji": "不思議な",
+      "arti": "Luar biasa, aneh",
+      "romaji": "fushigina"
+    },
+    {
+      "no": 43,
+      "kana": "ポケット",
+      "kanji": "",
+      "arti": "Saku, kantong",
+      "romaji": "poketto"
+    },
+    {
+      "no": 44,
+      "kana": "たとえば",
+      "kanji": "例えば",
+      "arti": "Misalnya, contohnya",
+      "romaji": "tatoeba"
+    },
+    {
+      "no": 45,
+      "kana": "つけます",
+      "kanji": "付けます",
+      "arti": "Menyematkan, memakai,memasang",
+      "romaji": "tsukemasu"
+    },
+    {
+      "no": 46,
+      "kana": "じゆうに",
+      "kanji": "自由に",
+      "arti": "Dengan bebas",
+      "romaji": "jiyuuni"
+    },
+    {
+      "no": 47,
+      "kana": "そら",
+      "kanji": "空",
+      "arti": "Langit",
+      "romaji": "sora"
+    },
+    {
+      "no": 48,
+      "kana": "とびます",
+      "kanji": "飛びます",
+      "arti": "Terbang",
+      "romaji": "tobimasu"
+    },
+    {
+      "no": 49,
+      "kana": "自分",
+      "kanji": "じぶん",
+      "arti": "Sendiri",
+      "romaji": "jibun"
+    },
+    {
+      "no": 50,
+      "kana": "しょうらい",
+      "kanji": "将来",
+      "arti": "Masa depan",
+      "romaji": "shourai"
+    },
+    {
+      "no": 51,
+      "kana": "しゃしんや",
+      "kanji": "写真屋",
+      "arti": "Tempat cuci cetak foto",
+      "romaji": "shashinya"
+    },
+    {
+      "no": 52,
+      "kana": "げんぞう",
+      "kanji": "現像",
+      "arti": "Cuci film",
+      "romaji": "genzou"
+    },
+    {
+      "no": 53,
+      "kana": "プリント",
+      "kanji": "",
+      "arti": "Cetak",
+      "romaji": "purinto"
+    },
+    {
+      "no": 54,
+      "kana": "やきまし",
+      "kanji": "焼き増し",
+      "arti": "Cetak tambah",
+      "romaji": "yakimashi"
+    },
+    {
+      "no": 55,
+      "kana": "ひきのばし",
+      "kanji": "引き伸ばし",
+      "arti": "Cetak perbesar",
+      "romaji": "hikinobashi"
+    },
+    {
+      "no": 56,
+      "kana": "ネガ",
+      "kanji": "",
+      "arti": "Klise",
+      "romaji": "nega"
+    },
+    {
+      "no": 57,
+      "kana": "スライド",
+      "kanji": "",
+      "arti": "Slide",
+      "romaji": "suraido"
+    },
+    {
+      "no": 58,
+      "kana": "サービスサイズ",
+      "kanji": "",
+      "arti": "Ukuran servis",
+      "romaji": "saabisusaizu"
+    },
+    {
+      "no": 59,
+      "kana": "パノラマサイズ",
+      "kanji": "",
+      "arti": "Ukuran panorama",
+      "romaji": "panoramasaizu"
+    },
+    {
+      "no": 60,
+      "kana": "クリーニングや",
+      "kanji": "クリーニング屋",
+      "arti": "Binatu",
+      "romaji": "kuriininguya"
+    },
+    {
+      "no": 61,
+      "kana": "ドライクリーニング",
+      "kanji": "",
+      "arti": "Dry cleaning",
+      "romaji": "doraikuriiningu"
+    },
+    {
+      "no": 62,
+      "kana": "みずあらい",
+      "kanji": "水洗い",
+      "arti": "Mencuci",
+      "romaji": "mizuarai"
+    },
+    {
+      "no": 63,
+      "kana": "しみぬき",
+      "kanji": "染み抜き",
+      "arti": "Menghilangkan noda",
+      "romaji": "shiminuki"
+    },
+    {
+      "no": 64,
+      "kana": "ぼうすいかこう",
+      "kanji": "防水加工",
+      "arti": "Tahan air",
+      "romaji": "bousuikakou"
+    },
+    {
+      "no": 65,
+      "kana": "サイズなおし",
+      "kanji": "サイズ直し",
+      "arti": "Perbaikan ukuran",
+      "romaji": "saizunaoshi"
+    },
+    {
+      "no": 66,
+      "kana": "ちぢむ",
+      "kanji": "縮む",
+      "arti": "Menyusut",
+      "romaji": "chijimu"
+    },
+    {
+      "no": 67,
+      "kana": "のびる",
+      "kanji": "伸びる",
+      "arti": "Melebar",
+      "romaji": "nobiru"
+    },
+    {
+      "no": 68,
+      "kana": "コンビニ",
+      "kanji": "",
+      "arti": "Minimarket",
+      "romaji": "konbini"
+    },
+    {
+      "no": 69,
+      "kana": "たくはいびんのうけつけ",
+      "kanji": "宅配便の受付",
+      "arti": "Jasa pengantaran barang/paket",
+      "romaji": "takuhaibinnouketsuke"
+    },
+    {
+      "no": 70,
+      "kana": "しゃしんげんぞう",
+      "kanji": "写真現像",
+      "arti": "Cuci cetak foto",
+      "romaji": "shashingenzou"
+    },
+    {
+      "no": 71,
+      "kana": "こうきょうりょうきんふりこみ",
+      "kanji": "公共料金振り込み",
+      "arti": "Pembayaran rekening listrik,air ledeng,telpon,tarif jasa-jasa pemerintah dll",
+      "romaji": "koukyouryoukinfurikomi"
+    },
+    {
+      "no": 72,
+      "kana": "コピー",
+      "kanji": "",
+      "arti": "Fotocopi",
+      "romaji": "kopii"
+    },
+    {
+      "no": 73,
+      "kana": "ファックス",
+      "kanji": "",
+      "arti": "Faks",
+      "romaji": "fakkusu"
+    },
+    {
+      "no": 74,
+      "kana": "はがき、きってのはんばい",
+      "kanji": "はがき、切手の販売",
+      "arti": "Penjualan kartu pos dan perangko",
+      "romaji": "hagaki,kittenohanbai"
+    },
+    {
+      "no": 75,
+      "kana": "コンサートチケットのはんばい",
+      "kanji": "",
+      "arti": "Penjualan tiket konser",
+      "romaji": "konsaatochikettonohanbai"
+    }
+  ]
+}

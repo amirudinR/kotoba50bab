@@ -1,0 +1,320 @@
+{
+  "bab": 2,
+  "items": [
+    {
+      "no": 1,
+      "kana": "これ",
+      "kanji": "",
+      "arti": "Ini",
+      "romaji": "kore"
+    },
+    {
+      "no": 2,
+      "kana": "それ",
+      "kanji": "",
+      "arti": "Itu (dekat)",
+      "romaji": "sore"
+    },
+    {
+      "no": 3,
+      "kana": "あれ",
+      "kanji": "",
+      "arti": "Itu (jauh)",
+      "romaji": "are"
+    },
+    {
+      "no": 4,
+      "kana": "この～",
+      "kanji": "",
+      "arti": "～ini",
+      "romaji": "kono~"
+    },
+    {
+      "no": 5,
+      "kana": "その～",
+      "kanji": "",
+      "arti": "～itu (dekat)",
+      "romaji": "sono~"
+    },
+    {
+      "no": 6,
+      "kana": "あの～",
+      "kanji": "",
+      "arti": "～itu (jauh)",
+      "romaji": "ano~"
+    },
+    {
+      "no": 7,
+      "kana": "ほん",
+      "kanji": "本",
+      "arti": "Buku",
+      "romaji": "hon"
+    },
+    {
+      "no": 8,
+      "kana": "じしょ",
+      "kanji": "辞書",
+      "arti": "Kamus",
+      "romaji": "jisho"
+    },
+    {
+      "no": 9,
+      "kana": "ざっし",
+      "kanji": "雑誌",
+      "arti": "Majalah",
+      "romaji": "zasshi"
+    },
+    {
+      "no": 10,
+      "kana": "しんぶん",
+      "kanji": "新聞",
+      "arti": "Koran",
+      "romaji": "shinbun"
+    },
+    {
+      "no": 11,
+      "kana": "ノート",
+      "kanji": "",
+      "arti": "Buku catatan",
+      "romaji": "nooto"
+    },
+    {
+      "no": 12,
+      "kana": "てちょう",
+      "kanji": "手帳",
+      "arti": "Buku agenda",
+      "romaji": "techou"
+    },
+    {
+      "no": 13,
+      "kana": "めいし",
+      "kanji": "名刺",
+      "arti": "Kartu nama",
+      "romaji": "meishi"
+    },
+    {
+      "no": 14,
+      "kana": "カード",
+      "kanji": "",
+      "arti": "Kartu",
+      "romaji": "kaado"
+    },
+    {
+      "no": 15,
+      "kana": "えんぴつ",
+      "kanji": "鉛筆",
+      "arti": "Pensil",
+      "romaji": "enpitsu"
+    },
+    {
+      "no": 16,
+      "kana": "ボールペン",
+      "kanji": "",
+      "arti": "Bolpoin",
+      "romaji": "boorupen"
+    },
+    {
+      "no": 17,
+      "kana": "シャープペンシル",
+      "kanji": "",
+      "arti": "Pensil mekanik",
+      "romaji": "shaapupenshiru"
+    },
+    {
+      "no": 18,
+      "kana": "かぎ",
+      "kanji": "鍵",
+      "arti": "Kunci",
+      "romaji": "kagi"
+    },
+    {
+      "no": 19,
+      "kana": "とけい",
+      "kanji": "時計",
+      "arti": "Jam , arloji",
+      "romaji": "tokei"
+    },
+    {
+      "no": 20,
+      "kana": "かさ",
+      "kanji": "傘",
+      "arti": "Payung",
+      "romaji": "kasa"
+    },
+    {
+      "no": 21,
+      "kana": "かばん",
+      "kanji": "鞄",
+      "arti": "Tas",
+      "romaji": "kaban"
+    },
+    {
+      "no": 22,
+      "kana": "テレビ",
+      "kanji": "",
+      "arti": "Televisi",
+      "romaji": "terebi"
+    },
+    {
+      "no": 23,
+      "kana": "ラジオ",
+      "kanji": "",
+      "arti": "Radio",
+      "romaji": "rajio"
+    },
+    {
+      "no": 24,
+      "kana": "カメラ",
+      "kanji": "",
+      "arti": "Kamera",
+      "romaji": "kamera"
+    },
+    {
+      "no": 25,
+      "kana": "コンピューター",
+      "kanji": "",
+      "arti": "Komputer",
+      "romaji": "konpyuutaa"
+    },
+    {
+      "no": 26,
+      "kana": "くるま",
+      "kanji": "車",
+      "arti": "Mobil",
+      "romaji": "kuruma"
+    },
+    {
+      "no": 27,
+      "kana": "つくえ",
+      "kanji": "机",
+      "arti": "Meja",
+      "romaji": "tsukue"
+    },
+    {
+      "no": 28,
+      "kana": "いす",
+      "kanji": "椅子",
+      "arti": "Kursi",
+      "romaji": "isu"
+    },
+    {
+      "no": 29,
+      "kana": "チョコレート",
+      "kanji": "",
+      "arti": "Coklat",
+      "romaji": "chokoreeto"
+    },
+    {
+      "no": 30,
+      "kana": "コーヒー",
+      "kanji": "",
+      "arti": "Kopi",
+      "romaji": "koohii"
+    },
+    {
+      "no": 31,
+      "kana": "おみやげ",
+      "kanji": "お土産",
+      "arti": "Oleh-oleh",
+      "romaji": "omiyage"
+    },
+    {
+      "no": 32,
+      "kana": "えいご",
+      "kanji": "英語",
+      "arti": "Bahasa inggris",
+      "romaji": "eigo"
+    },
+    {
+      "no": 33,
+      "kana": "にほんご",
+      "kanji": "日本語",
+      "arti": "Bahasa jepang",
+      "romaji": "nihongo"
+    },
+    {
+      "no": 34,
+      "kana": "～ご",
+      "kanji": "～語",
+      "arti": "Bahasa ～",
+      "romaji": "~go"
+    },
+    {
+      "no": 35,
+      "kana": "なん",
+      "kanji": "何",
+      "arti": "Apa",
+      "romaji": "nan"
+    },
+    {
+      "no": 36,
+      "kana": "そう",
+      "kanji": "",
+      "arti": "Begitu",
+      "romaji": "sou"
+    },
+    {
+      "no": 37,
+      "kana": "あのう",
+      "kanji": "",
+      "arti": "Eee ...(ungkapan ketika ragu)",
+      "romaji": "anou"
+    },
+    {
+      "no": 38,
+      "kana": "えっ",
+      "kanji": "",
+      "arti": "Eh (diucapkan ketika mendengar sesuatu diluar dugaan)",
+      "romaji": "etsu"
+    },
+    {
+      "no": 39,
+      "kana": "どうぞ",
+      "kanji": "",
+      "arti": "Silakan",
+      "romaji": "douzo"
+    },
+    {
+      "no": 40,
+      "kana": "どうもありがとうございます",
+      "kanji": "",
+      "arti": "Terima kasih",
+      "romaji": "doumoarigatougozaimasu"
+    },
+    {
+      "no": 41,
+      "kana": "そうですか",
+      "kanji": "",
+      "arti": "O,begitu, benarkah?",
+      "romaji": "soudesuka"
+    },
+    {
+      "no": 42,
+      "kana": "ちがいます",
+      "kanji": "違います",
+      "arti": "Bukan , Tidak , Salah",
+      "romaji": "chigaimasu"
+    },
+    {
+      "no": 43,
+      "kana": "あ",
+      "kanji": "",
+      "arti": "O,eh (dipakai ketika sadar)",
+      "romaji": "a"
+    },
+    {
+      "no": 44,
+      "kana": "これからおせわになります",
+      "kanji": "これからお世話になります",
+      "arti": "Mulai sekarang saya akan meminta bantuannya",
+      "romaji": "korekaraosewaninarimasu"
+    },
+    {
+      "no": 45,
+      "kana": "こちらこそよろしくおねがいします",
+      "kanji": "",
+      "arti": "Ya sama-sama",
+      "romaji": "kochirakosoyoroshikuonegaishimasu"
+    }
+  ]
+}

@@ -1,0 +1,404 @@
+{
+  "bab": 44,
+  "items": [
+    {
+      "no": 1,
+      "kana": "なきます",
+      "kanji": "泣きます",
+      "arti": "Menangis",
+      "romaji": "nakimasu"
+    },
+    {
+      "no": 2,
+      "kana": "わらいます",
+      "kanji": "笑います",
+      "arti": "Tertawa",
+      "romaji": "waraimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かわきます",
+      "kanji": "乾きます",
+      "arti": "Mengeringkan",
+      "romaji": "kawakimasu"
+    },
+    {
+      "no": 4,
+      "kana": "ぬれます",
+      "kanji": "",
+      "arti": "Basah",
+      "romaji": "nuremasu"
+    },
+    {
+      "no": 5,
+      "kana": "すべります",
+      "kanji": "滑ります",
+      "arti": "Terpeleset",
+      "romaji": "suberimasu"
+    },
+    {
+      "no": 6,
+      "kana": "おきます （が）",
+      "kanji": "起きます",
+      "arti": "Terjadi (kecelakaan)",
+      "romaji": "okimasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "ちょうせつします",
+      "kanji": "調節します",
+      "arti": "Mencocokkan",
+      "romaji": "chousetsushimasu"
+    },
+    {
+      "no": 8,
+      "kana": "あんぜんな",
+      "kanji": "安全な",
+      "arti": "Tidak berbahaya, aman",
+      "romaji": "anzenna"
+    },
+    {
+      "no": 9,
+      "kana": "ていねいな",
+      "kanji": "丁寧な",
+      "arti": "Sopan,hati-hati,rapi",
+      "romaji": "teineina"
+    },
+    {
+      "no": 10,
+      "kana": "こまかい",
+      "kanji": "細かい",
+      "arti": "Kecil, receh",
+      "romaji": "komakai"
+    },
+    {
+      "no": 11,
+      "kana": "こい",
+      "kanji": "濃い",
+      "arti": "Kental (rasa), tua (warna)",
+      "romaji": "koi"
+    },
+    {
+      "no": 12,
+      "kana": "うすい",
+      "kanji": "薄い",
+      "arti": "Encer (rasa), tua (warna)",
+      "romaji": "usui"
+    },
+    {
+      "no": 13,
+      "kana": "くうき",
+      "kanji": "空気",
+      "arti": "Udara",
+      "romaji": "kuuki"
+    },
+    {
+      "no": 14,
+      "kana": "なみだ",
+      "kanji": "涙",
+      "arti": "Air mata",
+      "romaji": "namida"
+    },
+    {
+      "no": 15,
+      "kana": "わしょく",
+      "kanji": "和食",
+      "arti": "Makanan jepang",
+      "romaji": "washoku"
+    },
+    {
+      "no": 16,
+      "kana": "ようしょく",
+      "kanji": "洋食",
+      "arti": "Makanan barat",
+      "romaji": "youshoku"
+    },
+    {
+      "no": 17,
+      "kana": "おかず",
+      "kanji": "",
+      "arti": "Lauk pauk",
+      "romaji": "okazu"
+    },
+    {
+      "no": 18,
+      "kana": "りょう",
+      "kanji": "量",
+      "arti": "Jumlah, kuantitas",
+      "romaji": "ryou"
+    },
+    {
+      "no": 19,
+      "kana": "～ばい",
+      "kanji": "～倍",
+      "arti": "- kali",
+      "romaji": "~bai"
+    },
+    {
+      "no": 20,
+      "kana": "はんぶん",
+      "kanji": "半分",
+      "arti": "Setengah",
+      "romaji": "hanbun"
+    },
+    {
+      "no": 21,
+      "kana": "シングル",
+      "kanji": "",
+      "arti": "Kamar untuk seorang (di hotel)",
+      "romaji": "shinguru"
+    },
+    {
+      "no": 22,
+      "kana": "ツイン",
+      "kanji": "",
+      "arti": "Kamar untuk dua orang (di hotel)",
+      "romaji": "tsuin"
+    },
+    {
+      "no": 23,
+      "kana": "たんす",
+      "kanji": "",
+      "arti": "Lemari",
+      "romaji": "tansu"
+    },
+    {
+      "no": 24,
+      "kana": "せんたくもの",
+      "kanji": "洗濯物",
+      "arti": "Cucian",
+      "romaji": "sentakumono"
+    },
+    {
+      "no": 25,
+      "kana": "りゆう",
+      "kanji": "理由",
+      "arti": "Alasan",
+      "romaji": "riyuu"
+    },
+    {
+      "no": 26,
+      "kana": "どうなさいますか",
+      "kanji": "",
+      "arti": "Anda mau bagaimana ?",
+      "romaji": "dounasaimasuka"
+    },
+    {
+      "no": 27,
+      "kana": "カット",
+      "kanji": "",
+      "arti": "Potong (rambut)",
+      "romaji": "katto"
+    },
+    {
+      "no": 28,
+      "kana": "シャンプー",
+      "kanji": "",
+      "arti": "Shampo",
+      "romaji": "shanpuu"
+    },
+    {
+      "no": 29,
+      "kana": "どういうふうになさいますか",
+      "kanji": "",
+      "arti": "Bagaimana modelnya?/mau model apa?",
+      "romaji": "douiufuuninasaimasuka"
+    },
+    {
+      "no": 30,
+      "kana": "ショート",
+      "kanji": "",
+      "arti": "Potong pendek",
+      "romaji": "shooto"
+    },
+    {
+      "no": 31,
+      "kana": "～みたいにしてください",
+      "kanji": "",
+      "arti": "Tolong buat seperti ----",
+      "romaji": "~mitainishitekudasai"
+    },
+    {
+      "no": 32,
+      "kana": "これでよろしいでしょうか",
+      "kanji": "",
+      "arti": "Begini cocok ?",
+      "romaji": "koredeyoroshiideshouka"
+    },
+    {
+      "no": 33,
+      "kana": "いやがります",
+      "kanji": "嫌がります",
+      "arti": "Merasa keberatan",
+      "romaji": "iyagarimasu"
+    },
+    {
+      "no": 34,
+      "kana": "じゅんじょ",
+      "kanji": "順序",
+      "arti": "Urutan",
+      "romaji": "junjo"
+    },
+    {
+      "no": 35,
+      "kana": "ひょうげん",
+      "kanji": "表現",
+      "arti": "Ungkapan",
+      "romaji": "hyougen"
+    },
+    {
+      "no": 36,
+      "kana": "わかれます",
+      "kanji": "別れます",
+      "arti": "Berpisah",
+      "romaji": "wakaremasu"
+    },
+    {
+      "no": 37,
+      "kana": "これら",
+      "kanji": "",
+      "arti": "Kata-kata ini",
+      "romaji": "korera"
+    },
+    {
+      "no": 38,
+      "kana": "えんぎがわるい",
+      "kanji": "縁起が悪い",
+      "arti": "Membawa sial",
+      "romaji": "engigawarui"
+    },
+    {
+      "no": 39,
+      "kana": "びよういん",
+      "kanji": "美容院",
+      "arti": "Salon",
+      "romaji": "biyouin"
+    },
+    {
+      "no": 40,
+      "kana": "りはつてん",
+      "kanji": "理髪店",
+      "arti": "Pangkas rambut",
+      "romaji": "rihatsuten"
+    },
+    {
+      "no": 41,
+      "kana": "パーマ",
+      "kanji": "",
+      "arti": "Keriting",
+      "romaji": "paama"
+    },
+    {
+      "no": 42,
+      "kana": "セット",
+      "kanji": "",
+      "arti": "Tata rambut (sanggul dll)",
+      "romaji": "setto"
+    },
+    {
+      "no": 43,
+      "kana": "リンス",
+      "kanji": "",
+      "arti": "Conditioner",
+      "romaji": "rinsu"
+    },
+    {
+      "no": 44,
+      "kana": "トリートメント",
+      "kanji": "",
+      "arti": "Perawatan rambut",
+      "romaji": "toriitomento"
+    },
+    {
+      "no": 45,
+      "kana": "ブロー",
+      "kanji": "",
+      "arti": "Blow",
+      "romaji": "buroo"
+    },
+    {
+      "no": 46,
+      "kana": "ヘアダイ",
+      "kanji": "",
+      "arti": "Pewarna rambut",
+      "romaji": "headai"
+    },
+    {
+      "no": 47,
+      "kana": "そる",
+      "kanji": "",
+      "arti": "Mencukur (jenggot/kumis)",
+      "romaji": "soru"
+    },
+    {
+      "no": 48,
+      "kana": "わける",
+      "kanji": "",
+      "arti": "Membelah (rambut)",
+      "romaji": "wakeru"
+    },
+    {
+      "no": 49,
+      "kana": "ボブ",
+      "kanji": "",
+      "arti": "Bob",
+      "romaji": "bobu"
+    },
+    {
+      "no": 50,
+      "kana": "レイヤーカット",
+      "kanji": "",
+      "arti": "Ditrap/dipotong trap",
+      "romaji": "reiyaakatto"
+    },
+    {
+      "no": 51,
+      "kana": "ソバージュ",
+      "kanji": "",
+      "arti": "Keriting spiral",
+      "romaji": "sobaaju"
+    },
+    {
+      "no": 52,
+      "kana": "おかっぽ",
+      "kanji": "",
+      "arti": "Bob lurus",
+      "romaji": "okappo"
+    },
+    {
+      "no": 53,
+      "kana": "みつあみ",
+      "kanji": "三つ編み",
+      "arti": "Kepang tiga",
+      "romaji": "mitsuami"
+    },
+    {
+      "no": 54,
+      "kana": "ポニーテール",
+      "kanji": "",
+      "arti": "Buntut kuda",
+      "romaji": "poniiteeru"
+    },
+    {
+      "no": 55,
+      "kana": "まるがり",
+      "kanji": "丸刈り",
+      "arti": "Cepak",
+      "romaji": "marugari"
+    },
+    {
+      "no": 56,
+      "kana": "ちょうはつ",
+      "kanji": "長髪",
+      "arti": "Rambut panjang",
+      "romaji": "chouhatsu"
+    },
+    {
+      "no": 57,
+      "kana": "リーゼント",
+      "kanji": "",
+      "arti": "Potongan jambul",
+      "romaji": "riizento"
+    }
+  ]
+}

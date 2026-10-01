@@ -1,0 +1,628 @@
+{
+  "bab": 34,
+  "items": [
+    {
+      "no": 1,
+      "kana": "みがきます （を）",
+      "kanji": "磨きます",
+      "arti": "Menggosok (gigi)",
+      "romaji": "migakimasu (wo)"
+    },
+    {
+      "no": 2,
+      "kana": "くみたてます",
+      "kanji": "組み立てます",
+      "arti": "Merakit",
+      "romaji": "kumitatemasu"
+    },
+    {
+      "no": 3,
+      "kana": "おります",
+      "kanji": "折ります",
+      "arti": "Melipat,mematahkan",
+      "romaji": "orimasu"
+    },
+    {
+      "no": 4,
+      "kana": "きがつきます （に）",
+      "kanji": "気がつきます",
+      "arti": "Menyadari",
+      "romaji": "kigatsukimasu (ni)"
+    },
+    {
+      "no": 5,
+      "kana": "つけます",
+      "kanji": "",
+      "arti": "Membubuhi",
+      "romaji": "tsukemasu"
+    },
+    {
+      "no": 6,
+      "kana": "みつかります （が）",
+      "kanji": "見つかります",
+      "arti": "Ketemu,ditemukan",
+      "romaji": "mitsukarimasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "します （を）",
+      "kanji": "",
+      "arti": "Memakai (aksesoris)",
+      "romaji": "shimasu (wo)"
+    },
+    {
+      "no": 8,
+      "kana": "しつもんします",
+      "kanji": "質問します",
+      "arti": "Bertanya",
+      "romaji": "shitsumonshimasu"
+    },
+    {
+      "no": 9,
+      "kana": "ほそい",
+      "kanji": "細い",
+      "arti": "Tipis",
+      "romaji": "hosoi"
+    },
+    {
+      "no": 10,
+      "kana": "ふとい",
+      "kanji": "太い",
+      "arti": "Tebal",
+      "romaji": "futoi"
+    },
+    {
+      "no": 11,
+      "kana": "ぼんおどり",
+      "kanji": "盆踊り",
+      "arti": "Tarian pada festifal bon",
+      "romaji": "bon'odori"
+    },
+    {
+      "no": 12,
+      "kana": "スポーツクラブ",
+      "kanji": "",
+      "arti": "Klup olahraga",
+      "romaji": "supootsukurabu"
+    },
+    {
+      "no": 13,
+      "kana": "かぐ",
+      "kanji": "家具",
+      "arti": "Perabot rumah tangga",
+      "romaji": "kagu"
+    },
+    {
+      "no": 14,
+      "kana": "キー",
+      "kanji": "",
+      "arti": "Tombol jari, tuts",
+      "romaji": "kii"
+    },
+    {
+      "no": 15,
+      "kana": "シートベルト",
+      "kanji": "",
+      "arti": "Sabuk pengaman",
+      "romaji": "shiitoberuto"
+    },
+    {
+      "no": 16,
+      "kana": "せつめいしょ",
+      "kanji": "説明書",
+      "arti": "Lembaran/buku petunjuk",
+      "romaji": "setsumeisho"
+    },
+    {
+      "no": 17,
+      "kana": "ず",
+      "kanji": "図",
+      "arti": "Gambar",
+      "romaji": "zu"
+    },
+    {
+      "no": 18,
+      "kana": "せん",
+      "kanji": "線",
+      "arti": "Garis",
+      "romaji": "sen"
+    },
+    {
+      "no": 19,
+      "kana": "やじるし",
+      "kanji": "矢印",
+      "arti": "Tanda panah",
+      "romaji": "yajirushi"
+    },
+    {
+      "no": 20,
+      "kana": "くろ",
+      "kanji": "黒",
+      "arti": "Hitam",
+      "romaji": "kuro"
+    },
+    {
+      "no": 21,
+      "kana": "しろ",
+      "kanji": "白",
+      "arti": "Putih",
+      "romaji": "shiro"
+    },
+    {
+      "no": 22,
+      "kana": "あか",
+      "kanji": "赤",
+      "arti": "Merah",
+      "romaji": "aka"
+    },
+    {
+      "no": 23,
+      "kana": "あお",
+      "kanji": "青",
+      "arti": "Biru",
+      "romaji": "ao"
+    },
+    {
+      "no": 24,
+      "kana": "こん",
+      "kanji": "紺",
+      "arti": "Biru tua",
+      "romaji": "kon"
+    },
+    {
+      "no": 25,
+      "kana": "きいろ",
+      "kanji": "黄色",
+      "arti": "Kuning",
+      "romaji": "kiiro"
+    },
+    {
+      "no": 26,
+      "kana": "ちゃいろ",
+      "kanji": "茶色",
+      "arti": "Coklat",
+      "romaji": "chairo"
+    },
+    {
+      "no": 27,
+      "kana": "しょうゆ",
+      "kanji": "",
+      "arti": "Kecap asin jepang",
+      "romaji": "shouyu"
+    },
+    {
+      "no": 28,
+      "kana": "ソース",
+      "kanji": "",
+      "arti": "Saus",
+      "romaji": "soosu"
+    },
+    {
+      "no": 29,
+      "kana": "～か～",
+      "kanji": "",
+      "arti": "Atau",
+      "romaji": "~ka~"
+    },
+    {
+      "no": 30,
+      "kana": "ゆうべ",
+      "kanji": "昨夜",
+      "arti": "Tadi malam",
+      "romaji": "yuube"
+    },
+    {
+      "no": 31,
+      "kana": "さっき",
+      "kanji": "",
+      "arti": "Tadi",
+      "romaji": "sakki"
+    },
+    {
+      "no": 32,
+      "kana": "さどう",
+      "kanji": "茶道",
+      "arti": "Upacara minum teh",
+      "romaji": "sadou"
+    },
+    {
+      "no": 33,
+      "kana": "おちゃをたてます",
+      "kanji": "お茶をたてます",
+      "arti": "Membuat teh jepang",
+      "romaji": "ochawotatemasu"
+    },
+    {
+      "no": 34,
+      "kana": "さきに",
+      "kanji": "先に",
+      "arti": "Terlebih dahulu, duluan",
+      "romaji": "sakini"
+    },
+    {
+      "no": 35,
+      "kana": "のせます",
+      "kanji": "載せます",
+      "arti": "Menaruh",
+      "romaji": "nosemasu"
+    },
+    {
+      "no": 36,
+      "kana": "これでいいですか",
+      "kanji": "",
+      "arti": "Ini sudah benarkan ?",
+      "romaji": "koredeiidesuka"
+    },
+    {
+      "no": 37,
+      "kana": "にがい",
+      "kanji": "苦い",
+      "arti": "Pahit",
+      "romaji": "nigai"
+    },
+    {
+      "no": 38,
+      "kana": "おやこどんぶり",
+      "kanji": "親子どんぶり",
+      "arti": "Nasi yang atasanya daging ayam dan telur",
+      "romaji": "oyakodonburi"
+    },
+    {
+      "no": 39,
+      "kana": "ざいりょう",
+      "kanji": "材料",
+      "arti": "Bahan,material",
+      "romaji": "zairyou"
+    },
+    {
+      "no": 40,
+      "kana": "～ぶん",
+      "kanji": "～分",
+      "arti": "Bagian, jatah (untuk kwantitas)",
+      "romaji": "~bun"
+    },
+    {
+      "no": 41,
+      "kana": "とりにく",
+      "kanji": "鶏肉",
+      "arti": "Daging ayam",
+      "romaji": "toriniku"
+    },
+    {
+      "no": 42,
+      "kana": "～グラム",
+      "kanji": "",
+      "arti": "Gram",
+      "romaji": "~guramu"
+    },
+    {
+      "no": 43,
+      "kana": "～こ",
+      "kanji": "～個",
+      "arti": "～Buah (benda yang kecil)",
+      "romaji": "~ko"
+    },
+    {
+      "no": 44,
+      "kana": "たまねぎ",
+      "kanji": "",
+      "arti": "Bawang bombai",
+      "romaji": "tamanegi"
+    },
+    {
+      "no": 45,
+      "kana": "よんぶんのいち",
+      "kanji": "",
+      "arti": "Seperempat, satu per empat",
+      "romaji": "yonbunnoichi"
+    },
+    {
+      "no": 46,
+      "kana": "ちょうみりょう",
+      "kanji": "調味料",
+      "arti": "Bumbu masak",
+      "romaji": "choumiryou"
+    },
+    {
+      "no": 47,
+      "kana": "なべ",
+      "kanji": "",
+      "arti": "Panci",
+      "romaji": "nabe"
+    },
+    {
+      "no": 48,
+      "kana": "ひ",
+      "kanji": "火",
+      "arti": "Api",
+      "romaji": "hi"
+    },
+    {
+      "no": 49,
+      "kana": "ひにかけます",
+      "kanji": "",
+      "arti": "Meletakkan di atas api",
+      "romaji": "hinikakemasu"
+    },
+    {
+      "no": 50,
+      "kana": "どんぶり",
+      "kanji": "",
+      "arti": "Mangkok besar",
+      "romaji": "donburi"
+    },
+    {
+      "no": 51,
+      "kana": "にる",
+      "kanji": "煮る",
+      "arti": "Merebus",
+      "romaji": "niru"
+    },
+    {
+      "no": 52,
+      "kana": "やく",
+      "kanji": "焼く",
+      "arti": "Memanggang, membakar",
+      "romaji": "yaku"
+    },
+    {
+      "no": 53,
+      "kana": "あげる",
+      "kanji": "揚げる",
+      "arti": "Menggoreng",
+      "romaji": "ageru"
+    },
+    {
+      "no": 54,
+      "kana": "いためる",
+      "kanji": "",
+      "arti": "Menumis",
+      "romaji": "itameru"
+    },
+    {
+      "no": 55,
+      "kana": "ゆでる",
+      "kanji": "",
+      "arti": "Merebus",
+      "romaji": "yuderu"
+    },
+    {
+      "no": 56,
+      "kana": "むす",
+      "kanji": "蒸す",
+      "arti": "Mengukus",
+      "romaji": "musu"
+    },
+    {
+      "no": 57,
+      "kana": "たく",
+      "kanji": "炊く",
+      "arti": "Menanak (nasi)",
+      "romaji": "taku"
+    },
+    {
+      "no": 58,
+      "kana": "むく",
+      "kanji": "",
+      "arti": "Mengupas",
+      "romaji": "muku"
+    },
+    {
+      "no": 59,
+      "kana": "きざむ",
+      "kanji": "刻む",
+      "arti": "Mencincang",
+      "romaji": "kizamu"
+    },
+    {
+      "no": 60,
+      "kana": "かきまぜる",
+      "kanji": "かき混ぜる",
+      "arti": "Mengaduk",
+      "romaji": "kakimazeru"
+    },
+    {
+      "no": 61,
+      "kana": "す",
+      "kanji": "酢",
+      "arti": "Cuka",
+      "romaji": "su"
+    },
+    {
+      "no": 62,
+      "kana": "みそ",
+      "kanji": "",
+      "arti": "Miso (tauco jepang)",
+      "romaji": "miso"
+    },
+    {
+      "no": 63,
+      "kana": "あぶら",
+      "kanji": "油",
+      "arti": "Minyak",
+      "romaji": "abura"
+    },
+    {
+      "no": 64,
+      "kana": "マヨネーズ",
+      "kanji": "",
+      "arti": "Mayones",
+      "romaji": "mayoneezu"
+    },
+    {
+      "no": 65,
+      "kana": "ケチャップ",
+      "kanji": "",
+      "arti": "Saus tomat",
+      "romaji": "kechappu"
+    },
+    {
+      "no": 66,
+      "kana": "からし（マスタード）",
+      "kanji": "",
+      "arti": "Mustard",
+      "romaji": "karashi(masutaado)"
+    },
+    {
+      "no": 67,
+      "kana": "こしょう",
+      "kanji": "",
+      "arti": "Merica",
+      "romaji": "koshou"
+    },
+    {
+      "no": 68,
+      "kana": "とうがらし",
+      "kanji": "",
+      "arti": "Cabe merah",
+      "romaji": "tougarashi"
+    },
+    {
+      "no": 69,
+      "kana": "わさび",
+      "kanji": "",
+      "arti": "Wasabi",
+      "romaji": "wasabi"
+    },
+    {
+      "no": 70,
+      "kana": "しょうが",
+      "kanji": "",
+      "arti": "Jahe",
+      "romaji": "shouga"
+    },
+    {
+      "no": 71,
+      "kana": "カレーこ",
+      "kanji": "カレー粉",
+      "arti": "Tepung kari",
+      "romaji": "kareeko"
+    },
+    {
+      "no": 72,
+      "kana": "だいどころようひん",
+      "kanji": "台所用品",
+      "arti": "Perabot dapur",
+      "romaji": "daidokoroyouhin"
+    },
+    {
+      "no": 73,
+      "kana": "やかん",
+      "kanji": "",
+      "arti": "Ceret, teko",
+      "romaji": "yakan"
+    },
+    {
+      "no": 74,
+      "kana": "ふた",
+      "kanji": "",
+      "arti": "Tutup gelas,panci,dll",
+      "romaji": "futa"
+    },
+    {
+      "no": 75,
+      "kana": "おたま",
+      "kanji": "",
+      "arti": "Sendok sayur",
+      "romaji": "otama"
+    },
+    {
+      "no": 76,
+      "kana": "まないた",
+      "kanji": "まな板",
+      "arti": "Talenan",
+      "romaji": "manaita"
+    },
+    {
+      "no": 77,
+      "kana": "ほうちょう",
+      "kanji": "包丁",
+      "arti": "Pisau dapur",
+      "romaji": "houchou"
+    },
+    {
+      "no": 78,
+      "kana": "ふきん",
+      "kanji": "",
+      "arti": "Kain lap dapur",
+      "romaji": "fukin"
+    },
+    {
+      "no": 79,
+      "kana": "フライパン",
+      "kanji": "",
+      "arti": "Wajan",
+      "romaji": "furaipan"
+    },
+    {
+      "no": 80,
+      "kana": "でんしオープンレンジ",
+      "kanji": "",
+      "arti": "Oven microwave",
+      "romaji": "denshioopunrenji"
+    },
+    {
+      "no": 81,
+      "kana": "すいはんき",
+      "kanji": "炊飯器",
+      "arti": "Rice cooker",
+      "romaji": "suihanki"
+    },
+    {
+      "no": 82,
+      "kana": "しゃもじ",
+      "kanji": "",
+      "arti": "Sendok nasi",
+      "romaji": "shamoji"
+    },
+    {
+      "no": 83,
+      "kana": "かんきり",
+      "kanji": "缶切り",
+      "arti": "Pembuka kaleng",
+      "romaji": "kankiri"
+    },
+    {
+      "no": 84,
+      "kana": "せんぬき",
+      "kanji": "栓抜き",
+      "arti": "Pembuka botol",
+      "romaji": "sennuki"
+    },
+    {
+      "no": 85,
+      "kana": "ざる",
+      "kanji": "",
+      "arti": "Saringan bambu",
+      "romaji": "zaru"
+    },
+    {
+      "no": 86,
+      "kana": "ポット",
+      "kanji": "",
+      "arti": "Termos",
+      "romaji": "potto"
+    },
+    {
+      "no": 87,
+      "kana": "ガスだい",
+      "kanji": "ガス台",
+      "arti": "Kompor gas",
+      "romaji": "gasudai"
+    },
+    {
+      "no": 88,
+      "kana": "ながしだい",
+      "kanji": "流し台",
+      "arti": "Bak untuk cuci piring",
+      "romaji": "nagashidai"
+    },
+    {
+      "no": 89,
+      "kana": "かんきせん",
+      "kanji": "換気扇",
+      "arti": "Kipas ventilasi",
+      "romaji": "kankisen"
+    }
+  ]
+}

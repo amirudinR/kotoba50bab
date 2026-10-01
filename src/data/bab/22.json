@@ -1,0 +1,313 @@
+{
+  "bab": 22,
+  "items": [
+    {
+      "no": 1,
+      "kana": "きます",
+      "kanji": "着ます",
+      "arti": "Memakai (pakaian)",
+      "romaji": "kimasu"
+    },
+    {
+      "no": 2,
+      "kana": "はきます",
+      "kanji": "",
+      "arti": "Memakai (sepatu,celana)",
+      "romaji": "hakimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かぶります",
+      "kanji": "",
+      "arti": "Memakai (topi)",
+      "romaji": "kaburimasu"
+    },
+    {
+      "no": 4,
+      "kana": "かけます （を）",
+      "kanji": "",
+      "arti": "Memakai (kacamata)",
+      "romaji": "kakemasu (wo)"
+    },
+    {
+      "no": 5,
+      "kana": "します （を）",
+      "kanji": "",
+      "arti": "Memakai (dasi)",
+      "romaji": "shimasu (wo)"
+    },
+    {
+      "no": 6,
+      "kana": "うまれます",
+      "kanji": "生まれます",
+      "arti": "Lahir",
+      "romaji": "umaremasu"
+    },
+    {
+      "no": 7,
+      "kana": "わたしたち",
+      "kanji": "",
+      "arti": "Kami,kita",
+      "romaji": "watashitachi"
+    },
+    {
+      "no": 8,
+      "kana": "コート",
+      "kanji": "",
+      "arti": "Mantel",
+      "romaji": "kooto"
+    },
+    {
+      "no": 9,
+      "kana": "セーター",
+      "kanji": "",
+      "arti": "Sweter / baju hangat",
+      "romaji": "seetaa"
+    },
+    {
+      "no": 10,
+      "kana": "スーツ",
+      "kanji": "",
+      "arti": "Pakaian setelan",
+      "romaji": "suutsu"
+    },
+    {
+      "no": 11,
+      "kana": "ぼうし",
+      "kanji": "帽子",
+      "arti": "Topi",
+      "romaji": "boushi"
+    },
+    {
+      "no": 12,
+      "kana": "めがね",
+      "kanji": "眼鏡",
+      "arti": "Kacamata",
+      "romaji": "megane"
+    },
+    {
+      "no": 13,
+      "kana": "ケーキ",
+      "kanji": "",
+      "arti": "Kue",
+      "romaji": "keeki"
+    },
+    {
+      "no": 14,
+      "kana": "おべんとう",
+      "kanji": "お弁当",
+      "arti": "Bekal",
+      "romaji": "obentou"
+    },
+    {
+      "no": 15,
+      "kana": "ロボット",
+      "kanji": "",
+      "arti": "Robot",
+      "romaji": "robotto"
+    },
+    {
+      "no": 16,
+      "kana": "ユーモア",
+      "kanji": "",
+      "arti": "Humor",
+      "romaji": "yuumoa"
+    },
+    {
+      "no": 17,
+      "kana": "つごう",
+      "kanji": "都合",
+      "arti": "Kondisi, keadaan",
+      "romaji": "tsugou"
+    },
+    {
+      "no": 18,
+      "kana": "よく",
+      "kanji": "",
+      "arti": "Sering , dengan baik",
+      "romaji": "yoku"
+    },
+    {
+      "no": 19,
+      "kana": "おめでとうございます",
+      "kanji": "",
+      "arti": "Selamat",
+      "romaji": "omedetougozaimasu"
+    },
+    {
+      "no": 20,
+      "kana": "では",
+      "kanji": "",
+      "arti": "Kalau begitu",
+      "romaji": "deha"
+    },
+    {
+      "no": 21,
+      "kana": "やちん",
+      "kanji": "家賃",
+      "arti": "Biaya sewa rumah",
+      "romaji": "yachin"
+    },
+    {
+      "no": 22,
+      "kana": "ダイニングキッチン",
+      "kanji": "",
+      "arti": "Ruang makan dengan dapur",
+      "romaji": "dainingukitchin"
+    },
+    {
+      "no": 23,
+      "kana": "わしつ",
+      "kanji": "和室",
+      "arti": "Kamar ala jepang",
+      "romaji": "washitsu"
+    },
+    {
+      "no": 24,
+      "kana": "おしいれ",
+      "kanji": "押し入れ",
+      "arti": "Lemari dinding ala jepang",
+      "romaji": "oshiire"
+    },
+    {
+      "no": 25,
+      "kana": "ふとん",
+      "kanji": "布団",
+      "arti": "Selimut dan kasur berisi kapas ala jepang",
+      "romaji": "futon"
+    },
+    {
+      "no": 26,
+      "kana": "パリ",
+      "kanji": "",
+      "arti": "Paris",
+      "romaji": "pari"
+    },
+    {
+      "no": 27,
+      "kana": "ばんりのちょうじょう",
+      "kanji": "万里の長城",
+      "arti": "Tembok besar cina",
+      "romaji": "banrinochoujou"
+    },
+    {
+      "no": 28,
+      "kana": "ワンピース",
+      "kanji": "",
+      "arti": "Pakaian terusan",
+      "romaji": "wanpiisu"
+    },
+    {
+      "no": 29,
+      "kana": "うわぎ",
+      "kanji": "上着",
+      "arti": "Jas",
+      "romaji": "uwagi"
+    },
+    {
+      "no": 30,
+      "kana": "パンツ",
+      "kanji": "",
+      "arti": "Celana panjang",
+      "romaji": "pantsu"
+    },
+    {
+      "no": 31,
+      "kana": "ジーンズ",
+      "kanji": "",
+      "arti": "Celana jeans",
+      "romaji": "jiinzu"
+    },
+    {
+      "no": 32,
+      "kana": "スカート",
+      "kanji": "",
+      "arti": "Rok",
+      "romaji": "sukaato"
+    },
+    {
+      "no": 33,
+      "kana": "ブラウス",
+      "kanji": "",
+      "arti": "Blus",
+      "romaji": "burausu"
+    },
+    {
+      "no": 34,
+      "kana": "ワイシャツ",
+      "kanji": "",
+      "arti": "Kemeja",
+      "romaji": "waishatsu"
+    },
+    {
+      "no": 35,
+      "kana": "マフラー",
+      "kanji": "",
+      "arti": "Shal, selendang",
+      "romaji": "mafuraa"
+    },
+    {
+      "no": 36,
+      "kana": "くつした",
+      "kanji": "靴下",
+      "arti": "Kaos kaki",
+      "romaji": "kutsushita"
+    },
+    {
+      "no": 37,
+      "kana": "ストッキング",
+      "kanji": "",
+      "arti": "Stoking",
+      "romaji": "sutokkingu"
+    },
+    {
+      "no": 38,
+      "kana": "レインコート",
+      "kanji": "",
+      "arti": "Jas hujan",
+      "romaji": "reinkooto"
+    },
+    {
+      "no": 39,
+      "kana": "ベルト",
+      "kanji": "",
+      "arti": "Sabuk, ikat pinggang",
+      "romaji": "beruto"
+    },
+    {
+      "no": 40,
+      "kana": "ハイヒール",
+      "kanji": "",
+      "arti": "Sepatu berhak tinggi",
+      "romaji": "haihiiru"
+    },
+    {
+      "no": 41,
+      "kana": "ブーツ",
+      "kanji": "",
+      "arti": "Sepatu bot",
+      "romaji": "buutsu"
+    },
+    {
+      "no": 42,
+      "kana": "ぞうり",
+      "kanji": "",
+      "arti": "Sandal tradisional jepang",
+      "romaji": "zouri"
+    },
+    {
+      "no": 43,
+      "kana": "たび",
+      "kanji": "",
+      "arti": "Kaos kaki tradisional jepang",
+      "romaji": "tabi"
+    },
+    {
+      "no": 44,
+      "kana": "おび",
+      "kanji": "帯",
+      "arti": "Ikat pinggang tradisional jepang",
+      "romaji": "obi"
+    }
+  ]
+}

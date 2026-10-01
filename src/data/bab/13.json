@@ -1,0 +1,362 @@
+{
+  "bab": 13,
+  "items": [
+    {
+      "no": 1,
+      "kana": "あそびます",
+      "kanji": "遊びます",
+      "arti": "Bermain",
+      "romaji": "asobimasu"
+    },
+    {
+      "no": 2,
+      "kana": "およぎます",
+      "kanji": "泳ぎます",
+      "arti": "Berenang",
+      "romaji": "oyogimasu"
+    },
+    {
+      "no": 3,
+      "kana": "むかえます",
+      "kanji": "迎えます",
+      "arti": "Menjemput",
+      "romaji": "mukaemasu"
+    },
+    {
+      "no": 4,
+      "kana": "つかれます",
+      "kanji": "疲れます",
+      "arti": "Lelah",
+      "romaji": "tsukaremasu"
+    },
+    {
+      "no": 5,
+      "kana": "けっこんします",
+      "kanji": "結婚します",
+      "arti": "Menikah",
+      "romaji": "kekkonshimasu"
+    },
+    {
+      "no": 6,
+      "kana": "かいものします",
+      "kanji": "買い物します",
+      "arti": "Berbelanja",
+      "romaji": "kaimonoshimasu"
+    },
+    {
+      "no": 7,
+      "kana": "しょくじします",
+      "kanji": "食事します",
+      "arti": "Makan bersama",
+      "romaji": "shokujishimasu"
+    },
+    {
+      "no": 8,
+      "kana": "さんぽします （を）",
+      "kanji": "散歩します",
+      "arti": "Jalan-jalan",
+      "romaji": "sanposhimasu (wo)"
+    },
+    {
+      "no": 9,
+      "kana": "たいへん（な）",
+      "kanji": "大変な",
+      "arti": "Susah, berat",
+      "romaji": "taihen(na)"
+    },
+    {
+      "no": 10,
+      "kana": "ほしい",
+      "kanji": "欲しい",
+      "arti": "Ingin",
+      "romaji": "hoshii"
+    },
+    {
+      "no": 11,
+      "kana": "ひろい",
+      "kanji": "広い",
+      "arti": "Luas",
+      "romaji": "hiroi"
+    },
+    {
+      "no": 12,
+      "kana": "せまい",
+      "kanji": "狭い",
+      "arti": "Sempit",
+      "romaji": "semai"
+    },
+    {
+      "no": 13,
+      "kana": "プール",
+      "kanji": "",
+      "arti": "Kolam renang",
+      "romaji": "puuru"
+    },
+    {
+      "no": 14,
+      "kana": "かわ",
+      "kanji": "川",
+      "arti": "Sungai",
+      "romaji": "kawa"
+    },
+    {
+      "no": 15,
+      "kana": "びじゅつ",
+      "kanji": "美術",
+      "arti": "Seni",
+      "romaji": "bijutsu"
+    },
+    {
+      "no": 16,
+      "kana": "つり",
+      "kanji": "釣り",
+      "arti": "Pancing , memancing",
+      "romaji": "tsuri"
+    },
+    {
+      "no": 17,
+      "kana": "スキー",
+      "kanji": "",
+      "arti": "Ski",
+      "romaji": "sukii"
+    },
+    {
+      "no": 18,
+      "kana": "しゅうまつ",
+      "kanji": "週末",
+      "arti": "Akhir pekan",
+      "romaji": "shuumatsu"
+    },
+    {
+      "no": 19,
+      "kana": "おしょうがつ",
+      "kanji": "お諸王月",
+      "arti": "Tahun baru",
+      "romaji": "oshougatsu"
+    },
+    {
+      "no": 20,
+      "kana": "～ごろ",
+      "kanji": "",
+      "arti": "Kira-kira , sekitar",
+      "romaji": "~goro"
+    },
+    {
+      "no": 21,
+      "kana": "なにか",
+      "kanji": "何か",
+      "arti": "Sesuatu",
+      "romaji": "nanika"
+    },
+    {
+      "no": 22,
+      "kana": "どこか",
+      "kanji": "",
+      "arti": "Suatu tempat",
+      "romaji": "dokoka"
+    },
+    {
+      "no": 23,
+      "kana": "のどがかわきます",
+      "kanji": "",
+      "arti": "Haus",
+      "romaji": "nodogakawakimasu"
+    },
+    {
+      "no": 24,
+      "kana": "おなかがすきます",
+      "kanji": "",
+      "arti": "Lapar",
+      "romaji": "onakagasukimasu"
+    },
+    {
+      "no": 25,
+      "kana": "そうしましょう",
+      "kanji": "",
+      "arti": "Ya ayo",
+      "romaji": "soushimashou"
+    },
+    {
+      "no": 26,
+      "kana": "ごちゅうもんは",
+      "kanji": "ご注文は",
+      "arti": "Mau pesan apa?",
+      "romaji": "gochuumonha"
+    },
+    {
+      "no": 27,
+      "kana": "おまちください",
+      "kanji": "お待ちください",
+      "arti": "Tunggu sebentar",
+      "romaji": "omachikudasai"
+    },
+    {
+      "no": 28,
+      "kana": "べつべつに",
+      "kanji": "別々に",
+      "arti": "Sendiri-sendiri / masing-masing",
+      "romaji": "betsubetsuni"
+    },
+    {
+      "no": 29,
+      "kana": "はくぶつかん",
+      "kanji": "博物館",
+      "arti": "Museum",
+      "romaji": "hakubutsukan"
+    },
+    {
+      "no": 30,
+      "kana": "びじゅつかん",
+      "kanji": "美術館",
+      "arti": "Gedung kesenian",
+      "romaji": "bijutsukan"
+    },
+    {
+      "no": 31,
+      "kana": "としょかん",
+      "kanji": "図書館",
+      "arti": "Perpustakaan",
+      "romaji": "toshokan"
+    },
+    {
+      "no": 32,
+      "kana": "えいがかん",
+      "kanji": "映画館",
+      "arti": "Bioskop",
+      "romaji": "eigakan"
+    },
+    {
+      "no": 33,
+      "kana": "どうぶつえん",
+      "kanji": "動物園",
+      "arti": "Kebun binatang",
+      "romaji": "doubutsuen"
+    },
+    {
+      "no": 34,
+      "kana": "しょくぶつえん",
+      "kanji": "植物園",
+      "arti": "Kebun raya",
+      "romaji": "shokubutsuen"
+    },
+    {
+      "no": 35,
+      "kana": "おてら",
+      "kanji": "お寺",
+      "arti": "Kuil budha",
+      "romaji": "otera"
+    },
+    {
+      "no": 36,
+      "kana": "じんじゃ",
+      "kanji": "神社",
+      "arti": "Kuil sinto",
+      "romaji": "jinja"
+    },
+    {
+      "no": 37,
+      "kana": "きょうかい",
+      "kanji": "協会",
+      "arti": "Gereja",
+      "romaji": "kyoukai"
+    },
+    {
+      "no": 38,
+      "kana": "たいしかん",
+      "kanji": "体育館",
+      "arti": "Kedutaan besar",
+      "romaji": "taishikan"
+    },
+    {
+      "no": 39,
+      "kana": "にゅうこくかんりきょく",
+      "kanji": "入国管理局",
+      "arti": "Kantor imigrasi",
+      "romaji": "nyuukokukanrikyoku"
+    },
+    {
+      "no": 40,
+      "kana": "しやくしょ",
+      "kanji": "市役所",
+      "arti": "Kantor balaikota",
+      "romaji": "shiyakusho"
+    },
+    {
+      "no": 41,
+      "kana": "こうばん",
+      "kanji": "交番",
+      "arti": "Pos polisi",
+      "romaji": "kouban"
+    },
+    {
+      "no": 42,
+      "kana": "ちゅうしゃじょう",
+      "kanji": "駐車場",
+      "arti": "Tempat parkir",
+      "romaji": "chuushajou"
+    },
+    {
+      "no": 43,
+      "kana": "だいがく",
+      "kanji": "大学",
+      "arti": "Universitas",
+      "romaji": "daigaku"
+    },
+    {
+      "no": 44,
+      "kana": "こうこう",
+      "kanji": "高校",
+      "arti": "Sma",
+      "romaji": "koukou"
+    },
+    {
+      "no": 45,
+      "kana": "ちゅうがっこう",
+      "kanji": "中学校",
+      "arti": "Smp",
+      "romaji": "chuugakkou"
+    },
+    {
+      "no": 46,
+      "kana": "しょうがっこう",
+      "kanji": "小学校",
+      "arti": "Sd",
+      "romaji": "shougakkou"
+    },
+    {
+      "no": 47,
+      "kana": "ようちえん",
+      "kanji": "幼稚園",
+      "arti": "Tk",
+      "romaji": "youchien"
+    },
+    {
+      "no": 48,
+      "kana": "にくや",
+      "kanji": "肉屋",
+      "arti": "Toko daging",
+      "romaji": "nikuya"
+    },
+    {
+      "no": 49,
+      "kana": "パンや",
+      "kanji": "",
+      "arti": "Toko roti",
+      "romaji": "panya"
+    },
+    {
+      "no": 50,
+      "kana": "さかなや",
+      "kanji": "魚屋",
+      "arti": "Toko ikan",
+      "romaji": "sakanaya"
+    },
+    {
+      "no": 51,
+      "kana": "やおや",
+      "kanji": "八百屋",
+      "arti": "Toko sayuran",
+      "romaji": "yaoya"
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+{
+  "bab": 35,
+  "items": [
+    {
+      "no": 1,
+      "kana": "さきます （が）",
+      "kanji": "咲きます",
+      "arti": "Mekar (bunga)",
+      "romaji": "sakimasu (ga)"
+    },
+    {
+      "no": 2,
+      "kana": "かわります （が）",
+      "kanji": "変わります",
+      "arti": "Berubah",
+      "romaji": "kawarimasu (ga)"
+    },
+    {
+      "no": 3,
+      "kana": "こまります",
+      "kanji": "困ります",
+      "arti": "Mengalami kesulitan",
+      "romaji": "komarimasu"
+    },
+    {
+      "no": 4,
+      "kana": "つけます",
+      "kanji": "付けます",
+      "arti": "Memberi tanda",
+      "romaji": "tsukemasu"
+    },
+    {
+      "no": 5,
+      "kana": "ひろいます",
+      "kanji": "拾います",
+      "arti": "Memungut,mengambil",
+      "romaji": "hiroimasu"
+    },
+    {
+      "no": 6,
+      "kana": "かかります （が）",
+      "kanji": "",
+      "arti": "Ada (telpon)",
+      "romaji": "kakarimasu (ga)"
+    },
+    {
+      "no": 7,
+      "kana": "らくな",
+      "kanji": "楽な",
+      "arti": "Mudah,ringan",
+      "romaji": "rakuna"
+    },
+    {
+      "no": 8,
+      "kana": "ただしい",
+      "kanji": "正しい",
+      "arti": "Betul,benar",
+      "romaji": "tadashii"
+    },
+    {
+      "no": 9,
+      "kana": "めずらしい",
+      "kanji": "珍しい",
+      "arti": "Aneh,langka",
+      "romaji": "mezurashii"
+    },
+    {
+      "no": 10,
+      "kana": "かた",
+      "kanji": "方",
+      "arti": "Orang",
+      "romaji": "kata"
+    },
+    {
+      "no": 11,
+      "kana": "むこう",
+      "kanji": "向こう",
+      "arti": "Di sebelah sana",
+      "romaji": "mukou"
+    },
+    {
+      "no": 12,
+      "kana": "しま",
+      "kanji": "島",
+      "arti": "Pulau",
+      "romaji": "shima"
+    },
+    {
+      "no": 13,
+      "kana": "むら",
+      "kanji": "村",
+      "arti": "Kampung,desa",
+      "romaji": "mura"
+    },
+    {
+      "no": 14,
+      "kana": "みなと",
+      "kanji": "港",
+      "arti": "Pelabuhan",
+      "romaji": "minato"
+    },
+    {
+      "no": 15,
+      "kana": "きんじょ",
+      "kanji": "近所",
+      "arti": "Tetangga",
+      "romaji": "kinjo"
+    },
+    {
+      "no": 16,
+      "kana": "おくじょう",
+      "kanji": "屋上",
+      "arti": "Atap,lantai puncak",
+      "romaji": "okujou"
+    },
+    {
+      "no": 17,
+      "kana": "かいがい",
+      "kanji": "海外",
+      "arti": "Luar negri",
+      "romaji": "kaigai"
+    },
+    {
+      "no": 18,
+      "kana": "やまのぼり",
+      "kanji": "山登り",
+      "arti": "Pendakian gunung",
+      "romaji": "yamanobori"
+    },
+    {
+      "no": 19,
+      "kana": "ハイキング",
+      "kanji": "",
+      "arti": "Hiking, piknik",
+      "romaji": "haikingu"
+    },
+    {
+      "no": 20,
+      "kana": "きかい",
+      "kanji": "機会",
+      "arti": "Kesempatan",
+      "romaji": "kikai"
+    },
+    {
+      "no": 21,
+      "kana": "きょか",
+      "kanji": "許可",
+      "arti": "Ijin",
+      "romaji": "kyoka"
+    },
+    {
+      "no": 22,
+      "kana": "まる",
+      "kanji": "丸",
+      "arti": "Lingkaran",
+      "romaji": "maru"
+    },
+    {
+      "no": 23,
+      "kana": "そうさ",
+      "kanji": "操作",
+      "arti": "Pengoperasian",
+      "romaji": "sousa"
+    },
+    {
+      "no": 24,
+      "kana": "ほうほう",
+      "kanji": "方法",
+      "arti": "Cara",
+      "romaji": "houhou"
+    },
+    {
+      "no": 25,
+      "kana": "せつび",
+      "kanji": "設備",
+      "arti": "Peralatan, fasilitas",
+      "romaji": "setsubi"
+    },
+    {
+      "no": 26,
+      "kana": "カーテン",
+      "kanji": "",
+      "arti": "Korden",
+      "romaji": "kaaten"
+    },
+    {
+      "no": 27,
+      "kana": "ひも",
+      "kanji": "",
+      "arti": "Tali",
+      "romaji": "himo"
+    },
+    {
+      "no": 28,
+      "kana": "ふた",
+      "kanji": "",
+      "arti": "Penutup,tutup",
+      "romaji": "futa"
+    },
+    {
+      "no": 29,
+      "kana": "は",
+      "kanji": "葉",
+      "arti": "Daun",
+      "romaji": "ha"
+    },
+    {
+      "no": 30,
+      "kana": "きょく",
+      "kanji": "曲",
+      "arti": "Lagu,musik",
+      "romaji": "kyoku"
+    },
+    {
+      "no": 31,
+      "kana": "たのしみ",
+      "kanji": "楽しみ",
+      "arti": "Kesenangan",
+      "romaji": "tanoshimi"
+    },
+    {
+      "no": 32,
+      "kana": "もっと",
+      "kanji": "",
+      "arti": "Lebih",
+      "romaji": "motto"
+    },
+    {
+      "no": 33,
+      "kana": "はじめに",
+      "kanji": "初めに",
+      "arti": "Awal, pertama-tama",
+      "romaji": "hajimeni"
+    },
+    {
+      "no": 34,
+      "kana": "これでおわります",
+      "kanji": "",
+      "arti": "Kita akhiri sampai di sini",
+      "romaji": "koredeowarimasu"
+    },
+    {
+      "no": 35,
+      "kana": "アフリカ",
+      "kanji": "",
+      "arti": "Afrika",
+      "romaji": "afurika"
+    },
+    {
+      "no": 36,
+      "kana": "それなら",
+      "kanji": "",
+      "arti": "Kalau begitu",
+      "romaji": "sorenara"
+    },
+    {
+      "no": 37,
+      "kana": "やこうバス",
+      "kanji": "夜行バス",
+      "arti": "Bis malam",
+      "romaji": "yakoubasu"
+    },
+    {
+      "no": 38,
+      "kana": "りょこうしゃ",
+      "kanji": "旅行社",
+      "arti": "Agen perjalanan",
+      "romaji": "ryokousha"
+    },
+    {
+      "no": 39,
+      "kana": "くわしい",
+      "kanji": "詳しい",
+      "arti": "Terperinci,detail",
+      "romaji": "kuwashii"
+    },
+    {
+      "no": 40,
+      "kana": "スキーじょう",
+      "kanji": "スキー場",
+      "arti": "Tempat bermain ski",
+      "romaji": "sukiijou"
+    },
+    {
+      "no": 41,
+      "kana": "しゅ",
+      "kanji": "朱",
+      "arti": "Warna merah terang",
+      "romaji": "shu"
+    },
+    {
+      "no": 42,
+      "kana": "まじわります",
+      "kanji": "交わります",
+      "arti": "Bergaul",
+      "romaji": "majiwarimasu"
+    },
+    {
+      "no": 43,
+      "kana": "ことわざ",
+      "kanji": "",
+      "arti": "Peribahasa",
+      "romaji": "kotowaza"
+    },
+    {
+      "no": 44,
+      "kana": "なかよくします",
+      "kanji": "仲よくします",
+      "arti": "Hidup rukun , hubungannya akrab",
+      "romaji": "nakayokushimasu"
+    },
+    {
+      "no": 45,
+      "kana": "ひつような",
+      "kanji": "必要な",
+      "arti": "Perlu",
+      "romaji": "hitsuyouna"
+    }
+  ]
+}

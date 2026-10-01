@@ -1,0 +1,306 @@
+{
+  "bab": 49,
+  "items": [
+    {
+      "no": 1,
+      "kana": "つとめます （に）",
+      "kanji": "努めます",
+      "arti": "Bekerja (untuk perusahaan)",
+      "romaji": "tsutomemasu (ni)"
+    },
+    {
+      "no": 2,
+      "kana": "やすみます",
+      "kanji": "休みます",
+      "arti": "Beristirahat",
+      "romaji": "yasumimasu"
+    },
+    {
+      "no": 3,
+      "kana": "かけます （に）",
+      "kanji": "掛けます",
+      "arti": "Duduk (di kursi)",
+      "romaji": "kakemasu (ni)"
+    },
+    {
+      "no": 4,
+      "kana": "すごします",
+      "kanji": "過ごします",
+      "arti": "Menghabiskan (waktu)",
+      "romaji": "sugoshimasu"
+    },
+    {
+      "no": 5,
+      "kana": "よります （に）",
+      "kanji": "寄ります",
+      "arti": "Mampir (ke)",
+      "romaji": "yorimasu (ni)"
+    },
+    {
+      "no": 6,
+      "kana": "いらっしゃいます",
+      "kanji": "",
+      "arti": "Ada,pergi,datang (bentuk hormat います、い きます、きます)",
+      "romaji": "irasshaimasu"
+    },
+    {
+      "no": 7,
+      "kana": "めしあがります",
+      "kanji": "召し上がります",
+      "arti": "Makan,minum (bentuk hormat たべます、 のみます)",
+      "romaji": "meshiagarimasu"
+    },
+    {
+      "no": 8,
+      "kana": "おっしゃいます",
+      "kanji": "",
+      "arti": "Mengatakan (bentuk hormat いいます)",
+      "romaji": "osshaimasu"
+    },
+    {
+      "no": 9,
+      "kana": "なさいます",
+      "kanji": "",
+      "arti": "Melakukan (bentuk hormat します)",
+      "romaji": "nasaimasu"
+    },
+    {
+      "no": 10,
+      "kana": "ごらんになります",
+      "kanji": "ご覧になります",
+      "arti": "Melihat (bentuk hormat みます)",
+      "romaji": "goranninarimasu"
+    },
+    {
+      "no": 11,
+      "kana": "ごぞんじです",
+      "kanji": "ご存じです",
+      "arti": "Mengetahui,kenal (bentuk hormat しっています)",
+      "romaji": "gozonjidesu"
+    },
+    {
+      "no": 12,
+      "kana": "あいさつ",
+      "kanji": "",
+      "arti": "Salam",
+      "romaji": "aisatsu"
+    },
+    {
+      "no": 13,
+      "kana": "はいざら",
+      "kanji": "灰皿",
+      "arti": "Asbak",
+      "romaji": "haizara"
+    },
+    {
+      "no": 14,
+      "kana": "りょかん",
+      "kanji": "旅館",
+      "arti": "Penginapan ala jepang",
+      "romaji": "ryokan"
+    },
+    {
+      "no": 15,
+      "kana": "かいじょう",
+      "kanji": "会場",
+      "arti": "Tempat pertemuan",
+      "romaji": "kaijou"
+    },
+    {
+      "no": 16,
+      "kana": "バスてい",
+      "kanji": "バス停",
+      "arti": "Halte bis",
+      "romaji": "basutei"
+    },
+    {
+      "no": 17,
+      "kana": "ぼうえき",
+      "kanji": "貿易",
+      "arti": "Perdagangan",
+      "romaji": "boueki"
+    },
+    {
+      "no": 18,
+      "kana": "～さま",
+      "kanji": "～様",
+      "arti": "Kata hormat ～さん",
+      "romaji": "~sama"
+    },
+    {
+      "no": 19,
+      "kana": "かえりに",
+      "kanji": "帰りに",
+      "arti": "Pada waktu pulang",
+      "romaji": "kaerini"
+    },
+    {
+      "no": 20,
+      "kana": "たまに",
+      "kanji": "",
+      "arti": "Sesekali",
+      "romaji": "tamani"
+    },
+    {
+      "no": 21,
+      "kana": "ちょっとも",
+      "kanji": "",
+      "arti": "Sama sekali (diikuti bentuk negatif)",
+      "romaji": "chottomo"
+    },
+    {
+      "no": 22,
+      "kana": "えんりょなく",
+      "kanji": "遠慮なく",
+      "arti": "Tanpa malu-malu",
+      "romaji": "enryonaku"
+    },
+    {
+      "no": 23,
+      "kana": "～ねん～くみ",
+      "kanji": "～年～組",
+      "arti": "Kelas---,---",
+      "romaji": "~nen~kumi"
+    },
+    {
+      "no": 24,
+      "kana": "では",
+      "kanji": "",
+      "arti": "Kalau begitu (bentuk hormat じゃ)",
+      "romaji": "deha"
+    },
+    {
+      "no": 25,
+      "kana": "だします （を）",
+      "kanji": "出します",
+      "arti": "Demam",
+      "romaji": "dashimasu (wo)"
+    },
+    {
+      "no": 26,
+      "kana": "よろしくおつたえてください",
+      "kanji": "",
+      "arti": "Tolong sampaikan salam saya",
+      "romaji": "yoroshikuotsutaetekudasai"
+    },
+    {
+      "no": 27,
+      "kana": "しつれいいたします",
+      "kanji": "失礼いたします",
+      "arti": "Permisi (bentuk merendah しつれいします)",
+      "romaji": "shitsureiitashimasu"
+    },
+    {
+      "no": 28,
+      "kana": "こうし",
+      "kanji": "講師",
+      "arti": "Pembicara",
+      "romaji": "koushi"
+    },
+    {
+      "no": 29,
+      "kana": "おおくの～",
+      "kanji": "多くの～",
+      "arti": "Banyak---",
+      "romaji": "ookuno~"
+    },
+    {
+      "no": 30,
+      "kana": "さくひん",
+      "kanji": "作品",
+      "arti": "Karya",
+      "romaji": "sakuhin"
+    },
+    {
+      "no": 31,
+      "kana": "じゅしょうします",
+      "kanji": "受賞します",
+      "arti": "Menerima hadiah",
+      "romaji": "jushoushimasu"
+    },
+    {
+      "no": 32,
+      "kana": "せかいてきに",
+      "kanji": "世界的に",
+      "arti": "Seluruh dunia",
+      "romaji": "sekaitekini"
+    },
+    {
+      "no": 33,
+      "kana": "さっか",
+      "kanji": "作家",
+      "arti": "Pengarang",
+      "romaji": "sakka"
+    },
+    {
+      "no": 34,
+      "kana": "ちょうなん",
+      "kanji": "長男",
+      "arti": "Anak laki-laki tertua",
+      "romaji": "chounan"
+    },
+    {
+      "no": 35,
+      "kana": "しょうがい",
+      "kanji": "障害",
+      "arti": "Cacat",
+      "romaji": "shougai"
+    },
+    {
+      "no": 36,
+      "kana": "おもちです",
+      "kanji": "お持ちです",
+      "arti": "Mempunyai (bentuk hormat もっています)",
+      "romaji": "omochidesu"
+    },
+    {
+      "no": 37,
+      "kana": "さっきょく",
+      "kanji": "作曲",
+      "arti": "Gubahan lagu, komposisi lagu",
+      "romaji": "sakkyoku"
+    },
+    {
+      "no": 38,
+      "kana": "かつどう",
+      "kanji": "活動",
+      "arti": "Kegiatan",
+      "romaji": "katsudou"
+    },
+    {
+      "no": 39,
+      "kana": "それでは",
+      "kanji": "",
+      "arti": "Baiklah",
+      "romaji": "soredeha"
+    },
+    {
+      "no": 40,
+      "kana": "おたく",
+      "kanji": "お宅",
+      "arti": "Rumah",
+      "romaji": "otaku"
+    },
+    {
+      "no": 41,
+      "kana": "～でございます",
+      "kanji": "",
+      "arti": "Kata sopan です",
+      "romaji": "~degozaimasu"
+    },
+    {
+      "no": 42,
+      "kana": "～ともうします",
+      "kanji": "",
+      "arti": "Kata merendah です",
+      "romaji": "~tomoushimasu"
+    },
+    {
+      "no": 43,
+      "kana": "～でいらっしゃいます",
+      "kanji": "",
+      "arti": "Kata hormat です",
+      "romaji": "~deirasshaimasu"
+    }
+  ]
+}

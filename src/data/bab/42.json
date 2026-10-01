@@ -1,0 +1,544 @@
+{
+  "bab": 42,
+  "items": [
+    {
+      "no": 1,
+      "kana": "つつみます",
+      "kanji": "包みます",
+      "arti": "Membungkus",
+      "romaji": "tsutsumimasu"
+    },
+    {
+      "no": 2,
+      "kana": "わかします",
+      "kanji": "沸かします",
+      "arti": "Merebus",
+      "romaji": "wakashimasu"
+    },
+    {
+      "no": 3,
+      "kana": "まぜます",
+      "kanji": "混ぜます",
+      "arti": "Mencampur",
+      "romaji": "mazemasu"
+    },
+    {
+      "no": 4,
+      "kana": "けいさんします",
+      "kanji": "計算します",
+      "arti": "Menghitung",
+      "romaji": "keisanshimasu"
+    },
+    {
+      "no": 5,
+      "kana": "あつい",
+      "kanji": "厚い",
+      "arti": "Tebal",
+      "romaji": "atsui"
+    },
+    {
+      "no": 6,
+      "kana": "うすい",
+      "kanji": "薄い",
+      "arti": "Tipis",
+      "romaji": "usui"
+    },
+    {
+      "no": 7,
+      "kana": "べんごし",
+      "kanji": "弁護士",
+      "arti": "Pengacara",
+      "romaji": "bengoshi"
+    },
+    {
+      "no": 8,
+      "kana": "おんがくか",
+      "kanji": "音楽家",
+      "arti": "Ahli musik, pemusik",
+      "romaji": "ongakuka"
+    },
+    {
+      "no": 9,
+      "kana": "きょういく",
+      "kanji": "教育",
+      "arti": "Pendidikan",
+      "romaji": "kyouiku"
+    },
+    {
+      "no": 10,
+      "kana": "れきし",
+      "kanji": "歴史",
+      "arti": "Sejarah",
+      "romaji": "rekishi"
+    },
+    {
+      "no": 11,
+      "kana": "ぶんか",
+      "kanji": "文化",
+      "arti": "Kebudayaan",
+      "romaji": "bunka"
+    },
+    {
+      "no": 12,
+      "kana": "しゃかい",
+      "kanji": "社会",
+      "arti": "Masyarakat",
+      "romaji": "shakai"
+    },
+    {
+      "no": 13,
+      "kana": "ほうりつ",
+      "kanji": "法律",
+      "arti": "Hukum",
+      "romaji": "houritsu"
+    },
+    {
+      "no": 14,
+      "kana": "せんそう",
+      "kanji": "戦争",
+      "arti": "Perang",
+      "romaji": "sensou"
+    },
+    {
+      "no": 15,
+      "kana": "へいわ",
+      "kanji": "平和",
+      "arti": "Damai",
+      "romaji": "heiwa"
+    },
+    {
+      "no": 16,
+      "kana": "もくてき",
+      "kanji": "目的",
+      "arti": "Tujuan,makud",
+      "romaji": "mokuteki"
+    },
+    {
+      "no": 17,
+      "kana": "あんぜん",
+      "kanji": "安全",
+      "arti": "Keselamatan, keamanan",
+      "romaji": "anzen"
+    },
+    {
+      "no": 18,
+      "kana": "ろんぶん",
+      "kanji": "論文",
+      "arti": "Tesis, skripsi",
+      "romaji": "ronbun"
+    },
+    {
+      "no": 19,
+      "kana": "かんけい",
+      "kanji": "関係",
+      "arti": "Hubungan",
+      "romaji": "kankei"
+    },
+    {
+      "no": 20,
+      "kana": "ミキサー",
+      "kanji": "",
+      "arti": "Blender",
+      "romaji": "mikisaa"
+    },
+    {
+      "no": 21,
+      "kana": "やかん",
+      "kanji": "",
+      "arti": "Ceret, teko",
+      "romaji": "yakan"
+    },
+    {
+      "no": 22,
+      "kana": "せんぬき",
+      "kanji": "栓抜き",
+      "arti": "Pembuka tutup botol",
+      "romaji": "sennuki"
+    },
+    {
+      "no": 23,
+      "kana": "かんきり",
+      "kanji": "缶切り",
+      "arti": "Pembuka kaleng",
+      "romaji": "kankiri"
+    },
+    {
+      "no": 24,
+      "kana": "かんづめ",
+      "kanji": "缶詰",
+      "arti": "Makanan kaleng",
+      "romaji": "kanzume"
+    },
+    {
+      "no": 25,
+      "kana": "ふろしき",
+      "kanji": "",
+      "arti": "Kain pembungkus untuk membawa barang",
+      "romaji": "furoshiki"
+    },
+    {
+      "no": 26,
+      "kana": "そろばん",
+      "kanji": "",
+      "arti": "Alat hitung cina, sempoa",
+      "romaji": "soroban"
+    },
+    {
+      "no": 27,
+      "kana": "たいおんけい",
+      "kanji": "体温計",
+      "arti": "Termometer",
+      "romaji": "taionkei"
+    },
+    {
+      "no": 28,
+      "kana": "ざいりょう",
+      "kanji": "材料",
+      "arti": "Bahan-bahan",
+      "romaji": "zairyou"
+    },
+    {
+      "no": 29,
+      "kana": "いし",
+      "kanji": "石",
+      "arti": "Batu",
+      "romaji": "ishi"
+    },
+    {
+      "no": 30,
+      "kana": "ピラミッド",
+      "kanji": "",
+      "arti": "Piramida",
+      "romaji": "piramiddo"
+    },
+    {
+      "no": 31,
+      "kana": "データ",
+      "kanji": "",
+      "arti": "Data",
+      "romaji": "deeta"
+    },
+    {
+      "no": 32,
+      "kana": "ファイル",
+      "kanji": "",
+      "arti": "File",
+      "romaji": "fairu"
+    },
+    {
+      "no": 33,
+      "kana": "なぜ",
+      "kanji": "",
+      "arti": "Mengapa, kenapa?",
+      "romaji": "naze"
+    },
+    {
+      "no": 34,
+      "kana": "こくれん",
+      "kanji": "国連",
+      "arti": "Negara kesatuan",
+      "romaji": "kokuren"
+    },
+    {
+      "no": 35,
+      "kana": "ローン",
+      "kanji": "",
+      "arti": "Kredit",
+      "romaji": "roon"
+    },
+    {
+      "no": 36,
+      "kana": "セット",
+      "kanji": "",
+      "arti": "Set",
+      "romaji": "setto"
+    },
+    {
+      "no": 37,
+      "kana": "あと",
+      "kanji": "",
+      "arti": "Sisa",
+      "romaji": "ato"
+    },
+    {
+      "no": 38,
+      "kana": "カップラーメン",
+      "kanji": "",
+      "arti": "Mie instan gelas",
+      "romaji": "kappuraamen"
+    },
+    {
+      "no": 39,
+      "kana": "インスタントラーメン",
+      "kanji": "",
+      "arti": "Mie instan",
+      "romaji": "insutantoraamen"
+    },
+    {
+      "no": 40,
+      "kana": "なべ",
+      "kanji": "",
+      "arti": "Panci",
+      "romaji": "nabe"
+    },
+    {
+      "no": 41,
+      "kana": "どんぶり",
+      "kanji": "",
+      "arti": "Mangkok besar",
+      "romaji": "donburi"
+    },
+    {
+      "no": 42,
+      "kana": "しょくひん",
+      "kanji": "食品",
+      "arti": "Makanan",
+      "romaji": "shokuhin"
+    },
+    {
+      "no": 43,
+      "kana": "ちょうさ",
+      "kanji": "調査",
+      "arti": "Penyelidikan",
+      "romaji": "chousa"
+    },
+    {
+      "no": 44,
+      "kana": "カップ",
+      "kanji": "",
+      "arti": "Gelas",
+      "romaji": "kappu"
+    },
+    {
+      "no": 45,
+      "kana": "～のかわりに",
+      "kanji": "～の代わりに",
+      "arti": "Pengganti -",
+      "romaji": "~nokawarini"
+    },
+    {
+      "no": 46,
+      "kana": "とじる",
+      "kanji": "",
+      "arti": "Menjilid",
+      "romaji": "tojiru"
+    },
+    {
+      "no": 47,
+      "kana": "ホッチキス",
+      "kanji": "",
+      "arti": "Hekter/stapler",
+      "romaji": "hotchikisu"
+    },
+    {
+      "no": 48,
+      "kana": "はさむ",
+      "kanji": "",
+      "arti": "Menjepit",
+      "romaji": "hasamu"
+    },
+    {
+      "no": 49,
+      "kana": "クリップ",
+      "kanji": "",
+      "arti": "Klip",
+      "romaji": "kurippu"
+    },
+    {
+      "no": 50,
+      "kana": "とめる",
+      "kanji": "留める",
+      "arti": "Menyematkan",
+      "romaji": "tomeru"
+    },
+    {
+      "no": 51,
+      "kana": "がびょう／おしピン",
+      "kanji": "画びょう／押しピン",
+      "arti": "Paku payung",
+      "romaji": "gabyou/oshipin"
+    },
+    {
+      "no": 52,
+      "kana": "きる",
+      "kanji": "切る",
+      "arti": "Memotong",
+      "romaji": "kiru"
+    },
+    {
+      "no": 53,
+      "kana": "カッター",
+      "kanji": "",
+      "arti": "Cutter",
+      "romaji": "kattaa"
+    },
+    {
+      "no": 54,
+      "kana": "はさみ",
+      "kanji": "鋏",
+      "arti": "Gunting",
+      "romaji": "hasami"
+    },
+    {
+      "no": 55,
+      "kana": "はる",
+      "kanji": "",
+      "arti": "Menempelkan",
+      "romaji": "haru"
+    },
+    {
+      "no": 56,
+      "kana": "セロテープ",
+      "kanji": "",
+      "arti": "Selotip",
+      "romaji": "seroteepu"
+    },
+    {
+      "no": 57,
+      "kana": "ガムテープ",
+      "kanji": "",
+      "arti": "Selotip kertas",
+      "romaji": "gamuteepu"
+    },
+    {
+      "no": 58,
+      "kana": "のり",
+      "kanji": "",
+      "arti": "Lem",
+      "romaji": "nori"
+    },
+    {
+      "no": 59,
+      "kana": "けずる",
+      "kanji": "削る",
+      "arti": "Meruncingkan",
+      "romaji": "kezuru"
+    },
+    {
+      "no": 60,
+      "kana": "えんぴつけずり",
+      "kanji": "鉛筆削り",
+      "arti": "Peruncing pensil",
+      "romaji": "enpitsukezuri"
+    },
+    {
+      "no": 61,
+      "kana": "ファイルする",
+      "kanji": "",
+      "arti": "Mengarsipkan",
+      "romaji": "fairusuru"
+    },
+    {
+      "no": 62,
+      "kana": "けす",
+      "kanji": "消す",
+      "arti": "Menghapus",
+      "romaji": "kesu"
+    },
+    {
+      "no": 63,
+      "kana": "けしゴム",
+      "kanji": "",
+      "arti": "Penghapus karet",
+      "romaji": "keshigomu"
+    },
+    {
+      "no": 64,
+      "kana": "しゅうせいえき",
+      "kanji": "修正液",
+      "arti": "Tip ex",
+      "romaji": "shuuseieki"
+    },
+    {
+      "no": 65,
+      "kana": "パンチ",
+      "kanji": "",
+      "arti": "Alat pelubang kertas",
+      "romaji": "panchi"
+    },
+    {
+      "no": 66,
+      "kana": "あなをあける",
+      "kanji": "穴をあける",
+      "arti": "Melubangi",
+      "romaji": "anawoakeru"
+    },
+    {
+      "no": 67,
+      "kana": "けいさんする",
+      "kanji": "計算する",
+      "arti": "Menghitung",
+      "romaji": "keisansuru"
+    },
+    {
+      "no": 68,
+      "kana": "でんたく",
+      "kanji": "電卓",
+      "arti": "Kalkulator",
+      "romaji": "dentaku"
+    },
+    {
+      "no": 69,
+      "kana": "のこぎり",
+      "kanji": "",
+      "arti": "Gergaji",
+      "romaji": "nokogiri"
+    },
+    {
+      "no": 70,
+      "kana": "くぎをうつ",
+      "kanji": "くぎを打つ",
+      "arti": "Memaku",
+      "romaji": "kugiwoutsu"
+    },
+    {
+      "no": 71,
+      "kana": "かなづち",
+      "kanji": "金づち",
+      "arti": "Palu besi",
+      "romaji": "kanazuchi"
+    },
+    {
+      "no": 72,
+      "kana": "せんをひく",
+      "kanji": "線を引く",
+      "arti": "Membuat garis",
+      "romaji": "senwohiku"
+    },
+    {
+      "no": 73,
+      "kana": "じょうぎ",
+      "kanji": "定規",
+      "arti": "Penggaris",
+      "romaji": "jougi"
+    },
+    {
+      "no": 74,
+      "kana": "ものさし",
+      "kanji": "",
+      "arti": "Penggaris",
+      "romaji": "monosashi"
+    },
+    {
+      "no": 75,
+      "kana": "ペンチ",
+      "kanji": "",
+      "arti": "Tang",
+      "romaji": "penchi"
+    },
+    {
+      "no": 76,
+      "kana": "ねじをしめる",
+      "kanji": "ねじを締める",
+      "arti": "Memasang sekrup",
+      "romaji": "nejiwoshimeru"
+    },
+    {
+      "no": 77,
+      "kana": "ゆるめる",
+      "kanji": "緩める",
+      "arti": "Melonggarkan",
+      "romaji": "yurumeru"
+    }
+  ]
+}
