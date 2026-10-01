@@ -197,7 +197,7 @@ kotoba-app/
 │  │  ├─ KotobaTable.tsx    # tabel kosakata (colgroup + table-fixed + kolom audio)
 │  │  ├─ BabAccordion.tsx   # satu blok bab: header + tabel, animasi buka/tutup
 │  │  ├─ Controls.tsx       # Chip (toggle) + Segmented (radio, ←/→) yang dipakai bersama
-│  │  ├─ ListControls.tsx   # panel kontrol halaman List (primary/secondary/toggle)
+│  │  ├─ ListControls.tsx   # panel kontrol List: bulk kolom, bulk 50 bab, kana, terpilih
 │  │  └─ LoadingRows.tsx    # skeleton baris saat data dimuat
 │  └─ pages/
 │     ├─ Home.tsx           # hero, statistik, mode, pilih bab
@@ -232,7 +232,7 @@ Tiga store memakai middleware `persist` dari Zustand. Nama key `localStorage`:
 | `useSettings` | `store/settings.ts` | **`kotoba-settings`** | `selectedBabs` (default `[1]`), `shuffle` (default `true`), `viewMode` (`"kana-arti"`) + `setSelectedBabs`, `toggleBab`, `selectAll`, `clearBabs`, `setShuffle`, `setViewMode` |
 | `useProgress` | `store/progress.ts` | **`kotoba-progress`** | `hafal: string[]`, `stats: Record<string, {benar, salah}>` + `toggleHafal`, `isHafal`, `recordAnswer`, `resetProgress` |
 | `useTheme` | `store/theme.ts` | **`kotoba-theme`** | `theme: "light" \| "dark" \| "system"` + `setTheme`, `cycle`, `syncFromSystem` |
-| `useList` | `store/list.ts` | **`kotoba-list`** | `collapsed` (default **semua 50 bab tertutup**), `visible` (kolom), `katakanaMode`, `focusBabs`, `query`, `onlyWithKanji`, `sortBy` + `toggleBab`, `expandAll`, `collapseAll`, `expandOnly`, `toggleCol`, `setQuery`, `clearFilters` |
+| `useList` | `store/list.ts` | **`kotoba-list`** | `collapsed` (default **semua 50 bab tertutup**), `visible` (kolom), `katakanaMode`, `focusBabs`, `query`, `onlyWithKanji`, `sortBy` + `toggleBab`, `expandAll`, `collapseAll`, `expandOnly`, `toggleCol`, `setCol`, `setCols` (bulk kolom), `showAllCols`, `resetCols`, `setKatakanaMode` |
 
 Lima key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
 `sortBy` ikut ter-persist, jadi pencarian yang belum dibersihkan akan tetap ada
@@ -438,7 +438,9 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Bab tanpa hasil otomatis disembunyikan; **saat searching/filtering tabel dipaksa terbuka** walau babnya tertutup, karena kalau tidak hasil pencarian tidak terlihat sama sekali.
   - Tampilan dibungkus `overflow-x-auto` dengan `min-width`, jadi di iPhone tabel bisa di-scroll mendatar tanpa membuat halaman ikut melebar.
   - Kolom bisa dimunculkan/dihilangkan per kolom, dan lebar tiap kolom dipatuhi lewat `<colgroup>` + `table-layout: fixed`.
-  - Kontrol dipecah jadi `ListControls.tsx` dengan hierarchy: aksi utama (Buka/Tutup semua) memakai tombol pekat, aksi sekunder (pilih/reset kolom) memakai outline, dan sisanya berupa chip/segmented. Panel sengaja dibuat compact — bukan kartu besar berisi kartu-kartu kecil.
+  - Kontrol dipecah jadi `ListControls.tsx` dengan hierarchy: aksi utama (Buka/Tutup semua **kolom**) memakai tombol pekat, sisanya chip/segmented/outline. Panel sengaja dibuat compact — bukan kartu besar berisi kartu-kartu kecil.
+  - **"Buka semua / Tutup semua" itu untuk KOLOM, bukan untuk 50 bab.** "Tutup semua" menyembunyikan 4 kolom isi — `kana`, `romaji`, `kanji`, `arti` — sehingga tabel tetap punya kolom `No` sebagai jangkar. Kontrol untuk 50 bab karena itu berlabel eksplisit **"Buka semua bab" / "Tutup semua bab"**. Jangan tukar lagi dua kelompok tombol ini; sempat tertukar dan jadi ambigu.
+  - `disabled` pada "Buka semua" dihitung dari **semua** kolom chip (termasuk Katakana), bukan hanya 4 kolom utama. Kalau hanya cek 4 kolom utama, tombol mati padahal Kolom masih ada yang belum tampil.
   - Kolom Romaji **tidak** punya lebar px tetap: ia memakai sisa ruang (`0`) agar kolom Arti yang paling memerlukan ruang tetap lega di layar lebar.
 
 ## Sistem Desain

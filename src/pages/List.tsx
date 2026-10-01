@@ -14,6 +14,9 @@ interface Props {
   onBack: () => void;
 }
 
+/** Kolom isi yang ditutup tombol "Tutup semua". No & audio bukan bagian. */
+const MAIN_COLS: ColKey[] = ["kana", "romaji", "kanji", "arti"];
+
 const SORT_OPTIONS = [
   { value: "bab", label: "Per bab" },
   { value: "romaji", label: "Abjad romaji" },
@@ -47,6 +50,7 @@ export default function List({ onBack }: Props) {
     expandOnly,
     toggleCol,
     showAllCols,
+    setCols,
     resetCols,
     setKatakanaMode,
     toggleFocusBab,
@@ -173,7 +177,8 @@ export default function List({ onBack }: Props) {
           <ListControls
             visible={visible}
             onToggleCol={toggleCol}
-            onShowAll={showAllCols}
+            onShowAllCols={showAllCols}
+            onHideMainCols={() => setCols(MAIN_COLS, false)}
             onReset={resetCols}
             katakanaMode={katakanaMode}
             onKana={setKatakanaMode}

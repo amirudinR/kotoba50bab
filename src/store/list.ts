@@ -24,6 +24,8 @@ export interface ListState {
   expandOnly: (babs: number[]) => void;
   toggleCol: (k: ColKey) => void;
   setCol: (k: ColKey, v: boolean) => void;
+  /** Set beberapa kolom sekaligus — dipakai "Buka semua" / "Tutup semua". */
+  setCols: (keys: ColKey[], v: boolean) => void;
   showAllCols: () => void;
   resetCols: () => void;
   setKatakanaMode: (m: KatakanaMode) => void;
@@ -128,6 +130,12 @@ export const useList = create<ListState>()(
       toggleCol: (k) =>
         set((s) => ({ visible: { ...s.visible, [k]: !s.visible[k] } })),
       setCol: (k, v) => set((s) => ({ visible: { ...s.visible, [k]: v } })),
+      setCols: (keys, v) =>
+        set((s) => {
+          const visible = { ...s.visible };
+          for (const k of keys) visible[k] = v;
+          return { visible };
+        }),
       showAllCols: () => set({ visible: { ...COL_ALL } }),
       resetCols: () => set({ visible: { ...COL_DEFAULT } }),
       setKatakanaMode: (m) => set({ katakanaMode: m }),
