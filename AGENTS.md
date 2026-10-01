@@ -54,8 +54,8 @@ Output build ada di **`dist/`** dan itu juga output produksi untuk Vercel. Ukura
 
 | Aset | Mentah | gzip |
 | --- | --- | --- |
-| `assets/index-*.js` | ~418 KB | ~120 KB |
-| `assets/index-*.css` | ~31 KB | ~6 KB |
+| `assets/index-*.js` | ~236 KB | ~73 KB |
+| `assets/index-*.css` | ~33 KB | ~7 KB |
 
 plus `index.html`, `manifest.webmanifest`, `sw.js`, `registerSW.js`, `workbox-*.js` dari PWA.
 
@@ -63,20 +63,53 @@ plus `index.html`, `manifest.webmanifest`, `sw.js`, `registerSW.js`, `workbox-*.
 
 ## Regenerasi Data Kosakata
 
+Ada **dua langkah**. Ekstraksi PDF menghasilkan satu file monolitik, lalu
+`build_data.py` memecahnya menjadi file per bab + search index.
+
+### Langkah 1 — ekstraksi PDF
+
 Sumber kebenaran adalah PDF di **folder induk**:
 
 ```
 D:\LPK\Kotoba N5danN4\kotoba minna no nihonggo bab 1-50-1.pdf
 ```
 
-Skrip ekstraksi ada di `tools/extract_pdf.py` (PyMuPDF). Menerima dua argumen opsional: path PDF dan path output; default-nya `kotoba minna no nihonggo bab 1-50-1.pdf` dan `src/data/kotoba.json`.
+Skrip `tools/extract_pdf.py` (PyMuPDF) menerima dua argumen opsional: path PDF
+dan path output; default-nya `kotoba minna no nihonggo bab 1-50-1.pdf` dan
+`src/data/kotoba.json`.
 
 ```bash
-# dari folder app
 python tools/extract_pdf.py "../kotoba minna no nihonggo bab 1-50-1.pdf" "src/data/kotoba.json"
 ```
 
-Output: `{ "babs": [ { "bab": 1, "items": [ { "no", "kana", "kanji", "arti" } ] } ] }`, ditulis `ensure_ascii=False, indent=2` (±426 KB).
+Output: `{ "babs": [ { "bab": 1, "items": [ { "no", "kana", "kanji", "arti" } ] } ] }`.
+
+### Langkah 2 — pecah per bab + romaji
+
+```bash
+pip install pykakasi
+python tools/build_data.py
+```
+
+Membaca `src/data/kotoba.json`, lalu menulis:
+
+| File | Isi | Ukuran |
+| --- | --- | --- |
+| `src/data/bab/01.json` … `50.json` | satu bab penuh, + `romaji` | 5–15 KB each (±430 KB total) |
+| `src/data/index.json` | `{ bab, count }` 50 baris | 2.1 KB |
+| `src/data/search.json` | 2.910 entri **tanpa** `romaji` | 356 KB (61 KB gzip) |
+
+`romaji` diisi PyKakasi (mode Hepburn), satu konversi per kana unik (2.612 dari
+2.910 entri karena banyak kana berulang antar bab). Kalau `pykakasi` tidak
+terpasang, skrip tetap jalan tetapi `romaji` kosong — lalu jalankan ulang setelah
+memasangnya.
+
+Skrip juga memvalidasi nomor entri harus berurutan `1..n` per bab.
+
+**Jangan edit file di `src/data/bab/` atau `index.json`/`search.json` secara
+manual** — semuanya hasil generate. Edit `kotoba.json` (atau PDF) lalu jalankan
+`build_data.py`. `src/data/kotoba.json` sendiri **juga** jangan dihapus, itu
+sumber untuk langkah 2.
 
 ### Angka data saat ini (verified)
 
@@ -87,6 +120,8 @@ Output: `{ "babs": [ { "bab": 1, "items": [ { "no", "kana", "kanji", "arti" } ] 
 | Entri **dengan** kanji | 1.959 |
 | Entri tanpa kanji | 951 |
 | Entri tanpa arti | 1 (`われものちゅうい`, memang kosong di PDF asli) |
+| Entri dengan `romaji` | 2.910 (**nol** yang kosong) |
+| Kana unik | 2.612 (298 kana muncul di lebih dari satu bab) |
 
 UI menampilkan kanji hanya bila `kanji` terisi — jadi sekitar⅓kartu sengaja tidak punya baris kanji. Ini bukan bug.
 
@@ -113,7 +148,8 @@ Validasi:
 python -c "import json; d=json.load(open('src/data/kotoba.json',encoding='utf-8')); b=d['babs']; print('bab:',len(b),'total:',sum(len(x['items']) for x in b)); bad=[(x['bab'],max(i['no'] for i in x['items'])) for x in b if x['items'] and max(i['no'] for i in x['items'])!=len(x['items'])]; print('mismatch:', bad if bad else 'tidak ada')"
 ```
 
-Harapan: **bab: 50, total: 2910, mismatch: tidak ada**.
+Harapan: **bab: 50, total: 2910, mismatch: tidak ada**. Setelahnya tetap jalankan
+`python tools/build_data.py` agar file per bab ikut ter-update.
 
 ## Struktur Proyek
 
@@ -129,20 +165,27 @@ kotoba-app/
 │  ├─ icon-512.png
 │  └─ icon-512-maskable.png # aman dari crop Android (safe-circle)
 ├─ scripts/gen_icons.py     # generator ikon (Pillow)
-├─ tools/extract_pdf.py     # ekstraktor PDF → JSON
+├─ tools/extract_pdf.py     # ekstraktor PDF → kotoba.json (PyMuPDF)
+├─ tools/build_data.py      # kotoba.json → bab/*.json + index.json + search.json + romaji
 ├─ src/
 │  ├─ main.tsx              # mount + initTheme()
-│  ├─ App.tsx               # switch(route), guard selectedBabs kosong
+│  ├─ App.tsx               # switch(route), pool data async + loading state
 │  ├─ index.css             # CSS variables, base, components, utilities
-│  ├─ types.ts              # Kotoba, Bab, KotobaWithBab
+│  ├─ types.ts              # Kotoba (no, kana, kanji, arti, romaji), Bab, KotobaWithBab
+│  ├─ vite-env.d.ts         # deklarasi `import.meta.glob`
 │  ├─ data/
-│  │  ├─ kotoba.json        # 50 bab / 2.910 entri (~426 KB)
-│  │  └─ index.ts           # BABS, ALL_KOTOBA, TOTAL_KOTOBA, getBab, getKotobaByBabs
+│  │  ├─ index.ts           # API async: BABS_META, TOTAL_KOTOBA, useBab, useKotobaByBabs, useAllKotoba, useSearchIndex
+│  │  ├─ index.json         # metadata 50 bab (2.1 KB) — import statis
+│  │  ├─ search.json        # 2.910 entri tanpa romaji (356 KB) — lazy
+│  │  ├─ kotoba.json        # sumber monolitik hasil ekstraksi PDF (523 KB)
+│  │  └─ bab/01.json … 50.json  # 50 chunk per bab (±430 KB total) — lazy
 │  ├─ lib/utils.ts          # shuffleArray, sampleN, normalize, artiVariants, isAnswerCorrect
+│  ├─ lib/speech.ts         # useSpeech() — Web Speech API ja-JP + voice picker
 │  ├─ store/
 │  │  ├─ app.ts             # route + go() (TIDAK persist)
 │  │  ├─ settings.ts        # selectedBabs, shuffle, viewMode (persist)
 │  │  ├─ progress.ts        # hafal, stats (persist) + kataKey()
+│  │  ├─ list.ts            # collapsed, visible, katakanaMode, query, filter, sort (persist)
 │  │  └─ theme.ts           # light/dark/system (persist) + initTheme()
 │  ├─ components/
 │  │  ├─ Icon.tsx           # wrapper Iconify, tipe IconName = `ph:${string}`
@@ -150,14 +193,17 @@ kotoba-app/
 │  │  ├─ Button.tsx         # variant: ink|seal|ghost|quiet|accent
 │  │  ├─ PaperCard.tsx      # k-card, props raised/tape/tilt/onClick
 │  │  ├─ ProgressBar.tsx    # tone: ink|accent|seal|success|danger|warn
-│  │  └─ TopBar.tsx         # header sticky + tombol tema
+│  │  ├─ TopBar.tsx         # header sticky + tombol tema
+│  │  ├─ KotobaTable.tsx    # tabel kosakata (colgroup + table-fixed + kolom audio)
+│  │  └─ LoadingRows.tsx    # skeleton baris saat data dimuat
 │  └─ pages/
 │     ├─ Home.tsx           # hero, statistik, mode, pilih bab
 │     ├─ Flashcard.tsx      # kartu flip 3D + baris kanji
 │     ├─ QuizPG.tsx         # kuis pilihan ganda
 │     ├─ QuizKetik.tsx      # kuis ketik jawaban
-│     ├─ Search.tsx         # cari kana/kanji/arti
-│     └─ Progress.tsx       # statistik + reset
+│     ├─ Search.tsx         # cari kana/kanji/arti (pakai search.json)
+│     ├─ Progress.tsx       # statistik + reset
+│     └─ List.tsx           # daftar lengkap per bab + cari/filter/sort/audio
 └─ dist/                    # output build (jangan di-commit)
 ```
 
@@ -167,7 +213,7 @@ kotoba-app/
 
 Aplikasi **tidak memakai** `react-router`. Navigasi lewat Zustand: `useApp` menyimpan `route` bertipe `Route`, dan `App.tsx` melakukan `switch (route)`. `go(route)` sekaligus `window.scrollTo({ top: 0 })`.
 
-Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`.
+Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`.
 
 Menambah halaman = tambah union type di `store/app.ts`, komponen di `src/pages/`, dan `case` di `App.tsx`. Tidak ada URL, history, atau deep-link.
 
@@ -183,8 +229,12 @@ Tiga store memakai middleware `persist` dari Zustand. Nama key `localStorage`:
 | `useSettings` | `store/settings.ts` | **`kotoba-settings`** | `selectedBabs` (default `[1]`), `shuffle` (default `true`), `viewMode` (`"kana-arti"`) + `setSelectedBabs`, `toggleBab`, `selectAll`, `clearBabs`, `setShuffle`, `setViewMode` |
 | `useProgress` | `store/progress.ts` | **`kotoba-progress`** | `hafal: string[]`, `stats: Record<string, {benar, salah}>` + `toggleHafal`, `isHafal`, `recordAnswer`, `resetProgress` |
 | `useTheme` | `store/theme.ts` | **`kotoba-theme`** | `theme: "light" \| "dark" \| "system"` + `setTheme`, `cycle`, `syncFromSystem` |
+| `useList` | `store/list.ts` | **`kotoba-list`** | `collapsed` (default **semua 50 bab tertutup**), `visible` (kolom), `katakanaMode`, `focusBabs`, `query`, `onlyWithKanji`, `sortBy` + `toggleBab`, `expandAll`, `collapseAll`, `expandOnly`, `toggleCol`, `setQuery`, `clearFilters` |
 
-Empat key itu satu-satunya yang dipakai aplikasi.
+Lima key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
+`sortBy` ikut ter-persist, jadi pencarian yang belum dibersihkan akan tetap ada
+saat aplikasi dibuka lagi. Kalau itu terasa mengganggu, pindahkan ketiga field
+itu ke `partialize`/`omit` pada middleware `persist`.
 
 `hafal` disimpan sebagai array of string (bukan `Set`) agar bisa di-serialize. Kunci unik kata dibuat `kataKey(bab, no)` → `` `${bab}-${no}` ``.
 
@@ -261,11 +311,64 @@ node -e "console.log(Object.keys(require('./node_modules/@iconify-json/ph/icons.
 
 Kalau `false`, ikon akan muncul sebagai kotak kosong.
 
+### Data — lazy load per bab
+
+Data 2.910 entri **tidak** di-bundle statis. `src/data/index.ts`sóleh
+menyediakan metadata ringan (`index.json`, 2.1 KB) dan API async; sisanya
+diambil saat dibutuhkan.
+
+| Export | Bentuk | Kapan data diambil |
+| --- | --- | --- |
+| `BABS_META` | `{ bab, count }[]` (50) | selalu, dari `index.json` |
+| `TOTAL_KOTOBA` | `number` (2.910) | selalu |
+| `useBab(bab, enabled)` | `{ items, loading }` | saat `enabled` true (default true) |
+| `useKotobaByBabs(list)` | `{ pool, loading }` | saat `App` render untuk mode latihan |
+| `useAllKotoba()` | `{ all, loading }` | untuk halaman yang butuh seluruh bank kata |
+| `useSearchIndex()` | `{ query, setQuery, results, loading }` | saat halaman `Search` dibuka |
+| `getBabCached(bab)` | `Bab \| undefined` | sinkron, hanya untuk data yang sudah ter-cache |
+
+Cara kerjanya:
+
+- URL tiap file JSON diambil dengan `import.meta.glob("./bab/*.json", { query: "?url" })`.
+  Plugin `?url` membuat Vite memindahkan JSON menjadi **file `.json` terpisah**,
+  bukan potongan JS — itu yang memungkinkan data dikecualikan dari precache PWA.
+- Isi diambil dengan `fetch()`, bukan `import()`, supaya tidak memblokir render.
+- Hasil fetch disimpan di `Map` level modul (`cache`), jadi membuka bab yang
+  sama dua kali tidak mengunduh ulang.
+- `KotobaWithBab extends Kotoba { bab: number }` tetap dipakai karena model
+  data asli tidak menyimpan asal kata, sedangkan mode latihan menggabungkan
+  beberapa bab.
+
+**Halaman yang hanya butuh jumlah kata tidak boleh memuat isi bab.** `Home`
+(bar kemajuan hafalan) dan `Progress` (bar per bab) memakai `BABS_META` dan
+menghitung dari awalan key `hafal` (`"${bab}-${no}"`), bukan dari isi bab.
+
+### Audio pelafalan
+
+`src/lib/speech.ts` membungkus Web Speech API:
+
+```ts
+const { supported, hasVoice, isSpeaking, voice, speak, stop } = useSpeech();
+```
+
+- `supported` = API browser ada **dan** pengecekan voice sudah selesai. Baut
+  render berdasarkan `supported && hasVoice` — kalau hanya `supported`, tombol
+  muncul sebelum voice terdeteksi lalu hilang sesaat.
+- `hasVoice` = ada minimal satu voice `ja`. Tanpa ini tombolnya jadi tombol mati.
+- `pickJapaneseVoice()` (diekspor, murni) memilih voice `ja-JP` kalau ada, lalu
+  `ja-*` lain, dengan tie-break nama (`Kyoko`, `Otoya`, `Google`, `Microsoft`).
+- `speak(text)` selalu `cancel()` dulu supaya tidak numpuk, `rate: 0.9`, dan
+  dibungkus `try/catch` — tidak pernah melempar ke pemanggil.
+- Daftar voice di-*poll* 400 ms selama 3 detik karena beberapa browser
+  mengisinya terlambat tanpa event `voiceschanged`.
+
+Tidak ada file audio statis — pelafalan dibuat on-demand oleh browser, jadi
+tidak menambah ukuran bundel.
+
 ### Data & logika kuis
 
-`src/data/index.ts` meng-import `kotoba.json` statis (`resolveJsonModule: true` yang mengizinkan). Export: `BABS`, `ALL_KOTOBA` (datar + `bab`), `TOTAL_KOTOBA`, `getBab`, `getKotobaByBabs`.
-
-`KotobaWithBab extends Kotoba { bab: number }` ada karena model data asli tidak menyimpan asal kata, sedangkan semua mode latihan bekerja pada gabungan beberapa bab.
+`src/data/index.ts` sudah tidak lagi mengekspor `BABS`/`ALL_KOTOBA` sinkron —
+lihat bagian "Data — lazy load per bab" di atas.
 
 `src/lib/utils.ts`:
 
@@ -275,9 +378,7 @@ Kalau `false`, ikon akan muncul sebagai kotak kosong.
 | `sampleN` | `shuffleArray(arr).slice(0, n)` | QuizPG, QuizKetik |
 | `normalize` | lowercase + buang tanda baca CJK & latin, trim | Search, QuizPG, isAnswerCorrect |
 | `artiVariants` | pecah arti jadi alternatif (split koma/slash/titik) | isAnswerCorrect |
-| `isAnswerCorrect` | mode `kana-arti`: cocok ke varian arti; mode `arti-kana`: cocok persis ke kana atau kanji | QuizKetik |
-
-`isAnswerCorrect` memakai `includes` dua arah, jadi mengetik sebagian kata tetap dianggap benar. Itu disengaja.
+| `isAnswerCorrect` | mode `kana-arti`: cocok ke varian arti; mode `arti-kana`: cocok persis ke kana atau kanji | QuizKetik |`isAnswerCorrect` memakai `includes` dua arah, jadi mengetik sebagian kata tetap dianggap benar. Itu disengaja.
 
 Kedua mode kuis memakai `const QUIZ_LEN = 10`.
 
@@ -285,14 +386,41 @@ Kedua mode kuis memakai `const QUIZ_LEN = 10`.
 
 `VitePWA` di `vite.config.ts`, `registerType: "autoUpdate"`, `includeAssets: ["favicon.svg"]`. Manifest inline di config: `name: "Kotoba - Hafalan Minna no Nihongo"`, `short_name: "Kotoba"`, `display: "standalone"`, `orientation: "portrait"`, `theme_color`, `background_color`, ikon 192/512 plus varian maskable.
 
+Blok `workbox` sengaja mengatur `globPatterns` hanya untuk aset aplikasi
+(`js, css, html, svg, png, ico, webmanifest`) sehingga **50 chunk data + search
+index tidak ikut di-precache**. Kalau semuanya ikut ter-precache, service worker
+akan mengunduh ±780 KB saat instalasi dan seluruh usaha lazy-load jadi sia-sia.
+
+Sebagai gantinya, file `.json` ditangani `runtimeCaching` dengan
+`StaleWhileRevalidate` + `expiration` (60 entri, 90 hari): chunk yang pernah
+dibuka tetap bisa diakses offline, dan tidak diunduh sebelum benar-benar perlu.
+
+Ukuran saat ini:
+
+| Aset | Mentah | gzip |
+| --- | --- | --- |
+| `assets/index-*.js` | ~236 KB | **~73 KB** |
+| `assets/index-*.css` | ~33 KB | ~7 KB |
+| `assets/bab/NN.json` (50 file) | ~430 KB total | ~1,2–1,8 KB each |
+| `assets/search-*.json` | ~356 KB | ~61 KB |
+| precache service worker | 14 entri | ~293 KB |
+
+Sebelum pemecahan data, bundle JS adalah ~494 KB / **~142 KB** gzip. Angka itu
+yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
+
 ## Fitur
 
 - **Home** — Hero dengan kanji 「言葉」 88px + HankoSeal, baris statistik (total kata / bab / dihafal), kartu mode (2 utama + 3 pendukung), grid pilih bab 1–50, toggle urutan acak, bar kemajuan hafalan.
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
 - **QuizPG** — 10 soal, 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
 - **QuizKetik** — 10 soal, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
-- **Search** — Pencarian live di `ALL_KOTOBA` (kana, kanji, atau arti), maks 120 hasil, badge "bab N", tombol hafal per hasil, dua empty state.
+- **Search** — Pencarian live di `search.json` (kana, kanji, atau arti), maks 120 hasil, badge "bab N", tombol hafal per hasil, dua empty state. Index-nya sendiri dimuat saat halaman dibuka, dengan state loading.
 - **Progress** — Statistik besar (sudah dihafal, benar, salah, akurasi), bar per bab (50 bab, dua kolom di desktop), tombol reset dengan konfirmasi dua langkah. Empty state yang hangat kalau belum ada progres.
+- **List** (`route: list`,dibuka dari Home "Daftar") — Daftar lengkap 2.910 kata, **satu tabel per bab** (50 blok), masing-masing bisa dibuka/tutup. Kolom: No / Hiragana / Katakana / Romaji / Kanji / Arti, plus tombol audio di setiap baris.
+  - Pencarian live di 4 field (kana, kanji, romaji, arti) + filter "hanya yang punya kanji" + sortir per bab / abjad romaji, dengan hitungan "N dari M" dan tombol bersihkan.
+  - Bab tanpa hasil otomatis disembunyikan; **saat searching/filtering tabel dipaksa terbuka** walau babnya tertutup, karena kalau tidak hasil pencarian tidak terlihat sama sekali.
+  - Tampilan dibungkus `overflow-x-auto` dengan `min-width`, jadi di iPhone tabel bisa di-scroll mendatar tanpa membuat halaman ikut melebar.
+  - Kolom bisa dimunculkan/dihilangkan per kolom, dan lebar tiap kolom dipatuhi lewat `<colgroup>` + `table-layout: fixed`.
 
 ## Sistem Desain
 
@@ -354,8 +482,16 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Posisi teks di flashcard:** hint di-`absolute bottom`, konten di dalam wrapper `flex-1 justify-center`. Kalau hint dipasang sebagai elemen flow (mis. dengan `mt-auto`), seluruh teks tergeser ke atas — ini bug yang sudah pernah terjadi.
 - **Baris kanji hanya tampil bila `kanji` terisi.** 951 dari 2.910 entri memang tanpa kanji. Kalau ingin kanji selalu ada, itu perubahan data, bukan UI.
 - **`QuizKetik` memakai `<form onSubmit>` + `type="submit"`.** Mengubahnya ke `onClick` mematikan submit tekan Enter.
-- **`getKotobaByBabs` dipanggil tanpa memo di `App.tsx`**, jadi `pool` identitasnya baru tiap render dan halaman anak ikut membangun ulang deck/soal. Tidak fatal untuk 2.910 entri, tapi ingat kalau menambah komputasi berat.
-- **Data JSON di-bundle statis** (426.483 byte ≈ 416 KiB) — masuk ke bundle JS. Kalau lambat di perangkat lama, pecah JSON per bab dan `import()` dinamis.
+- **`getKotobaByBabs` sudah tidak ada.** API data sekarang berbasis hook (`useKotobaByBabs`, `useBab`, `useSearchIndex`). Fungsi async tidak boleh dipanggil langsung di badan render — harus lewat hook, kalau tidak akan renderloop.
+- **Flashcard & kuis hanya menerima `pool` setelah siap.** `App.tsx` memanggil `useKotobaByBabs(selectedBabs)` dan menampilkan `Frame` + `LoadingRows` selama `loading`, jadi halaman anak baru dirender setelah `pool` tersedia. Jangan diubah supaya halaman anak ikut di-render saat `pool` masih kosong.
+- **Data JSON tidak lagi di-bundle statis.** Kalau butuh menambah data, jalankan `python tools/build_data.py` — jangan mengexport langsung dari `kotoba.json` di `src/data/index.ts`, karena itu membatalkan lazy-load dan menaikkan bundle ±70 KB gzip.
+- **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
+- **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
+- **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.
+- **Kolom yang disembunyikan harus ikut hilang dari `<colgroup>`,** kalau tidak lebarnya tidak terpakai dan tabel melebar.
+- **Tombol audio hanya dirender kalau `speech.supported && speech.hasVoice`.** Kalau hanya `supported`, tombol muncul sebelum voice terdeteksi lalu hilang sesaat. Di browser tanpa voice `ja` (mis. Firefox sebagian), tombol harus disembunyikan, bukan ditampilkan mati.
+- **Tidak ada aset audio.** Pelafalan dibuat Web Speech API saat runtime — jangan tambahkan file mp3 untuk mempercepat, itu langsung menambah ukuran repo dan bundel.
+- **`pykakasi` harus terpasang** untuk `tools/build_data.py` mengisi `romaji`. Bukan dependency `package.json`, jadi `pip install pykakasi` setiap environment baru.
 - **`selectAll()` memakai `Array.from({ length: 50 })`** dan UI menampilkan "1–50". Kalau dataset berubah, keduanya harus diubah bersamaan.
 - **Jangan pakai `cd` di command shell**; pakai working directory. Path mengandung spasi — selalu kutip.
 - **Jangan commit `node_modules`, `dist`, `*.log`, `*.tsbuildinfo`, `dev.pid`, `__pycache__`.**
