@@ -29,12 +29,30 @@ export default {
         warn: "rgb(var(--c-warn) / <alpha-value>)",
       },
       fontFamily: {
-        // Display: mincho Jepang —-serif klasik dari mesin cetak Kyoto.
+        // Display: mincho Jepang — serif klasik dari mesin cetak Kyoto.
         display: ['"Shippori Mincho"', "Yu Mincho", "Hiragino Mincho ProN", "serif"],
         // Body: grotesque modern, netral tapi tegas.
         sans: ['"Manrope"', "system-ui", "sans-serif"],
         // Data/label kecil: monospace agar angka & nomor bab rapi.
         mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
+        // Baca kana/kanji: sans/meta punya bentuk yang lebih netral dan
+        // selalu tersedia, jadi aman dipakai untuk teks belajar yang
+        // harus dibaca cepat — bukan hanya untuk hiasan.
+        jp: [
+          '"Noto Sans JP"',
+          '"Hiragino Kaku Gothic ProN"',
+          '"Hiragino Sans"',
+          '"Yu Gothic"',
+          'system-ui',
+          "sans-serif",
+        ],
+        // Kanji besar sebagai elemen visual (Home, judul) tetap mincho.
+        mincho: [
+          '"Shippori Mincho"',
+          '"Hiragino Mincho ProN"',
+          '"Yu Mincho"',
+          'serif',
+        ],
       },
       borderRadius: {
         card: "1rem",

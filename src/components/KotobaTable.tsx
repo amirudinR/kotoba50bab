@@ -20,13 +20,13 @@ interface Props {
  * besar, sedangkan kolom "Arti" justru terpotong.
  */
 const WIDTH: Record<ColKey, number> = {
-  no: 52,
-  kana: 150,
-  katakana: 150,
-  romaji: 230,
-  kanji: 140,
+  no: 44,
+  kana: 168,
+  katakana: 156,
+  romaji: 196,
+  kanji: 128,
   arti: 0, // sisa ruang
-  audio: 52,
+  audio: 44,
 };
 
 const LABEL: Record<ColKey, string> = {
@@ -59,10 +59,10 @@ export default function KotobaTable({
   const fixed = keys.reduce((n, k) => n + (WIDTH[k] || 0), 0);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="scroll-slim overflow-x-auto">
       <table
         className="w-full border-separate border-spacing-0 text-[14px]"
-        style={{ minWidth: fixed + 120, tableLayout: "fixed" }}
+        style={{ minWidth: fixed + 140, tableLayout: "fixed" }}
       >
         <colgroup>
           {keys.map((k) => (
@@ -80,11 +80,9 @@ export default function KotobaTable({
                 key={k}
                 scope="col"
                 className={[
-                  "sticky top-0 z-10 border-b border-line/15 bg-sunken px-3 py-2.5",
-                  "text-[11px] font-semibold uppercase tracking-wide text-muted",
+                  "border-b border-line/10 bg-sunken/70 px-3 py-2",
+                  "text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85",
                   k === "no" ? "text-center" : "text-left",
-                  k === "no" ? "pl-0" : "",
-                  k === keys[keys.length - 1] ? "pr-4" : "",
                 ].join(" ")}
               >
                 {LABEL[k] || <span className="sr-only">Audio</span>}
@@ -94,52 +92,60 @@ export default function KotobaTable({
         </thead>
 
         <tbody>
-          {items.map((it, i) => (
+          {items.map((it) => (
             <tr
               key={it.no}
-              className={i % 2 === 0 ? "bg-surface" : "bg-raised/40"}
+              className="group transition-colors duration-100
+                hover:bg-ink/[0.045] focus-within:bg-ink/[0.045]"
             >
               {visible.no && (
-                <td className="k-num px-3 py-2.5 text-center text-muted">
+                <td className="k-rownum border-b border-line/[0.06] px-3 py-[11px] text-center">
                   {it.no}
                 </td>
               )}
               {visible.kana && (
-                <td className="whitespace-nowrap px-3 py-2.5 font-display text-ink">
+                <td className="k-kana whitespace-nowrap border-b border-line/[0.06] px-3 py-[11px]">
                   {maybeKatakana(it.kana, katakanaMode)}
                 </td>
               )}
               {visible.katakana && (
-                <td className="whitespace-nowrap px-3 py-2.5 font-display text-ink">
+                <td className="whitespace-nowrap border-b border-line/[0.06] px-3 py-[11px] font-jp text-[15.5px] leading-[1.45] text-ink-soft">
                   {maybeKatakana(it.kana, "katakana")}
                 </td>
               )}
               {visible.romaji && (
-                <td className="whitespace-nowrap px-3 py-2.5 font-mono text-body">
+                <td className="k-romaji whitespace-nowrap border-b border-line/[0.06] px-3 py-[11px]">
                   {it.romaji}
                 </td>
               )}
               {visible.kanji && (
-                <td className="px-3 py-2.5 font-display text-ink-soft">
-                  {it.kanji || "—"}
+                <td className="k-kanji border-b border-line/[0.06] px-3 py-[11px]">
+                  {it.kanji || (
+                    <span aria-hidden className="text-muted/40">
+                      —
+                    </span>
+                  )}
                 </td>
               )}
               {visible.arti && (
-                <td className="px-3 py-2.5 text-body last:pr-4">
+                <td className="k-arti border-b border-line/[0.06] px-3 py-[11px]">
                   {it.arti}
                 </td>
               )}
               {canSpeak && (
-                <td className="px-1 py-2.5 text-center">
+                <td className="border-b border-line/[0.06] px-1 py-[7px] text-center">
                   <button
                     onClick={() => speak(it.kana)}
-                    aria-label={`Dengarkan ${it.kana}`}
-                    title="Dengarkan pelafalan"
-                    className="grid h-8 w-8 place-items-center rounded-full text-ink-soft transition hover:bg-ink/10 hover:text-ink active:scale-90"
+                    aria-label={`Dengarkan pelafalan ${it.kana}`}
+                    title={`Dengarkan ${it.romaji}`}
+                    className="grid h-8 w-8 place-items-center rounded-full
+                      text-muted/70 transition-colors duration-150
+                      hover:bg-accent/15 hover:text-accent active:scale-90
+                      focus-visible:text-accent"
                   >
                     <AppIcon
-                      icon={isSpeaking ? "ph:speaker-high" : "ph:speaker-simple"}
-                      className="text-base"
+                      icon={isSpeaking ? "ph:waveform" : "ph:speaker-high"}
+                      className="text-[15px]"
                     />
                   </button>
                 </td>

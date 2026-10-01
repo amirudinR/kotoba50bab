@@ -195,6 +195,9 @@ kotoba-app/
 │  │  ├─ ProgressBar.tsx    # tone: ink|accent|seal|success|danger|warn
 │  │  ├─ TopBar.tsx         # header sticky + tombol tema
 │  │  ├─ KotobaTable.tsx    # tabel kosakata (colgroup + table-fixed + kolom audio)
+│  │  ├─ BabAccordion.tsx   # satu blok bab: header + tabel, animasi buka/tutup
+│  │  ├─ Controls.tsx       # Chip (toggle) + Segmented (radio, ←/→) yang dipakai bersama
+│  │  ├─ ListControls.tsx   # panel kontrol halaman List (primary/secondary/toggle)
 │  │  └─ LoadingRows.tsx    # skeleton baris saat data dimuat
 │  └─ pages/
 │     ├─ Home.tsx           # hero, statistik, mode, pilih bab
@@ -257,23 +260,28 @@ Flow:
 
 | Token | Light | Dark | Dipakai untuk |
 | --- | --- | --- | --- |
-| `bg` | #f4f0e6 | #121419 | Latar utama |
-| `surface` | #fcfaf4 | #1b1e25 | Permukaan kartu |
-| `raised` | #fffefa | #22262f | Permukaan lebih terang saat hover |
-| `sunken` | #e4ddcc | #0e1014 | Cekungan, track ProgressBar, badge |
-| `ink` | #1b2d4a | #e2e8f0 | Teks utama, aksen kuat |
-| `ink-soft` | #4a678c | #96aac8 | Teks sekunder |
-| `body` | #3a352c | #d6d4cd | Teks paragraf |
-| `muted` | #6e6657 | #8c909a | Teks paling redup, label |
-| `line` | #1b2d4a | #e2e8f0 | Garis & border (selalu dengan /opacity) |
-| `accent` | #b26a3a | #e0a860 | CTA, aksen hangat |
-| `accent-soft` | #f0e3cd | #3a3022 | Latar aksen lembut |
-| `seal` | #ba3f33 | #c84e42 | Merah stempel hanko |
-| `success` | #3a704f | #74be8c | Benar / sudah hafal |
+| `bg` | #f4f0e6 | #101218 | Latar utama |
+| `surface` | #fcfaf4 | #1a1d24 | Permukaan kartu |
+| `raised` | #fffefa | #21252e | Permukaan lebih terang saat hover |
+| `sunken` | #e4ddcc | #0c0e13 | Cekungan, track ProgressBar, badge |
+| `ink` | #1b2d4a | #e9eef5 | Teks utama, aksen kuat |
+| `ink-soft` | #4a678c | #a3b4ce | Teks sekunder |
+| `body` | #3a352c | #d7dae0 | Teks paragraf |
+| `muted` | #6e6657 | #9198a5 | Teks paling redup, label |
+| `line` | #1b2d4a | #e9eef5 | Garis & border (selalu dengan /opacity) |
+| `accent` | #b26a3a | #e2af6b | CTA, aksen hangat |
+| `accent-soft` | #f0e3cd | #3b3123 | Latar aksen lembut |
+| `seal` | #ba3f33 | #cd584b | Merah stempel hanko |
+| `success` | #3a704f | #78c391 | Benar / sudah hafal |
 | `success-soft` | #dbebdd | #1e3428 | Latar jawaban benar |
-| `danger` | #b23a30 | #eb6e62 | Salah |
+| `danger` | #b23a30 | #ee766a | Salah |
 | `danger-soft` | #f7deda | #3a1e1c | Latar jawaban salah |
-| `warn` | #be8a14 | #e2b660 | Peringatan |
+| `warn` | #be8a14 | #e6bd69 | Peringatan |
+
+Nilai dark disetel ulang agar gelapnya **sumi**, bukan hitam pekat: `bg` #101218
+bersifat hangat-kabut, bukan #000. Semua pasangan teks utama sudah diukur
+lolos WCAG 2.2 AA (rasio ≥ 4.5:1 untuk teks kecil) di kedua tema — kalau
+mengubah nilai token, ulangi pengukuran itu, jangan asal eyedropper.
 
 **Token lama yang sudah DIHAPUS — jangan dipakai:** `paper`, `paper-dark`, `pencil`, `highlight`, `note-yellow`, `note-green`, `note-pink`, `note-blue`, `font-hand`, `font-body`, `shadow-paper`, `shadow-note`, `shadow-card`.
 
@@ -281,11 +289,19 @@ Flow:
 
 | Role | Class | Font | Dipakai untuk |
 | --- | --- | --- | --- |
-| Display | `font-display` | **Shippori Mincho** (serif Jepang) | Kana/kanji besar, judul, angka besar, HankoSeal |
+| Display | `font-display` / `font-mincho` | **Shippori Mincho** (serif Jepang) | Kana/kanji besar, judul, angka besar, HankoSeal |
 | Body | `font-sans` | **Manrope** | Body text, UI |
 | Mono | `font-mono` | **IBM Plex Mono** | Eyebrow, label, angka tabular |
+| Baca | `font-jp` | **Noto Sans JP** → Hiragino/Yu Gothic → system | Teks kana/kanji yang harus dibaca cepat (tabel, daftar) |
 
-Ketiganya dimuat dari Google Fonts di `index.html`. Huruf kana/kanji besar **wajib** `font-display` — itu yang memberi identitas Jepang pada tampilan. Kalau jatuh ke `font-sans`, identitasnya hilang.
+`font-display`, `font-mono`, dan `font-sans` dimuat dari Google Fonts di
+`index.html`. `font-jp` juga memuat **Noto Sans JP** dari CDN, lalu jatuh ke
+Hiragino/Yu Gothic sebelum `system-ui`.
+
+Perbedaan penting: `font-display` (mincho) itu **hiasan** — untuk kanji besar
+dan judul. `font-jp` (sans/meta) itu **fungsional** — untuk teks belajar di
+dalam tabel. Mincho serif sulit dibaca cepat dalam ukuran kecil, jadi jangan
+dipakai untuk isi tabel.
 
 ### Ikon
 
@@ -299,9 +315,10 @@ export type IconName = `ph:${string}`;
 
 Semua pemakaian ikon wajib berawalan `ph:`. Tipe sengaja `string`, bukan union literal, supaya kolom ikon pada array data (mis. daftar mode di `Home.tsx`) tidak butuh `as const`.
 
-Semua 20 nama ikon yang dipakai, sudah diverifikasi ada di `@iconify-json/ph`:
+Semua nama ikon yang dipakai, sudah diverifikasi ada di `@iconify-json/ph`
+(34 ikon, dicek otomatis — lihat gotcha di bawah):
 
-`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, dan trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`).
+`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`), plus `ph:square` / `ph:check-square` (pilih bab), `ph:text-t` (kolom teks), `ph:speaker-high` dan `ph:waveform` (audio), `ph:caret-down` (buka/tutup), dan `ph:funnel` (filter).
 
 Cara cek nama ikon sebelum dipakai:
 
@@ -421,6 +438,8 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Bab tanpa hasil otomatis disembunyikan; **saat searching/filtering tabel dipaksa terbuka** walau babnya tertutup, karena kalau tidak hasil pencarian tidak terlihat sama sekali.
   - Tampilan dibungkus `overflow-x-auto` dengan `min-width`, jadi di iPhone tabel bisa di-scroll mendatar tanpa membuat halaman ikut melebar.
   - Kolom bisa dimunculkan/dihilangkan per kolom, dan lebar tiap kolom dipatuhi lewat `<colgroup>` + `table-layout: fixed`.
+  - Kontrol dipecah jadi `ListControls.tsx` dengan hierarchy: aksi utama (Buka/Tutup semua) memakai tombol pekat, aksi sekunder (pilih/reset kolom) memakai outline, dan sisanya berupa chip/segmented. Panel sengaja dibuat compact — bukan kartu besar berisi kartu-kartu kecil.
+  - Kolom Romaji **tidak** punya lebar px tetap: ia memakai sisa ruang (`0`) agar kolom Arti yang paling memerlukan ruang tetap lega di layar lebar.
 
 ## Sistem Desain
 
@@ -440,6 +459,11 @@ Utilitas CSS kustom di `src/index.css` (layer `@layer components` dan `@layer ut
 | `.k-eyebrow` | Label kecil mono uppercase |
 | `.k-num` | Angka tabular (`font-variant-numeric`) |
 | `.k-underline` | Garis bawah seperti stabilo |
+| `.k-chip` / `.k-chip-on` / `.k-chip-off` | Tombol pil untuk toggle (state aktif = latar pekat + centang, bukan cuma warna) |
+| `.k-seg` / `.k-seg-item` / `.k-seg-on` | Segmented control `role="radio"`, keyboard ←/→ |
+| `.k-collapse` / `.k-collapse-open` | Accordion via `grid-template-rows: 0fr → 1fr` (transisi height tanpa JS) |
+| `.k-rownum` / `.k-kana` / `.k-kanji` / `.k-romaji` / `.k-arti` | Hierarchy tipografi kolom tabel (16.5 / 15.5 / 12.5 / 14 px) |
+| `.k-icon-round` | Penanda tombol ikon bulat — dipakai agar aturan target sentuh 44px bisa mengecualikan tabel |
 | `.writing-vertical` | `writing-mode: vertical-rl` — **terdefinisi tapi belum dipakai** di `src/` |
 | `.scroll-slim` | Scrollbar tipis |
 | `.flip-perspective` / `.flip-inner` / `.flip-face` / `.flip-back` | Kartu flip 3D |
@@ -477,7 +501,11 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Jangan hardcode warna.** Hex, `bg-white`, `text-black`, `text-gray-*`, `bg-blue-*` bikin dark mode rusak. Selalu pakai token semantik.
 - **Token lama sudah dihapus:** `paper`, `paper-dark`, `pencil`, `highlight`, `note-*`, `font-hand`, `font-body`, `shadow-paper/note/card`.
 - **Kana/kanji besar wajib `font-display`.** Jangan pakai `font-sans` untuk teks Jepang besar.
-- **Nama ikon harus berawalan `ph:` dan benar-benar ada** di `@iconify-json/ph`, kalau tidak muncul kotak kosong.
+- **Nama ikon harus berawalan `ph:` dan benar-benar ada** di `@iconify-json/ph`, kalau tidak muncul kotak kosong. Verifikasi seluruh ikon sekaligus (bukan satu per satu):
+  ```bash
+  python -c "import io,glob,re,json; s=set(); [s.update(re.findall(r'\"(ph:[a-z0-9-]+)\"', io.open(f,encoding='utf-8').read())) for f in glob.glob('src/**/*.tsx',recursive=True)]; a=set(json.load(io.open('node_modules/@iconify-json/ph/icons.json',encoding='utf-8'))['icons']); print([i for i in sorted(s) if i.split(':')[1] not in a] or 'semua ikon ada')"
+  ```
+  Nama yang pernah salah dan menghasilkan kotak kosong: `ph:speaker-simple` (yang benar `ph:speaker-high` atau `ph:waveform`) dan `ph:ideogram` (yang benar `ph:text-t`).
 - **HankoSeal memakai CSS shape, bukan glyph font** — jangan diubah jadi teks kanji, supaya tidak bergantung font.
 - **Posisi teks di flashcard:** hint di-`absolute bottom`, konten di dalam wrapper `flex-1 justify-center`. Kalau hint dipasang sebagai elemen flow (mis. dengan `mt-auto`), seluruh teks tergeser ke atas — ini bug yang sudah pernah terjadi.
 - **Baris kanji hanya tampil bila `kanji` terisi.** 951 dari 2.910 entri memang tanpa kanji. Kalau ingin kanji selalu ada, itu perubahan data, bukan UI.
@@ -488,6 +516,9 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.
+- **Opacity di dalam `@apply` harus pakai skala default Tailwind.** `border-line/25` jalan, tapi `border-line/12` atau `/18` **gagal build** (`The class does not exist`). Tulis bracket: `border-line/[0.12]`. Aturan yang sama berlaku untuk class string di JSX.
+- **Accordion harus meng-unmount isi saat tertutup.** Kalau isi hanya dipotong dengan `grid-template-rows: 0fr`, seluruh baris bab yang pernah dibuka tetap ada di DOM — setelah "Buka semua" itu 2.910 `<tr>` yang tidak terlihat tapi tetap di-memory. Pola yang dipakai `BabAccordion.tsx`: `mounted` state + `setTimeout(280ms)` mengikuti `open`. Data tetap aman karena `useBab` menyimpan cache modul, jadi membuka lagi instan.
+- **Target sentuh minimal 44px di perangkat sentuh.** Ada aturan global `@media (pointer: coarse)` di `src/index.css` yang menaikkan `min-height` semua `button` dan `[role="radio"]`. Tombol audio di dalam tabel dikecualikan lewat `aria-label^="Dengarkan"` supaya tinggi baris tetap padat.
 - **Kolom yang disembunyikan harus ikut hilang dari `<colgroup>`,** kalau tidak lebarnya tidak terpakai dan tabel melebar.
 - **Tombol audio hanya dirender kalau `speech.supported && speech.hasVoice`.** Kalau hanya `supported`, tombol muncul sebelum voice terdeteksi lalu hilang sesaat. Di browser tanpa voice `ja` (mis. Firefox sebagian), tombol harus disembunyikan, bukan ditampilkan mati.
 - **Tidak ada aset audio.** Pelafalan dibuat Web Speech API saat runtime — jangan tambahkan file mp3 untuk mempercepat, itu langsung menambah ukuran repo dan bundel.

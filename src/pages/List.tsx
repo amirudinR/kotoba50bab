@@ -1,18 +1,25 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useReducer, useRef } from "react";
 import TopBar from "../components/TopBar";
-import PaperCard from "../components/PaperCard";
 import Button from "../components/Button";
 import AppIcon from "../components/Icon";
-import KotobaTable from "../components/KotobaTable";
-import LoadingRows from "../components/LoadingRows";
+import ListControls from "../components/ListControls";
+import BabAccordion from "../components/BabAccordion";
+import { Chip } from "../components/Controls";
 import { BABS_META, TOTAL_KOTOBA, useBab } from "../data";
-import { useList, type KatakanaMode } from "../store/list";
+import { useList, type ColKey, type KatakanaMode } from "../store/list";
 import { useSpeech } from "../lib/speech";
 import type { Kotoba } from "../types";
 
 interface Props {
   onBack: () => void;
 }
+
+const SORT_OPTIONS = [
+  { value: "bab", label: "Per bab" },
+  { value: "romaji", label: "Abjad romaji" },
+] as const;
+
+type SortBy = (typeof SORT_OPTIONS)[number]["value"];
 
 function matches(it: Kotoba, q: string): boolean {
   if (!q) return true;
@@ -52,232 +59,166 @@ export default function List({ onBack }: Props) {
   const speech = useSpeech();
   const q = query.trim();
   const filtering = q.length > 0 || onlyWithKanji;
+  const canSpeak = speech.supported && speech.hasVoice;
 
-  const katMap: Record<KatakanaMode, string> = {
-    auto: "Auto",
-    kana: "Hiragana",
-    katakana: "Katakana",
+  // Total hasil pencarian ditampilkan di header. tiap bab melaporkan
+  // jumlah barisnya sendiri lewat `report`; efeknya hanya jalan saat
+  // jumlah berubah, jadi tidak memicu render berulang.
+  const counts = useRef(new Map<number, number>());
+  const [hits, bump] = useReducer((n: number) => n + 1, 0);
+
+  const report = (bab: number, n: number) => {
+    if (counts.current.get(bab) !== n) {
+      counts.current.set(bab, n);
+      bump();
+    }
   };
 
+  useEffect(() => {
+    if (!filtering) counts.current.clear();
+  }, [filtering, q, onlyWithKanji]);
+
+  const total = useMemo(
+    () => [...counts.current.values()].reduce((a, b) => a + b, 0),
+    [filtering, hits],
+  );
+
   return (
-    <div className="min-h-full pb-24">
+    <div className="min-h-full pb-20">
       <TopBar
         title="Daftar Kosakata"
-        subtitle="Buka/tutup per bab, atur kolom, dengarkan pelafalan"
+        subtitle={
+          filtering
+            ? `${total.toLocaleString("id-ID")} dari ${TOTAL_KOTOBA.toLocaleString("id-ID")} kata cocok`
+            : `${TOTAL_KOTOBA.toLocaleString("id-ID")} kosakata · 50 bab`
+        }
         onBack={onBack}
       />
 
-      <main className="mx-auto max-w-5xl px-3 pb-6 sm:px-4">
-        {/* —— Pencarian & filter —— */}
-        <PaperCard className="mt-4 p-3 sm:p-4">
-          <div className="relative">
-            <AppIcon
-              icon="ph:magnifying-glass"
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-lg text-muted"
-            />
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Cari kana, kanji, romaji, atau arti…"
-              aria-label="Cari kosakata"
-              className="h-11 w-full rounded-pill border border-line/20 bg-surface pl-10 pr-10 font-sans text-[15px] text-ink outline-none transition placeholder:text-muted focus:border-accent/60"
-            />
-            {query && (
-              <button
-                onClick={() => setQuery("")}
-                aria-label="Bersihkan pencarian"
-                className="absolute right-2.5 top-1/2 grid h-7 w-7 -translate-y-1/2 place-items-center rounded-full text-muted transition hover:bg-ink/10 hover:text-ink"
-              >
-                <AppIcon icon="ph:x" className="text-base" />
-              </button>
-            )}
-          </div>
-
-          <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+      <main className="mx-auto max-w-5xl px-3 pb-8 pt-4 sm:px-5">
+        {/* —— Pencarian —— */}
+        <div className="relative">
+          <AppIcon
+            icon="ph:magnifying-glass"
+            className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[17px] text-muted/70"
+          />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="search"
+            placeholder="Cari kana, kanji, romaji, atau arti…"
+            aria-label="Cari kosakata"
+            className="h-11 w-full rounded-card border border-line/[0.12] bg-surface
+              pl-11 pr-11 text-[14.5px] text-ink outline-none
+              transition-[border-color,box-shadow] duration-150
+              placeholder:text-muted/70 focus:border-accent/50 focus:shadow-soft
+              [&::-webkit-search-cancel-button]:hidden"
+          />
+          {query && (
             <button
-              onClick={toggleOnlyKanji}
-              aria-pressed={onlyWithKanji}
-              className={`rounded-pill border px-2.5 py-1 text-[12px] font-medium transition ${
-                onlyWithKanji
-                  ? "border-ink/35 bg-ink text-surface"
-                  : "border-line/15 bg-sunken/60 text-muted hover:text-ink"
-              }`}
+              type="button"
+              onClick={() => setQuery("")}
+              aria-label="Bersihkan pencarian"
+              title="Bersihkan pencarian"
+              className="absolute right-2.5 top-1/2 grid h-7 w-7 -translate-y-1/2
+                place-items-center rounded-full text-muted transition-colors
+                hover:bg-ink/[0.07] hover:text-ink"
             >
-              <AppIcon icon="ph:ideogram" className="mr-1 inline text-[13px]" />
-              Hanya yang punya kanji
+              <AppIcon icon="ph:x" className="text-[15px]" />
             </button>
+          )}
+        </div>
 
-            <span className="k-eyebrow ml-1">Urutkan</span>
-            {(["bab", "romaji"] as const).map((s) => (
-              <button
-                key={s}
-                onClick={() => setSortBy(s)}
-                aria-pressed={sortBy === s}
-                className={`rounded-pill border px-2.5 py-1 text-[12px] font-medium transition ${
-                  sortBy === s
-                    ? "border-ink/35 bg-ink text-surface"
-                    : "border-line/15 bg-sunken/60 text-muted hover:text-ink"
-                }`}
-              >
-                {s === "bab" ? "Per bab" : "Abjad romaji"}
-              </button>
-            ))}
+        {/* —— Filter cepat —— */}
+        <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+          <Chip
+            active={onlyWithKanji}
+            onClick={toggleOnlyKanji}
+            icon="ph:text-t"
+            title="Tampilkan hanya kosakata yang punya kanji"
+          >
+            Punya kanji
+          </Chip>
 
-            {filtering && (
-              <button
-                onClick={clearFilters}
-                className="ml-auto rounded-pill px-2.5 py-1 text-[12px] font-semibold text-seal underline underline-offset-2"
-              >
-                Bersihkan filter
-              </button>
-            )}
-          </div>
-        </PaperCard>
+          <span className="mx-0.5 h-4 w-px bg-line/[0.12]" aria-hidden />
 
-        {/* —— Toolbar kolom & format —— */}
-        <PaperCard className="mt-3 p-3 sm:p-4">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="k-eyebrow mr-1">Kolom</span>
-            {(
-              [
-                ["no", "No"],
-                ["kana", "Hiragana"],
-                ["katakana", "Katakana"],
-                ["romaji", "Romaji"],
-                ["kanji", "Kanji"],
-                ["arti", "Arti"],
-              ] as const
-            ).map(([k, label]) => {
-              const act = visible[k];
-              return (
-                <button
-                  key={k}
-                  onClick={() => toggleCol(k)}
-                  aria-pressed={act}
-                  className={`rounded-pill border px-2.5 py-1 text-[12px] font-medium transition ${
-                    act
-                      ? "border-ink/35 bg-ink text-surface"
-                      : "border-line/15 bg-sunken/60 text-muted hover:text-ink"
-                  }`}
-                >
-                  {label}
-                </button>
-              );
-            })}
-            <Button
-              variant="ghost"
-              size="sm"
-              icon="ph:columns"
-              onClick={showAllCols}
-              className="ml-1"
+          <span className="mr-0.5 text-[12px] font-medium text-muted">Urut</span>
+          {SORT_OPTIONS.map((s) => (
+            <Chip
+              key={s.value}
+              active={sortBy === s.value}
+              onClick={() => setSortBy(s.value)}
+              title={`Urutkan ${s.label.toLowerCase()}`}
             >
-              Semua kolom
-            </Button>
-            <Button variant="ghost" size="sm" icon="ph:columns" onClick={resetCols}>
-              Reset
-            </Button>
-          </div>
+              {s.label}
+            </Chip>
+          ))}
 
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-line/10 pt-3">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <Button
-                variant="ghost"
-                size="sm"
-                icon="ph:arrows-out"
-                onClick={expandAll}
-              >
-                Buka semua
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                icon="ph:arrows-in"
-                onClick={collapseAll}
-              >
-                Tutup semua
-              </Button>
-            </div>
+          {filtering && (
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="ml-auto inline-flex h-7 items-center gap-1 rounded-pill
+                px-2.5 text-[12px] font-semibold text-accent transition-colors
+                hover:bg-accent/[0.12]"
+            >
+              <AppIcon icon="ph:x-circle" className="text-[14px]" />
+              Bersihkan filter
+            </button>
+          )}
+        </div>
 
-            <div className="flex items-center gap-1.5">
-              <span className="k-eyebrow hidden sm:inline">Format kana</span>
-              <div className="flex items-center gap-0.5 overflow-hidden rounded-pill border border-line/15 bg-surface p-0.5">
-                {(["auto", "kana", "katakana"] as KatakanaMode[]).map((m) => (
-                  <button
-                    key={m}
-                    onClick={() => setKatakanaMode(m)}
-                    aria-pressed={katakanaMode === m}
-                    className={`h-8 rounded-pill px-2.5 text-[13px] font-medium transition ${
-                      katakanaMode === m
-                        ? "bg-ink text-surface shadow-soft"
-                        : "text-muted hover:text-ink"
-                    }`}
-                  >
-                    {katMap[m]}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Aksi bab terpilih */}
-          <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-line/10 pt-3">
-            <span className="k-eyebrow">Bab terpilih</span>
-            <span className="text-[13px] font-semibold text-ink">
-              {focusBabs.length === 0
-                ? "belum ada"
-                : focusBabs.length > 6
-                  ? `${focusBabs.length} bab`
-                  : focusBabs.join(", ")}
-            </span>
-            <div className="ml-auto flex flex-wrap items-center gap-1.5">
-              <Button
-                variant="ghost"
-                size="sm"
-                icon="ph:eye"
-                disabled={focusBabs.length === 0}
-                onClick={() => expandOnly(focusBabs)}
-              >
-                Buka terpilih
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                icon="ph:eye-slash"
-                disabled={focusBabs.length === 0}
-                onClick={() => {
-                  const c: Record<number, boolean> = {};
-                  for (const n of focusBabs) c[n] = true;
-                  useList.setState({ collapsed: { ...collapsed, ...c } });
-                }}
-              >
-                Tutup terpilih
-              </Button>
-            </div>
-          </div>
-        </PaperCard>
+        {/* —— Panel kontrol tampilan —— */}
+        <div className="mt-3">
+          <ListControls
+            visible={visible}
+            onToggleCol={toggleCol}
+            onShowAll={showAllCols}
+            onReset={resetCols}
+            katakanaMode={katakanaMode}
+            onKana={setKatakanaMode}
+            onExpandAll={expandAll}
+            onCollapseAll={collapseAll}
+            focusCount={focusBabs.length}
+            onExpandPicked={() => expandOnly(focusBabs)}
+            onCollapsePicked={() => {
+              const c: Record<number, boolean> = { ...collapsed };
+              for (const n of focusBabs) c[n] = true;
+              useList.setState({ collapsed: c });
+            }}
+          />
+        </div>
 
         {/* —— Daftar per bab —— */}
-        <div className="mt-3 space-y-3">
+        <div className="mt-3 space-y-2">
           {BABS_META.map((meta) => (
-            <BabBlock
+            <BabRow
               key={meta.bab}
-              meta={meta}
+              bab={meta.bab}
+              total={meta.count}
               collapsed={!!collapsed[meta.bab]}
-              isPicked={focusBabs.includes(meta.bab)}
+              picked={focusBabs.includes(meta.bab)}
               onToggle={() => toggleBab(meta.bab)}
               onPick={() => toggleFocusBab(meta.bab)}
-              visible={visible}
+              visible={visible as Record<ColKey, boolean>}
               katakanaMode={katakanaMode}
               query={q}
               onlyWithKanji={onlyWithKanji}
-              sorting={sortBy}
+              sortBy={sortBy}
+              canSpeak={canSpeak}
               speech={speech}
+              report={report}
             />
           ))}
         </div>
 
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-          <Button variant="ghost" size="sm" onClick={onBack}>
+        <div className="mt-6 flex justify-center">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onBack}
+            icon="ph:caret-left"
+          >
             Kembali ke Home
           </Button>
         </div>
@@ -286,110 +227,78 @@ export default function List({ onBack }: Props) {
   );
 }
 
-function BabBlock({
-  meta,
+function BabRow({
+  bab,
+  total,
   collapsed,
-  isPicked,
+  picked,
   onToggle,
   onPick,
   visible,
   katakanaMode,
   query,
   onlyWithKanji,
-  sorting,
+  sortBy,
+  canSpeak,
   speech,
+  report,
 }: {
-  meta: { bab: number; count: number };
+  bab: number;
+  total: number;
   collapsed: boolean;
-  isPicked: boolean;
+  picked: boolean;
   onToggle: () => void;
   onPick: () => void;
-  visible: Record<string, boolean>;
+  visible: Record<ColKey, boolean>;
   katakanaMode: KatakanaMode;
   query: string;
   onlyWithKanji: boolean;
-  sorting: "bab" | "romaji";
+  sortBy: SortBy;
+  canSpeak: boolean;
   speech: ReturnType<typeof useSpeech>;
+  report: (bab: number, n: number) => void;
 }) {
-  // Saat searching/filtering, tabel harus tetap terlihat walau babnya dalam
-  // keadaan tertutup — kalau tidak, hasil pencarian tidak akan terlihat sama
-  // sekali. Bab yang tidak ditampilkan tidak perlu diunduh.
-  const showTable = !collapsed || !!query || onlyWithKanji;
-  const { items, loading } = useBab(meta.bab, showTable);
+  // Saat searching/filtering tabel harus tetap terlihat walau bab tertutup,
+  // karena kalau tidak hasil pencarian tidak akan terlihat sama sekali.
+  const filtering = !!query || onlyWithKanji;
+  const open = !collapsed || filtering;
+  const { items, loading } = useBab(bab, open);
 
   const filtered = useMemo(() => {
     const out = items.filter(
       (it) => (!onlyWithKanji || it.kanji.trim() !== "") && matches(it, query),
     );
-    if (sorting === "romaji" && query) {
+    if (sortBy === "romaji" && query) {
       return [...out].sort((a, b) => a.romaji.localeCompare(b.romaji));
     }
     return out;
-  }, [items, query, onlyWithKanji, sorting]);
+  }, [items, query, onlyWithKanji, sortBy]);
 
-  // Bab tanpa hasil disembunyikan sepenuhnya, termasuk saat belum selesai dimuat
-  // (loading) supaya tidak muncul lalu menghilang.
-  if ((query || onlyWithKanji) && filtered.length === 0) return null;
+  useEffect(() => {
+    report(bab, filtering ? filtered.length : 0);
+  }, [bab, filtering, filtered.length, report]);
+
+  // Bab tanpa hasil disembunyikan sepenuhnya, termasuk saat masih memuat,
+  // supaya tidak muncul lalu menghilang.
+  if (filtering && filtered.length === 0) return null;
 
   return (
-    <PaperCard className="overflow-hidden">
-      <div className="flex items-stretch">
-        <button
-          onClick={onToggle}
-          aria-expanded={showTable}
-          className="flex min-w-0 flex-1 items-center justify-between gap-3 px-3 py-3 text-left sm:px-4"
-        >
-          <div className="flex min-w-0 items-center gap-2.5">
-            <AppIcon
-              icon={collapsed ? "ph:caret-right" : "ph:caret-down"}
-              className="text-base text-ink-soft"
-            />
-            <h2 className="truncate font-display text-base font-semibold text-ink sm:text-lg">
-              Bab {meta.bab}
-            </h2>
-            <span className="k-eyebrow hidden sm:inline">
-              {query || onlyWithKanji
-                ? `${filtered.length} dari ${meta.count}`
-                : `${meta.count} kata`}
-            </span>
-          </div>
-        </button>
-
-        <button
-          onClick={onPick}
-          aria-pressed={isPicked}
-          aria-label={`Pilih bab ${meta.bab}`}
-          className={`grid w-11 shrink-0 place-items-center border-l border-line/10 transition ${
-            isPicked
-              ? "bg-accent/15 text-accent"
-              : "text-muted hover:bg-sunken/60 hover:text-ink"
-          }`}
-        >
-          <AppIcon
-            icon={isPicked ? "ph:check-square" : "ph:square"}
-            className="text-lg"
-          />
-        </button>
-      </div>
-
-      {showTable && (
-        <div className="border-t border-line/10">
-          {loading ? (
-            <LoadingRows rows={5} label={`Memuat bab ${meta.bab}…`} />
-          ) : (
-            <KotobaTable
-              items={filtered}
-              visible={visible as never}
-              katakanaMode={katakanaMode}
-              speak={speech.speak}
-              canSpeak={speech.supported && speech.hasVoice}
-              isSpeaking={speech.isSpeaking}
-            />
-          )}
-        </div>
-      )}
-    </PaperCard>
+    <BabAccordion
+      bab={bab}
+      total={total}
+      shown={filtered.length}
+      open={open}
+      loading={loading}
+      picked={picked}
+      onToggle={onToggle}
+      onPick={onPick}
+      items={filtered}
+      visible={visible}
+      katakanaMode={katakanaMode}
+      speak={speech.speak}
+      canSpeak={canSpeak}
+      isSpeaking={speech.isSpeaking}
+      filtering={filtering}
+    />
   );
 }
-
-export { TOTAL_KOTOBA };

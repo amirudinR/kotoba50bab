@@ -40,32 +40,35 @@
   }
 
   .dark {
-    /* —— Dark: s u m i —— */
-    --c-bg: 18 20 25;
-    --c-surface: 27 30 37;
-    --c-raised: 34 38 47;
-    --c-sunken: 14 16 20;
-    --c-ink: 226 232 240; /* di gelap, "tinta" jadi terang */
-    --c-ink-soft: 150 170 200;
-    --c-body: 214 212 205;
-    --c-muted: 140 144 154;
-    --c-line: 226 232 240;
-    --c-accent: 224 168 96;
-    --c-accent-soft: 58 48 34;
-    --c-seal: 200 78 66;
-    --c-success: 116 190 140;
+    /* —— Dark: s u m i ——
+       Background sengaja tidak hitam penuh (16 18 24). Hitam murni bikin
+       teks terasa berat saat dibaca lama, dan perbedaan antar permukaan
+       jadi sulit dilihat. Di sini gelap tapi tetap "bernapas". */
+    --c-bg: 16 18 24;
+    --c-surface: 26 29 36;
+    --c-raised: 33 37 46;
+    --c-sunken: 12 14 19;
+    --c-ink: 233 238 245; /* di gelap, "tinta" jadi terang */
+    --c-ink-soft: 163 180 206;
+    --c-body: 215 218 224;
+    --c-muted: 145 152 165;
+    --c-line: 233 238 245;
+    --c-accent: 226 175 107; /* kinari/amber — aksen hangat */
+    --c-accent-soft: 59 49 35;
+    --c-seal: 205 88 75;
+    --c-success: 120 195 145;
     --c-success-soft: 30 52 40;
-    --c-danger: 235 110 98;
+    --c-danger: 238 118 106;
     --c-danger-soft: 58 30 28;
-    --c-warn: 226 182 96;
+    --c-warn: 230 189 105;
 
-    --paper-line: 226 232 240;
-    --paper-line-alpha: 0.05;
-    --grain-alpha: 0.02;
+    --paper-line: 233 238 245;
+    --paper-line-alpha: 0.035;
+    --grain-alpha: 0.016;
 
-    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 8px rgb(0 0 0 / 0.28);
-    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.34), 0 8px 24px rgb(0 0 0 / 0.4);
-    --shadow-deep: 0 4px 8px rgb(0 0 0 / 0.4), 0 20px 48px rgb(0 0 0 / 0.55);
+    --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.32), 0 2px 8px rgb(0 0 0 / 0.26);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.34), 0 8px 24px rgb(0 0 0 / 0.36);
+    --shadow-deep: 0 4px 8px rgb(0 0 0 / 0.4), 0 20px 48px rgb(0 0 0 / 0.5);
   }
 
   html {
@@ -160,9 +163,83 @@
       transparent 92%
     );
   }
+
+  /* —— Kontrol: chip & segmented ——
+     dipakai bersama di List, Home, dan Settings supaya state aktif
+     selalu terlihat sama di seluruh aplikasi. */
+  .k-chip {
+    @apply inline-flex shrink-0 cursor-pointer select-none items-center gap-1.5;
+    @apply rounded-pill border px-2.5 py-[5px] text-[12.5px] font-medium;
+    @apply transition-colors duration-150;
+  }
+  .k-chip-off {
+    @apply border-line/[0.12] bg-transparent text-muted;
+    @apply hover:border-line/25 hover:text-ink-soft hover:bg-ink/[0.04];
+  }
+  /* State aktif tidak hanya mengandalkan warna: latar pekat + font tebal
+     + tanda centang, sehingga tetap terbaca oleh pengguna dengan
+     buta warna. */
+  .k-chip-on {
+    @apply border-transparent bg-ink text-surface font-semibold;
+    @apply shadow-soft;
+  }
+
+  .k-seg {
+    @apply flex items-center gap-0.5 rounded-pill border border-line/[0.12]
+      bg-sunken/70 p-[3px];
+  }
+  .k-seg-item {
+    @apply flex-1 cursor-pointer select-none rounded-pill px-3 py-[6px] text-center;
+    @apply text-[13px] font-medium text-muted transition-colors duration-150;
+    @apply hover:text-ink;
+  }
+  .k-seg-on {
+    @apply bg-surface text-ink font-semibold shadow-soft;
+  }
+
+  /* Garis pemisah tipis antar bagian panel */
+  .k-hairline {
+    @apply border-line/10;
+  }
 }
 
+/* Accordion bab: buka/tutup dengan animasi halus.
+   Pakai max-height + grid-rows agar tidak perlu mengukur tinggi di JS. */
 @layer utilities {
+  .k-collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.26s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .k-collapse > * {
+    overflow: hidden;
+  }
+  .k-collapse-open {
+    grid-template-rows: 1fr;
+  }
+
+  /* Angka tabel: rata kiri, kecil, redup — kolom indeks tidak boleh
+     berebut perhatian dengan kana. */
+  .k-rownum {
+    @apply k-num text-[12px] tabular-nums text-muted/70;
+  }
+
+  /* Kana/kanji: ukuran comfortable untuk dibaca, bukan untuk dihias. */
+  .k-kana {
+    @apply font-jp text-[16.5px] leading-[1.45] text-ink;
+    font-feature-settings: "palt" 1;
+  }
+  .k-kanji {
+    @apply font-jp text-[15.5px] leading-[1.45] text-ink-soft;
+    font-feature-settings: "palt" 1;
+  }
+  .k-romaji {
+    @apply font-mono text-[12.5px] leading-[1.5] text-ink-soft/80;
+  }
+  .k-arti {
+    @apply text-[14px] leading-[1.55] text-body;
+  }
+
   /* —— Flip card 3D —— */
   .flip-perspective {
     perspective: 1600px;
@@ -211,7 +288,20 @@
   }
 }
 
-/* Transisi tema halus tanpaeties layout */
+/* Target sentuh: di perangkat sentuh semua kontrol dinaikkan ke minimal
+   44x44 px (rekomendasi Apple HIG / WCAG 2.5.5). Tombol audio di dalam tabel
+   dikecualikan supaya tinggi baris tetap padat dan mudah dipindai. */
+@media (pointer: coarse) {
+  button:not([aria-label^="Dengarkan"]),
+  [role="radio"] {
+    min-height: 44px;
+  }
+  button:not([aria-label^="Dengarkan"]).k-icon-round {
+    min-width: 44px;
+  }
+}
+
+/* Transisi tema halus tanpa menggeser layout */
 .theme-transition,
 .theme-transition *,
 .theme-transition *::before,
