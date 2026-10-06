@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
+import JpText from "../components/JpText";
 import Icon from "../components/Icon";
 
 interface Props {
@@ -211,11 +212,11 @@ export default function QuizPG({
                       <span className="min-w-0 flex-1">
                         <span className="flex items-baseline gap-2">
                           <span className="font-display text-2xl leading-tight text-ink">
-                            {c.kana}
+                            <JpText text={c.kana} />
                           </span>
                           {c.kanji && (
                             <span className="truncate font-display text-base text-muted">
-                              {c.kanji}
+                              <JpText text={c.kanji} />
                             </span>
                           )}
                         </span>
@@ -282,7 +283,7 @@ export default function QuizPG({
                 : "text-2xl sm:text-3xl"
             }`}
           >
-            {prompt}
+            <JpText text={prompt} />
           </div>
 
           {!isKanaMode && q.card.kanji && (
@@ -290,7 +291,7 @@ export default function QuizPG({
               <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
                 petunjuk
               </span>
-              {q.card.kanji}
+              <JpText text={q.card.kanji} />
             </p>
           )}
 
@@ -345,7 +346,10 @@ export default function QuizPG({
                     isKanaMode ? "font-display text-xl" : ""
                   }`}
                 >
-                  {opt}
+                  {/* Penanda katakana hanya sebelum dijawab. Setelah itu
+                      warna status (hijau/merah/redup) yang harus dominan —
+                      kalau tidak, amber menimpa penanda benar/salah. */}
+                  {answered ? opt : <JpText text={opt} />}
                 </span>
 
                 {mark && (
@@ -398,9 +402,14 @@ export default function QuizPG({
                 <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
                   jawaban benar
                 </span>
-                <span className="font-display text-lg text-ink">{q.answer}</span>
+                <span className="font-display text-lg text-ink">
+                  <JpText text={q.answer} />
+                </span>
                 {isKanaMode && q.card.kanji && (
-                  <span className="text-muted"> · {q.card.kanji}</span>
+                  <span className="text-muted">
+                    {" · "}
+                    <JpText text={q.card.kanji} />
+                  </span>
                 )}
               </p>
             </div>

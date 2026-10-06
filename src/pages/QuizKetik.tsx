@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
+import JpText from "../components/JpText";
 import AppIcon from "../components/Icon";
 
 interface Props {
@@ -172,11 +173,11 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
                       <span className="min-w-0 flex-1">
                         <span className="flex items-baseline gap-2">
                           <span className="font-display text-2xl leading-tight text-ink">
-                            {c.kana}
+                            <JpText text={c.kana} />
                           </span>
                           {c.kanji && (
                             <span className="truncate font-display text-base text-muted">
-                              {c.kanji}
+                              <JpText text={c.kanji} />
                             </span>
                           )}
                         </span>
@@ -240,7 +241,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
                 : "text-2xl sm:text-3xl"
             }`}
           >
-            {prompt}
+            <JpText text={prompt} />
           </div>
 
           {viewMode === "arti-kana" && q.kanji && (
@@ -248,7 +249,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
               <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
                 petunjuk
               </span>
-              {q.kanji}
+              <JpText text={q.kanji} />
             </p>
           )}
 
@@ -339,9 +340,14 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
                 <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
                   jawaban benar
                 </span>
-                <span className="font-display text-lg text-ink">{expected}</span>
+                <span className="font-display text-lg text-ink">
+                  <JpText text={expected} />
+                </span>
                 {q.kanji && viewMode === "kana-arti" && (
-                  <span className="text-muted"> · {q.kanji}</span>
+                  <span className="text-muted">
+                    {" · "}
+                    <JpText text={q.kanji} />
+                  </span>
                 )}
               </p>
             </div>

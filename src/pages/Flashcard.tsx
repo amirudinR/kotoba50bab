@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import type { KotobaWithBab } from "../types";
 import { shuffleArray } from "../lib/utils";
+import { BABS_META } from "../data";
 import { useProgress } from "../store/progress";
 import type { ViewMode } from "../store/settings";
 import TopBar from "../components/TopBar";
 import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
 import HankoSeal from "../components/HankoSeal";
+import JpText from "../components/JpText";
 import Icon from "../components/Icon";
 
 interface Props {
@@ -33,6 +35,15 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
     setFlipped(false);
   }, [deck]);
 
+  // Jumlah kosakata per bab untuk judul header. Ambil dari metadata ringan
+  // BABS_META — jangan pakai `deck`, itu cuma jumlah kata yang TERLATIH.
+  // Tidak perlu memuat isi bab hanya untuk satu angka.
+  const babCount = useMemo(() => {
+    const map = new Map<number, number>();
+    for (const b of BABS_META) map.set(b.bab, b.count);
+    return map;
+  }, []);
+
   const card = deck[idx];
   if (!card) {
     return (
@@ -55,6 +66,11 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
   const marked = isHafal(card.bab, card.no);
   const done = deck.filter((c) => hafal.includes(`${c.bab}-${c.no}`)).length;
 
+  const totalBab = babCount.get(card.bab) ?? 0;
+  const subtitle = totalBab
+    ? `Bab ${card.bab} · ${totalBab} kosakata`
+    : `Bab ${card.bab}`;
+
   const isKanaMode = viewMode === "kana-arti";
   const front = isKanaMode ? card.kana : card.arti;
   const back = isKanaMode ? card.arti : card.kana;
@@ -71,7 +87,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
 
   return (
     <div className="min-h-full pb-28">
-      <TopBar title="Flashcard" subtitle={`Bab ${card.bab}`} onBack={onBack} />
+      <TopBar title="Flashcard" subtitle={subtitle} onBack={onBack} />
 
       <div className="mx-auto max-w-xl px-4 pt-4">
         {/* Kemajuan hafalan */}
@@ -231,14 +247,14 @@ function FaceCard({
         <span
           className={`mt-3.5 break-words font-display font-medium leading-[1.15] text-ink ${mainSize}`}
         >
-          {main}
+          <JpText text={main} />
         </span>
 
         {showKanji && (
           <span className="mt-3 flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-1">
             <span className="k-eyebrow text-[10px]">Kanji</span>
             <span className="break-words font-display text-xl leading-snug text-ink-soft sm:text-2xl">
-              {kanji}
+              <JpText text={kanji} />
             </span>
           </span>
         )}
