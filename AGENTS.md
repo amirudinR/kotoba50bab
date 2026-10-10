@@ -14,9 +14,18 @@ Progres hafalan dan statistik kuis disimpan **di perangkat masing-masing** (`loc
 | Fungsi | Hafalan kosakata Minna no Nihongo bab 1–50 |
 | Target deploy | Static site di Vercel |
 | Repository | `https://github.com/amirudinR/kotoba50bab.git` (branch `main`, public) |
+| Domain produksi | `https://kotoba50bab.vercel.app` |
+| Proyek Vercel | `kotoba50bab` (team `amirs-projects-e5d6b990`) |
 | Bahasa UI | Indonesia, dengan label Jepang sebagai elemen visual |
-| Root folder kerja | `D:\LPK\Kotoba N5danN4\kotoba-app` |
+| Root folder kerja | `D:\LPK\Kotoba N5danN4\kotoba-app` **dan** `D:\LPK\kanji-hafalan` |
 | Data sumber | `../kotoba minna no nihonggo bab 1-50-1.pdf` (folder induk, ~5 MB, **tidak** masuk repo) |
+
+> **Catatan folder (jangan tertukar):**
+> - `D:\LPK\kanji-hafalan` — isinya proyek Kotoba ini (nama folder menyesatkan),
+>   terhubung ke repo `kotoba50bab`. Ini yang dipakai di sesi kerja terakhir.
+> - `D:\LPK\Kotoba N5danN4\kotoba-app` — salinan lama proyek Kotoba yang sama.
+> - Proyek **Kanji** (beda proyek) ada di `D:\LPK\KanjiLPK-asli`, repo `KanjiLPK`,
+>   domain `kanjilpk.vercel.app`. **Jangan** campur aduk dengan proyek ini.
 
 ## Tech Stack
 
