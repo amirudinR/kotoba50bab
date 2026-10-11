@@ -5,12 +5,17 @@ export type ColKey = "no" | "kana" | "katakana" | "romaji" | "kanji" | "arti" | 
 
 export type KatakanaMode = "auto" | "kana" | "katakana";
 
+/** Cara menampilkan isi bab: tabel (list) atau kartu (grid). */
+export type ViewMode = "list" | "grid";
+
 export interface ListState {
   /** Bab yang dibuka (collapsed = false). true = ditutup (collapsed). */
   collapsed: Record<number, boolean>;
   /** Kolom yang aktif (tampilkan). */
   visible: Record<ColKey, boolean>;
   katakanaMode: KatakanaMode;
+  /** Tampilan isi bab: tabel (list) atau kartu (grid). */
+  viewMode: ViewMode;
 
   toggleBab: (bab: number) => void;
   setBabCollapsed: (bab: number, v: boolean) => void;
@@ -29,6 +34,7 @@ export interface ListState {
   showAllCols: () => void;
   resetCols: () => void;
   setKatakanaMode: (m: KatakanaMode) => void;
+  setViewMode: (m: ViewMode) => void;
 
   // —— pencarian & filter ——
   query: string;
@@ -103,6 +109,7 @@ export const useList = create<ListState>()(
       focusBabs: [],
       visible: { ...COL_DEFAULT },
       katakanaMode: "auto",
+      viewMode: "list",
 
       toggleBab: (bab) =>
         set((s) => ({ collapsed: { ...s.collapsed, [bab]: !s.collapsed[bab] } })),
@@ -139,6 +146,7 @@ export const useList = create<ListState>()(
       showAllCols: () => set({ visible: { ...COL_ALL } }),
       resetCols: () => set({ visible: { ...COL_DEFAULT } }),
       setKatakanaMode: (m) => set({ katakanaMode: m }),
+      setViewMode: (m) => set({ viewMode: m }),
 
       query: "",
       onlyWithKanji: false,

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import AppIcon from "./Icon";
 import KotobaTable from "./KotobaTable";
+import KotobaGrid from "./KotobaGrid";
 import LoadingRows from "./LoadingRows";
-import type { ColKey, KatakanaMode } from "../store/list";
+import type { ColKey, KatakanaMode, ViewMode } from "../store/list";
 import type { Kotoba } from "../types";
 
 /* ============================================================
@@ -28,6 +29,7 @@ interface Props {
   items: Kotoba[];
   visible: Record<ColKey, boolean>;
   katakanaMode: KatakanaMode;
+  viewMode: ViewMode;
   speak: (t: string) => boolean;
   canSpeak: boolean;
   isSpeaking: boolean;
@@ -47,6 +49,7 @@ export default function BabAccordion({
   items,
   visible,
   katakanaMode,
+  viewMode,
   speak,
   canSpeak,
   isSpeaking,
@@ -144,6 +147,16 @@ export default function BabAccordion({
             <div className="border-t border-line/[0.07]">
               {loading ? (
                 <LoadingRows rows={4} label={`Memuat bab ${bab}…`} />
+              ) : viewMode === "grid" ? (
+                <KotobaGrid
+                  items={items}
+                  visible={visible}
+                  katakanaMode={katakanaMode}
+                  speak={speak}
+                  canSpeak={canSpeak}
+                  isSpeaking={isSpeaking}
+                  bab={bab}
+                />
               ) : (
                 <KotobaTable
                   items={items}

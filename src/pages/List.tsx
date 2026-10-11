@@ -6,7 +6,7 @@ import ListControls from "../components/ListControls";
 import BabAccordion from "../components/BabAccordion";
 import { Chip } from "../components/Controls";
 import { BABS_META, TOTAL_KOTOBA, useBab } from "../data";
-import { useList, type ColKey, type KatakanaMode } from "../store/list";
+import { useList, type ColKey, type KatakanaMode, type ViewMode } from "../store/list";
 import { useSpeech } from "../lib/speech";
 import type { Kotoba } from "../types";
 
@@ -40,6 +40,7 @@ export default function List({ onBack }: Props) {
     collapsed,
     visible,
     katakanaMode,
+    viewMode,
     focusBabs,
     query,
     onlyWithKanji,
@@ -53,6 +54,7 @@ export default function List({ onBack }: Props) {
     setCols,
     resetCols,
     setKatakanaMode,
+    setViewMode,
     toggleFocusBab,
     setQuery,
     toggleOnlyKanji,
@@ -182,6 +184,8 @@ export default function List({ onBack }: Props) {
             onReset={resetCols}
             katakanaMode={katakanaMode}
             onKana={setKatakanaMode}
+            viewMode={viewMode}
+            onViewMode={setViewMode}
             onExpandAll={expandAll}
             onCollapseAll={collapseAll}
             focusCount={focusBabs.length}
@@ -207,6 +211,7 @@ export default function List({ onBack }: Props) {
               onPick={() => toggleFocusBab(meta.bab)}
               visible={visible as Record<ColKey, boolean>}
               katakanaMode={katakanaMode}
+              viewMode={viewMode}
               query={q}
               onlyWithKanji={onlyWithKanji}
               sortBy={sortBy}
@@ -241,6 +246,7 @@ function BabRow({
   onPick,
   visible,
   katakanaMode,
+  viewMode,
   query,
   onlyWithKanji,
   sortBy,
@@ -256,6 +262,7 @@ function BabRow({
   onPick: () => void;
   visible: Record<ColKey, boolean>;
   katakanaMode: KatakanaMode;
+  viewMode: ViewMode;
   query: string;
   onlyWithKanji: boolean;
   sortBy: SortBy;
@@ -300,6 +307,7 @@ function BabRow({
       items={filtered}
       visible={visible}
       katakanaMode={katakanaMode}
+      viewMode={viewMode}
       speak={speech.speak}
       canSpeak={canSpeak}
       isSpeaking={speech.isSpeaking}

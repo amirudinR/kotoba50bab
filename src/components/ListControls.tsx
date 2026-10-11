@@ -1,6 +1,6 @@
 import AppIcon from "./Icon";
 import { Chip, Segmented } from "./Controls";
-import type { ColKey, KatakanaMode } from "../store/list";
+import type { ColKey, KatakanaMode, ViewMode } from "../store/list";
 
 /* ============================================================
    Panel kontrol Halaman List.
@@ -43,6 +43,16 @@ const KANA_OPTIONS: {
   { value: "katakana", label: "カタカナ", short: "カタ", title: "Selalu katakana" },
 ];
 
+const VIEW_OPTIONS: {
+  value: ViewMode;
+  label: string;
+  short: string;
+  title: string;
+}[] = [
+  { value: "list", label: "List", short: "List", title: "Tampilan tabel" },
+  { value: "grid", label: "Grid", short: "Grid", title: "Tampilan kartu" },
+];
+
 interface Props {
   visible: Record<ColKey, boolean>;
   onToggleCol: (k: ColKey) => void;
@@ -51,6 +61,8 @@ interface Props {
   onReset: () => void;
   katakanaMode: KatakanaMode;
   onKana: (m: KatakanaMode) => void;
+  viewMode: ViewMode;
+  onViewMode: (m: ViewMode) => void;
   onExpandAll: () => void;
   onCollapseAll: () => void;
   focusCount: number;
@@ -83,6 +95,8 @@ export default function ListControls({
   onReset,
   katakanaMode,
   onKana,
+  viewMode,
+  onViewMode,
   onExpandAll,
   onCollapseAll,
   focusCount,
@@ -90,6 +104,7 @@ export default function ListControls({
   onCollapsePicked,
 }: Props) {
   const noPicked = focusCount === 0;
+  const isGrid = viewMode === "grid";
   const mainOn = MAIN_COLS.filter((k) => visible[k]).length;
   /* "Buka semua" nonaktif hanya kalau benar-benar tidak ada kolom tersembunyi,
      termasuk Katakana — kalau hanya cek 4 kolom utama, tombol mati padahal
@@ -98,31 +113,45 @@ export default function ListControls({
 
   return (
     <div className="k-card overflow-hidden">
-      {/* —— Baris 1: aksi utama kolom —— */}
+      {/* —— Baris 1: tampilan + aksi utama kolom —— */}
       <div className="flex flex-wrap items-center gap-2 px-3 py-3 sm:px-4">
-        <button
-          type="button"
-          onClick={onShowAllCols}
-          disabled={allColsOn}
-          title="Tampilkan semua kolom"
-          className="inline-flex h-9 items-center gap-1.5 rounded-pill bg-ink
-            px-3.5 text-[13px] font-semibold text-surface shadow-soft
-            transition-[filter,transform] duration-150 hover:brightness-110
-            active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40"
-        >
-          <AppIcon icon="ph:eye" className="text-[15px]" />
-          Buka semua
-        </button>
-        <button
-          type="button"
-          onClick={onHideMainCols}
-          disabled={mainOn === 0}
-          title="Tutup kolom Hiragana, Romaji, Kanji, dan Arti"
-          className={OUTLINE + " disabled:pointer-events-none disabled:opacity-40"}
-        >
-          <AppIcon icon="ph:eye-slash" className="text-[15px]" />
-          Tutup semua
-        </button>
+        <div className="flex items-center gap-2">
+          <span className="text-[12px] font-medium text-muted">Tampilan</span>
+          <Segmented
+            options={VIEW_OPTIONS}
+            value={viewMode}
+            onChange={onViewMode}
+          />
+        </div>
+
+        {!isGrid && (
+          <>
+            <span className="mx-0.5 hidden h-6 w-px bg-line/[0.12] sm:block" aria-hidden />
+            <button
+              type="button"
+              onClick={onShowAllCols}
+              disabled={allColsOn}
+              title="Tampilkan semua kolom"
+              className="inline-flex h-9 items-center gap-1.5 rounded-pill bg-ink
+                px-3.5 text-[13px] font-semibold text-surface shadow-soft
+                transition-[filter,transform] duration-150 hover:brightness-110
+                active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40"
+            >
+              <AppIcon icon="ph:eye" className="text-[15px]" />
+              Buka semua
+            </button>
+            <button
+              type="button"
+              onClick={onHideMainCols}
+              disabled={mainOn === 0}
+              title="Tutup kolom Hiragana, Romaji, Kanji, dan Arti"
+              className={OUTLINE + " disabled:pointer-events-none disabled:opacity-40"}
+            >
+              <AppIcon icon="ph:eye-slash" className="text-[15px]" />
+              Tutup semua
+            </button>
+          </>
+        )}
 
         <div className="ml-auto flex items-center gap-1">
           <button type="button" onClick={onReset} title="Kembalikan kolom ke tampilan awal" className={QUIET}>
@@ -132,22 +161,24 @@ export default function ListControls({
         </div>
       </div>
 
-      {/* —— Baris 2: toggle kolom —— */}
-      <div className="k-hairline border-t px-3 py-2.5 sm:px-4">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="mr-0.5 w-[52px] shrink-0 text-[12px] font-medium text-muted">Kolom</span>
-          {COLS.map((c) => (
-            <Chip
-              key={c.key}
-              active={visible[c.key]}
-              onClick={() => onToggleCol(c.key)}
-              title={`${visible[c.key] ? "Sembunyikan" : "Tampilkan"} kolom ${c.label}`}
-            >
-              {c.label}
-            </Chip>
-          ))}
+      {/* —— Baris 2: toggle kolom (hanya relevan di tampilan List) —— */}
+      {!isGrid && (
+        <div className="k-hairline border-t px-3 py-2.5 sm:px-4">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="mr-0.5 w-[52px] shrink-0 text-[12px] font-medium text-muted">Kolom</span>
+            {COLS.map((c) => (
+              <Chip
+                key={c.key}
+                active={visible[c.key]}
+                onClick={() => onToggleCol(c.key)}
+                title={`${visible[c.key] ? "Sembunyikan" : "Tampilkan"} kolom ${c.label}`}
+              >
+                {c.label}
+              </Chip>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* —— Baris 3: format kana —— */}
       <div className="k-hairline flex items-center gap-3 px-3 py-2.5 sm:px-4">
