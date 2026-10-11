@@ -230,7 +230,7 @@
     font-feature-settings: "palt" 1;
   }
   .k-kanji {
-    @apply font-jp text-[15.5px] leading-[1.45] text-ink-soft;
+    @apply font-jp text-[13px] leading-[1.45] text-ink-soft sm:text-[15.5px];
     font-feature-settings: "palt" 1;
   }
   .k-romaji {

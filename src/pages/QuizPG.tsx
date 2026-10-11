@@ -215,7 +215,7 @@ export default function QuizPG({
                             <JpText text={c.kana} />
                           </span>
                           {c.kanji && (
-                            <span className="truncate font-display text-base text-muted">
+                            <span className="truncate font-display text-sm text-muted sm:text-base">
                               <JpText text={c.kanji} />
                             </span>
                           )}

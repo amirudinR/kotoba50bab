@@ -253,7 +253,7 @@ function FaceCard({
         {showKanji && (
           <span className="mt-3 flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-1">
             <span className="k-eyebrow text-[10px]">Kanji</span>
-            <span className="break-words font-display text-xl leading-snug text-ink-soft sm:text-2xl">
+            <span className="break-words font-display text-lg leading-snug text-ink-soft sm:text-2xl">
               <JpText text={kanji} />
             </span>
           </span>
