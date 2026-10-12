@@ -186,6 +186,8 @@ kotoba-app/
 │  │  ├─ index.ts           # API async: BABS_META, TOTAL_KOTOBA, useBab, useKotobaByBabs, useAllKotoba, useSearchIndex
 │  │  ├─ index.json         # metadata 50 bab (2.1 KB) — import statis
 │  │  ├─ search.json        # 2.910 entri tanpa romaji (356 KB) — lazy
+│  │  ├─ keiyoushi.ts       # 111 kata sifat (17 na + 94 i) — statis, whitelist manual
+│  │  ├─ doushi.ts          # 294 kata kerja (143 gol1 + 72 gol2 + 79 gol3) — statis, whitelist manual + bentuk kamus
 │  │  ├─ kotoba.json        # sumber monolitik hasil ekstraksi PDF (523 KB)
 │  │  └─ bab/01.json … 50.json  # 50 chunk per bab (±430 KB total) — lazy
 │  ├─ lib/utils.ts          # shuffleArray, sampleN, normalize, artiVariants, isAnswerCorrect
@@ -215,7 +217,9 @@ kotoba-app/
 │     ├─ QuizKetik.tsx      # kuis ketik jawaban
 │     ├─ Search.tsx         # cari kana/kanji/arti (pakai search.json)
 │     ├─ Progress.tsx       # statistik + reset
-│     └─ List.tsx           # daftar lengkap per bab + cari/filter/sort/audio
+│     ├─ List.tsx           # daftar lengkap per bab + cari/filter/sort/audio
+│     ├─ KataSifat.tsx      # daftar kata sifat (na & i) + filter + kartu aturan
+│     └─ KataKerja.tsx      # daftar kata kerja (gol 1/2/3) + bentuk kamus + kartu aturan
 └─ dist/                    # output build (jangan di-commit)
 ```
 
@@ -225,7 +229,7 @@ kotoba-app/
 
 Aplikasi **tidak memakai** `react-router`. Navigasi lewat Zustand: `useApp` menyimpan `route` bertipe `Route`, dan `App.tsx` melakukan `switch (route)`. `go(route)` sekaligus `window.scrollTo({ top: 0 })`.
 
-Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`.
+Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`, `kata-sifat`, `kata-kerja`.
 
 Menambah halaman = tambah union type di `store/app.ts`, komponen di `src/pages/`, dan `case` di `App.tsx`. Tidak ada URL, history, atau deep-link.
 
@@ -436,7 +440,18 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
 
 ## Fitur
 
-- **Home** — Hero dengan kanji 「言葉」 88px + HankoSeal, baris statistik (total kata / bab / dihafal), kartu mode (2 utama + 3 pendukung), grid pilih bab 1–50, toggle urutan acak, bar kemajuan hafalan.
+- **Home** — Hero dengan kanji 「言葉」 88px + HankoSeal, baris statistik (total kata / bab / dihafal), kartu mode (2 utama + 3 pendukung), grid pilih bab 1–50, toggle urutan acak, bar kemajuan hafalan. Dua tombol tambahan: **Kata Sifat** dan **Kata Kerja** (lihat di bawah).
+- **KataSifat** (`route: kata-sifat`, dibuka dari Home "Kata Sifat") — Daftar **111 kata sifat** (17 na + 94 i) dari 50 bab. Sumber data `src/data/keiyoushi.ts`.
+  - Hero 形容詞 + HankoSeal 「形」, switch filter **Semua / な / い** (`Segmented`), pencarian kana/kanji/arti.
+  - Kartu per kata: kana + kanji + badge jenis (な/い dengan warna beda) + arti + label bab, tombol audio & tombol hafal, bar progres "sudah hafal" per daftar yang tampil.
+  - **Kata sifat na** diambil dari tanda `（な）` di kana data bab (akurat). **Kata sifat i** disusun **whitelist manual** — "berakhir い" saja TIDAK cukup karena banyak kata benda juga berakhir い (mis. `せんせい`, `やさい`, `すいえい`).
+  - Duplikat antar-bab digabung (mis. `たのしい` di bab 8 & 39 → satu kartu), kecuali yang beda kanji/arti (mis. `暑い`/panas vs `厚い`/tebal → tetap dua).
+  - Kanji na-adjektiva dirapikan di file ini (`静香（な）`→`静か`, `新設`→`親切`) tanpa menyentuh `src/data/bab/`.
+- **KataKerja** (`route: kata-kerja`, dibuka dari Home "Kata Kerja") — Daftar **294 kata kerja** (Gol 1: 143, Gol 2: 72, Gol 3: 79) dari 50 bab. Sumber data `src/data/doushi.ts`.
+  - Hero 動詞 + HankoSeal 「動」, **kartu aturan menghafal** golongan 1/2/3 (bisa dibuka/tutup), switch filter **Semua / Gol 1 / Gol 2 / Gol 3**, pencarian kana/kamus/kanji/arti/romaji.
+  - Kartu per kata: **bentuk ます** + badge golongan berwarna + **bentuk kamus** (mis. `たべます` → `たべる`) + kanji + arti + label bab, tombol audio & hafal, bar progres hafal.
+  - Golongan ditentukan **manual** (bukan aturan otomatis): `かえります` & `きります` = gol 1, sedangkan `たべます` = gol 2. Semua entri `～します` = gol 3.
+  - Termasuk kata kerja **keigo** bab 49–50 (mis. `いらっしゃいます`, `まいります`) sesuai keputusan user; hanya kalimat salam panjang yang dibuang.
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
 - **QuizPG** — 10 soal, 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
 - **QuizKetik** — 10 soal, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
@@ -524,6 +539,10 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **`getKotobaByBabs` sudah tidak ada.** API data sekarang berbasis hook (`useKotobaByBabs`, `useBab`, `useSearchIndex`). Fungsi async tidak boleh dipanggil langsung di badan render — harus lewat hook, kalau tidak akan renderloop.
 - **Flashcard & kuis hanya menerima `pool` setelah siap.** `App.tsx` memanggil `useKotobaByBabs(selectedBabs)` dan menampilkan `Frame` + `LoadingRows` selama `loading`, jadi halaman anak baru dirender setelah `pool` tersedia. Jangan diubah supaya halaman anak ikut di-render saat `pool` masih kosong.
 - **Data JSON tidak lagi di-bundle statis.** Kalau butuh menambah data, jalankan `python tools/build_data.py` — jangan mengexport langsung dari `kotoba.json` di `src/data/index.ts`, karena itu membatalkan lazy-load dan menaikkan bundle ±70 KB gzip.
+- **`src/data/keiyoushi.ts` & `src/data/doushi.ts` adalah file MANUAL — bukan hasil generate.** Keduanya sengaja statis (bukan lazy JSON) karena kecil (~15 KB gabungan) dan disusun satu per satu.
+  - `keiyoushi.ts`: kata sifat na dari tanda `（な）`, kata sifat i dari whitelist manual. Jangan ganti jadi filter otomatis "berakhir い" — itu memasukkan kata benda (`せんせい`, `やさい`, `すいえい`).
+  - `doushi.ts`: golongan 1/2/3 ditentukan manual, karena "berakhir -imasu/-emasu" saja menyesatkan (`かえります`/`きります` = gol 1, `たべます` = gol 2). Bentuk kamus juga manual di peta `M` di skrip pembentuknya.
+  - Menambah/mengubah kata = edit file itu langsung. Kunci hafal memakai `(bab, no)` yang sama seperti data bab, jadi tombol hafal tetap sinkron dengan Flashcard/Quiz/Progress.
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.

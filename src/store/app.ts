@@ -8,7 +8,8 @@ export type Route =
   | "search"
   | "progress"
   | "list"
-  | "kata-sifat";
+  | "kata-sifat"
+  | "kata-kerja";
 
 interface AppState {
   route: Route;

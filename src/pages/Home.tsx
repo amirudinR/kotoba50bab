@@ -138,6 +138,12 @@ export default function Home() {
             desc="な & い (111 kata)"
             onClick={() => go("kata-sifat")}
           />
+          <ModeRow
+            icon="ph:lightning"
+            title="Kata Kerja"
+            desc="Gol 1 · 2 · 3 (294 kata)"
+            onClick={() => go("kata-kerja")}
+          />
         </section>
 
         {/* —— Urutan acak —— */}
