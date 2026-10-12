@@ -21,9 +21,9 @@ interface Props {
  */
 const WIDTH: Record<ColKey, number> = {
   no: 44,
-  kana: 168,
-  katakana: 156,
-  romaji: 196,
+  kana: 208,
+  katakana: 196,
+  romaji: 236,
   kanji: 128,
   arti: 0, // sisa ruang
   audio: 44,
@@ -104,22 +104,34 @@ export default function KotobaTable({
                 </td>
               )}
               {visible.kana && (
-                <td className="k-kana whitespace-nowrap border-b border-line/[0.06] px-3 py-[11px]">
+                <td
+                  className="k-kana overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
+                  title={it.kana}
+                >
                   {maybeKatakana(it.kana, katakanaMode)}
                 </td>
               )}
               {visible.katakana && (
-                <td className="whitespace-nowrap border-b border-line/[0.06] px-3 py-[11px] font-jp text-[15.5px] leading-[1.45] text-ink-soft">
+                <td
+                  className="overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px] font-jp text-[15.5px] leading-[1.45] text-ink-soft"
+                  title={maybeKatakana(it.kana, "katakana")}
+                >
                   {maybeKatakana(it.kana, "katakana")}
                 </td>
               )}
               {visible.romaji && (
-                <td className="k-romaji whitespace-nowrap border-b border-line/[0.06] px-3 py-[11px]">
+                <td
+                  className="k-romaji overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
+                  title={it.romaji}
+                >
                   {it.romaji}
                 </td>
               )}
               {visible.kanji && (
-                <td className="k-kanji border-b border-line/[0.06] px-3 py-[11px]">
+                <td
+                  className="k-kanji overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
+                  title={it.kanji || undefined}
+                >
                   {it.kanji || (
                     <span aria-hidden className="text-muted/40">
                       —
@@ -128,7 +140,10 @@ export default function KotobaTable({
                 </td>
               )}
               {visible.arti && (
-                <td className="k-arti border-b border-line/[0.06] px-3 py-[11px]">
+                <td
+                  className="k-arti overflow-hidden text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
+                  title={it.arti}
+                >
                   {it.arti}
                 </td>
               )}
