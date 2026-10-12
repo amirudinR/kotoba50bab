@@ -7,7 +7,8 @@ export type Route =
   | "quiz-ketik"
   | "search"
   | "progress"
-  | "list";
+  | "list"
+  | "kata-sifat";
 
 interface AppState {
   route: Route;

@@ -132,6 +132,12 @@ export default function Home() {
             desc="Statistik hafalan"
             onClick={() => go("progress")}
           />
+          <ModeRow
+            icon="ph:text-aa"
+            title="Kata Sifat"
+            desc="な & い (111 kata)"
+            onClick={() => go("kata-sifat")}
+          />
         </section>
 
         {/* —— Urutan acak —— */}

@@ -8,6 +8,7 @@ import QuizKetik from "./pages/QuizKetik";
 import Search from "./pages/Search";
 import Progress from "./pages/Progress";
 import List from "./pages/List";
+import KataSifat from "./pages/KataSifat";
 import { useApp, type Route } from "./store/app";
 import LoadingRows from "./components/LoadingRows";
 
@@ -75,6 +76,8 @@ export default function App() {
       return <Progress onBack={() => go("home")} />;
     case "list":
       return <List onBack={() => go("home")} />;
+    case "kata-sifat":
+      return <KataSifat onBack={() => go("home")} />;
     default:
       return <Home />;
   }
