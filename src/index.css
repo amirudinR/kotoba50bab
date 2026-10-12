@@ -79,6 +79,15 @@
     color-scheme: dark;
   }
 
+  /* `#root` tanpa tinggi membuat `min-h-full` (min-height: 100%) di halaman
+     tidak berfungsi. Beri acuan tinggi penuh agar konten pendek tetap
+     mengisi viewport, sementara konten tinggi tetap bisa di-scroll normal. */
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
   body {
     @apply font-sans text-body antialiased;
     min-height: 100%;
@@ -97,11 +106,21 @@
         transparent 3px
       );
     background-size: 100% 32px, auto;
-    background-attachment: fixed;
-    overscroll-behavior-y: none;
+    /* `background-attachment: fixed` memicu scroll yang tersendat/macet di
+       banyak browser mobile (iOS Safari, Chrome Android). Jadi hanya dipakai
+       di perangkat penunjuk presisi (desktop) — di layar sentuh latar mengikuti
+       alur dokumen biasa. `overscroll-behavior: none` juga dihapus karena
+       mematikan pantulan scroll yang wajar di iOS. */
+    overscroll-behavior-y: auto;
     transition:
       background-color 0.3s ease,
       color 0.3s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    body {
+      background-attachment: fixed;
+    }
   }
 
   /* Fokus keyboard yang jelas (aksesibilitas) */
@@ -241,8 +260,35 @@
   }
 
   /* —— Flip card 3D —— */
+  /* Tinggi panggung kartu: menyesuaikan tinggi viewport, bukan hanya lebar.
+     Di layar landscape/pendek (mis. HP diputar), tinggi ikut menyusut supaya
+     seluruh halaman tetap bisa di-scroll normal dan kartu tidak "mengunci"
+     pandangan. */
+  .flip-stage {
+    height: clamp(220px, 52vh, 420px);
+  }
+  /* Layar pendek (landscape HP, tablet kecil) — beri ruang lebih hemat. */
+  @media (max-height: 560px) {
+    .flip-stage {
+      height: clamp(180px, 60vh, 300px);
+    }
+    /* Padding bawah besar tidak diperlukan di layar pendek. */
+    .flashcard-root {
+      padding-bottom: 1.5rem;
+    }
+  }
+  /* Landscape HP: konten lain juga dipadatkan agar tak melebihi viewport. */
+  @media (max-height: 480px) and (orientation: landscape) {
+    .flip-stage {
+      height: clamp(150px, 62vh, 240px);
+    }
+  }
+
   .flip-perspective {
     perspective: 1600px;
+    /* Pastikan gesture scroll vertikal menang saat menyentuh kartu,
+       sehingga kartu bisa dibalik (tap) TANPA memblokir scroll halaman. */
+    touch-action: pan-y;
   }
   .flip-inner {
     position: relative;

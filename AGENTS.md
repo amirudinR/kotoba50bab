@@ -538,7 +538,10 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Jangan pakai `cd` di command shell**; pakai working directory. Path mengandung spasi — selalu kutip.
 - **Jangan commit `node_modules`, `dist`, `*.log`, `*.tsbuildinfo`, `dev.pid`, `__pycache__`.**
 - **Jangan hapus `src/data/kotoba.json`** saat scaffold ulang. Regenerasinya mahal dan tidak ada salinan di dalam repo.
-- **`index.html` mengaktifkan `user-scalable=no`.** Keputusan sadar untuk mencegah zoom saat mengetik kuis. Hati-hati mengubahnya.
+- **`index.html` mengaktifkan `user-scalable=no`.** Keputusan sadar untuk mencegah zoom saat mengetik kuis. Hati-hati mengubahnya. **Jangan hapus `maximum-scale=1.0`/`user-scalable=no`** untuk "memperbaiki scroll" — itu tidak menyelesaikan apa pun dan justru memunculkan auto-zoom saat mengetik di `QuizKetik` (pernah dicoba, dikembalikan). Scroll halaman tidak dipengaruhi meta viewport.
+- **Scroll di layar sentuh — jangan pakai `background-attachment: fixed` global.** `fixed` pada `body` membuat scroll tersendat/macet di iOS Safari & Chrome Android. Karena itu latar kertas hanya di-`fixed` di `@media (hover: hover) and (pointer: fine)` (desktop). `overscroll-behavior-y` juga sengaja `auto` (bukan `none`) — `none` mematikan pantulan scroll yang wajar di iOS.
+- **Tinggi kartu Flashcard ada di `.flip-stage`, bukan inline style.** Di layar pendek/landscape HP, `clamp(280px, 52vh, ...)` membuat halaman melebihi viewport sehingga bagian bawah (kontrol, teks bantuan) sulit dijangkau. `.flip-stage` menurunkannya lewat media query `max-height: 560px` & `max-height: 480px (landscape)`. `Touch-action: pan-y` pada `.flip-perspective` menjaga scroll vertikal tetap menang saat menyentuh kartu — **jangan** ubah jadi `none`, itu yang bikin halaman mentok tak bisa di-scroll.
+- **`#root` diberi `min-height: 100%`** bersama `html`/`body`. Tanpa itu, `min-h-full` (min-height:100%) di tiap halaman tidak berfungsi karena parent-nya ber-tinggi `auto`. Konten tinggi tetap bisa di-scroll normal.
 - **Service worker bisa menahan cache** setelah build + preview. `registerType: "autoUpdate"` sudah ada, tapi tetap lakukan hard-reload saat dev.
 - **Google Fonts dimuat via CDN** — butuh internet untuk Shippori Mincho/Manrope/IBM Plex Mono. Offline, font jatuh ke fallback.
 

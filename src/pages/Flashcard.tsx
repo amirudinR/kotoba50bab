@@ -86,7 +86,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
   }
 
   return (
-    <div className="min-h-full pb-28">
+    <div className="flashcard-root min-h-full pb-10 sm:pb-28">
       <TopBar title="Flashcard" subtitle={subtitle} onBack={onBack} />
 
       <div className="mx-auto max-w-xl px-4 pt-4">
@@ -116,8 +116,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
 
         {/* Kartu */}
         <div
-          className="flip-perspective select-none"
-          style={{ height: "clamp(280px, 52vh, 420px)" }}
+          className="flip-perspective flip-stage select-none"
           onClick={() => setFlipped((f) => !f)}
           onKeyDown={(e) => {
             if (e.key === " " || e.key === "Enter") {
