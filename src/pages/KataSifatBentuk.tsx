@@ -75,6 +75,8 @@ interface BentukColDef {
   group: GrupBentuk | null;
   /** Nilai teks untuk sel body; null = kolom dasar (khusus). */
   nilai: ((k: KeiyoushiBentuk) => string) | null;
+  /** Kolom variasi sopan じゃ/ではありません: hanya dirender saat gaya = "formal". */
+  khususFormal?: boolean;
 }
 
 const BENTUK_COLS: BentukColDef[] = [
@@ -89,10 +91,10 @@ const BENTUK_COLS: BentukColDef[] = [
   { key: "forPosLampau", sub: "Lampau", group: "formal-positif", nilai: (k) => k.formalPositifLampau },
   { key: "forNegKini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatifKini },
   { key: "forNegLampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatifLampau },
-  { key: "forNeg2Kini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatif2Kini },
-  { key: "forNeg2Lampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatif2Lampau },
-  { key: "forNeg3Kini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatif3Kini },
-  { key: "forNeg3Lampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatif3Lampau },
+  { key: "forNeg2Kini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatif2Kini, khususFormal: true },
+  { key: "forNeg2Lampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatif2Lampau, khususFormal: true },
+  { key: "forNeg3Kini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatif3Kini, khususFormal: true },
+  { key: "forNeg3Lampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatif3Lampau, khususFormal: true },
 ];
 
 /** Info grup: urutan, label, & tone warna (untuk header gabungan). */
@@ -637,6 +639,8 @@ function BabBentuk({
   // Kolom yang benar-benar dirender: gaya cocok DAN kolom tidak disembunyikan chip.
   const cols = BENTUK_COLS.filter((c) => {
     if (c.group === null) return true;
+    // Kolom variasi sopan じゃ/ではありません hanya saat gaya = "formal".
+    if (c.khususFormal && gaya !== "formal") return false;
     const g = c.group.startsWith("kasual") ? "kasual" : "formal";
     if (gaya !== "semua" && gaya !== g) return false;
     return isVisible(hidden, c.key);
