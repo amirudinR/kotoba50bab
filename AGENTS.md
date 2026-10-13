@@ -268,6 +268,15 @@ Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `searc
 
 Seluruh halaman memakai kontainer **full lebar** (`mx-auto w-full px-…`), **bukan** `max-w-*`, supaya di desktop tabel & kartu memakai seluruh ruang kanan-kiri. `TopBar` juga full lebar. Yang **tetap sempit** (sengaja): hero teks paragraf di Home (`max-w-md`), layar kosong/loading Flashcard & Quiz (`max-w-md`), kotak jawaban kuis (`max-w-[16rem]`), dan kotak cari panel List (`max-w-[260px]`). Jangan lebarkan elemen-elemen itu — teks panjang jadi tidak nyaman dibaca.
 
+**Grid kartu responsif:** karena kontainer full lebar, grid kartu **menambah kolom otomatis di layar lebar** (mobile 1–2 kolom → `lg`/`xl` jadi 3–6 kolom) supaya tidak ada ruang kosong besar. Breakpoint yang dipakai:
+- Kartu kata (Kata Kerja, Kata Sifat): `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`.
+- Mode pendukung Home: `grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6`.
+- Kartu aturan (Golongan / て-form): `sm:grid-cols-2 lg:grid-cols-3`.
+- Bar per bab (Progress): `sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`.
+- Hasil pencarian (Search): `sm:grid-cols-2 lg:grid-cols-3`.
+- Grid pilih bab Home sengaja tetap `grid-cols-6 sm:grid-cols-10` (50 bab = rapi 5 baris; tombol membesar sendiri).
+- Flashcard dibiarkan sempit (`.flip-stage` punya ukuran sendiri) — kartu terlalu besar justru jelek.
+
 Menambah halaman = tambah union type di `store/app.ts`, komponen di `src/pages/`, dan `case` di `App.tsx`. Tidak ada URL, history, atau deep-link.
 
 `App.tsx` punya guard: masuk `flashcard` / `quiz-pg` / `quiz-ketik` sementara `selectedBabs` kosong → balik ke `home`. Mode yang butuh bab harus masuk array `needsBabs`.

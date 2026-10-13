@@ -135,7 +135,7 @@ export default function KataKerja({ onBack }: Props) {
           </button>
 
           {showRules && (
-            <div className="mt-2 grid gap-2 animate-fade-rise sm:grid-cols-3">
+            <div className="mt-2 grid gap-2 animate-fade-rise sm:grid-cols-2 lg:grid-cols-3">
               {([1, 2, 3] as DoushiKind[]).map((g) => (
                 <PaperCard key={g} className="p-3.5">
                   <div className="flex items-center gap-2">
@@ -226,7 +226,7 @@ export default function KataKerja({ onBack }: Props) {
             </p>
           </div>
         ) : (
-          <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {list.map((d) => {
               const marked = isHafal(d.bab, d.no);
               const key = `${d.bab}-${d.no}`;

@@ -203,7 +203,7 @@ export default function Progress({ onBack }: Props) {
               : "Belum ada bab tuntas. Selesaikan satu bab sampai 100% dulu."}
           </p>
 
-          <ul className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {rows.map((r) => {
               const tuntas = r.total > 0 && r.pct === 100;
               return (

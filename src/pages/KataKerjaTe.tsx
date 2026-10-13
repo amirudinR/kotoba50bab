@@ -226,7 +226,7 @@ export default function KataKerjaTe({ onBack }: Props) {
           </button>
 
           {showRules && (
-            <div className="mt-2 grid gap-2 animate-fade-rise sm:grid-cols-3">
+            <div className="mt-2 grid gap-2 animate-fade-rise sm:grid-cols-2 lg:grid-cols-3">
               {ATURAN.map((g) => (
                 <PaperCard key={g.title} className="p-3.5">
                   <div className="flex items-baseline justify-between gap-2">

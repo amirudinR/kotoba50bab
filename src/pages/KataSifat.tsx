@@ -162,7 +162,7 @@ export default function KataSifat({ onBack }: Props) {
             </p>
           </div>
         ) : (
-          <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {list.map((k) => {
               const marked = isHafal(k.bab, k.no);
               const key = `${k.bab}-${k.no}`;

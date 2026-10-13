@@ -336,7 +336,7 @@ export default function KataSifatBentuk({ onBack }: Props) {
         </PaperCard>
 
         {/* —— Kartu cara membaca bentuk —— */}
-        <section className="mt-4 grid gap-2 sm:grid-cols-2">
+        <section className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           <PaperCard className="p-3.5">
             <div className="flex items-center gap-2">
               <span className="rounded-md bg-ink/[0.08] px-2 py-0.5 font-mono text-[11px] font-semibold text-ink-soft">

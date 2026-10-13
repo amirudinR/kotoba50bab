@@ -85,7 +85,7 @@ export default function Search({ onBack }: Props) {
             <p className="mb-2 text-xs text-muted">
               {results.length} hasil
             </p>
-            <div className="space-y-2">
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {results.map((k) => {
                 const marked = isHafal(k.bab, k.no);
                 return (
