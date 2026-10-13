@@ -10,7 +10,7 @@ import { useSpeech } from "../lib/speech";
 import TopBar from "../components/TopBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
-import { Segmented, Chip } from "../components/Controls";
+import { Segmented } from "../components/Controls";
 import { useColWidths, pickWidth } from "../store/colwidth";
 import { useColVis, isVisible } from "../store/colvis";
 import ColResizer from "../components/ColResizer";
@@ -48,6 +48,10 @@ const WIDTH = {
   forPosLampau: 132,
   forNegKini: 148,
   forNegLampau: 166,
+  forNeg2Kini: 168,
+  forNeg2Lampau: 210,
+  forNeg3Kini: 178,
+  forNeg3Lampau: 220,
 } as const;
 
 type ColKeyBentuk = keyof typeof WIDTH;
@@ -85,6 +89,10 @@ const BENTUK_COLS: BentukColDef[] = [
   { key: "forPosLampau", sub: "Lampau", group: "formal-positif", nilai: (k) => k.formalPositifLampau },
   { key: "forNegKini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatifKini },
   { key: "forNegLampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatifLampau },
+  { key: "forNeg2Kini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatif2Kini },
+  { key: "forNeg2Lampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatif2Lampau },
+  { key: "forNeg3Kini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatif3Kini },
+  { key: "forNeg3Lampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatif3Lampau },
 ];
 
 /** Info grup: urutan, label, & tone warna (untuk header gabungan). */
@@ -105,23 +113,80 @@ const GAYA_OPTIONS: { value: GayaBentuk; label: string; short: string }[] = [
 ];
 
 /**
- * 8 tombol chip untuk menyembunyikan/menampilkan kolom bentuk (satu per kolom).
- * `gaya` = "kasual" atau "formal"; chip dengan gaya di luar gaya aktif dinonaktifkan.
+ * Tombol pil untuk menyembunyikan/menampilkan kolom bentuk (satu per kolom).
+ * - `label` = teks ringkas di pil; `full` = tooltip lengkap.
+ * - `gaya` = "kasual" | "formal"; pil dengan gaya di luar gaya aktif dinonaktifkan.
+ * - `khususFormal: true` = pil じゃ/ではありません; HANYA dirender saat gaya = "formal".
  */
 const BENTUK_TOGGLES: {
   key: ColKeyBentuk;
   label: string;
+  full: string;
   gaya: "kasual" | "formal";
+  khususFormal?: boolean;
 }[] = [
-  { key: "kasPosKini", label: "Kasual positif kini", gaya: "kasual" },
-  { key: "kasPosLampau", label: "Kasual positif lampau", gaya: "kasual" },
-  { key: "kasNegKini", label: "Kasual negatif kini", gaya: "kasual" },
-  { key: "kasNegLampau", label: "Kasual negatif lampau", gaya: "kasual" },
-  { key: "forPosKini", label: "Formal positif kini", gaya: "formal" },
-  { key: "forPosLampau", label: "Formal positif lampau", gaya: "formal" },
-  { key: "forNegKini", label: "Formal negatif kini", gaya: "formal" },
-  { key: "forNegLampau", label: "Formal negatif lampau", gaya: "formal" },
+  { key: "kasPosKini", label: "+ kini", full: "Kasual positif kini", gaya: "kasual" },
+  { key: "kasPosLampau", label: "+ lampau", full: "Kasual positif lampau", gaya: "kasual" },
+  { key: "kasNegKini", label: "− kini", full: "Kasual negatif kini", gaya: "kasual" },
+  { key: "kasNegLampau", label: "− lampau", full: "Kasual negatif lampau", gaya: "kasual" },
+  { key: "forPosKini", label: "+ kini", full: "Formal positif kini (です)", gaya: "formal" },
+  { key: "forPosLampau", label: "+ lampau", full: "Formal positif lampau (でした)", gaya: "formal" },
+  { key: "forNegKini", label: "− kini", full: "Formal negatif kini (じゃないです)", gaya: "formal" },
+  { key: "forNegLampau", label: "− lampau", full: "Formal negatif lampau (じゃなかったです)", gaya: "formal" },
+  { key: "forNeg2Kini", label: "じゃありません", full: "Formal negatif kini (じゃありません)", gaya: "formal", khususFormal: true },
+  { key: "forNeg2Lampau", label: "じゃありませんでした", full: "Formal negatif lampau (じゃありませんでした)", gaya: "formal", khususFormal: true },
+  { key: "forNeg3Kini", label: "ではありません", full: "Formal negatif kini (ではありません)", gaya: "formal", khususFormal: true },
+  { key: "forNeg3Lampau", label: "ではありませんでした", full: "Formal negatif lampau (ではありませんでした)", gaya: "formal", khususFormal: true },
 ];
+
+
+interface PilBentukProps {
+  label: string;
+  title: string;
+  active: boolean;
+  disabled?: boolean;
+  tone: "success" | "danger";
+  onClick: () => void;
+}
+
+/**
+ * Pil compact untuk panel kolom bentuk — lebih ringkas & modern dari `Chip`.
+ * Tone positif (hijau) / negatif (merah) mengikuti grup kolomnya.
+ */
+function PilBentuk({
+  label,
+  title,
+  active,
+  disabled = false,
+  tone,
+  onClick,
+}: PilBentukProps) {
+  const toneOn =
+    tone === "success"
+      ? "border-success/30 bg-success-soft text-success"
+      : "border-danger/30 bg-danger-soft text-danger";
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-pressed={active}
+      title={title}
+      className={[
+        "inline-flex h-[30px] items-center gap-1 rounded-full border px-2.5",
+        "text-[11.5px] font-semibold leading-none transition-all duration-150",
+        "active:scale-[0.96]",
+        active
+          ? toneOn
+          : "border-line/[0.14] bg-transparent text-muted hover:border-line/30 hover:text-ink-soft",
+        disabled ? "pointer-events-none opacity-30" : "",
+      ].join(" ")}
+    >
+      {active && <AppIcon icon="ph:check" className="text-[11px]" />}
+      {label}
+    </button>
+  );
+}
 
 
 function matches(k: KeiyoushiBentuk, q: string): boolean {
@@ -134,7 +199,13 @@ function matches(k: KeiyoushiBentuk, q: string): boolean {
     k.positifKini.toLowerCase().includes(n) ||
     k.positifLampau.toLowerCase().includes(n) ||
     k.negatifKini.toLowerCase().includes(n) ||
-    k.negatifLampau.toLowerCase().includes(n)
+    k.negatifLampau.toLowerCase().includes(n) ||
+    k.formalPositifKini.toLowerCase().includes(n) ||
+    k.formalPositifLampau.toLowerCase().includes(n) ||
+    k.formalNegatifKini.toLowerCase().includes(n) ||
+    k.formalNegatifLampau.toLowerCase().includes(n) ||
+    k.formalNegatif2Kini.toLowerCase().includes(n) ||
+    k.formalNegatif3Kini.toLowerCase().includes(n)
   );
 }
 
@@ -152,10 +223,13 @@ export default function KataSifatBentuk({ onBack }: Props) {
   // Gaya aktif: semua / kasual / formal (persist per tabel).
   const gaya = (useColVis((s) => s.gaya[TABLE_ID]) ?? "semua") as GayaBentuk;
   const setGaya = useColVis((s) => s.setGaya);
-  // Semua chip (dari gaya yang aktif) sedang tampil?
-  const togglesAktif = BENTUK_TOGGLES.filter(
-    (t) => gaya === "semua" || t.gaya === gaya,
-  );
+  // Tombol pil yang RELEVAN di gaya aktif (untuk "Sembunyikan/Tampilkan semua"):
+  // pil khusus formal (じゃ/では) hanya relevan saat gaya = "formal".
+  const togglesAktif = BENTUK_TOGGLES.filter((t) => {
+    if (gaya === "semua")
+      return !t.khususFormal; // mode Semua: pil じゃ/では tidak muncul
+    return t.gaya === gaya;
+  });
   const semuaTampil = togglesAktif.every((t) => isVisible(hiddenBentuk, t.key));
   const canSpeak = speech.supported && speech.hasVoice;
   const [speakingKey, setSpeakingKey] = useState<string | null>(null);
@@ -348,50 +422,86 @@ export default function KataSifatBentuk({ onBack }: Props) {
             </span>
           </div>
 
-          {/* —— Pilih kolom bentuk (8 chip, satu per kolom) —— */}
-          <div className="mt-2 flex flex-wrap items-center gap-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
-            <span className="k-eyebrow shrink-0">Kolom bentuk</span>
-            {BENTUK_TOGGLES.map((t) => {
-              const cocokGaya = gaya === "semua" || t.gaya === gaya;
-              const on = cocokGaya && isVisible(hiddenBentuk, t.key);
-              return (
-                <Chip
-                  key={t.key}
-                  active={on}
-                  disabled={!cocokGaya}
-                  onClick={() => toggleCol(TABLE_ID, t.key)}
-                  title={
-                    cocokGaya
-                      ? `${on ? "Sembunyikan" : "Tampilkan"} kolom ${t.label}`
-                      : `Ganti gaya ke "${t.gaya}" untuk mengatur kolom ini`
-                  }
-                >
-                  {t.label}
-                </Chip>
-              );
-            })}
-            <button
-              type="button"
-              onClick={() =>
-                setManyCols(TABLE_ID, togglesAktif.map((t) => t.key), !semuaTampil)
-              }
-              className="k-chip k-chip-off ml-auto"
-            >
-              <AppIcon
-                icon={semuaTampil ? "ph:eye-slash" : "ph:eye"}
-                className="text-[13px]"
-              />
-              {semuaTampil ? "Sembunyikan semua" : "Tampilkan semua"}
-            </button>
-            <button
-              type="button"
-              onClick={() => useColWidths.getState().resetTable(TABLE_ID)}
-              title="Kembalikan lebar kolom ke ukuran awal"
-              className="k-chip k-chip-off"
-            >
-              <AppIcon icon="ph:arrows-in" className="text-[13px]" />
-              Reset lebar
-            </button>
+          {/* —— Panel pil kolom bentuk (2 baris: Kasual / Formal) —— */}
+          <div className="mt-2 space-y-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
+            {/* Baris Kasual */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="k-eyebrow w-[52px] shrink-0">Kasual</span>
+              {BENTUK_TOGGLES.filter((t) => t.gaya === "kasual").map((t) => {
+                const cocokGaya = gaya === "semua" || gaya === "kasual";
+                const on = cocokGaya && isVisible(hiddenBentuk, t.key);
+                return (
+                  <PilBentuk
+                    key={t.key}
+                    label={t.label}
+                    title={`${t.full} — ${on ? "sembunyikan" : "tampilkan"}`}
+                    tone={t.label.startsWith("+") ? "success" : "danger"}
+                    active={on}
+                    disabled={!cocokGaya}
+                    onClick={() => toggleCol(TABLE_ID, t.key)}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Baris Formal */}
+            <div className="flex flex-wrap items-center gap-1.5 border-t border-line/[0.07] pt-2">
+              <span className="k-eyebrow w-[52px] shrink-0">Formal</span>
+              {BENTUK_TOGGLES.filter(
+                (t) =>
+                  t.gaya === "formal" &&
+                  (!t.khususFormal || gaya === "formal"),
+              ).map((t) => {
+                const cocokGaya = gaya === "semua" || gaya === "formal";
+                const on = cocokGaya && isVisible(hiddenBentuk, t.key);
+                return (
+                  <PilBentuk
+                    key={t.key}
+                    label={t.label}
+                    title={`${t.full} — ${on ? "sembunyikan" : "tampilkan"}`}
+                    tone={t.label.startsWith("+") ? "success" : "danger"}
+                    active={on}
+                    disabled={!cocokGaya}
+                    onClick={() => toggleCol(TABLE_ID, t.key)}
+                  />
+                );
+              })}
+              {gaya === "formal" && (
+                <span className="ml-1 text-[11px] text-muted/70">
+                  · variasi sopan じゃ/では
+                </span>
+              )}
+            </div>
+
+            {/* Aksi panel */}
+            <div className="flex flex-wrap items-center gap-1.5 border-t border-line/[0.07] pt-2">
+              <button
+                type="button"
+                onClick={() =>
+                  setManyCols(
+                    TABLE_ID,
+                    togglesAktif.map((t) => t.key),
+                    !semuaTampil,
+                  )
+                }
+                className="k-chip k-chip-off"
+              >
+                <AppIcon
+                  icon={semuaTampil ? "ph:eye-slash" : "ph:eye"}
+                  className="text-[13px]"
+                />
+                {semuaTampil ? "Sembunyikan semua" : "Tampilkan semua"}
+              </button>
+              <button
+                type="button"
+                onClick={() => useColWidths.getState().resetTable(TABLE_ID)}
+                title="Kembalikan lebar kolom ke ukuran awal"
+                className="k-chip k-chip-off"
+              >
+                <AppIcon icon="ph:arrows-in" className="text-[13px]" />
+                Reset lebar
+              </button>
+            </div>
           </div>
         </div>
 
@@ -798,6 +908,22 @@ function BabBentuk({
                           const teks = c.nilai ? c.nilai(k) : "";
                           const isPos = c.group?.endsWith("positif");
                           const isFormal = c.group?.startsWith("formal");
+                          if (!teks) {
+                            // Kolom tidak berlaku untuk kata ini (mis. じゃ/ではありません
+                            // untuk i-adj). Tampilkan tanda "–" redup agar rapi.
+                            return (
+                              <td
+                                key={c.key}
+                                className={[
+                                  "border-b border-line/[0.06] px-3 py-[9px] text-[14px] text-muted/40",
+                                  c.sub === "Kini" ? "border-l border-line/[0.06]" : "",
+                                ].join(" ")}
+                                title="Tidak berlaku untuk kata ini"
+                              >
+                                –
+                              </td>
+                            );
+                          }
                           return (
                             <td
                               key={c.key}

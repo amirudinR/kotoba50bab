@@ -169,7 +169,7 @@ Dua file data **turunan** di `src/data/` dibangun oleh skrip, bukan diedit manua
 
 | Skrip | Sumber | Output | Isi |
 | --- | --- | --- | --- |
-| `tools/build_keiyoushi_konjugasi.py` | `src/data/keiyoushi.ts` | `src/data/keiyoushi_konjugasi.ts` | 111 kata sifat × 8 bentuk (kasual & formal, positif/negatif × kini/lampau) + atributif na-adj |
+| `tools/build_keiyoushi_konjugasi.py` | `src/data/keiyoushi.ts` | `src/data/keiyoushi_konjugasi.ts` | 111 kata sifat × 12 bentuk (kasual & formal, positif/negatif × kini/lampau; + 2 variasi negatif formal na-adj) + atributif na-adj |
 | `tools/build_doushi_te.py` | `src/data/doushi.ts` | `src/data/doushi_te.ts` | 294 kata kerja × bentuk て (dari kamus + golongan) |
 
 ```bash
@@ -211,7 +211,7 @@ kotoba-app/
 │  │  ├─ index.json         # metadata 50 bab (2.1 KB) — import statis
 │  │  ├─ search.json        # 2.910 entri tanpa romaji (356 KB) — lazy
 │  │  ├─ keiyoushi.ts       # 111 kata sifat (17 na + 94 i) — statis, whitelist manual
-│  │  ├─ keiyoushi_konjugasi.ts # 111 kata sifat × 8 bentuk (kasual+formal, positif/negatif kini/lampau) — hasil generate dari keiyoushi.ts
+│  │  ├─ keiyoushi_konjugasi.ts # 111 kata sifat × 12 bentuk (kasual+formal, positif/negatif kini/lampau) — hasil generate dari keiyoushi.ts
 │  │  ├─ doushi.ts          # 294 kata kerja (140 gol1 + 75 gol2 + 79 gol3) — statis, whitelist manual + bentuk kamus
 │  │  ├─ doushi_te.ts       # 294 kata kerja × bentuk て (dari kamus) — hasil generate dari doushi.ts
 │  │  ├─ kotoba.json        # sumber monolitik hasil ekstraksi PDF (523 KB)
@@ -299,8 +299,9 @@ itu ke `partialize`/`omit` pada middleware `persist`.
 Di halaman **Bentuk Kata Sifat** & **Bentuk て**, di atas tabel ada **chip** untuk
 menyembunyikan/menampilkan kolom (mirip kontrol kolom List, tapi lebih ringkas):
 
-- **Bentuk Kata Sifat** — ada **Segmented gaya**: `Semua` / `Kasual` / `Formal` (`setGaya`). Di bawahnya **8 chip** (satu per kolom): Kasual positif/negatif kini/lampau + Formal positif/negatif kini/lampau. Chip dengan gaya di luar gaya aktif **dinonaktifkan** (redup, `disabled`). Kolom dasar (`No`, `Kata`, `Arti`) selalu tampil.
-- Kolom dirender bila **(gaya cocok) DAN (chip aktif)**. Default `Semua` + 8 kolom tampil.
+- **Bentuk Kata Sifat** — ada **Segmented gaya**: `Semua` / `Kasual` / `Formal` (`setGaya`). Di bawahnya panel **2 baris pil** (`Kasual` & `Formal`), masing-masing pil compact (`PilBentuk`, label ringkas `+ kini` / `− kini`, tooltip lengkap). Total **12 kolom bentuk**: kasual 4 + formal 8. Kolom dasar (`No`, `Kata`, `Arti`) selalu tampil.
+- **4 pil negatif formal `じゃありません` / `ではありません` (kini+lampau) hanya muncul saat gaya = Formal** (flag `khususFormal` di `BENTUK_TOGGLES`). Di gaya Semua/Kasual pil itu tidak dirender. Hanya berlaku untuk **na-adj**; sel i-adj untuk kolom ini menampilkan "–" redup.
+- Pil dengan gaya di luar gaya aktif **dinonaktifkan** (redup, `disabled`). Kolom dirender bila **(gaya cocok) DAN (pil aktif)**. Default `Semua` + 8 kolom dasar tampil.
 - **Bentuk て** — 2 chip: `Kamus`, `て` (satu kolom per chip).
 - Ada tombol **"Sembunyikan semua" / "Tampilkan semua"** di kanan (ikon `ph:eye` / `ph:eye-slash`).
 - Ada juga tombol **"Reset lebar"** (ikon `ph:arrows-in`) di panel yang sama untuk mengembalikan lebar kolom ke default.
@@ -549,9 +550,10 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Kolom: **No · Kata (kana + kanji + badge な/い + tombol hafal) · Arti (tombol audio) · lalu 8 kolom bentuk**. Baris kepala tabel punya **4 grup**: **Kasual · Positif (普通形 肯定)** dan **Kasual · Negatif (普通形 否定)** [kolom kasual: `だ`/`だった`/`じゃない`/`じゃなかった`], lalu **Formal · Positif (丁寧形 肯定)** dan **Formal · Negatif (丁寧形 否定)** [kolom formal/+です: `です`/`でした`/`じゃないです`/`じゃなかったです`]. Tiap grup punya sub-kolom Kini / Lampau.
   - Positif memakai warna `text-ink` (header `success-soft`), negatif memakai `text-seal` (header `danger-soft`). Kolom formal diberi latar tipis `bg-ink/[0.015]` sebagai pembeda.
   - Tombol **"Buka semua"/"Tutup semua"** untuk seluruh blok bab yang tampil. Tabel `overflow-x-auto` + `colgroup` fixed + sel `overflow-hidden` (biar tidak meluber).
-  - **Segmented gaya** (`Semua` / `Kasual` / `Formal`) + **8 chip** di atas tabel untuk memilih kolom bentuk (satu chip per kolom). Chip di luar gaya aktif **dinonaktifkan**. Tombol "Sembunyikan/Tampilkan semua" hanya berlaku untuk chip dari gaya aktif. Disimpan di `kotoba-colvis` (lihat bagian "Pilih kolom tabel").
+  - **Segmented gaya** (`Semua` / `Kasual` / `Formal`) + panel **2 baris pil** untuk memilih kolom bentuk. **12 kolom bentuk**: kasual 4 + formal 8 (formal negatif punya 3 variasi: `じゃないです` / `じゃありません` / `ではありません`, kini+lampau). Pil di luar gaya aktif **dinonaktifkan**; 4 pil `じゃ/では` (flag `khususFormal`) **hanya muncul saat gaya = Formal**. Kolom `じゃ/ではありません` kosong untuk i-adj → ditampilkan "–" redup. Tombol "Sembunyikan/Tampilkan semua" hanya berlaku untuk pil dari gaya aktif. Disimpan di `kotoba-colvis` (lihat bagian "Pilih kolom tabel").
   - Aturan konjugasi **kasual**: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`; khusus **`いい` tidak beraturan** → `いい / よかった / よくない / よくなかった` (juga `よい`, `かっこいい` lewat peta `IRREGULAR`).
   - Aturan konjugasi **formal (+です)**: i-adj = bentuk kasual + `です` (`おおきいです / おおきかったです / おおきくないです / おおきくなかったです`); na-adj = `～です / ～でした / ～じゃないです / ～じゃなかったです`.
+  - Negatif formal versi tambahan (**na-adj saja**, field `formalNegatif2*` & `formalNegatif3*`): `～じゃありません / ～じゃありませんでした` dan `～ではありません / ～ではありませんでした`. i-adj dikosongkan (ditampilkan "–" di UI).
 - **KataKerjaTe** (`route: kata-kerja-te`, dibuka dari Home "Bentuk て") — **Tabel bentuk て kata kerja** per bab. Sumber data `src/data/doushi_te.ts` (digenerate dari `doushi.ts`).
   - Hero 動詞 + HankoSeal 「て」, **kartu aturan て-form** per golongan (bisa buka-tutup): Gol 1 (う・つ・る→って, む・ぶ・ぬ→んで, く→いて, ぐ→いで, す→して), Gol 2 (る→て), Gol 3 (する→して, くる→きて).
   - **Satu tabel per bab, bisa dibuka/tutup** (pola sama seperti KataSifatBentuk). Kolom: **No · Kata (kamus + badge golongan + tombol hafal) · Arti (tombol audio) · Kamus · て**.
@@ -667,9 +669,10 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
   - `keiyoushi.ts`: kata sifat na dari tanda `（な）`, kata sifat i dari whitelist manual. Jangan ganti jadi filter otomatis "berakhir い" — itu memasukkan kata benda (`せんせい`, `やさい`, `すいえい`).
   - `doushi.ts`: golongan 1/2/3 ditentukan manual, karena "berakhir -imasu/-emasu" saja menyesatkan (`かえります`/`きります` = gol 1, `たべます` = gol 2). Bentuk kamus juga manual di peta `M` di skrip pembentuknya.
   - Menambah/mengubah kata = edit file itu langsung. Kunci hafal memakai `(bab, no)` yang sama seperti data bab, jadi tombol hafal tetap sinkron dengan Flashcard/Quiz/Progress.
-- **`src/data/keiyoushi_konjugasi.ts` adalah file GENERATE — jangan edit per baris.** Isinya `keiyoushi.ts` (111 kata) + 8 bentuk konjugasi (4 kasual + 4 formal) + bentuk atributif na-adj. Cara mengubah: edit `keiyoushi.ts` dulu, lalu generate ulang.
+- **`src/data/keiyoushi_konjugasi.ts` adalah file GENERATE — jangan edit per baris.** Isinya `keiyoushi.ts` (111 kata) + 12 bentuk (4 kasual + 8 formal) + bentuk atributif na-adj. Cara mengubah: edit `keiyoushi.ts` dulu, lalu generate ulang.
   - Aturan kasual: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`. Field `attributif` (mis. `げんきな`) hanya diisi untuk na-adj; i-adj dikosongkan.
   - Aturan formal (field `formal*`): i-adj = bentuk kasual + `です`; na-adj = `～です / ～でした / ～じゃないです / ～じゃなかったです`.
+  - Negatif formal versi tambahan (field `formalNegatif2*` = じゃありません, `formalNegatif3*` = ではありません): **na-adj saja**, i-adj dikosongkan. Ditampilkan "–" di UI untuk i-adj.
   - Skrip generator (`tools/build_keiyoushi_konjugasi.py` & `tools/build_doushi_te.py`) memakai path **relatif** ke root proyek (`os.path.dirname(os.path.dirname(os.path.abspath(__file__)))`). Jangan kembalikan ke path absolut hardcoded ke `D:\LPK\Kotoba N5danN4\kotoba-app` — itu menulis ke folder yang salah (salinan lama).
   - **`いい` tidak beraturan** — negatifnya `よくない` (bukan `いくない`), lampau `よかった`. Peta `IRREGULAR` menangani `いい`, `よい`, `かっこいい`. Kalau menambah i-adj tidak beraturan lain, tambahkan ke peta itu, jangan andalkan aturan `～い` otomatis.
   - Halaman `KataSifatBentuk.tsx` memakai komponen `k-collapse` + `dibuka &&` agar isi bentuk di-unmount saat tertutup (pola sama seperti `BabAccordion`).
@@ -682,7 +685,9 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Halaman aplikasi memakai lebar penuh (`mx-auto w-full px-…`), bukan `max-w-*`.** Ini keputusan sadar supaya tabel & kartu memakai seluruh ruang di desktop. Jangan kembalikan `max-w-3xl`/`max-w-5xl`/`max-w-xl` ke kontainer utama halaman. Yang tetap sempit: paragraf hero Home, layar loading Flashcard/Quiz, kotak jawaban kuis, dan kotak cari panel List — lihat bagian "Lebar halaman" di atas.
 - **Mode "Semua bab" di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` menampilkan seluruh bab 1–50.** Bab tanpa isi tetap dirender sebagai header redup (ikon `ph:minus`, teks "Tidak ada kata sifat/kata kerja di bab ini") dan tombolnya tidak interaktif. Saat filter/pencarian aktif, `babGroups` dikembalikan hanya bab yang punya hasil. Hitungan "sudah hafal" & "Buka semua" memakai `babIsi` (bab yang ada isinya), bukan `babGroups`.
 - **Kolom bentuk bisa disembunyikan (`store/colvis.ts`, key `kotoba-colvis`).** Di `KataSifatBentuk.tsx` kolom disusun dari `BENTUK_COLS`, difilter dua syarat: **(1) gaya cocok** (`gaya === "semua"` atau gaya grup sama dengan `gaya` aktif) **dan (2) chip kolom aktif** (`isVisible`). Header grup pakai `colSpan` dinamis dan **tidak dirender bila grupnya kosong**. Jangan hardcode `colSpan={2}` lagi — itu akan jebol saat chip dimatikan. Saat menambah kolom baru, tambahkan ke `BENTUK_COLS` **dan** `BENTUK_TOGGLES` (bukan hanya ke JSX).
-- **Gaya bentuk (semua/kasual/formal) disimpan di `colvis.gaya` per tabel.** Chip dengan `gaya` di luar gaya aktif harus `disabled` — kalau tidak, pengguna bisa mengubah kolom yang sedang tidak tampil dan bingung. `BENTUK_TOGGLES` menyimpan `gaya` ("kasual"/"formal") per kolom untuk pengecekan ini.
+- **Gaya bentuk (semua/kasual/formal) disimpan di `colvis.gaya` per tabel.** Pil dengan `gaya` di luar gaya aktif harus `disabled` — kalau tidak, pengguna bisa mengubah kolom yang sedang tidak tampil dan bingung. `BENTUK_TOGGLES` menyimpan `gaya` ("kasual"/"formal") per kolom untuk pengecekan ini.
+- **4 pil `じゃ/ではありません` ditandai `khususFormal: true` di `BENTUK_TOGGLES`** — HANYA dirender saat `gaya === "formal"` (di gaya Semua/Kasual tidak muncul). `togglesAktif` (untuk "Sembunyikan/Tampilkan semua") juga harus mengecualikan pil `khususFormal` saat `gaya === "semua"`, kalau tidak tombol itu menyembunyikan kolom yang sedang tak terlihat.
+- **Kolom `formalNegatif2*` (じゃありません) & `formalNegatif3*` (ではありません) hanya terisi untuk na-adj.** Saat merender, teks kosong → tampilkan "–" redup (bukan sel kosong), supaya jelas kolom itu memang tidak berlaku untuk i-adj.
 - **Dua "reset" yang berbeda, jangan tertukar.** Tombol **"Reset"** di `ListControls.tsx` me-reset *visibilitas* kolom (`store/list.resetCols`). Tombol **"Reset lebar"** (ikon `ph:arrows-in`) me-reset *lebar* kolom ke default (`useColWidths.getState().resetTable(id)`, key `kotoba-colwidths`). Keduanya beda store & beda key localStorage.
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.

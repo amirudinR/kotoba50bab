@@ -15,6 +15,11 @@ Aturan formal (sopan, +です):
   i-adj :  bentuk kasual + です
   na-adj:  ~です / ~でした / ~じゃないです / ~じゃなかったです
   Khusus:  mengikuti bentuk kasual tidak beraturan + です
+
+Negatif formal versi tambahan (hanya na-adj):
+  na-adj:  ~じゃありません / ~じゃありませんでした  (variasi sopan)
+           ~ではありません / ~ではありませんでした  (lebih formal/tulis)
+  i-adj :  kosong (tidak punya bentuk ini)
 """
 
 import io, os, re, json
@@ -63,6 +68,26 @@ def konjugasi_formal(kana, kind):
     return (pk + "です", pl + "です", nk + "です", nl + "です")
 
 
+def konjugasi_formal2(kana, kind):
+    """Negatif formal alternatif (じゃありません): (negKini, negLampau).
+
+    Hanya untuk na-adj. i-adj -> ("", "").
+    """
+    if kind != "na":
+        return ("", "")
+    return (kana + "じゃありません", kana + "じゃありませんでした")
+
+
+def konjugasi_formal3(kana, kind):
+    """Negatif formal alternatif (ではありません): (negKini, negLampau).
+
+    Hanya untuk na-adj. i-adj -> ("", "").
+    """
+    if kind != "na":
+        return ("", "")
+    return (kana + "ではありません", kana + "ではありませんでした")
+
+
 def js(s):
     return json.dumps(s, ensure_ascii=False)
 
@@ -96,6 +121,9 @@ def main():
     L.append("// Aturan formal (+です):")
     L.append("//   i-adj :  bentuk kasual + です")
     L.append("//   na-adj:  ~です / ~でした / ~じゃないです / ~じゃなかったです")
+    L.append("// Negatif formal versi tambahan (na-adj saja):")
+    L.append("//   ~じゃありません / ~じゃありませんでした")
+    L.append("//   ~ではありません / ~ではありませんでした")
     L.append("")
     L.append('import type { KeiyoushiKind } from "./keiyoushi";')
     L.append("")
@@ -116,6 +144,16 @@ def main():
     L.append("  formalPositifLampau: string;")
     L.append("  formalNegatifKini: string;")
     L.append("  formalNegatifLampau: string;")
+    L.append(
+        '  /** Negatif formal alt. "じゃありません" (na-adj saja; kosong untuk i-adj). */'
+    )
+    L.append("  formalNegatif2Kini: string;")
+    L.append("  formalNegatif2Lampau: string;")
+    L.append(
+        '  /** Negatif formal alt. "ではありません" (na-adj saja; kosong untuk i-adj). */'
+    )
+    L.append("  formalNegatif3Kini: string;")
+    L.append("  formalNegatif3Lampau: string;")
     L.append("}")
     L.append("")
     L.append("export const KEIYOUSHI_BENTUK: KeiyoushiBentuk[] = [")
@@ -124,6 +162,8 @@ def main():
     for bab, no, kana, kanji, arti, kind in rows:
         pk, pl, nk, nl = konjugasi(kana, kind)
         fpk, fpl, fnk, fnl = konjugasi_formal(kana, kind)
+        f2k, f2l = konjugasi_formal2(kana, kind)
+        f3k, f3l = konjugasi_formal3(kana, kind)
         attr = (kana + "な") if kind == "na" else ""
         if kind == "na":
             n_na += 1
@@ -133,7 +173,9 @@ def main():
             "  {{ bab: {b}, no: {n}, kana: {k}, attributif: {at}, kanji: {kj}, arti: {a}, "
             "kind: {kd}, positifKini: {pk}, positifLampau: {pl}, negatifKini: {nk}, "
             "negatifLampau: {nl}, formalPositifKini: {fpk}, formalPositifLampau: {fpl}, "
-            "formalNegatifKini: {fnk}, formalNegatifLampau: {fnl} }},".format(
+            "formalNegatifKini: {fnk}, formalNegatifLampau: {fnl}, "
+            "formalNegatif2Kini: {f2k}, formalNegatif2Lampau: {f2l}, "
+            "formalNegatif3Kini: {f3k}, formalNegatif3Lampau: {f3l} }},".format(
                 b=bab,
                 n=no,
                 k=js(kana),
@@ -149,6 +191,10 @@ def main():
                 fpl=js(fpl),
                 fnk=js(fnk),
                 fnl=js(fnl),
+                f2k=js(f2k),
+                f2l=js(f2l),
+                f3k=js(f3k),
+                f3l=js(f3l),
             )
         )
 
