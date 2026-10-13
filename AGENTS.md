@@ -187,6 +187,7 @@ kotoba-app/
 │  │  ├─ index.json         # metadata 50 bab (2.1 KB) — import statis
 │  │  ├─ search.json        # 2.910 entri tanpa romaji (356 KB) — lazy
 │  │  ├─ keiyoushi.ts       # 111 kata sifat (17 na + 94 i) — statis, whitelist manual
+│  │  ├─ keiyoushi_konjugasi.ts # 111 kata sifat × 4 bentuk (positif/negatif kini/lampau) — hasil generate dari keiyoushi.ts
 │  │  ├─ doushi.ts          # 294 kata kerja (143 gol1 + 72 gol2 + 79 gol3) — statis, whitelist manual + bentuk kamus
 │  │  ├─ kotoba.json        # sumber monolitik hasil ekstraksi PDF (523 KB)
 │  │  └─ bab/01.json … 50.json  # 50 chunk per bab (±430 KB total) — lazy
@@ -219,7 +220,8 @@ kotoba-app/
 │     ├─ Progress.tsx       # statistik + reset
 │     ├─ List.tsx           # daftar lengkap per bab + cari/filter/sort/audio
 │     ├─ KataSifat.tsx      # daftar kata sifat (na & i) + filter + kartu aturan
-│     └─ KataKerja.tsx      # daftar kata kerja (gol 1/2/3) + bentuk kamus + kartu aturan
+│     ├─ KataKerja.tsx      # daftar kata kerja (gol 1/2/3) + bentuk kamus + kartu aturan
+│     └─ KataSifatBentuk.tsx # konjugasi kata sifat: positif/negatif kini/lampau + pilih bab
 └─ dist/                    # output build (jangan di-commit)
 ```
 
@@ -229,7 +231,7 @@ kotoba-app/
 
 Aplikasi **tidak memakai** `react-router`. Navigasi lewat Zustand: `useApp` menyimpan `route` bertipe `Route`, dan `App.tsx` melakukan `switch (route)`. `go(route)` sekaligus `window.scrollTo({ top: 0 })`.
 
-Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`, `kata-sifat`, `kata-kerja`.
+Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`, `kata-sifat`, `kata-kerja`, `kata-sifat-bentuk`.
 
 Menambah halaman = tambah union type di `store/app.ts`, komponen di `src/pages/`, dan `case` di `App.tsx`. Tidak ada URL, history, atau deep-link.
 
@@ -331,7 +333,7 @@ Semua pemakaian ikon wajib berawalan `ph:`. Tipe sengaja `string`, bukan union l
 Semua nama ikon yang dipakai, sudah diverifikasi ada di `@iconify-json/ph`
 (34 ikon, dicek otomatis — lihat gotcha di bawah):
 
-`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`), plus `ph:square` / `ph:check-square` (pilih bab), `ph:text-t` (kolom teks), `ph:speaker-high` dan `ph:waveform` (audio), `ph:caret-down` (buka/tutup), dan `ph:funnel` (filter).
+`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`), plus `ph:square` / `ph:check-square` (pilih bab), `ph:text-t` (kolom teks), `ph:speaker-high` dan `ph:waveform` (audio), `ph:caret-down` / `ph:caret-up` (buka/tutup), `ph:funnel` (filter), `ph:text-aa` (Kata Sifat), `ph:lightning` (Kata Kerja), `ph:lightbulb` (aturan menghafal), `ph:arrow-elbow-down-right` (bentuk kamus), dan `ph:arrows-clockwise` (Bentuk Kata Sifat).
 
 Cara cek nama ikon sebelum dipakai:
 
@@ -452,6 +454,12 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Kartu per kata: **bentuk ます** + badge golongan berwarna + **bentuk kamus** (mis. `たべます` → `たべる`) + kanji + arti + label bab, tombol audio & hafal, bar progres hafal.
   - Golongan ditentukan **manual** (bukan aturan otomatis): `かえります` & `きります` = gol 1, sedangkan `たべます` = gol 2. Semua entri `～します` = gol 3.
   - Termasuk kata kerja **keigo** bab 49–50 (mis. `いらっしゃいます`, `まいります`) sesuai keputusan user; hanya kalimat salam panjang yang dibuang.
+- **KataSifatBentuk** (`route: kata-sifat-bentuk`, dibuka dari Home "Bentuk Kata Sifat") — **Konjugasi kata sifat**: positif/negatif × kini/lampau. Sumber data `src/data/keiyoushi_konjugasi.ts` (digenerate dari `keiyoushi.ts`).
+  - Hero 形容詞 + HankoSeal 「変」, dua kartu bantu "cara membaca bentuk" (i-adj & na-adj).
+  - Kontrol: switch filter **Semua / な / い**, **pemilih bab** (`<select>`, hanya bab yang benar-benar punya kata sifat — 27 bab), pencarian (kana/kanji/arti + semua bentuk).
+  - Setiap kartu: kana + kanji + badge jenis + arti + label bab, tombol audio & hafal, lalu **4 baris bentuk collapsible** — Positif kini / Positif lampau / Negatif kini / Negatif lampau (positif pakai `text-ink` + ikon centang, negatif pakai `text-seal` + ikon cross). Na-adj dapat baris tambahan **bentuk + 名詞** (`げんきな` + 名詞).
+  - Bentuk **default tertutup** supaya bisa dipakai menguji diri; ada tombol **"Buka semua"/"Tutup semua"** untuk seluruh kartu yang tampil.
+  - Aturan konjugasi: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`; khusus **`いい` tidak beraturan** → `いい / よかった / よくない / よくなかった` (juga `よい`, `かっこいい` lewat peta `IRREGULAR`).
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
 - **QuizPG** — 10 soal, 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
 - **QuizKetik** — 10 soal, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
@@ -543,6 +551,10 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
   - `keiyoushi.ts`: kata sifat na dari tanda `（な）`, kata sifat i dari whitelist manual. Jangan ganti jadi filter otomatis "berakhir い" — itu memasukkan kata benda (`せんせい`, `やさい`, `すいえい`).
   - `doushi.ts`: golongan 1/2/3 ditentukan manual, karena "berakhir -imasu/-emasu" saja menyesatkan (`かえります`/`きります` = gol 1, `たべます` = gol 2). Bentuk kamus juga manual di peta `M` di skrip pembentuknya.
   - Menambah/mengubah kata = edit file itu langsung. Kunci hafal memakai `(bab, no)` yang sama seperti data bab, jadi tombol hafal tetap sinkron dengan Flashcard/Quiz/Progress.
+- **`src/data/keiyoushi_konjugasi.ts` adalah file GENERATE — jangan edit per baris.** Isinya `keiyoushi.ts` (111 kata) + 4 bentuk konjugasi + bentuk atributif na-adj. Cara mengubah: edit `keiyoushi.ts` dulu, lalu generate ulang.
+  - Aturan: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`. Field `attributif` (mis. `げんきな`) hanya diisi untuk na-adj; i-adj dikosongkan.
+  - **`いい` tidak beraturan** — negatifnya `よくない` (bukan `いくない`), lampau `よかった`. Peta `IRREGULAR` menangani `いい`, `よい`, `かっこいい`. Kalau menambah i-adj tidak beraturan lain, tambahkan ke peta itu, jangan andalkan aturan `～い` otomatis.
+  - Halaman `KataSifatBentuk.tsx` memakai komponen `k-collapse` + `dibuka &&` agar isi bentuk di-unmount saat tertutup (pola sama seperti `BabAccordion`).
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.

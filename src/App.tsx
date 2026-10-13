@@ -10,6 +10,7 @@ import Progress from "./pages/Progress";
 import List from "./pages/List";
 import KataSifat from "./pages/KataSifat";
 import KataKerja from "./pages/KataKerja";
+import KataSifatBentuk from "./pages/KataSifatBentuk";
 import { useApp, type Route } from "./store/app";
 import LoadingRows from "./components/LoadingRows";
 
@@ -81,6 +82,8 @@ export default function App() {
       return <KataSifat onBack={() => go("home")} />;
     case "kata-kerja":
       return <KataKerja onBack={() => go("home")} />;
+    case "kata-sifat-bentuk":
+      return <KataSifatBentuk onBack={() => go("home")} />;
     default:
       return <Home />;
   }

@@ -9,7 +9,8 @@ export type Route =
   | "progress"
   | "list"
   | "kata-sifat"
-  | "kata-kerja";
+  | "kata-kerja"
+  | "kata-sifat-bentuk";
 
 interface AppState {
   route: Route;

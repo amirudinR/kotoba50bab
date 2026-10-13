@@ -144,6 +144,12 @@ export default function Home() {
             desc="Gol 1 · 2 · 3 (294 kata)"
             onClick={() => go("kata-kerja")}
           />
+          <ModeRow
+            icon="ph:arrows-clockwise"
+            title="Bentuk Kata Sifat"
+            desc="Positif & negatif"
+            onClick={() => go("kata-sifat-bentuk")}
+          />
         </section>
 
         {/* —— Urutan acak —— */}
