@@ -607,6 +607,22 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 
 **Progres bersifat per-browser/per-device.** Tidak ada sinkronisasi. Mengganti browser atau menghapus site data akan menghapus progres.
 
+### Status deploy terakhir
+
+| Item | Nilai |
+| --- | --- |
+| Commit terakhir yang di-push | Perbaikan scroll Flashcard (rebase ke atas remote; commit sebelum push = `e380dbb`) |
+| File yang diubah | `src/index.css`, `src/pages/Flashcard.tsx`, `AGENTS.md` |
+| Status push ke `origin/main` | ✅ sudah (repo `kotoba50bab`) |
+| Catatan | Push pertama ditolak (remote lebih baru) → di-rebase, build ulang hijau, lalu push |
+
+> **Aturan anti-bentrok proyek ini:**
+> - Proyek Kotoba **hanya** di `D:\LPK\kanji-hafalan` (repo `kotoba50bab`, domain
+>   `kotoba50bab.vercel.app`). **Jangan** menyentuh `D:\LPK\KanjiLPK-asli` — itu
+>   proyek Kanji (repo `KanjiLPK`). Nama folder `kanji-hafalan` menyesatkan.
+> - Setelah setiap perubahan: `npm run build` **wajib** lolos (satu-satunya
+>   verifikasi, tidak ada lint/test), lalu commit → push.
+
 ## Gotcha & Perhatian
 
 - **`npm run build` adalah satu-satunya verifikasi.** Script-nya `tsc -b && vite build`, jadi error TypeScript menggagalkan build sebelum bundling. Tidak ada `lint`/`test`/`typecheck`.
