@@ -69,13 +69,20 @@ def konjugasi_formal(kana, kind):
 
 
 def konjugasi_formal2(kana, kind):
-    """Negatif formal alternatif (じゃありません): (negKini, negLampau).
+    """Negatif formal alternatif versi sopan: (negKini, negLampau).
 
-    Hanya untuk na-adj. i-adj -> ("", "").
+    - na-adj: ~じゃありません / ~じゃありませんでした
+    - i-adj : ~くありません / ~くありませんでした
+              (dibentuk dari negatif kasual: ganti akhiran ない -> ありません,
+               jadi いい -> よくない -> よくありません, benar untuk kata tak beraturan)
     """
-    if kind != "na":
-        return ("", "")
-    return (kana + "じゃありません", kana + "じゃありませんでした")
+    if kind == "na":
+        return (kana + "じゃありません", kana + "じゃありませんでした")
+    # i-adj: pakai basis negatif kasual (menangani いい -> よくない)
+    nk, nl = konjugasi(kana, kind)[2], konjugasi(kana, kind)[3]
+    if nk.endswith("ない") and nl.endswith("なかった"):
+        return (nk[:-2] + "ありません", nl[:-4] + "ありませんでした")
+    return ("", "")
 
 
 def konjugasi_formal3(kana, kind):

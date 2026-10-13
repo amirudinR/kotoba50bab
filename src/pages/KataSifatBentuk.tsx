@@ -75,7 +75,7 @@ interface BentukColDef {
   group: GrupBentuk | null;
   /** Nilai teks untuk sel body; null = kolom dasar (khusus). */
   nilai: ((k: KeiyoushiBentuk) => string) | null;
-  /** Kolom variasi sopan じゃ/ではありません: hanya dirender saat gaya = "formal". */
+  /** Kolom variasi negatif sopan (na-adj: じゃ/ではありません; i-adj: 〜くありません): hanya dirender saat gaya = "formal". */
   khususFormal?: boolean;
 }
 
@@ -118,7 +118,7 @@ const GAYA_OPTIONS: { value: GayaBentuk; label: string; short: string }[] = [
  * Tombol pil untuk menyembunyikan/menampilkan kolom bentuk (satu per kolom).
  * - `label` = teks ringkas di pil; `full` = tooltip lengkap.
  * - `gaya` = "kasual" | "formal"; pil dengan gaya di luar gaya aktif dinonaktifkan.
- * - `khususFormal: true` = pil じゃ/ではありません; HANYA dirender saat gaya = "formal".
+ * - `khususFormal: true` = pil negatif sopan (じゃ/ではありません atau 〜くありません); HANYA dirender saat gaya = "formal".
  */
 const BENTUK_TOGGLES: {
   key: ColKeyBentuk;
@@ -135,10 +135,10 @@ const BENTUK_TOGGLES: {
   { key: "forPosLampau", label: "+ lampau", full: "Formal positif lampau (でした)", gaya: "formal" },
   { key: "forNegKini", label: "− kini", full: "Formal negatif kini (じゃないです)", gaya: "formal" },
   { key: "forNegLampau", label: "− lampau", full: "Formal negatif lampau (じゃなかったです)", gaya: "formal" },
-  { key: "forNeg2Kini", label: "じゃありません", full: "Formal negatif kini (じゃありません)", gaya: "formal", khususFormal: true },
-  { key: "forNeg2Lampau", label: "じゃありませんでした", full: "Formal negatif lampau (じゃありませんでした)", gaya: "formal", khususFormal: true },
-  { key: "forNeg3Kini", label: "ではありません", full: "Formal negatif kini (ではありません)", gaya: "formal", khususFormal: true },
-  { key: "forNeg3Lampau", label: "ではありませんでした", full: "Formal negatif lampau (ではありませんでした)", gaya: "formal", khususFormal: true },
+  { key: "forNeg2Kini", label: "じゃ/くありません", full: "Negatif sopan kini — na-adj: じゃありません, i-adj: 〜くありません", gaya: "formal", khususFormal: true },
+  { key: "forNeg2Lampau", label: "じゃ/くありませんでした", full: "Negatif sopan lampau — na-adj: じゃありませんでした, i-adj: 〜くありませんでした", gaya: "formal", khususFormal: true },
+  { key: "forNeg3Kini", label: "ではありません", full: "Formal negatif kini (ではありません, na-adj saja)", gaya: "formal", khususFormal: true },
+  { key: "forNeg3Lampau", label: "ではありませんでした", full: "Formal negatif lampau (ではありませんでした, na-adj saja)", gaya: "formal", khususFormal: true },
 ];
 
 
@@ -913,7 +913,7 @@ function BabBentuk({
                           const isPos = c.group?.endsWith("positif");
                           const isFormal = c.group?.startsWith("formal");
                           if (!teks) {
-                            // Kolom tidak berlaku untuk kata ini (mis. じゃ/ではありません
+                            // Kolom tidak berlaku untuk kata ini (mis. ではありません
                             // untuk i-adj). Tampilkan tanda "–" redup agar rapi.
                             return (
                               <td
