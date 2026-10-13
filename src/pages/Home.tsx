@@ -95,7 +95,7 @@ export default function Home() {
             <ModeCard
               icon="ph:check-circle"
               title="Kuis Pilihan Ganda"
-              desc="10 soal · 4 opsi · cek otomatis"
+              desc="4 opsi · sesuai kata bab terpilih"
               onClick={() => go("quiz-pg")}
               disabled={belumAdaBab}
             />

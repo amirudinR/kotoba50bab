@@ -261,138 +261,147 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
           </span>
         </div>
 
-        {/* Kartu pertanyaan */}
-        <PaperCard raised className="k-margin px-5 py-7 text-center">
-          <p className="k-eyebrow">{labelPrompt}</p>
-
-          <div
-            className={`mt-3 break-words font-display leading-tight text-ink ${
-              viewMode === "kana-arti"
-                ? "text-[2.75rem] sm:text-5xl"
-                : "text-2xl sm:text-3xl"
-            }`}
+        {/* Desktop: 2 kolom (soal kiri, input/feedback kanan) supaya muat tanpa scroll. */}
+        <div className="lg:grid lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-6">
+          {/* Kolom kiri: kartu pertanyaan */}
+          <PaperCard
+            raised
+            className="k-margin px-5 py-7 text-center lg:sticky lg:top-20"
           >
-            <JpText text={prompt} />
-          </div>
+            <p className="k-eyebrow">{labelPrompt}</p>
 
-          {viewMode === "arti-kana" && q.kanji && (
-            <p className="mt-3 text-[14px] text-muted">
-              <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                petunjuk
-              </span>
-              <JpText text={q.kanji} />
-            </p>
-          )}
-
-          <p className="k-eyebrow mt-5 normal-case tracking-normal">bab {q.bab}</p>
-        </PaperCard>
-
-        {!answered ? (
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              submit();
-            }}
-            className="mt-5"
-          >
-            <label htmlFor="jawaban" className="k-eyebrow mb-2 block">
-              Jawabanmu
-            </label>
-            <div className="k-card-raised flex items-center gap-3 border-line/20 bg-surface px-4 py-1 transition focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/35">
-              <AppIcon icon="ph:keyboard" className="shrink-0 text-lg text-muted" />
-              <input
-                id="jawaban"
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder={
-                  viewMode === "kana-arti"
-                    ? "Tulis artinya di sini…"
-                    : "Tulis kana/kanji di sini…"
-                }
-                aria-describedby="cara-periksa"
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck={false}
-                className="min-w-0 flex-1 bg-transparent py-4 font-display text-2xl text-ink outline-none placeholder:text-muted/70"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              size="lg"
-              className="mt-3.5 w-full"
-              disabled={!input.trim()}
-              iconRight="ph:arrow-right"
-            >
-              Periksa jawaban
-            </Button>
-
-            <p id="cara-periksa" className="mt-2.5 text-center text-[13px] text-muted">
-              Tekan Enter untuk periksa. Huruf besar dan tanda baca tidak berpengaruh.
-            </p>
-          </form>
-        ) : (
-          <div className="mt-5 animate-fade-rise">
             <div
-              role="status"
-              aria-live="polite"
-              className={`rounded-card border p-4 ${
-                result
-                  ? "border-success/35 bg-success-soft"
-                  : "border-danger/35 bg-danger-soft"
+              className={`mt-3 break-words font-display leading-tight text-ink ${
+                viewMode === "kana-arti"
+                  ? "text-[2.75rem] sm:text-5xl lg:text-[3.5rem]"
+                  : "text-2xl sm:text-3xl lg:text-4xl"
               }`}
             >
-              <div className="flex items-center gap-2.5">
-                <AppIcon
-                  icon={result ? "ph:check-circle" : "ph:x-circle"}
-                  className={`shrink-0 text-2xl ${result ? "text-success" : "text-danger"}`}
-                />
-                <span
-                  className={`font-display text-2xl leading-none ${
-                    result ? "text-success" : "text-danger"
-                  }`}
-                >
-                  {result ? "Benar" : "Kurang tepat"}
-                </span>
-              </div>
-
-              {!result && (
-                <p className="mt-3 text-[14px] text-body">
-                  <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                    kamu tulis
-                  </span>
-                  <span className="k-underline font-medium">{input || "—"}</span>
-                </p>
-              )}
-
-              <p className="mt-1.5 text-[14px] text-body">
-                <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                  jawaban benar
-                </span>
-                <span className="font-display text-lg text-ink">
-                  <JpText text={expected} />
-                </span>
-                {q.kanji && viewMode === "kana-arti" && (
-                  <span className="text-muted">
-                    {" · "}
-                    <JpText text={q.kanji} />
-                  </span>
-                )}
-              </p>
+              <JpText text={prompt} />
             </div>
 
-            <Button
-              className="mt-4 w-full"
-              size="lg"
-              onClick={nextQ}
-              iconRight="ph:arrow-right"
-            >
-              {isLast ? "Lihat hasil" : "Soal berikutnya"}
-            </Button>
+            {viewMode === "arti-kana" && q.kanji && (
+              <p className="mt-3 text-[14px] text-muted">
+                <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                  petunjuk
+                </span>
+                <JpText text={q.kanji} />
+              </p>
+            )}
+
+            <p className="k-eyebrow mt-5 normal-case tracking-normal">bab {q.bab}</p>
+          </PaperCard>
+
+          {/* Kolom kanan: input / feedback */}
+          <div>
+            {!answered ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  submit();
+                }}
+                className="mt-5 lg:mt-0"
+              >
+                <label htmlFor="jawaban" className="k-eyebrow mb-2 block">
+                  Jawabanmu
+                </label>
+                <div className="k-card-raised flex items-center gap-3 border-line/20 bg-surface px-4 py-1 transition focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/35">
+                  <AppIcon icon="ph:keyboard" className="shrink-0 text-lg text-muted" />
+                  <input
+                    id="jawaban"
+                    ref={inputRef}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    placeholder={
+                      viewMode === "kana-arti"
+                        ? "Tulis artinya di sini…"
+                        : "Tulis kana/kanji di sini…"
+                    }
+                    aria-describedby="cara-periksa"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck={false}
+                    className="min-w-0 flex-1 bg-transparent py-4 font-display text-2xl text-ink outline-none placeholder:text-muted/70"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="mt-3.5 w-full"
+                  disabled={!input.trim()}
+                  iconRight="ph:arrow-right"
+                >
+                  Periksa jawaban
+                </Button>
+
+                <p id="cara-periksa" className="mt-2.5 text-center text-[13px] text-muted">
+                  Tekan Enter untuk periksa. Huruf besar dan tanda baca tidak berpengaruh.
+                </p>
+              </form>
+            ) : (
+              <div className="mt-5 animate-fade-rise lg:mt-0">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className={`rounded-card border p-4 ${
+                    result
+                      ? "border-success/35 bg-success-soft"
+                      : "border-danger/35 bg-danger-soft"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <AppIcon
+                      icon={result ? "ph:check-circle" : "ph:x-circle"}
+                      className={`shrink-0 text-2xl ${result ? "text-success" : "text-danger"}`}
+                    />
+                    <span
+                      className={`font-display text-2xl leading-none ${
+                        result ? "text-success" : "text-danger"
+                      }`}
+                    >
+                      {result ? "Benar" : "Kurang tepat"}
+                    </span>
+                  </div>
+
+                  {!result && (
+                    <p className="mt-3 text-[14px] text-body">
+                      <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                        kamu tulis
+                      </span>
+                      <span className="k-underline font-medium">{input || "—"}</span>
+                    </p>
+                  )}
+
+                  <p className="mt-1.5 text-[14px] text-body">
+                    <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                      jawaban benar
+                    </span>
+                    <span className="font-display text-lg text-ink">
+                      <JpText text={expected} />
+                    </span>
+                    {q.kanji && viewMode === "kana-arti" && (
+                      <span className="text-muted">
+                        {" · "}
+                        <JpText text={q.kanji} />
+                      </span>
+                    )}
+                  </p>
+                </div>
+
+                <Button
+                  className="mt-4 w-full"
+                  size="lg"
+                  onClick={nextQ}
+                  iconRight="ph:arrow-right"
+                >
+                  {isLast ? "Lihat hasil" : "Soal berikutnya"}
+                </Button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

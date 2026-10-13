@@ -303,158 +303,165 @@ export default function QuizPG({
           </span>
         </div>
 
-        {/* Kartu pertanyaan */}
-        <PaperCard raised className="k-margin px-5 py-7 text-center">
-          <p className="k-eyebrow">{promptLabel}</p>
-
-          <div
-            className={`mt-3 break-words font-display font-medium leading-tight text-ink ${
-              isKanaMode
-                ? "text-[2.75rem] sm:text-5xl"
-                : "text-2xl sm:text-3xl"
-            }`}
+        {/* Desktop: 2 kolom (soal kiri, opsi kanan) supaya muat tanpa scroll.
+            Mobile: tetap 1 kolom menumpuk. */}
+        <div className="lg:grid lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-6">
+          {/* Kolom kiri: kartu pertanyaan */}
+          <PaperCard
+            raised
+            className="k-margin px-5 py-7 text-center lg:sticky lg:top-20"
           >
-            <JpText text={prompt} />
-          </div>
+            <p className="k-eyebrow">{promptLabel}</p>
 
-          {!isKanaMode && q.card.kanji && (
-            <p className="mt-3 text-[14px] text-muted">
-              <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                petunjuk
-              </span>
-              <JpText text={q.card.kanji} />
-            </p>
-          )}
-
-          <p className="k-eyebrow mt-5 normal-case tracking-normal">bab {q.card.bab}</p>
-        </PaperCard>
-
-        <p className="k-eyebrow mb-2.5 mt-5 normal-case tracking-normal">
-          Pilih {isKanaMode ? "arti" : "kosakata"} yang benar
-        </p>
-
-        {/* Opsi */}
-        <div className="grid gap-2.5" role="group" aria-label="Pilihan jawaban">
-          {q.options.map((opt, i) => {
-            const isThis = normalize(opt) === normalize(q.answer);
-            const isPicked = answered && normalize(opt) === normalize(picked);
-
-            let tone =
-              "border-line/20 bg-surface text-ink hover:border-ink/35 hover:bg-raised active:scale-[0.99]";
-            let badge = "border-line/20 bg-sunken text-body/75";
-            let mark: "check" | "x" | null = null;
-
-            if (answered && isThis) {
-              tone = "border-success/50 bg-success-soft text-success";
-              badge = "border-success/40 bg-success/15 text-success";
-              mark = "check";
-            } else if (answered && isPicked) {
-              tone = "border-danger/50 bg-danger-soft text-danger";
-              badge = "border-danger/40 bg-danger/15 text-danger";
-              mark = "x";
-            } else if (answered) {
-              tone = "border-line/10 bg-surface/50 text-muted opacity-60";
-              badge = "border-line/10 bg-sunken/60 text-body/60";
-            }
-
-            return (
-              <button
-                key={opt}
-                onClick={() => choose(opt)}
-                disabled={answered}
-                className={`flex min-h-[3.25rem] w-full items-center gap-3 rounded-card border px-3.5 py-4 text-left text-[15px] font-semibold shadow-soft transition-[transform,background-color,color,border-color,opacity] duration-150 disabled:pointer-events-none ${tone} ${
-                  mark === "check" ? "animate-stamp-in" : ""
-                }`}
-              >
-                <span
-                  className={`k-num grid h-7 w-7 shrink-0 place-items-center rounded-lg border font-mono text-[11px] font-semibold ${badge}`}
-                >
-                  {LETTERS[i]}
-                </span>
-
-                <span
-                  className={`min-w-0 flex-1 break-words ${
-                    isKanaMode ? "font-display text-xl" : ""
-                  }`}
-                >
-                  {/* Penanda katakana hanya sebelum dijawab. Setelah itu
-                      warna status (hijau/merah/redup) yang harus dominan —
-                      kalau tidak, amber menimpa penanda benar/salah. */}
-                  {answered ? opt : <JpText text={opt} />}
-                </span>
-
-                {mark && (
-                  <Icon
-                    icon={mark === "check" ? "ph:check-circle" : "ph:x-circle"}
-                    className="shrink-0 text-2xl"
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Feedback */}
-        {answered && (
-          <div className="mt-5 animate-fade-rise">
             <div
-              role="status"
-              aria-live="polite"
-              className={`rounded-card border p-4 ${
-                correct
-                  ? "border-success/35 bg-success-soft"
-                  : "border-danger/35 bg-danger-soft"
+              className={`mt-3 break-words font-display font-medium leading-tight text-ink ${
+                isKanaMode
+                  ? "text-[2.75rem] sm:text-5xl lg:text-[3.5rem]"
+                  : "text-2xl sm:text-3xl lg:text-4xl"
               }`}
             >
-              <div className="flex items-center gap-2.5">
-                <Icon
-                  icon={correct ? "ph:check-circle" : "ph:x-circle"}
-                  className={`shrink-0 text-2xl ${correct ? "text-success" : "text-danger"}`}
-                />
-                <span
-                  className={`font-display text-2xl leading-none ${
-                    correct ? "text-success" : "text-danger"
-                  }`}
-                >
-                  {correct ? "Benar" : "Kurang tepat"}
-                </span>
-              </div>
-
-              {!correct && (
-                <p className="mt-3 text-[14px] text-body">
-                  <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                    kamu pilih
-                  </span>
-                  <span className="k-underline font-medium">{picked}</span>
-                </p>
-              )}
-
-              <p className="mt-1.5 text-[14px] text-body">
-                <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                  jawaban benar
-                </span>
-                <span className="font-display text-lg text-ink">
-                  <JpText text={q.answer} />
-                </span>
-                {isKanaMode && q.card.kanji && (
-                  <span className="text-muted">
-                    {" · "}
-                    <JpText text={q.card.kanji} />
-                  </span>
-                )}
-              </p>
+              <JpText text={prompt} />
             </div>
 
-            <Button
-              className="mt-4 w-full py-3.5"
-              size="lg"
-              onClick={nextQ}
-              iconRight="ph:arrow-right"
-            >
-              {isLast ? "Lihat hasil" : "Soal berikutnya"}
-            </Button>
+            {!isKanaMode && q.card.kanji && (
+              <p className="mt-3 text-[14px] text-muted">
+                <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                  petunjuk
+                </span>
+                <JpText text={q.card.kanji} />
+              </p>
+            )}
+
+            <p className="k-eyebrow mt-5 normal-case tracking-normal">bab {q.card.bab}</p>
+          </PaperCard>
+
+          {/* Kolom kanan: opsi + feedback */}
+          <div>
+            <p className="k-eyebrow mb-2.5 mt-5 normal-case tracking-normal lg:mt-0">
+              Pilih {isKanaMode ? "arti" : "kosakata"} yang benar
+            </p>
+
+            {/* Opsi */}
+            <div className="grid gap-2.5" role="group" aria-label="Pilihan jawaban">
+              {q.options.map((opt, i) => {
+                const isThis = normalize(opt) === normalize(q.answer);
+                const isPicked = answered && normalize(opt) === normalize(picked);
+
+                let tone =
+                  "border-line/20 bg-surface text-ink hover:border-ink/35 hover:bg-raised active:scale-[0.99]";
+                let badge = "border-line/20 bg-sunken text-body/75";
+                let mark: "check" | "x" | null = null;
+
+                if (answered && isThis) {
+                  tone = "border-success/50 bg-success-soft text-success";
+                  badge = "border-success/40 bg-success/15 text-success";
+                  mark = "check";
+                } else if (answered && isPicked) {
+                  tone = "border-danger/50 bg-danger-soft text-danger";
+                  badge = "border-danger/40 bg-danger/15 text-danger";
+                  mark = "x";
+                } else if (answered) {
+                  tone = "border-line/10 bg-surface/50 text-muted opacity-60";
+                  badge = "border-line/10 bg-sunken/60 text-body/60";
+                }
+
+                return (
+                  <button
+                    key={opt}
+                    onClick={() => choose(opt)}
+                    disabled={answered}
+                    className={`flex min-h-[3.25rem] w-full items-center gap-3 rounded-card border px-3.5 py-4 text-left text-[15px] font-semibold shadow-soft transition-[transform,background-color,color,border-color,opacity] duration-150 disabled:pointer-events-none ${tone} ${
+                      mark === "check" ? "animate-stamp-in" : ""
+                    }`}
+                  >
+                    <span
+                      className={`k-num grid h-7 w-7 shrink-0 place-items-center rounded-lg border font-mono text-[11px] font-semibold ${badge}`}
+                    >
+                      {LETTERS[i]}
+                    </span>
+
+                    <span
+                      className={`min-w-0 flex-1 break-words ${
+                        isKanaMode ? "font-display text-xl" : ""
+                      }`}
+                    >
+                      {answered ? opt : <JpText text={opt} />}
+                    </span>
+
+                    {mark && (
+                      <Icon
+                        icon={mark === "check" ? "ph:check-circle" : "ph:x-circle"}
+                        className="shrink-0 text-2xl"
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Feedback */}
+            {answered && (
+              <div className="mt-5 animate-fade-rise">
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className={`rounded-card border p-4 ${
+                    correct
+                      ? "border-success/35 bg-success-soft"
+                      : "border-danger/35 bg-danger-soft"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Icon
+                      icon={correct ? "ph:check-circle" : "ph:x-circle"}
+                      className={`shrink-0 text-2xl ${correct ? "text-success" : "text-danger"}`}
+                    />
+                    <span
+                      className={`font-display text-2xl leading-none ${
+                        correct ? "text-success" : "text-danger"
+                      }`}
+                    >
+                      {correct ? "Benar" : "Kurang tepat"}
+                    </span>
+                  </div>
+
+                  {!correct && (
+                    <p className="mt-3 text-[14px] text-body">
+                      <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                        kamu pilih
+                      </span>
+                      <span className="k-underline font-medium">{picked}</span>
+                    </p>
+                  )}
+
+                  <p className="mt-1.5 text-[14px] text-body">
+                    <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                      jawaban benar
+                    </span>
+                    <span className="font-display text-lg text-ink">
+                      <JpText text={q.answer} />
+                    </span>
+                    {isKanaMode && q.card.kanji && (
+                      <span className="text-muted">
+                        {" · "}
+                        <JpText text={q.card.kanji} />
+                      </span>
+                    )}
+                  </p>
+                </div>
+
+                <Button
+                  className="mt-4 w-full py-3.5"
+                  size="lg"
+                  onClick={nextQ}
+                  iconRight="ph:arrow-right"
+                >
+                  {isLast ? "Lihat hasil" : "Soal berikutnya"}
+                </Button>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
