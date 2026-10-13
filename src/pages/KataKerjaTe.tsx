@@ -11,8 +11,9 @@ import { useSpeech } from "../lib/speech";
 import TopBar from "../components/TopBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
-import { Segmented } from "../components/Controls";
+import { Segmented, Chip } from "../components/Controls";
 import { useColWidths, pickWidth } from "../store/colwidth";
+import { useColVis, isVisible } from "../store/colvis";
 import ColResizer from "../components/ColResizer";
 import JpText from "../components/JpText";
 import AppIcon from "../components/Icon";
@@ -79,6 +80,12 @@ type ColKeyTe = keyof typeof WIDTH;
 /** Id tabel untuk menyimpan lebar kolom di localStorage. */
 const TABLE_ID = "te";
 
+/** 2 tombol chip untuk menyembunyikan/menampilkan kolom bentuk kata kerja. */
+const BENTUK_TOGGLES: { key: ColKeyTe; label: string }[] = [
+  { key: "kamus", label: "Kamus" },
+  { key: "te", label: "て" },
+];
+
 function matches(d: DoushiTe, q: string): boolean {
   if (!q) return true;
   const n = q.toLowerCase().trim();
@@ -101,6 +108,11 @@ export default function KataKerjaTe({ onBack }: Props) {
   const speech = useSpeech();
   const canSpeak = speech.supported && speech.hasVoice;
   const [speakingKey, setSpeakingKey] = useState<string | null>(null);
+  // Kolom bentuk yang disembunyikan (chip di atas tabel).
+  const hiddenBentuk = useColVis((s) => s.hidden[TABLE_ID]);
+  const toggleCol = useColVis((s) => s.toggle);
+  const setManyCols = useColVis((s) => s.setMany);
+  const semuaTampil = BENTUK_TOGGLES.every((t) => isVisible(hiddenBentuk, t.key));
 
   const q = query.trim();
 
@@ -282,6 +294,31 @@ export default function KataKerjaTe({ onBack }: Props) {
           </div>
 
           <p className="text-[13px] leading-relaxed text-muted">{KIND_DESC[filter]}</p>
+
+          {/* —— Tampilkan/sembunyikan kolom bentuk (chip) —— */}
+          <div className="flex flex-wrap items-center gap-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
+            <span className="k-eyebrow shrink-0">Kolom bentuk</span>
+            {BENTUK_TOGGLES.map((t) => (
+              <Chip
+                key={t.key}
+                active={isVisible(hiddenBentuk, t.key)}
+                onClick={() => toggleCol(TABLE_ID, t.key)}
+              >
+                {t.label}
+              </Chip>
+            ))}
+            <button
+              type="button"
+              onClick={() => setManyCols(TABLE_ID, BENTUK_TOGGLES.map((t) => t.key), !semuaTampil)}
+              className="k-chip k-chip-off ml-auto"
+            >
+              <AppIcon
+                icon={semuaTampil ? "ph:eye-slash" : "ph:eye"}
+                className="text-[13px]"
+              />
+              {semuaTampil ? "Sembunyikan semua" : "Tampilkan semua"}
+            </button>
+          </div>
         </div>
 
         {/* —— Progres hafal + tombol buka/tutup semua bab —— */}
@@ -338,6 +375,7 @@ export default function KataKerjaTe({ onBack }: Props) {
                 speak={speech.speak}
                 speakingKey={speakingKey}
                 setSpeakingKey={setSpeakingKey}
+                hidden={hiddenBentuk}
               />
             ))}
           </div>
@@ -370,6 +408,8 @@ interface BabTeProps {
   speak: (t: string) => boolean;
   speakingKey: string | null;
   setSpeakingKey: (k: string | null) => void;
+  /** Peta kolom yang disembunyikan (dari useColVis). */
+  hidden: Record<string, boolean> | undefined;
 }
 
 function BabTe({
@@ -383,6 +423,7 @@ function BabTe({
   speak,
   speakingKey,
   setSpeakingKey,
+  hidden,
 }: BabTeProps) {
   const [mounted, setMounted] = useState(open);
 
@@ -402,7 +443,15 @@ function BabTe({
   const setWidth = useColWidths((s) => s.setWidth);
   const widthOf = (key: ColKeyTe) => pickWidth(overrides, key, WIDTH[key]);
 
-  const fixed = widthOf("no") + widthOf("kata") + widthOf("arti") + widthOf("kamus") + widthOf("te");
+  // Kolom yang dirender (kamus & て bisa disembunyikan).
+  const showKamus = isVisible(hidden, "kamus");
+  const showTe = isVisible(hidden, "te");
+  const fixed =
+    widthOf("no") +
+    widthOf("kata") +
+    widthOf("arti") +
+    (showKamus ? widthOf("kamus") : 0) +
+    (showTe ? widthOf("te") : 0);
 
   // Bab tanpa kata kerja: header ditandai, tombol buka/tutup dimatikan.
   if (kosong) {
@@ -483,8 +532,8 @@ function BabTe({
                   <col style={{ width: `${widthOf("no")}px` }} />
                   <col style={{ width: `${widthOf("kata")}px` }} />
                   <col style={{ width: `${widthOf("arti")}px` }} />
-                  <col style={{ width: `${widthOf("kamus")}px` }} />
-                  <col style={{ width: `${widthOf("te")}px` }} />
+                  {showKamus && <col style={{ width: `${widthOf("kamus")}px` }} />}
+                  {showTe && <col style={{ width: `${widthOf("te")}px` }} />}
                 </colgroup>
 
                 <thead>
@@ -508,22 +557,26 @@ function BabTe({
                         onResize={(w) => setWidth(TABLE_ID, "arti", w)}
                       />
                     </th>
-                    <th className="relative border-b border-l border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
-                      Kamus
-                      <ColResizer
-                        width={widthOf("kamus")}
-                        label="Lebar kolom Kamus"
-                        onResize={(w) => setWidth(TABLE_ID, "kamus", w)}
-                      />
-                    </th>
-                    <th className="relative border-b border-l border-line/10 bg-accent-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-accent">
-                      て
-                      <ColResizer
-                        width={widthOf("te")}
-                        label="Lebar kolom て"
-                        onResize={(w) => setWidth(TABLE_ID, "te", w)}
-                      />
-                    </th>
+                    {showKamus && (
+                      <th className="relative border-b border-l border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
+                        Kamus
+                        <ColResizer
+                          width={widthOf("kamus")}
+                          label="Lebar kolom Kamus"
+                          onResize={(w) => setWidth(TABLE_ID, "kamus", w)}
+                        />
+                      </th>
+                    )}
+                    {showTe && (
+                      <th className="relative border-b border-l border-line/10 bg-accent-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-accent">
+                        て
+                        <ColResizer
+                          width={widthOf("te")}
+                          label="Lebar kolom て"
+                          onResize={(w) => setWidth(TABLE_ID, "te", w)}
+                        />
+                      </th>
+                    )}
                   </tr>
                 </thead>
 
@@ -591,16 +644,20 @@ function BabTe({
                             </span>
                           </span>
                         </td>
-                        <td className="border-b border-l border-line/[0.06] px-3 py-[9px] font-jp text-[14px] text-ink-soft">
-                          <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={d.kamus}>
-                            <JpText text={d.kamus} />
-                          </span>
-                        </td>
-                        <td className="border-b border-line/[0.06] px-3 py-[9px] font-jp text-[15px] font-semibold text-accent">
-                          <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={d.te}>
-                            <JpText text={d.te} />
-                          </span>
-                        </td>
+                        {showKamus && (
+                          <td className="border-b border-l border-line/[0.06] px-3 py-[9px] font-jp text-[14px] text-ink-soft">
+                            <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={d.kamus}>
+                              <JpText text={d.kamus} />
+                            </span>
+                          </td>
+                        )}
+                        {showTe && (
+                          <td className="border-b border-l border-line/[0.06] px-3 py-[9px] font-jp text-[15px] font-semibold text-accent">
+                            <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={d.te}>
+                              <JpText text={d.te} />
+                            </span>
+                          </td>
+                        )}
                       </tr>
                     );
                   })}

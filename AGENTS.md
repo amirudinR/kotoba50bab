@@ -221,6 +221,7 @@ kotoba-app/
 │  │  ├─ progress.ts        # hafal, stats (persist) + kataKey()
 │  │  ├─ list.ts            # collapsed, visible, katakanaMode, query, filter, sort (persist)
 │  │  ├─ colwidth.ts        # lebar kolom tabel yang di-resize pengguna (persist) + pickWidth()
+│  │  ├─ colvis.ts          # kolom tabel yang disembunyikan (persist) + isVisible()
 │  │  └─ theme.ts           # light/dark/system (persist) + initTheme()
 │  ├─ components/
 │  │  ├─ Icon.tsx           # wrapper Iconify, tipe IconName = `ph:${string}`
@@ -278,13 +279,26 @@ Tiga store memakai middleware `persist` dari Zustand. Nama key `localStorage`:
 | `useTheme` | `store/theme.ts` | **`kotoba-theme`** | `theme: "light" \| "dark" \| "system"` + `setTheme`, `cycle`, `syncFromSystem` |
 | `useList` | `store/list.ts` | **`kotoba-list`** | `collapsed` (default **semua 50 bab tertutup**), `visible` (kolom), `katakanaMode`, `focusBabs`, `query`, `onlyWithKanji`, `sortBy` + `toggleBab`, `expandAll`, `collapseAll`, `expandOnly`, `toggleCol`, `setCol`, `setCols` (bulk kolom), `showAllCols`, `resetCols`, `setKatakanaMode` |
 | `useColWidths` | `store/colwidth.ts` | **`kotoba-colwidths`** | `widths` (id tabel → colKey → px) + `setWidth`, `resetTable` |
+| `useColVis` | `store/colvis.ts` | **`kotoba-colvis`** | `hidden` (id tabel → colKey → true bila disembunyikan) + `setVisible`, `toggle`, `setMany`, `resetTable` |
 
-Enam key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
+Tujuh key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
 `sortBy` ikut ter-persist, jadi pencarian yang belum dibersihkan akan tetap ada
 saat aplikasi dibuka lagi. Kalau itu terasa mengganggu, pindahkan ketiga field
 itu ke `partialize`/`omit` pada middleware `persist`.
 
 `hafal` disimpan sebagai array of string (bukan `Set`) agar bisa di-serialize. Kunci unik kata dibuat `kataKey(bab, no)` → `` `${bab}-${no}` ``.
+
+### Pilih kolom tabel ("bentuk")
+
+Di halaman **Bentuk Kata Sifat** & **Bentuk て**, di atas tabel ada **chip** untuk
+menyembunyikan/menampilkan kolom (mirip kontrol kolom List, tapi lebih ringkas):
+
+- **Bentuk Kata Sifat** — 4 chip: `Positif kini`, `Positif lampau`, `Negatif kini`, `Negatif lampau`. Kolom dasar (`No`, `Kata`, `Arti`) selalu tampil.
+- **Bentuk て** — 2 chip: `Kamus`, `て`.
+- Ada tombol **"Sembunyikan semua" / "Tampilkan semua"** di kanan (ikon `ph:eye` / `ph:eye-slash`).
+- **Store:** `store/colvis.ts` — `useColVis` menyimpan `hidden: Record<tableId, Record<colKey, true>>`, persist di **`kotoba-colvis`**. Helper `isVisible(hiddenMap, colKey)` (kolom yang belum pernah diubah = tampil).
+- **Implementasi:** kolom bentuk disusun dari konfigurasi data (`BENTUK_COLS` di `KataSifatBentuk.tsx`), lalu difilter `isVisible`. Header grup `Positif`/`Negatif` memakai `colSpan` yang dihitung dari jumlah kolom grup yang tampil — kalau grup kosong, header-nya tidak dirender.
+- **Id tabel** sama dengan resize kolom: `bentuk-sifat` & `te`.
 
 ### Resize kolom tabel
 
@@ -515,12 +529,14 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Kolom: **No · Kata (kana + kanji + badge な/い + tombol hafal) · Arti (tombol audio) · Positif kini · Positif lampau · Negatif kini · Negatif lampau**. Baris kepala tabel mengelompokkan **Positif (肯定) di kiri** dan **Negatif (否定) di kanan**, masing-masing dengan sub-kolom Kini / Lampau.
   - Positif memakai warna `text-ink` (header `success-soft`), negatif memakai `text-seal` (header `danger-soft`).
   - Tombol **"Buka semua"/"Tutup semua"** untuk seluruh blok bab yang tampil. Tabel `overflow-x-auto` + `colgroup` fixed + sel `overflow-hidden` (biar tidak meluber).
+  - **4 chip di atas tabel** untuk menyembunyikan/menampilkan kolom bentuk (Positif kini/lampau, Negatif kini/lampau) + tombol "Sembunyikan/Tampilkan semua". Disimpan di `kotoba-colvis` (lihat bagian "Pilih kolom tabel").
   - Aturan konjugasi: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`; khusus **`いい` tidak beraturan** → `いい / よかった / よくない / よくなかった` (juga `よい`, `かっこいい` lewat peta `IRREGULAR`).
 - **KataKerjaTe** (`route: kata-kerja-te`, dibuka dari Home "Bentuk て") — **Tabel bentuk て kata kerja** per bab. Sumber data `src/data/doushi_te.ts` (digenerate dari `doushi.ts`).
   - Hero 動詞 + HankoSeal 「て」, **kartu aturan て-form** per golongan (bisa buka-tutup): Gol 1 (う・つ・る→って, む・ぶ・ぬ→んで, く→いて, ぐ→いで, す→して), Gol 2 (る→て), Gol 3 (する→して, くる→きて).
   - **Satu tabel per bab, bisa dibuka/tutup** (pola sama seperti KataSifatBentuk). Kolom: **No · Kata (kamus + badge golongan + tombol hafal) · Arti (tombol audio) · Kamus · て**.
   - **Mode "Semua bab"** (filter = `semua` DAN kotak cari kosong) menampilkan **seluruh bab 1–50**; bab tanpa kata kerja ditandai "Tidak ada kata kerja di bab ini". Saat filter golongan / mencari, hanya bab berisi yang ditampilkan.
   - Pencarian mencakup ます / kamus / て / kanji / arti / romaji. Tombol "Buka semua"/"Tutup semua".
+  - **2 chip di atas tabel** untuk menyembunyikan/menampilkan kolom `Kamus` & `て` + tombol "Sembunyikan/Tampilkan semua" (store `kotoba-colvis`).
   - Bentuk て dibentuk dari **bentuk kamus + golongan**, bukan dari ます. Khusus `いく → いって` (bukan `いいて`).
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
 - **QuizPG** — 10 soal, 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
@@ -626,6 +642,7 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Tabel di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` mengikuti aturan tabel yang sama** seperti `KotobaTable.tsx`: `table-layout: fixed` + `<colgroup>`, sel teks `overflow-hidden` + `whitespace-nowrap text-ellipsis` + `title` (biar tidak meluber ke kolom sebelah — lihat gotcha tabel di atas). Isi tabel di-unmount saat bab tertutup. **Semua kolom (kecuali No) punya handle resize** — lebar default di `WIDTH`, override di `kotoba-colwidths`. Jangan buat kolom tanpa elemen `<col>` berlebar eksplisit, karena `table-layout: fixed` butuh itu.
 - **Halaman aplikasi memakai lebar penuh (`mx-auto w-full px-…`), bukan `max-w-*`.** Ini keputusan sadar supaya tabel & kartu memakai seluruh ruang di desktop. Jangan kembalikan `max-w-3xl`/`max-w-5xl`/`max-w-xl` ke kontainer utama halaman. Yang tetap sempit: paragraf hero Home, layar loading Flashcard/Quiz, kotak jawaban kuis, dan kotak cari panel List — lihat bagian "Lebar halaman" di atas.
 - **Mode "Semua bab" di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` menampilkan seluruh bab 1–50.** Bab tanpa isi tetap dirender sebagai header redup (ikon `ph:minus`, teks "Tidak ada kata sifat/kata kerja di bab ini") dan tombolnya tidak interaktif. Saat filter/pencarian aktif, `babGroups` dikembalikan hanya bab yang punya hasil. Hitungan "sudah hafal" & "Buka semua" memakai `babIsi` (bab yang ada isinya), bukan `babGroups`.
+- **Kolom bentuk bisa disembunyikan (`store/colvis.ts`, key `kotoba-colvis`).** Di `KataSifatBentuk.tsx` kolom disusun dari `BENTUK_COLS` lalu difilter `isVisible`; header grup Positif/Negatif pakai `colSpan` dinamis dan **tidak dirender bila grupnya kosong**. Jangan hardcode `colSpan={2}` lagi — itu akan jebol saat chip dimatikan. Saat menambah kolom baru, tambahkan ke `BENTUK_COLS` (bukan hanya ke JSX).
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.

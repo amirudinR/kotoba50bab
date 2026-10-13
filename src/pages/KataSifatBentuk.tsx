@@ -10,8 +10,9 @@ import { useSpeech } from "../lib/speech";
 import TopBar from "../components/TopBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
-import { Segmented } from "../components/Controls";
+import { Segmented, Chip } from "../components/Controls";
 import { useColWidths, pickWidth } from "../store/colwidth";
+import { useColVis, isVisible } from "../store/colvis";
 import ColResizer from "../components/ColResizer";
 import JpText from "../components/JpText";
 import AppIcon from "../components/Icon";
@@ -47,19 +48,38 @@ const WIDTH = {
 
 type ColKeyBentuk = keyof typeof WIDTH;
 
-/** Urutan kolom + label header — dipakai untuk colgroup, header, & resize. */
-const COLS: { key: ColKeyBentuk; label: string; align: "left" | "center" }[] = [
-  { key: "no", label: "No", align: "center" },
-  { key: "kata", label: "Kata", align: "left" },
-  { key: "arti", label: "Arti", align: "left" },
-  { key: "posKini", label: "Kini", align: "left" },
-  { key: "posLampau", label: "Lampau", align: "left" },
-  { key: "negKini", label: "Kini", align: "left" },
-  { key: "negLampau", label: "Lampau", align: "left" },
-];
-
 /** Id tabel untuk menyimpan lebar kolom di localStorage. */
 const TABLE_ID = "bentuk-sifat";
+
+/** Kolom tabel bentuk lengkap — urutan, label, grup (positif/negatif), & pengambilan nilai. */
+interface BentukColDef {
+  key: ColKeyBentuk;
+  /** Label baris-2 (sub-header). Kosong = kolom dasar (No/Kata/Arti). */
+  sub: string;
+  /** Grup positif/negatif untuk header gabungan; null = kolom dasar. */
+  group: "positif" | "negatif" | null;
+  /** Nilai teks kana/kanji untuk sel body; null = kolom dasar (khusus). */
+  nilai: ((k: KeiyoushiBentuk) => string) | null;
+}
+
+const BENTUK_COLS: BentukColDef[] = [
+  { key: "no", sub: "", group: null, nilai: null },
+  { key: "kata", sub: "", group: null, nilai: null },
+  { key: "arti", sub: "", group: null, nilai: null },
+  { key: "posKini", sub: "Kini", group: "positif", nilai: (k) => k.positifKini },
+  { key: "posLampau", sub: "Lampau", group: "positif", nilai: (k) => k.positifLampau },
+  { key: "negKini", sub: "Kini", group: "negatif", nilai: (k) => k.negatifKini },
+  { key: "negLampau", sub: "Lampau", group: "negatif", nilai: (k) => k.negatifLampau },
+];
+
+/** 4 tombol chip untuk menyembunyikan/menampilkan kolom bentuk. */
+const BENTUK_TOGGLES: { key: ColKeyBentuk; label: string }[] = [
+  { key: "posKini", label: "Positif kini" },
+  { key: "posLampau", label: "Positif lampau" },
+  { key: "negKini", label: "Negatif kini" },
+  { key: "negLampau", label: "Negatif lampau" },
+];
+
 
 function matches(k: KeiyoushiBentuk, q: string): boolean {
   if (!q) return true;
@@ -82,6 +102,11 @@ export default function KataSifatBentuk({ onBack }: Props) {
   const [open, setOpen] = useState<Set<number>>(() => new Set());
   const { isHafal, toggleHafal } = useProgress();
   const speech = useSpeech();
+  // Kolom bentuk yang disembunyikan (chip di atas tabel).
+  const hiddenBentuk = useColVis((s) => s.hidden[TABLE_ID]);
+  const toggleCol = useColVis((s) => s.toggle);
+  const setManyCols = useColVis((s) => s.setMany);
+  const semuaTampil = BENTUK_TOGGLES.every((t) => isVisible(hiddenBentuk, t.key));
   const canSpeak = speech.supported && speech.hasVoice;
   const [speakingKey, setSpeakingKey] = useState<string | null>(null);
 
@@ -255,6 +280,31 @@ export default function KataSifatBentuk({ onBack }: Props) {
           </div>
 
           <p className="text-[13px] leading-relaxed text-muted">{FILTER_DESC[filter]}</p>
+
+          {/* —— Tampilkan/sembunyikan kolom bentuk (4 chip) —— */}
+          <div className="flex flex-wrap items-center gap-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
+            <span className="k-eyebrow shrink-0">Kolom bentuk</span>
+            {BENTUK_TOGGLES.map((t) => (
+              <Chip
+                key={t.key}
+                active={isVisible(hiddenBentuk, t.key)}
+                onClick={() => toggleCol(TABLE_ID, t.key)}
+              >
+                {t.label}
+              </Chip>
+            ))}
+            <button
+              type="button"
+              onClick={() => setManyCols(TABLE_ID, BENTUK_TOGGLES.map((t) => t.key), !semuaTampil)}
+              className="k-chip k-chip-off ml-auto"
+            >
+              <AppIcon
+                icon={semuaTampil ? "ph:eye-slash" : "ph:eye"}
+                className="text-[13px]"
+              />
+              {semuaTampil ? "Sembunyikan semua" : "Tampilkan semua"}
+            </button>
+          </div>
         </div>
 
         {/* —— Progres hafal + tombol buka/tutup semua bab —— */}
@@ -311,6 +361,7 @@ export default function KataSifatBentuk({ onBack }: Props) {
                 speak={speech.speak}
                 speakingKey={speakingKey}
                 setSpeakingKey={setSpeakingKey}
+                hidden={hiddenBentuk}
               />
             ))}
           </div>
@@ -344,6 +395,8 @@ interface BabBentukProps {
   speak: (t: string) => boolean;
   speakingKey: string | null;
   setSpeakingKey: (k: string | null) => void;
+  /** Peta kolom yang disembunyikan (dari useColVis). */
+  hidden: Record<string, boolean> | undefined;
 }
 
 function BabBentuk({
@@ -357,6 +410,7 @@ function BabBentuk({
   speak,
   speakingKey,
   setSpeakingKey,
+  hidden,
 }: BabBentukProps) {
   const [mounted, setMounted] = useState(open);
 
@@ -378,7 +432,16 @@ function BabBentuk({
   const widthOf = (key: ColKeyBentuk) =>
     pickWidth(overrides, key, WIDTH[key]);
 
-  const fixed = COLS.reduce((n, c) => n + widthOf(c.key), 0);
+  // Kolom yang benar-benar dirender (kolom bentuk bisa disembunyikan).
+  const cols = BENTUK_COLS.filter(
+    (c) => c.group === null || isVisible(hidden, c.key),
+  );
+
+  const fixed = cols.reduce((n, c) => n + widthOf(c.key), 0);
+
+  // Jumlah kolom per grup (untuk header gabungan Positif/Negatif).
+  const spanPositif = cols.filter((c) => c.group === "positif").length;
+  const spanNegatif = cols.filter((c) => c.group === "negatif").length;
 
   // Bab tanpa kata sifat: header ditandai, tombol buka/tutup dimatikan.
   if (kosong) {
@@ -456,81 +519,85 @@ function BabBentuk({
                 style={{ minWidth: fixed + 120, tableLayout: "fixed" }}
               >
                 <colgroup>
-                  {COLS.map((c) => (
+                  {cols.map((c) => (
                     <col key={c.key} style={{ width: `${widthOf(c.key)}px` }} />
                   ))}
                 </colgroup>
 
                 <thead>
                   <tr>
-                    <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
-                      No
-                    </th>
-                    <th className="relative border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
-                      Kata
-                      <ColResizer
-                        width={widthOf("kata")}
-                        label="Lebar kolom Kata"
-                        onResize={(w) => setWidth(TABLE_ID, "kata", w)}
-                      />
-                    </th>
-                    <th className="relative border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
-                      Arti
-                      <ColResizer
-                        width={widthOf("arti")}
-                        label="Lebar kolom Arti"
-                        onResize={(w) => setWidth(TABLE_ID, "arti", w)}
-                      />
-                    </th>
-                    <th
-                      colSpan={2}
-                      className="border-b border-l border-line/10 bg-success-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-success"
-                    >
-                      Positif (肯定)
-                    </th>
-                    <th
-                      colSpan={2}
-                      className="border-b border-l border-line/10 bg-danger-soft/50 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-danger"
-                    >
-                      Negatif (否定)
-                    </th>
+                    {/* Kolom dasar: No / Kata / Arti */}
+                    {cols
+                      .filter((c) => c.group === null)
+                      .map((c) => (
+                        <th
+                          key={c.key}
+                          className={[
+                            "border-b border-line/10 bg-sunken/70 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85",
+                            c.key === "no" ? "text-center" : "text-left",
+                            c.key === "no" ? "" : "relative",
+                          ].join(" ")}
+                        >
+                          {c.key === "no" ? "No" : c.key === "kata" ? "Kata" : "Arti"}
+                          {c.key !== "no" && (
+                            <ColResizer
+                              width={widthOf(c.key)}
+                              label={`Lebar kolom ${c.key === "kata" ? "Kata" : "Arti"}`}
+                              onResize={(w) => setWidth(TABLE_ID, c.key, w)}
+                            />
+                          )}
+                        </th>
+                      ))}
+                    {/* Header grup Positif */}
+                    {spanPositif > 0 && (
+                      <th
+                        colSpan={spanPositif}
+                        className="border-b border-l border-line/10 bg-success-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-success"
+                      >
+                        Positif (肯定)
+                      </th>
+                    )}
+                    {/* Header grup Negatif */}
+                    {spanNegatif > 0 && (
+                      <th
+                        colSpan={spanNegatif}
+                        className="border-b border-l border-line/10 bg-danger-soft/50 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-danger"
+                      >
+                        Negatif (否定)
+                      </th>
+                    )}
                   </tr>
                   <tr>
-                    <th className="border-b border-line/10 bg-sunken/40 px-3 py-1.5" aria-hidden />
-                    <th className="border-b border-line/10 bg-sunken/40 px-3 py-1.5" aria-hidden />
-                    <th className="border-b border-line/10 bg-sunken/40 px-3 py-1.5" aria-hidden />
-                    <th className="relative border-b border-line/[0.07] bg-success-soft/40 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
-                      Kini
-                      <ColResizer
-                        width={widthOf("posKini")}
-                        label="Lebar kolom Positif kini"
-                        onResize={(w) => setWidth(TABLE_ID, "posKini", w)}
-                      />
-                    </th>
-                    <th className="relative border-b border-line/[0.07] bg-success-soft/40 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
-                      Lampau
-                      <ColResizer
-                        width={widthOf("posLampau")}
-                        label="Lebar kolom Positif lampau"
-                        onResize={(w) => setWidth(TABLE_ID, "posLampau", w)}
-                      />
-                    </th>
-                    <th className="relative border-b border-line/[0.07] bg-danger-soft/30 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
-                      Kini
-                      <ColResizer
-                        width={widthOf("negKini")}
-                        label="Lebar kolom Negatif kini"
-                        onResize={(w) => setWidth(TABLE_ID, "negKini", w)}
-                      />
-                    </th>
-                    <th className="relative border-b border-line/[0.07] bg-danger-soft/30 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
-                      Lampau
-                      <ColResizer
-                        width={widthOf("negLampau")}
-                        label="Lebar kolom Negatif lampau"
-                        onResize={(w) => setWidth(TABLE_ID, "negLampau", w)}
-                      />
-                    </th>
+                    {/* sub-header kolom dasar kosong */}
+                    {cols
+                      .filter((c) => c.group === null)
+                      .map((c) => (
+                        <th
+                          key={c.key}
+                          className="border-b border-line/10 bg-sunken/40 px-3 py-1.5"
+                          aria-hidden
+                        />
+                      ))}
+                    {/* sub-header kolom bentuk */}
+                    {cols
+                      .filter((c) => c.group !== null)
+                      .map((c) => (
+                        <th
+                          key={c.key}
+                          className={[
+                            "relative border-b border-line/[0.07] px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft",
+                            c.group === "positif" ? "bg-success-soft/40" : "bg-danger-soft/30",
+                            c.key === "posKini" || c.key === "negKini" ? "border-l border-line/[0.06]" : "",
+                          ].join(" ")}
+                        >
+                          {c.sub}
+                          <ColResizer
+                            width={widthOf(c.key)}
+                            label={`Lebar kolom ${c.group === "positif" ? "Positif" : "Negatif"} ${c.sub}`}
+                            onResize={(w) => setWidth(TABLE_ID, c.key, w)}
+                          />
+                        </th>
+                      ))}
                   </tr>
                 </thead>
 
@@ -543,85 +610,109 @@ function BabBentuk({
                         key={key}
                         className="group transition-colors duration-100 hover:bg-ink/[0.045] focus-within:bg-ink/[0.045]"
                       >
-                        <td className="k-rownum border-b border-line/[0.06] px-3 py-[9px] text-center">
-                          {k.no}
-                        </td>
-                        <td className="border-b border-line/[0.06] px-3 py-[9px]">
-                          <span className="flex items-center gap-1.5">
-                            <span className="k-kana overflow-hidden whitespace-nowrap text-ellipsis" title={k.kana}>
-                              <JpText text={k.kana} />
-                            </span>
-                            <span
-                              className={`shrink-0 rounded px-1 py-0.5 font-mono text-[9.5px] font-semibold ${
-                                k.kind === "na"
-                                  ? "bg-accent-soft text-accent"
-                                  : "bg-ink/[0.08] text-ink-soft"
-                              }`}
-                            >
-                              {k.kind === "na" ? "な" : "い"}
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => onToggleHafal(k.bab, k.no)}
-                              aria-pressed={marked}
-                              aria-label={marked ? "Sudah hafal" : "Tandai sudah hafal"}
-                              title={marked ? "Batalkan hafal" : "Tandai hafal"}
-                              className={`ml-auto grid h-7 w-7 shrink-0 place-items-center rounded-full text-[13px] transition active:scale-90 ${
-                                marked
-                                  ? "bg-success-soft text-success"
-                                  : "text-muted/50 hover:bg-ink/[0.06] hover:text-ink-soft"
-                              }`}
-                            >
-                              <AppIcon icon={marked ? "ph:check-circle" : "ph:star"} />
-                            </button>
-                          </span>
-                          {k.kanji && (
-                            <span className="k-kanji mt-0.5 block overflow-hidden whitespace-nowrap text-ellipsis text-[11.5px] text-muted" title={k.kanji}>
-                              <JpText text={k.kanji} />
-                            </span>
-                          )}
-                        </td>
-                        <td className="border-b border-line/[0.06] px-3 py-[9px]">
-                          <span className="flex items-center gap-2">
-                            {canSpeak && (
-                              <button
-                                type="button"
-                                onClick={() => setSpeakingKey(speak(k.kana) ? key : null)}
-                                aria-label={`Dengarkan ${k.kana}`}
-                                className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-[13px] transition active:scale-90 ${
-                                  speakingKey === key
-                                    ? "bg-accent-soft text-accent"
-                                    : "text-muted/50 hover:bg-ink/[0.06] hover:text-ink-soft"
-                                }`}
+                        {cols.map((c) => {
+                          // Kolom No
+                          if (c.key === "no")
+                            return (
+                              <td
+                                key={c.key}
+                                className="k-rownum border-b border-line/[0.06] px-3 py-[9px] text-center"
                               >
-                                <AppIcon icon="ph:speaker-high" />
-                              </button>
-                            )}
-                            <span className="k-arti text-[13.5px] leading-snug text-body">
-                              {k.arti}
-                            </span>
-                          </span>
-                        </td>
-                        <td className="border-b border-l border-line/[0.06] px-3 py-[9px] font-jp text-[14px] text-ink">
-                          <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={k.positifKini}>
-                            <JpText text={k.positifKini} />
-                          </span>
-                        </td>
-                        <td className="border-b border-line/[0.06] px-3 py-[9px] font-jp text-[14px] text-ink">
-                          <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={k.positifLampau}>
-                            <JpText text={k.positifLampau} />
-                          </span>
-                        </td>
-                        <td className="border-b border-l border-line/[0.06] px-3 py-[9px] font-jp text-[14px] text-seal">
-                          <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={k.negatifKini}>
-                            <JpText text={k.negatifKini} />
-                          </span>
-                        </td>
-                        <td className="border-b border-line/[0.06] px-3 py-[9px] font-jp text-[14px] text-seal">
-                          <span className="block overflow-hidden whitespace-nowrap text-ellipsis" title={k.negatifLampau}>
-                            <JpText text={k.negatifLampau} />
-                          </span>
-                        </td>
+                                {k.no}
+                              </td>
+                            );
+                          // Kolom Kata
+                          if (c.key === "kata")
+                            return (
+                              <td key={c.key} className="border-b border-line/[0.06] px-3 py-[9px]">
+                                <span className="flex items-center gap-1.5">
+                                  <span
+                                    className="k-kana overflow-hidden whitespace-nowrap text-ellipsis"
+                                    title={k.kana}
+                                  >
+                                    <JpText text={k.kana} />
+                                  </span>
+                                  <span
+                                    className={`shrink-0 rounded px-1 py-0.5 font-mono text-[9.5px] font-semibold ${
+                                      k.kind === "na"
+                                        ? "bg-accent-soft text-accent"
+                                        : "bg-ink/[0.08] text-ink-soft"
+                                    }`}
+                                  >
+                                    {k.kind === "na" ? "な" : "い"}
+                                  </span>
+                                  <button
+                                    type="button"
+                                    onClick={() => onToggleHafal(k.bab, k.no)}
+                                    aria-pressed={marked}
+                                    aria-label={marked ? "Sudah hafal" : "Tandai sudah hafal"}
+                                    title={marked ? "Batalkan hafal" : "Tandai hafal"}
+                                    className={`ml-auto grid h-7 w-7 shrink-0 place-items-center rounded-full text-[13px] transition active:scale-90 ${
+                                      marked
+                                        ? "bg-success-soft text-success"
+                                        : "text-muted/50 hover:bg-ink/[0.06] hover:text-ink-soft"
+                                    }`}
+                                  >
+                                    <AppIcon icon={marked ? "ph:check-circle" : "ph:star"} />
+                                  </button>
+                                </span>
+                                {k.kanji && (
+                                  <span
+                                    className="k-kanji mt-0.5 block overflow-hidden whitespace-nowrap text-ellipsis text-[11.5px] text-muted"
+                                    title={k.kanji}
+                                  >
+                                    <JpText text={k.kanji} />
+                                  </span>
+                                )}
+                              </td>
+                            );
+                          // Kolom Arti
+                          if (c.key === "arti")
+                            return (
+                              <td key={c.key} className="border-b border-line/[0.06] px-3 py-[9px]">
+                                <span className="flex items-center gap-2">
+                                  {canSpeak && (
+                                    <button
+                                      type="button"
+                                      onClick={() => setSpeakingKey(speak(k.kana) ? key : null)}
+                                      aria-label={`Dengarkan ${k.kana}`}
+                                      className={`grid h-7 w-7 shrink-0 place-items-center rounded-full text-[13px] transition active:scale-90 ${
+                                        speakingKey === key
+                                          ? "bg-accent-soft text-accent"
+                                          : "text-muted/50 hover:bg-ink/[0.06] hover:text-ink-soft"
+                                      }`}
+                                    >
+                                      <AppIcon icon="ph:speaker-high" />
+                                    </button>
+                                  )}
+                                  <span className="k-arti text-[13.5px] leading-snug text-body">
+                                    {k.arti}
+                                  </span>
+                                </span>
+                              </td>
+                            );
+                          // Kolom bentuk (positif/negatif)
+                          const teks = c.nilai ? c.nilai(k) : "";
+                          return (
+                            <td
+                              key={c.key}
+                              className={[
+                                "border-b border-line/[0.06] px-3 py-[9px] font-jp text-[14px]",
+                                c.group === "positif" ? "text-ink" : "text-seal",
+                                c.key === "posKini" || c.key === "negKini"
+                                  ? "border-l border-line/[0.06]"
+                                  : "",
+                              ].join(" ")}
+                            >
+                              <span
+                                className="block overflow-hidden whitespace-nowrap text-ellipsis"
+                                title={teks}
+                              >
+                                <JpText text={teks} />
+                              </span>
+                            </td>
+                          );
+                        })}
                       </tr>
                     );
                   })}
