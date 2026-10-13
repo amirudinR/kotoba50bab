@@ -150,6 +150,12 @@ export default function Home() {
             desc="Positif & negatif"
             onClick={() => go("kata-sifat-bentuk")}
           />
+          <ModeRow
+            icon="ph:arrow-right"
+            title="Bentuk て"
+            desc="て-form kata kerja"
+            onClick={() => go("kata-kerja-te")}
+          />
         </section>
 
         {/* —— Urutan acak —— */}

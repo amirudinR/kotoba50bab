@@ -188,7 +188,8 @@ kotoba-app/
 │  │  ├─ search.json        # 2.910 entri tanpa romaji (356 KB) — lazy
 │  │  ├─ keiyoushi.ts       # 111 kata sifat (17 na + 94 i) — statis, whitelist manual
 │  │  ├─ keiyoushi_konjugasi.ts # 111 kata sifat × 4 bentuk (positif/negatif kini/lampau) — hasil generate dari keiyoushi.ts
-│  │  ├─ doushi.ts          # 294 kata kerja (143 gol1 + 72 gol2 + 79 gol3) — statis, whitelist manual + bentuk kamus
+│  │  ├─ doushi.ts          # 294 kata kerja (140 gol1 + 75 gol2 + 79 gol3) — statis, whitelist manual + bentuk kamus
+│  │  ├─ doushi_te.ts       # 294 kata kerja × bentuk て (dari kamus) — hasil generate dari doushi.ts
 │  │  ├─ kotoba.json        # sumber monolitik hasil ekstraksi PDF (523 KB)
 │  │  └─ bab/01.json … 50.json  # 50 chunk per bab (±430 KB total) — lazy
 │  ├─ lib/utils.ts          # shuffleArray, sampleN, normalize, artiVariants, isAnswerCorrect
@@ -221,7 +222,8 @@ kotoba-app/
 │     ├─ List.tsx           # daftar lengkap per bab + cari/filter/sort/audio
 │     ├─ KataSifat.tsx      # daftar kata sifat (na & i) + filter + kartu aturan
 │     ├─ KataKerja.tsx      # daftar kata kerja (gol 1/2/3) + bentuk kamus + kartu aturan
-│     └─ KataSifatBentuk.tsx # konjugasi kata sifat: positif/negatif kini/lampau + pilih bab
+│     ├─ KataSifatBentuk.tsx # TABEL konjugasi kata sifat per bab (positif kiri / negatif kanan) — buka-tutup per bab
+│     └─ KataKerjaTe.tsx    # TABEL bentuk て per bab (kamus → て) — buka-tutup per bab
 └─ dist/                    # output build (jangan di-commit)
 ```
 
@@ -231,7 +233,7 @@ kotoba-app/
 
 Aplikasi **tidak memakai** `react-router`. Navigasi lewat Zustand: `useApp` menyimpan `route` bertipe `Route`, dan `App.tsx` melakukan `switch (route)`. `go(route)` sekaligus `window.scrollTo({ top: 0 })`.
 
-Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`, `kata-sifat`, `kata-kerja`, `kata-sifat-bentuk`.
+Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`, `kata-sifat`, `kata-kerja`, `kata-sifat-bentuk`, `kata-kerja-te`.
 
 Menambah halaman = tambah union type di `store/app.ts`, komponen di `src/pages/`, dan `case` di `App.tsx`. Tidak ada URL, history, atau deep-link.
 
@@ -449,17 +451,24 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - **Kata sifat na** diambil dari tanda `（な）` di kana data bab (akurat). **Kata sifat i** disusun **whitelist manual** — "berakhir い" saja TIDAK cukup karena banyak kata benda juga berakhir い (mis. `せんせい`, `やさい`, `すいえい`).
   - Duplikat antar-bab digabung (mis. `たのしい` di bab 8 & 39 → satu kartu), kecuali yang beda kanji/arti (mis. `暑い`/panas vs `厚い`/tebal → tetap dua).
   - Kanji na-adjektiva dirapikan di file ini (`静香（な）`→`静か`, `新設`→`親切`) tanpa menyentuh `src/data/bab/`.
-- **KataKerja** (`route: kata-kerja`, dibuka dari Home "Kata Kerja") — Daftar **294 kata kerja** (Gol 1: 143, Gol 2: 72, Gol 3: 79) dari 50 bab. Sumber data `src/data/doushi.ts`.
+- **KataKerja** (`route: kata-kerja`, dibuka dari Home "Kata Kerja") — Daftar **294 kata kerja** (Gol 1: 140, Gol 2: 75, Gol 3: 79) dari 50 bab. Sumber data `src/data/doushi.ts`.
   - Hero 動詞 + HankoSeal 「動」, **kartu aturan menghafal** golongan 1/2/3 (bisa dibuka/tutup), switch filter **Semua / Gol 1 / Gol 2 / Gol 3**, pencarian kana/kamus/kanji/arti/romaji.
   - Kartu per kata: **bentuk ます** + badge golongan berwarna + **bentuk kamus** (mis. `たべます` → `たべる`) + kanji + arti + label bab, tombol audio & hafal, bar progres hafal.
   - Golongan ditentukan **manual** (bukan aturan otomatis): `かえります` & `きります` = gol 1, sedangkan `たべます` = gol 2. Semua entri `～します` = gol 3.
   - Termasuk kata kerja **keigo** bab 49–50 (mis. `いらっしゃいます`, `まいります`) sesuai keputusan user; hanya kalimat salam panjang yang dibuang.
-- **KataSifatBentuk** (`route: kata-sifat-bentuk`, dibuka dari Home "Bentuk Kata Sifat") — **Konjugasi kata sifat**: positif/negatif × kini/lampau. Sumber data `src/data/keiyoushi_konjugasi.ts` (digenerate dari `keiyoushi.ts`).
+- **KataSifatBentuk** (`route: kata-sifat-bentuk`, dibuka dari Home "Bentuk Kata Sifat") — **Tabel konjugasi kata sifat** per bab. Sumber data `src/data/keiyoushi_konjugasi.ts` (digenerate dari `keiyoushi.ts`).
   - Hero 形容詞 + HankoSeal 「変」, dua kartu bantu "cara membaca bentuk" (i-adj & na-adj).
-  - Kontrol: switch filter **Semua / な / い**, **pemilih bab** (`<select>`, hanya bab yang benar-benar punya kata sifat — 27 bab), pencarian (kana/kanji/arti + semua bentuk).
-  - Setiap kartu: kana + kanji + badge jenis + arti + label bab, tombol audio & hafal, lalu **4 baris bentuk collapsible** — Positif kini / Positif lampau / Negatif kini / Negatif lampau (positif pakai `text-ink` + ikon centang, negatif pakai `text-seal` + ikon cross). Na-adj dapat baris tambahan **bentuk + 名詞** (`げんきな` + 名詞).
-  - Bentuk **default tertutup** supaya bisa dipakai menguji diri; ada tombol **"Buka semua"/"Tutup semua"** untuk seluruh kartu yang tampil.
+  - Kontrol: switch filter **Semua / な / い** + pencarian (kana/kanji/arti + semua bentuk). **Tidak ada dropdown pilih bab** — semua bab yang punya kata sifat ditampilkan sebagai blok tabel.
+  - **Satu tabel per bab, bisa dibuka/tutup** (pola `BabAccordion`: `k-collapse` + unmount isi saat tertutup). Header bab menampilkan jumlah kata + berapa yang sudah hafal.
+  - Kolom: **No · Kata (kana + kanji + badge な/い + tombol hafal) · Arti (tombol audio) · Positif kini · Positif lampau · Negatif kini · Negatif lampau**. Baris kepala tabel mengelompokkan **Positif (肯定) di kiri** dan **Negatif (否定) di kanan**, masing-masing dengan sub-kolom Kini / Lampau.
+  - Positif memakai warna `text-ink` (header `success-soft`), negatif memakai `text-seal` (header `danger-soft`).
+  - Tombol **"Buka semua"/"Tutup semua"** untuk seluruh blok bab yang tampil. Tabel `overflow-x-auto` + `colgroup` fixed + sel `overflow-hidden` (biar tidak meluber).
   - Aturan konjugasi: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`; khusus **`いい` tidak beraturan** → `いい / よかった / よくない / よくなかった` (juga `よい`, `かっこいい` lewat peta `IRREGULAR`).
+- **KataKerjaTe** (`route: kata-kerja-te`, dibuka dari Home "Bentuk て") — **Tabel bentuk て kata kerja** per bab. Sumber data `src/data/doushi_te.ts` (digenerate dari `doushi.ts`).
+  - Hero 動詞 + HankoSeal 「て」, **kartu aturan て-form** per golongan (bisa buka-tutup): Gol 1 (う・つ・る→って, む・ぶ・ぬ→んで, く→いて, ぐ→いで, す→して), Gol 2 (る→て), Gol 3 (する→して, くる→きて).
+  - **Satu tabel per bab, bisa dibuka/tutup** (pola sama seperti KataSifatBentuk). Kolom: **No · Kata (kamus + badge golongan + tombol hafal) · Arti (tombol audio) · Kamus · て**.
+  - Pencarian mencakup ます / kamus / て / kanji / arti / romaji. Tombol "Buka semua"/"Tutup semua".
+  - Bentuk て dibentuk dari **bentuk kamus + golongan**, bukan dari ます. Khusus `いく → いって` (bukan `いいて`).
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
 - **QuizPG** — 10 soal, 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
 - **QuizKetik** — 10 soal, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
@@ -555,6 +564,12 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
   - Aturan: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`. Field `attributif` (mis. `げんきな`) hanya diisi untuk na-adj; i-adj dikosongkan.
   - **`いい` tidak beraturan** — negatifnya `よくない` (bukan `いくない`), lampau `よかった`. Peta `IRREGULAR` menangani `いい`, `よい`, `かっこいい`. Kalau menambah i-adj tidak beraturan lain, tambahkan ke peta itu, jangan andalkan aturan `～い` otomatis.
   - Halaman `KataSifatBentuk.tsx` memakai komponen `k-collapse` + `dibuka &&` agar isi bentuk di-unmount saat tertutup (pola sama seperti `BabAccordion`).
+- **`src/data/doushi_te.ts` adalah file GENERATE — jangan edit per baris.** Isinya `doushi.ts` (294 kata) + bentuk `て` yang dihitung dari **bentuk kamus + golongan**. Cara mengubah: edit `doushi.ts` lalu generate ulang.
+  - Aturan て-form: Gol 1 (godan) `う・つ・る→って`, `む・ぶ・ぬ→んで`, `く→いて`, `ぐ→いで`, `す→して`; Gol 2 (ichidan) buang `る` + `て`; Gol 3 `する→して`, `くる→きて` (semua `～する` → `～して`).
+  - **Khusus `いく → いって`** (bukan `いいて`). Kalau menambah godan tidak beraturan lain, tambahkan ke cabang khusus di skrip generator.
+  - **Perhatian: gol 1 godan yang kamusnya berakhiran `-eru`/`-iru` itu SAH** (mis. `かえる 帰る`, `きる 切る`, `はいる 入る`, `しる 知る`, `すべる 滑る`, `まいる 参る` → `かえって`, `きって`, `はいって`, `しって`, `すべって`, `まいって`). Jangan "perbaiki" jadi gol 2 hanya karena berakhiran -eru/-iru.
+  - **Empat entri pernah salah golongan/kamus di `doushi.ts` dan sudah dikoreksi:** `おきる`(起きる), `かりる`(借りる), `たりる`(足りる) harus **gol 2** (bukan gol 1); `おります`(折ります, melipat) bentuk kamusnya **`おる`** godan (bukan `おりる` — itu 降りる "turun" yang beda kata). Total jadi gol1 140 / gol2 75 / gol3 79.
+- **Tabel di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` mengikuti aturan tabel yang sama** seperti `KotobaTable.tsx`: `table-layout: fixed` + `<colgroup>`, sel teks `overflow-hidden` + `whitespace-nowrap text-ellipsis` + `title` (biar tidak meluber ke kolom sebelah — lihat gotcha tabel di atas). Isi tabel di-unmount saat bab tertutup.
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.
