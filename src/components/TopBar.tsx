@@ -28,7 +28,7 @@ export default function TopBar({ title, subtitle, onBack, right }: TopBarProps) 
 
   return (
     <header className="sticky top-0 z-30 border-b border-line/[0.07] bg-bg/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-14 max-w-5xl items-center gap-3 px-3 sm:px-5">
+      <div className="mx-auto flex h-14 w-full items-center gap-3 px-3 sm:px-5">
         {onBack && (
           <button
             onClick={onBack}

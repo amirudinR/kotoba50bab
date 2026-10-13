@@ -83,7 +83,7 @@ export default function Progress({ onBack }: Props) {
     <div className="min-h-full pb-24">
       <TopBar title="Progres" onBack={onBack} />
 
-      <div className="mx-auto max-w-3xl space-y-4 px-4 pt-4">
+      <div className="mx-auto w-full space-y-4 px-4 pt-4">
         {/* ===== Ringkasan utama ===== */}
         <PaperCard raised className="p-5 sm:p-6">
           <div className="flex flex-wrap items-center justify-between gap-2">

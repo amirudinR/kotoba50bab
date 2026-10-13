@@ -101,7 +101,7 @@ export default function List({ onBack }: Props) {
         onBack={onBack}
       />
 
-      <main className="mx-auto max-w-5xl px-3 pb-8 pt-4 sm:px-5">
+      <main className="mx-auto w-full px-3 pb-8 pt-4 sm:px-5">
         {/* —— Pencarian —— */}
         <div className="relative">
           <AppIcon

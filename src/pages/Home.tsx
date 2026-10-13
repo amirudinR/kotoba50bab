@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className="min-h-full">
       {/* —— Hero: sampul buku, bukan dashboard —— */}
-      <div className="mx-auto max-w-3xl px-4 pt-6 sm:pt-9">
+      <div className="mx-auto w-full px-4 pt-6 sm:pt-9">
         <PaperCard raised tape className="k-margin overflow-hidden pl-10 pr-5 pt-7 pb-6">
           <p className="k-eyebrow">
             Minna no Nihongo · {totalWords} kata · {BABS_META.length} bab
@@ -73,7 +73,7 @@ export default function Home() {
         </PaperCard>
       </div>
 
-      <main className="mx-auto max-w-3xl px-4 pb-24">
+      <main className="mx-auto w-full px-4 pb-24">
         {/* —— Statistik: kesan produk serius, tanpa chart —— */}
         <div className="mt-4 grid grid-cols-3 divide-x divide-line/15 border-y border-line/15 py-4">
           <Stat value={totalWords} label="Kosakata" />

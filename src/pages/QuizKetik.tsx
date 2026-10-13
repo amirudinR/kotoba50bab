@@ -217,7 +217,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
         onBack={onBack}
       />
 
-      <div className="mx-auto max-w-xl px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4">
         <div className="mb-3 flex items-center gap-3">
           <ProgressBar
             value={qi + (answered ? 1 : 0)}

@@ -97,7 +97,7 @@ function Frame({ title, children }: { title: string; children: React.ReactNode }
   return (
     <div className="min-h-full">
       <div className="sticky top-0 z-30 border-b border-line/10 bg-bg/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-3xl items-center gap-2 px-3 sm:px-4">
+        <div className="mx-auto flex h-16 w-full items-center gap-2 px-3 sm:px-4">
           <button
             onClick={() => go("home")}
             aria-label="Kembali"
@@ -116,7 +116,7 @@ function Frame({ title, children }: { title: string; children: React.ReactNode }
           <h1 className="font-display text-[19px] font-semibold text-ink">{title}</h1>
         </div>
       </div>
-      <div className="mx-auto max-w-3xl">{children}</div>
+      <div className="mx-auto w-full">{children}</div>
     </div>
   );
 }

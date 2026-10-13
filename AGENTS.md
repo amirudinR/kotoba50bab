@@ -235,6 +235,10 @@ Aplikasi **tidak memakai** `react-router`. Navigasi lewat Zustand: `useApp` meny
 
 Route (`src/store/app.ts`): `home`, `flashcard`, `quiz-pg`, `quiz-ketik`, `search`, `progress`, `list`, `kata-sifat`, `kata-kerja`, `kata-sifat-bentuk`, `kata-kerja-te`.
 
+### Lebar halaman — full width
+
+Seluruh halaman memakai kontainer **full lebar** (`mx-auto w-full px-…`), **bukan** `max-w-*`, supaya di desktop tabel & kartu memakai seluruh ruang kanan-kiri. `TopBar` juga full lebar. Yang **tetap sempit** (sengaja): hero teks paragraf di Home (`max-w-md`), layar kosong/loading Flashcard & Quiz (`max-w-md`), kotak jawaban kuis (`max-w-[16rem]`), dan kotak cari panel List (`max-w-[260px]`). Jangan lebarkan elemen-elemen itu — teks panjang jadi tidak nyaman dibaca.
+
 Menambah halaman = tambah union type di `store/app.ts`, komponen di `src/pages/`, dan `case` di `App.tsx`. Tidak ada URL, history, atau deep-link.
 
 `App.tsx` punya guard: masuk `flashcard` / `quiz-pg` / `quiz-ketik` sementara `selectedBabs` kosong → balik ke `home`. Mode yang butuh bab harus masuk array `needsBabs`.
@@ -335,7 +339,7 @@ Semua pemakaian ikon wajib berawalan `ph:`. Tipe sengaja `string`, bukan union l
 Semua nama ikon yang dipakai, sudah diverifikasi ada di `@iconify-json/ph`
 (34 ikon, dicek otomatis — lihat gotcha di bawah):
 
-`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`), plus `ph:square` / `ph:check-square` (pilih bab), `ph:text-t` (kolom teks), `ph:speaker-high` dan `ph:waveform` (audio), `ph:caret-down` / `ph:caret-up` (buka/tutup), `ph:funnel` (filter), `ph:text-aa` (Kata Sifat), `ph:lightning` (Kata Kerja), `ph:lightbulb` (aturan menghafal), `ph:arrow-elbow-down-right` (bentuk kamus), dan `ph:arrows-clockwise` (Bentuk Kata Sifat).
+`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`), plus `ph:square` / `ph:check-square` (pilih bab), `ph:text-t` (kolom teks), `ph:speaker-high` dan `ph:waveform` (audio), `ph:caret-down` / `ph:caret-up` (buka/tutup), `ph:funnel` (filter), `ph:text-aa` (Kata Sifat), `ph:lightning` (Kata Kerja), `ph:lightbulb` (aturan menghafal), `ph:arrow-elbow-down-right` (bentuk kamus), dan `ph:arrows-clockwise` (Bentuk Kata Sifat). Tambahan tab/halaman: `ph:minus` (bab tanpa isi).
 
 Cara cek nama ikon sebelum dipakai:
 
@@ -458,7 +462,8 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Termasuk kata kerja **keigo** bab 49–50 (mis. `いらっしゃいます`, `まいります`) sesuai keputusan user; hanya kalimat salam panjang yang dibuang.
 - **KataSifatBentuk** (`route: kata-sifat-bentuk`, dibuka dari Home "Bentuk Kata Sifat") — **Tabel konjugasi kata sifat** per bab. Sumber data `src/data/keiyoushi_konjugasi.ts` (digenerate dari `keiyoushi.ts`).
   - Hero 形容詞 + HankoSeal 「変」, dua kartu bantu "cara membaca bentuk" (i-adj & na-adj).
-  - Kontrol: switch filter **Semua / な / い** + pencarian (kana/kanji/arti + semua bentuk). **Tidak ada dropdown pilih bab** — semua bab yang punya kata sifat ditampilkan sebagai blok tabel.
+  - Kontrol: switch filter **Semua / な / い** + pencarian (kana/kanji/arti + semua bentuk). **Tidak ada dropdown pilih bab** — semua bab ditampilkan sebagai blok tabel.
+  - **Mode "Semua bab"** (filter = `semua` DAN kotak cari kosong) menampilkan **seluruh bab 1–50**; bab yang tidak punya kata sifat muncul sebagai header **ditandai "Tidak ada kata sifat di bab ini"** (redup, ikon `ph:minus`, tidak bisa dibuka). Saat pakai filter な/い atau sedang mencari, **hanya bab yang punya hasil** yang ditampilkan (biar tidak penuh bab kosong).
   - **Satu tabel per bab, bisa dibuka/tutup** (pola `BabAccordion`: `k-collapse` + unmount isi saat tertutup). Header bab menampilkan jumlah kata + berapa yang sudah hafal.
   - Kolom: **No · Kata (kana + kanji + badge な/い + tombol hafal) · Arti (tombol audio) · Positif kini · Positif lampau · Negatif kini · Negatif lampau**. Baris kepala tabel mengelompokkan **Positif (肯定) di kiri** dan **Negatif (否定) di kanan**, masing-masing dengan sub-kolom Kini / Lampau.
   - Positif memakai warna `text-ink` (header `success-soft`), negatif memakai `text-seal` (header `danger-soft`).
@@ -467,6 +472,7 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
 - **KataKerjaTe** (`route: kata-kerja-te`, dibuka dari Home "Bentuk て") — **Tabel bentuk て kata kerja** per bab. Sumber data `src/data/doushi_te.ts` (digenerate dari `doushi.ts`).
   - Hero 動詞 + HankoSeal 「て」, **kartu aturan て-form** per golongan (bisa buka-tutup): Gol 1 (う・つ・る→って, む・ぶ・ぬ→んで, く→いて, ぐ→いで, す→して), Gol 2 (る→て), Gol 3 (する→して, くる→きて).
   - **Satu tabel per bab, bisa dibuka/tutup** (pola sama seperti KataSifatBentuk). Kolom: **No · Kata (kamus + badge golongan + tombol hafal) · Arti (tombol audio) · Kamus · て**.
+  - **Mode "Semua bab"** (filter = `semua` DAN kotak cari kosong) menampilkan **seluruh bab 1–50**; bab tanpa kata kerja ditandai "Tidak ada kata kerja di bab ini". Saat filter golongan / mencari, hanya bab berisi yang ditampilkan.
   - Pencarian mencakup ます / kamus / て / kanji / arti / romaji. Tombol "Buka semua"/"Tutup semua".
   - Bentuk て dibentuk dari **bentuk kamus + golongan**, bukan dari ます. Khusus `いく → いって` (bukan `いいて`).
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
@@ -570,6 +576,8 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
   - **Perhatian: gol 1 godan yang kamusnya berakhiran `-eru`/`-iru` itu SAH** (mis. `かえる 帰る`, `きる 切る`, `はいる 入る`, `しる 知る`, `すべる 滑る`, `まいる 参る` → `かえって`, `きって`, `はいって`, `しって`, `すべって`, `まいって`). Jangan "perbaiki" jadi gol 2 hanya karena berakhiran -eru/-iru.
   - **Empat entri pernah salah golongan/kamus di `doushi.ts` dan sudah dikoreksi:** `おきる`(起きる), `かりる`(借りる), `たりる`(足りる) harus **gol 2** (bukan gol 1); `おります`(折ります, melipat) bentuk kamusnya **`おる`** godan (bukan `おりる` — itu 降りる "turun" yang beda kata). Total jadi gol1 140 / gol2 75 / gol3 79.
 - **Tabel di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` mengikuti aturan tabel yang sama** seperti `KotobaTable.tsx`: `table-layout: fixed` + `<colgroup>`, sel teks `overflow-hidden` + `whitespace-nowrap text-ellipsis` + `title` (biar tidak meluber ke kolom sebelah — lihat gotcha tabel di atas). Isi tabel di-unmount saat bab tertutup.
+- **Halaman aplikasi memakai lebar penuh (`mx-auto w-full px-…`), bukan `max-w-*`.** Ini keputusan sadar supaya tabel & kartu memakai seluruh ruang di desktop. Jangan kembalikan `max-w-3xl`/`max-w-5xl`/`max-w-xl` ke kontainer utama halaman. Yang tetap sempit: paragraf hero Home, layar loading Flashcard/Quiz, kotak jawaban kuis, dan kotak cari panel List — lihat bagian "Lebar halaman" di atas.
+- **Mode "Semua bab" di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` menampilkan seluruh bab 1–50.** Bab tanpa isi tetap dirender sebagai header redup (ikon `ph:minus`, teks "Tidak ada kata sifat/kata kerja di bab ini") dan tombolnya tidak interaktif. Saat filter/pencarian aktif, `babGroups` dikembalikan hanya bab yang punya hasil. Hitungan "sudah hafal" & "Buka semua" memakai `babIsi` (bab yang ada isinya), bukan `babGroups`.
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.

@@ -66,7 +66,7 @@ export default function KataSifat({ onBack }: Props) {
         onBack={onBack}
       />
 
-      <div className="mx-auto max-w-3xl px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4">
         {/* —— Hero ringkas —— */}
         <PaperCard raised tape className="k-margin overflow-hidden pl-10 pr-5 py-5">
           <div className="flex items-center gap-4">

@@ -16,7 +16,7 @@ export default function Search({ onBack }: Props) {
     <div className="min-h-full pb-24">
       <TopBar title="Cari Kosakata" subtitle="kana · kanji · arti" onBack={onBack} />
 
-      <div className="mx-auto max-w-xl px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4">
         <div className="sticky top-[4.25rem] z-10 pb-3">
           <div className="relative">
             <AppIcon

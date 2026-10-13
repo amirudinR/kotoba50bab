@@ -97,6 +97,9 @@ export default function KataKerjaTe({ onBack }: Props) {
 
   const q = query.trim();
 
+  // Mode "Semua bab": hanya saat filter = semua DAN tidak sedang mencari.
+  const tampilSemuaBab = filter === "semua" && q === "";
+
   const babGroups = useMemo(() => {
     const map = new Map<number, DoushiTe[]>();
     for (const d of DOUSHI_TE) {
@@ -106,28 +109,39 @@ export default function KataKerjaTe({ onBack }: Props) {
       if (arr) arr.push(d);
       else map.set(d.bab, [d]);
     }
+    if (tampilSemuaBab) {
+      return BABS_META.map((b) => ({
+        bab: b.bab,
+        items: map.get(b.bab) ?? [],
+      }));
+    }
     return BABS_META.filter((b) => map.has(b.bab)).map((b) => ({
       bab: b.bab,
       items: map.get(b.bab)!,
     }));
-  }, [filter, q]);
+  }, [filter, q, tampilSemuaBab]);
+
+  const babIsi = useMemo(
+    () => babGroups.filter((g) => g.items.length > 0),
+    [babGroups],
+  );
 
   const totalTampil = useMemo(
-    () => babGroups.reduce((n, g) => n + g.items.length, 0),
-    [babGroups],
+    () => babIsi.reduce((n, g) => n + g.items.length, 0),
+    [babIsi],
   );
 
   const hafalCount = useMemo(
     () =>
-      babGroups.reduce(
+      babIsi.reduce(
         (n, g) => n + g.items.filter((d) => isHafal(d.bab, d.no)).length,
         0,
       ),
-    [babGroups, isHafal],
+    [babIsi, isHafal],
   );
 
   const allOpen =
-    babGroups.length > 0 && babGroups.every((g) => open.has(g.bab));
+    babIsi.length > 0 && babIsi.every((g) => open.has(g.bab));
 
   function toggleBab(bab: number) {
     setOpen((prev) => {
@@ -139,14 +153,14 @@ export default function KataKerjaTe({ onBack }: Props) {
   }
 
   function setAll(dibuka: boolean) {
-    setOpen(dibuka ? new Set(babGroups.map((g) => g.bab)) : new Set<number>());
+    setOpen(dibuka ? new Set(babIsi.map((g) => g.bab)) : new Set<number>());
   }
 
   return (
     <div className="min-h-full pb-24">
       <TopBar title="Bentuk て" subtitle="どうし · て形" onBack={onBack} />
 
-      <div className="mx-auto max-w-3xl px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4">
         {/* —— Hero ringkas —— */}
         <PaperCard raised tape className="k-margin overflow-hidden pl-10 pr-5 py-5">
           <div className="flex items-center gap-4">
@@ -225,7 +239,7 @@ export default function KataKerjaTe({ onBack }: Props) {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <Segmented options={FILTER_OPTIONS} value={filter} onChange={setFilter} />
             <span className="k-num font-mono text-[12px] text-muted">
-              {totalTampil} kata · {babGroups.length} bab
+              {totalTampil} kata · {babIsi.length} bab
             </span>
           </div>
 
@@ -264,7 +278,7 @@ export default function KataKerjaTe({ onBack }: Props) {
         </div>
 
         {/* —— Progres hafal + tombol buka/tutup semua bab —— */}
-        {babGroups.length > 0 && (
+        {babIsi.length > 0 && (
           <div className="mt-4 flex items-center gap-3 border-y border-line/15 py-3">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sunken text-ink-soft">
               <AppIcon icon="ph:star" className="text-lg" />
@@ -294,7 +308,7 @@ export default function KataKerjaTe({ onBack }: Props) {
         )}
 
         {/* —— Daftar tabel per bab —— */}
-        {babGroups.length === 0 ? (
+        {totalTampil === 0 ? (
           <div className="py-16 text-center">
             <AppIcon icon="ph:magnifying-glass" className="mx-auto text-4xl text-muted/50" />
             <p className="mt-3 font-display text-2xl text-ink">見つかりません</p>
@@ -375,8 +389,31 @@ function BabTe({
   }, [open]);
 
   const hafalBab = items.filter((d) => isHafal(d.bab, d.no)).length;
+  const kosong = items.length === 0;
 
   const fixed = WIDTH.no + WIDTH.kata + WIDTH.kamus + WIDTH.te;
+
+  // Bab tanpa kata kerja: header ditandai, tombol buka/tutup dimatikan.
+  if (kosong) {
+    return (
+      <section className="k-card overflow-hidden opacity-60">
+        <div className="flex w-full items-center gap-3 px-3 py-3 sm:px-4">
+          <AppIcon icon="ph:minus" className="shrink-0 text-[15px] text-muted/60" />
+          <span className="min-w-0 flex-1">
+            <span className="flex items-baseline gap-2">
+              <span className="font-display text-[16px] font-semibold leading-none text-ink-soft sm:text-[17px]">
+                Bab {bab}
+              </span>
+              <span className="k-num text-[12.5px] text-muted">0 kata</span>
+            </span>
+            <span className="mt-1 block text-[12px] leading-none text-muted/70">
+              Tidak ada kata kerja di bab ini
+            </span>
+          </span>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

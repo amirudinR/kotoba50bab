@@ -89,7 +89,7 @@ export default function Flashcard({ pool, shuffle, viewMode, onBack }: Props) {
     <div className="flashcard-root min-h-full pb-10 sm:pb-28">
       <TopBar title="Flashcard" subtitle={subtitle} onBack={onBack} />
 
-      <div className="mx-auto max-w-xl px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4">
         {/* Kemajuan hafalan */}
         <div className="mb-3.5">
           <div className="mb-1.5 flex items-baseline justify-between gap-3">
