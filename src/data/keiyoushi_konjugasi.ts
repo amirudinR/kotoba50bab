@@ -1,19 +1,16 @@
 // Bentuk konjugasi kata sifat (keiyoushi): positif/negatif, kini/lampau.
-// Digenerate dari src/data/keiyoushi.ts — jangan diedit per baris,
-// edit keiyoushi.ts lalu jalankan ulang skrip pembentuknya.
+// FILE GENERATE — jangan diedit per baris. Sumber: src/data/keiyoushi.ts
+// Jalankan: python tools/build_keiyoushi_konjugasi.py
 //
 // Aturan:
-//   i-adj :  ～い -> ～かった / ～くない / ～くなかった
-//   na-adj:  ～   -> ～だ / ～だった / ～じゃない / ～じゃなかった
-//           (bentuk な dipakai saat menerangkan kata benda: げんきな人)
-//   Khusus: いい -> よかった / よくない / よくなかった (tidak beraturan)
+//   i-adj :  ~い -> ~かった / ~くない / ~くなかった
+//   na-adj:  ~   -> ~だ / ~だった / ~じゃない / ~じゃなかった (atributif: ~な)
+//   Khusus:  いい -> よかった / よくない / よくなかった (tidak beraturan)
 
 import type { KeiyoushiKind } from "./keiyoushi";
 
 export interface KeiyoushiBentuk {
-  /** Bab asal kata. */
   bab: number;
-  /** Nomor urut kata di dalam babnya (kunci hafal sama seperti data lain). */
   no: number;
   kana: string;
   /** Bentuk atributif na-adj (mis. "げんきな"); kosong untuk i-adj. */
@@ -21,13 +18,9 @@ export interface KeiyoushiBentuk {
   kanji: string;
   arti: string;
   kind: KeiyoushiKind;
-  /** Positif kini (mis. "たかい" / "げんきだ"). */
   positifKini: string;
-  /** Positif lampau (mis. "たかかった" / "げんきだった"). */
   positifLampau: string;
-  /** Negatif kini (mis. "たかくない" / "げんきじゃない"). */
   negatifKini: string;
-  /** Negatif lampau (mis. "たかくなかった" / "げんきじゃなかった"). */
   negatifLampau: string;
 }
 

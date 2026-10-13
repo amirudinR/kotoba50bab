@@ -160,6 +160,25 @@ python -c "import json; d=json.load(open('src/data/kotoba.json',encoding='utf-8'
 Harapan: **bab: 50, total: 2910, mismatch: tidak ada**. Setelahnya tetap jalankan
 `python tools/build_data.py` agar file per bab ikut ter-update.
 
+### Langkah 3 — data turunan kata sifat & kata kerja (file statis)
+
+Dua file data **turunan** di `src/data/` dibangun oleh skrip, bukan diedit manual:
+
+| Skrip | Sumber | Output | Isi |
+| --- | --- | --- | --- |
+| `tools/build_keiyoushi_konjugasi.py` | `src/data/keiyoushi.ts` | `src/data/keiyoushi_konjugasi.ts` | 111 kata sifat × 4 bentuk (positif/negatif × kini/lampau) + atributif na-adj |
+| `tools/build_doushi_te.py` | `src/data/doushi.ts` | `src/data/doushi_te.ts` | 294 kata kerja × bentuk て (dari kamus + golongan) |
+
+```bash
+python tools/build_keiyoushi_konjugasi.py
+python tools/build_doushi_te.py
+```
+
+**Urutan penting:** kalau mengubah daftar kata sifat/kata kerja, edit dulu
+`keiyoushi.ts` / `doushi.ts` (file MANUAL), lalu jalankan skrip di atas agar
+bentuk turunannya ikut berubah. Jangan edit file turunan langsung — akan
+tertimpa saat skrip dijalankan lagi.
+
 ## Struktur Proyek
 
 ```
@@ -176,6 +195,8 @@ kotoba-app/
 ├─ scripts/gen_icons.py     # generator ikon (Pillow)
 ├─ tools/extract_pdf.py     # ekstraktor PDF → kotoba.json (PyMuPDF)
 ├─ tools/build_data.py      # kotoba.json → bab/*.json + index.json + search.json + romaji
+├─ tools/build_keiyoushi_konjugasi.py  # keiyoushi.ts → keiyoushi_konjugasi.ts (bentuk positif/negatif)
+├─ tools/build_doushi_te.py # doushi.ts → doushi_te.ts (bentuk て)
 ├─ src/
 │  ├─ main.tsx              # mount + initTheme()
 │  ├─ App.tsx               # switch(route), pool data async + loading state
@@ -350,9 +371,22 @@ export type IconName = `ph:${string}`;
 Semua pemakaian ikon wajib berawalan `ph:`. Tipe sengaja `string`, bukan union literal, supaya kolom ikon pada array data (mis. daftar mode di `Home.tsx`) tidak butuh `as const`.
 
 Semua nama ikon yang dipakai, sudah diverifikasi ada di `@iconify-json/ph`
-(34 ikon, dicek otomatis — lihat gotcha di bawah):
+(**41 ikon**, dicek otomatis — lihat gotcha di bawah):
 
-`ph:cards`, `ph:chart-bar`, `ph:shuffle`, `ph:arrow-right`, `ph:arrow-counter-clockwise`, `ph:caret-left`, `ph:caret-right`, `ph:check`, `ph:check-circle`, `ph:x`, `ph:x-circle`, `ph:star`, `ph:target`, `ph:keyboard`, `ph:magnifying-glass`, `ph:book-open`, `ph:seal-check`, `ph:trash`, `ph:notebook`, trio tema `ph:sun` / `ph:moon` / `ph:laptop` (di `TopBar`), plus `ph:square` / `ph:check-square` (pilih bab), `ph:text-t` (kolom teks), `ph:speaker-high` dan `ph:waveform` (audio), `ph:caret-down` / `ph:caret-up` (buka/tutup), `ph:funnel` (filter), `ph:text-aa` (Kata Sifat), `ph:lightning` (Kata Kerja), `ph:lightbulb` (aturan menghafal), `ph:arrow-elbow-down-right` (bentuk kamus), dan `ph:arrows-clockwise` (Bentuk Kata Sifat). Tambahan tab/halaman: `ph:minus` (bab tanpa isi).
+`ph:arrow-counter-clockwise`, `ph:arrow-elbow-down-right`, `ph:arrow-right`, `ph:arrows-clockwise`, `ph:arrows-in`, `ph:arrows-out`, `ph:book-open`, `ph:cards`, `ph:caret-down`, `ph:caret-left`, `ph:caret-right`, `ph:caret-up`, `ph:chart-bar`, `ph:check`, `ph:check-circle`, `ph:check-square`, `ph:circle-notch`, `ph:eye`, `ph:eye-slash`, `ph:keyboard`, `ph:laptop`, `ph:lightbulb`, `ph:lightning`, `ph:list-bullets`, `ph:magnifying-glass`, `ph:minus`, `ph:moon`, `ph:notebook`, `ph:seal-check`, `ph:shuffle`, `ph:speaker-high`, `ph:square`, `ph:star`, `ph:sun`, `ph:target`, `ph:text-aa`, `ph:text-t`, `ph:trash`, `ph:waveform`, `ph:x`, `ph:x-circle`.
+
+Keterangan guna (sebagian): trio tema `ph:sun`/`ph:moon`/`ph:laptop` (`TopBar`),
+`ph:square`/`ph:check-square` (pilih bab), `ph:text-t` (kolom teks),
+`ph:speaker-high`/`ph:waveform` (audio), `ph:caret-down`/`ph:caret-up` (buka/tutup),
+`ph:text-aa` (Kata Sifat), `ph:lightning` (Kata Kerja),
+`ph:lightbulb` (aturan menghafal), `ph:arrow-elbow-down-right` (bentuk kamus),
+`ph:arrows-clockwise` (Bentuk Kata Sifat), `ph:minus` (bab tanpa isi),
+`ph:arrows-in`/`ph:arrows-out` (reset/aksi lebar kolom), `ph:circle-notch` (loading),
+`ph:eye`/`ph:eye-slash` (sembunyikan/tampilkan).
+
+> **Cara paling aman:** jangan mengandalkan daftar manual di atas. Jalankan skrip
+> verifikasi di gotcha di bawah setiap kali menambah ikon baru — daftar manual
+> gampang basi.
 
 Cara cek nama ikon sebelum dipakai:
 

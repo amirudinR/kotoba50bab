@@ -1,9 +1,10 @@
 // Bentuk て (te-form) kata kerja, dibentuk dari bentuk kamus + golongan.
-// Digenerate dari src/data/doushi.ts — jangan diedit per baris.
+// FILE GENERATE — jangan diedit per baris. Sumber: src/data/doushi.ts
+// Jalankan: python tools/build_doushi_te.py
 //
 // Aturan:
 //   Gol 2 (ichidan) : buang る -> + て        (たべる -> たべて)
-//   Gol 3 (fukisoku): する -> して, くる -> きて, ～する -> ～して
+//   Gol 3 (fukisoku): する -> して, くる -> きて, ~する -> ~して
 //   Gol 1 (godan)   : う・つ・る -> って, む・ぶ・ぬ -> んで,
 //                     く -> いて, ぐ -> いで, す -> して
 //   Khusus          : いく -> いって (bukan いいて)
