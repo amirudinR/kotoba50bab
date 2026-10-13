@@ -4,14 +4,12 @@ import { persist } from "zustand/middleware";
 /* ============================================================
    Visibilitas kolom tabel halaman "bentuk".
 
-   Dipakai oleh KataSifatBentuk (kolom: posKini, posLampau, negKini,
-   negLampau) dan KataKerjaTe (kolom: kamus, te). Pengguna bisa
+   Dipakai oleh KataSifatBentuk (11 kolom: no, kata, arti, 4 kasual,
+   4 formal) dan KataKerjaTe (kolom: kamus, te). Pengguna bisa
    menyembunyikan/menampilkan kolom lewat chip di atas tabel.
 
    Disimpan per "tabel" (id) di localStorage.
    ============================================================ */
-
-export type BentukColKey = "posKini" | "posLampau" | "negKini" | "negLampau" | "kamus" | "te";
 
 interface ColVisState {
   /** id tabel -> (colKey -> tampil?). Kolom yang tidak tercatat = tampil. */

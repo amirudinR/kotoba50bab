@@ -169,7 +169,7 @@ Dua file data **turunan** di `src/data/` dibangun oleh skrip, bukan diedit manua
 
 | Skrip | Sumber | Output | Isi |
 | --- | --- | --- | --- |
-| `tools/build_keiyoushi_konjugasi.py` | `src/data/keiyoushi.ts` | `src/data/keiyoushi_konjugasi.ts` | 111 kata sifat × 4 bentuk (positif/negatif × kini/lampau) + atributif na-adj |
+| `tools/build_keiyoushi_konjugasi.py` | `src/data/keiyoushi.ts` | `src/data/keiyoushi_konjugasi.ts` | 111 kata sifat × 8 bentuk (kasual & formal, positif/negatif × kini/lampau) + atributif na-adj |
 | `tools/build_doushi_te.py` | `src/data/doushi.ts` | `src/data/doushi_te.ts` | 294 kata kerja × bentuk て (dari kamus + golongan) |
 
 ```bash
@@ -198,7 +198,7 @@ kotoba-app/
 ├─ scripts/gen_icons.py     # generator ikon (Pillow)
 ├─ tools/extract_pdf.py     # ekstraktor PDF → kotoba.json (PyMuPDF)
 ├─ tools/build_data.py      # kotoba.json → bab/*.json + index.json + search.json + romaji
-├─ tools/build_keiyoushi_konjugasi.py  # keiyoushi.ts → keiyoushi_konjugasi.ts (bentuk positif/negatif)
+├─ tools/build_keiyoushi_konjugasi.py  # keiyoushi.ts → keiyoushi_konjugasi.ts (bentuk kasual & formal)
 ├─ tools/build_doushi_te.py # doushi.ts → doushi_te.ts (bentuk て)
 ├─ src/
 │  ├─ main.tsx              # mount + initTheme()
@@ -211,7 +211,7 @@ kotoba-app/
 │  │  ├─ index.json         # metadata 50 bab (2.1 KB) — import statis
 │  │  ├─ search.json        # 2.910 entri tanpa romaji (356 KB) — lazy
 │  │  ├─ keiyoushi.ts       # 111 kata sifat (17 na + 94 i) — statis, whitelist manual
-│  │  ├─ keiyoushi_konjugasi.ts # 111 kata sifat × 4 bentuk (positif/negatif kini/lampau) — hasil generate dari keiyoushi.ts
+│  │  ├─ keiyoushi_konjugasi.ts # 111 kata sifat × 8 bentuk (kasual+formal, positif/negatif kini/lampau) — hasil generate dari keiyoushi.ts
 │  │  ├─ doushi.ts          # 294 kata kerja (140 gol1 + 75 gol2 + 79 gol3) — statis, whitelist manual + bentuk kamus
 │  │  ├─ doushi_te.ts       # 294 kata kerja × bentuk て (dari kamus) — hasil generate dari doushi.ts
 │  │  ├─ kotoba.json        # sumber monolitik hasil ekstraksi PDF (523 KB)
@@ -299,12 +299,12 @@ itu ke `partialize`/`omit` pada middleware `persist`.
 Di halaman **Bentuk Kata Sifat** & **Bentuk て**, di atas tabel ada **chip** untuk
 menyembunyikan/menampilkan kolom (mirip kontrol kolom List, tapi lebih ringkas):
 
-- **Bentuk Kata Sifat** — 4 chip: `Positif kini`, `Positif lampau`, `Negatif kini`, `Negatif lampau`. Kolom dasar (`No`, `Kata`, `Arti`) selalu tampil.
-- **Bentuk て** — 2 chip: `Kamus`, `て`.
+- **Bentuk Kata Sifat** — 4 chip: `Positif kini`, `Positif lampau`, `Negatif kini`, `Negatif lampau`. **Tiap chip mengontrol DUA kolom sekaligus** (kasual + formal), jadi total 8 kolom bentuk. Kolom dasar (`No`, `Kata`, `Arti`) selalu tampil.
+- **Bentuk て** — 2 chip: `Kamus`, `て` (satu kolom per chip).
 - Ada tombol **"Sembunyikan semua" / "Tampilkan semua"** di kanan (ikon `ph:eye` / `ph:eye-slash`).
 - Ada juga tombol **"Reset lebar"** (ikon `ph:arrows-in`) di panel yang sama untuk mengembalikan lebar kolom ke default.
-- **Store:** `store/colvis.ts` — `useColVis` menyimpan `hidden: Record<tableId, Record<colKey, true>>`, persist di **`kotoba-colvis`**. Helper `isVisible(hiddenMap, colKey)` (kolom yang belum pernah diubah = tampil). API-nya sengaja ringkas: hanya `toggle` & `setMany` (tombol "Tampilkan semua" memakai `setMany`). Tidak ada `setVisible`/`resetTable` — jangan tambahkan tanpa dipakai.
-- **Implementasi:** kolom bentuk disusun dari konfigurasi data (`BENTUK_COLS` di `KataSifatBentuk.tsx`), lalu difilter `isVisible`. Header grup `Positif`/`Negatif` memakai `colSpan` yang dihitung dari jumlah kolom grup yang tampil — kalau grup kosong, header-nya tidak dirender.
+- **Store:** `store/colvis.ts` — `useColVis` menyimpan `hidden: Record<tableId, Record<colKey, true>>`, persist di **`kotoba-colvis`**. Helper `isVisible(hiddenMap, colKey)` (kolom yang belum pernah diubah = tampil). API-nya sengaja ringkas: hanya `toggle` & `setMany`. Chip pasangan memakai `setMany(tableId, keys[], !semuaOn)`. Tidak ada `setVisible`/`resetTable` — jangan tambahkan tanpa dipakai.
+- **Implementasi:** kolom bentuk disusun dari konfigurasi data (`BENTUK_COLS` di `KataSifatBentuk.tsx`), lalu difilter `isVisible`. Header memakai 4 grup dari `GRUP_INFO` (`kasual-positif`, `kasual-negatif`, `formal-positif`, `formal-negatif`) dengan `colSpan` dihitung dari jumlah kolom grup yang tampil — **grup kosong tidak dirender**. Jangan hardcode jumlah `colSpan`.
 - **Id tabel** sama dengan resize kolom: `bentuk-sifat` & `te`.
 
 ### Resize kolom tabel
@@ -545,11 +545,12 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - Kontrol: switch filter **Semua / な / い** + pencarian (kana/kanji/arti + semua bentuk). **Tidak ada dropdown pilih bab** — semua bab ditampilkan sebagai blok tabel.
   - **Mode "Semua bab"** (filter = `semua` DAN kotak cari kosong) menampilkan **seluruh bab 1–50**; bab yang tidak punya kata sifat muncul sebagai header **ditandai "Tidak ada kata sifat di bab ini"** (redup, ikon `ph:minus`, tidak bisa dibuka). Saat pakai filter な/い atau sedang mencari, **hanya bab yang punya hasil** yang ditampilkan (biar tidak penuh bab kosong).
   - **Satu tabel per bab, bisa dibuka/tutup** (pola `BabAccordion`: `k-collapse` + unmount isi saat tertutup). Header bab menampilkan jumlah kata + berapa yang sudah hafal.
-  - Kolom: **No · Kata (kana + kanji + badge な/い + tombol hafal) · Arti (tombol audio) · Positif kini · Positif lampau · Negatif kini · Negatif lampau**. Baris kepala tabel mengelompokkan **Positif (肯定) di kiri** dan **Negatif (否定) di kanan**, masing-masing dengan sub-kolom Kini / Lampau.
-  - Positif memakai warna `text-ink` (header `success-soft`), negatif memakai `text-seal` (header `danger-soft`).
+  - Kolom: **No · Kata (kana + kanji + badge な/い + tombol hafal) · Arti (tombol audio) · lalu 8 kolom bentuk**. Baris kepala tabel punya **4 grup**: **Kasual · Positif (普通形 肯定)** dan **Kasual · Negatif (普通形 否定)** [kolom kasual: `だ`/`だった`/`じゃない`/`じゃなかった`], lalu **Formal · Positif (丁寧形 肯定)** dan **Formal · Negatif (丁寧形 否定)** [kolom formal/+です: `です`/`でした`/`じゃないです`/`じゃなかったです`]. Tiap grup punya sub-kolom Kini / Lampau.
+  - Positif memakai warna `text-ink` (header `success-soft`), negatif memakai `text-seal` (header `danger-soft`). Kolom formal diberi latar tipis `bg-ink/[0.015]` sebagai pembeda.
   - Tombol **"Buka semua"/"Tutup semua"** untuk seluruh blok bab yang tampil. Tabel `overflow-x-auto` + `colgroup` fixed + sel `overflow-hidden` (biar tidak meluber).
-  - **4 chip di atas tabel** untuk menyembunyikan/menampilkan kolom bentuk (Positif kini/lampau, Negatif kini/lampau) + tombol "Sembunyikan/Tampilkan semua". Disimpan di `kotoba-colvis` (lihat bagian "Pilih kolom tabel").
-  - Aturan konjugasi: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`; khusus **`いい` tidak beraturan** → `いい / よかった / よくない / よくなかった` (juga `よい`, `かっこいい` lewat peta `IRREGULAR`).
+  - **4 chip di atas tabel** untuk menyembunyikan/menampilkan kolom bentuk; **tiap chip = kasual + formal** (Positif kini/lampau, Negatif kini/lampau) + tombol "Sembunyikan/Tampilkan semua". Disimpan di `kotoba-colvis` (lihat bagian "Pilih kolom tabel").
+  - Aturan konjugasi **kasual**: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`; khusus **`いい` tidak beraturan** → `いい / よかった / よくない / よくなかった` (juga `よい`, `かっこいい` lewat peta `IRREGULAR`).
+  - Aturan konjugasi **formal (+です)**: i-adj = bentuk kasual + `です` (`おおきいです / おおきかったです / おおきくないです / おおきくなかったです`); na-adj = `～です / ～でした / ～じゃないです / ～じゃなかったです`.
 - **KataKerjaTe** (`route: kata-kerja-te`, dibuka dari Home "Bentuk て") — **Tabel bentuk て kata kerja** per bab. Sumber data `src/data/doushi_te.ts` (digenerate dari `doushi.ts`).
   - Hero 動詞 + HankoSeal 「て」, **kartu aturan て-form** per golongan (bisa buka-tutup): Gol 1 (う・つ・る→って, む・ぶ・ぬ→んで, く→いて, ぐ→いで, す→して), Gol 2 (る→て), Gol 3 (する→して, くる→きて).
   - **Satu tabel per bab, bisa dibuka/tutup** (pola sama seperti KataSifatBentuk). Kolom: **No · Kata (kamus + badge golongan + tombol hafal) · Arti (tombol audio) · Kamus · て**.
@@ -665,8 +666,10 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
   - `keiyoushi.ts`: kata sifat na dari tanda `（な）`, kata sifat i dari whitelist manual. Jangan ganti jadi filter otomatis "berakhir い" — itu memasukkan kata benda (`せんせい`, `やさい`, `すいえい`).
   - `doushi.ts`: golongan 1/2/3 ditentukan manual, karena "berakhir -imasu/-emasu" saja menyesatkan (`かえります`/`きります` = gol 1, `たべます` = gol 2). Bentuk kamus juga manual di peta `M` di skrip pembentuknya.
   - Menambah/mengubah kata = edit file itu langsung. Kunci hafal memakai `(bab, no)` yang sama seperti data bab, jadi tombol hafal tetap sinkron dengan Flashcard/Quiz/Progress.
-- **`src/data/keiyoushi_konjugasi.ts` adalah file GENERATE — jangan edit per baris.** Isinya `keiyoushi.ts` (111 kata) + 4 bentuk konjugasi + bentuk atributif na-adj. Cara mengubah: edit `keiyoushi.ts` dulu, lalu generate ulang.
-  - Aturan: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`. Field `attributif` (mis. `げんきな`) hanya diisi untuk na-adj; i-adj dikosongkan.
+- **`src/data/keiyoushi_konjugasi.ts` adalah file GENERATE — jangan edit per baris.** Isinya `keiyoushi.ts` (111 kata) + 8 bentuk konjugasi (4 kasual + 4 formal) + bentuk atributif na-adj. Cara mengubah: edit `keiyoushi.ts` dulu, lalu generate ulang.
+  - Aturan kasual: i-adj `～い → ～かった / ～くない / ～くなかった`; na-adj `～ → ～だ / ～だった / ～じゃない / ～じゃなかった`. Field `attributif` (mis. `げんきな`) hanya diisi untuk na-adj; i-adj dikosongkan.
+  - Aturan formal (field `formal*`): i-adj = bentuk kasual + `です`; na-adj = `～です / ～でした / ～じゃないです / ～じゃなかったです`.
+  - Skrip generator (`tools/build_keiyoushi_konjugasi.py` & `tools/build_doushi_te.py`) memakai path **relatif** ke root proyek (`os.path.dirname(os.path.dirname(os.path.abspath(__file__)))`). Jangan kembalikan ke path absolut hardcoded ke `D:\LPK\Kotoba N5danN4\kotoba-app` — itu menulis ke folder yang salah (salinan lama).
   - **`いい` tidak beraturan** — negatifnya `よくない` (bukan `いくない`), lampau `よかった`. Peta `IRREGULAR` menangani `いい`, `よい`, `かっこいい`. Kalau menambah i-adj tidak beraturan lain, tambahkan ke peta itu, jangan andalkan aturan `～い` otomatis.
   - Halaman `KataSifatBentuk.tsx` memakai komponen `k-collapse` + `dibuka &&` agar isi bentuk di-unmount saat tertutup (pola sama seperti `BabAccordion`).
 - **`src/data/doushi_te.ts` adalah file GENERATE — jangan edit per baris.** Isinya `doushi.ts` (294 kata) + bentuk `て` yang dihitung dari **bentuk kamus + golongan**. Cara mengubah: edit `doushi.ts` lalu generate ulang.

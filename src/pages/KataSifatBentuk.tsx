@@ -39,11 +39,15 @@ const FILTER_DESC: Record<FilterKind, string> = {
 const WIDTH = {
   no: 44,
   kata: 150,
-  arti: 220,
-  posKini: 132,
-  posLampau: 148,
-  negKini: 132,
-  negLampau: 148,
+  arti: 200,
+  kasPosKini: 118,
+  kasPosLampau: 132,
+  kasNegKini: 138,
+  kasNegLampau: 156,
+  forPosKini: 118,
+  forPosLampau: 132,
+  forNegKini: 148,
+  forNegLampau: 166,
 } as const;
 
 type ColKeyBentuk = keyof typeof WIDTH;
@@ -51,14 +55,21 @@ type ColKeyBentuk = keyof typeof WIDTH;
 /** Id tabel untuk menyimpan lebar kolom di localStorage. */
 const TABLE_ID = "bentuk-sifat";
 
-/** Kolom tabel bentuk lengkap — urutan, label, grup (positif/negatif), & pengambilan nilai. */
+/** Nama grup untuk header gabungan. `null` = kolom dasar (No/Kata/Arti). */
+type GrupBentuk =
+  | "kasual-positif"
+  | "kasual-negatif"
+  | "formal-positif"
+  | "formal-negatif";
+
+/** Kolom tabel bentuk lengkap — urutan, label, grup, & pengambilan nilai. */
 interface BentukColDef {
   key: ColKeyBentuk;
   /** Label baris-2 (sub-header). Kosong = kolom dasar (No/Kata/Arti). */
   sub: string;
-  /** Grup positif/negatif untuk header gabungan; null = kolom dasar. */
-  group: "positif" | "negatif" | null;
-  /** Nilai teks kana/kanji untuk sel body; null = kolom dasar (khusus). */
+  /** Grup untuk header gabungan; null = kolom dasar. */
+  group: GrupBentuk | null;
+  /** Nilai teks untuk sel body; null = kolom dasar (khusus). */
   nilai: ((k: KeiyoushiBentuk) => string) | null;
 }
 
@@ -66,18 +77,33 @@ const BENTUK_COLS: BentukColDef[] = [
   { key: "no", sub: "", group: null, nilai: null },
   { key: "kata", sub: "", group: null, nilai: null },
   { key: "arti", sub: "", group: null, nilai: null },
-  { key: "posKini", sub: "Kini", group: "positif", nilai: (k) => k.positifKini },
-  { key: "posLampau", sub: "Lampau", group: "positif", nilai: (k) => k.positifLampau },
-  { key: "negKini", sub: "Kini", group: "negatif", nilai: (k) => k.negatifKini },
-  { key: "negLampau", sub: "Lampau", group: "negatif", nilai: (k) => k.negatifLampau },
+  { key: "kasPosKini", sub: "Kini", group: "kasual-positif", nilai: (k) => k.positifKini },
+  { key: "kasPosLampau", sub: "Lampau", group: "kasual-positif", nilai: (k) => k.positifLampau },
+  { key: "kasNegKini", sub: "Kini", group: "kasual-negatif", nilai: (k) => k.negatifKini },
+  { key: "kasNegLampau", sub: "Lampau", group: "kasual-negatif", nilai: (k) => k.negatifLampau },
+  { key: "forPosKini", sub: "Kini", group: "formal-positif", nilai: (k) => k.formalPositifKini },
+  { key: "forPosLampau", sub: "Lampau", group: "formal-positif", nilai: (k) => k.formalPositifLampau },
+  { key: "forNegKini", sub: "Kini", group: "formal-negatif", nilai: (k) => k.formalNegatifKini },
+  { key: "forNegLampau", sub: "Lampau", group: "formal-negatif", nilai: (k) => k.formalNegatifLampau },
 ];
 
-/** 4 tombol chip untuk menyembunyikan/menampilkan kolom bentuk. */
-const BENTUK_TOGGLES: { key: ColKeyBentuk; label: string }[] = [
-  { key: "posKini", label: "Positif kini" },
-  { key: "posLampau", label: "Positif lampau" },
-  { key: "negKini", label: "Negatif kini" },
-  { key: "negLampau", label: "Negatif lampau" },
+/** Info grup: urutan, label, & tone warna (untuk header gabungan). */
+const GRUP_INFO: { id: GrupBentuk; label: string; tone: "success" | "danger" }[] = [
+  { id: "kasual-positif", label: "Kasual · Positif (普通形 肯定)", tone: "success" },
+  { id: "kasual-negatif", label: "Kasual · Negatif (普通形 否定)", tone: "danger" },
+  { id: "formal-positif", label: "Formal · Positif (丁寧形 肯定)", tone: "success" },
+  { id: "formal-negatif", label: "Formal · Negatif (丁寧形 否定)", tone: "danger" },
+];
+
+/**
+ * 4 tombol chip untuk menyembunyikan/menampilkan kolom bentuk.
+ * Tiap chip mengontrol DUA kolom sekaligus (kasual + formal).
+ */
+const BENTUK_TOGGLES: { label: string; keys: ColKeyBentuk[] }[] = [
+  { label: "Positif kini", keys: ["kasPosKini", "forPosKini"] },
+  { label: "Positif lampau", keys: ["kasPosLampau", "forPosLampau"] },
+  { label: "Negatif kini", keys: ["kasNegKini", "forNegKini"] },
+  { label: "Negatif lampau", keys: ["kasNegLampau", "forNegLampau"] },
 ];
 
 
@@ -104,9 +130,11 @@ export default function KataSifatBentuk({ onBack }: Props) {
   const speech = useSpeech();
   // Kolom bentuk yang disembunyikan (chip di atas tabel).
   const hiddenBentuk = useColVis((s) => s.hidden[TABLE_ID]);
-  const toggleCol = useColVis((s) => s.toggle);
   const setManyCols = useColVis((s) => s.setMany);
-  const semuaTampil = BENTUK_TOGGLES.every((t) => isVisible(hiddenBentuk, t.key));
+  // Semua kolom bentuk (gabungan dari 4 pasang chip) sedang tampil?
+  const semuaTampil = BENTUK_TOGGLES.every((t) =>
+    t.keys.every((k) => isVisible(hiddenBentuk, k)),
+  );
   const canSpeak = speech.supported && speech.hasVoice;
   const [speakingKey, setSpeakingKey] = useState<string | null>(null);
 
@@ -281,21 +309,27 @@ export default function KataSifatBentuk({ onBack }: Props) {
 
           <p className="text-[13px] leading-relaxed text-muted">{FILTER_DESC[filter]}</p>
 
-          {/* —— Tampilkan/sembunyikan kolom bentuk (4 chip) —— */}
+          {/* —— Tampilkan/sembunyikan kolom bentuk (4 chip, tiap chip = kasual + formal) —— */}
           <div className="flex flex-wrap items-center gap-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
             <span className="k-eyebrow shrink-0">Kolom bentuk</span>
-            {BENTUK_TOGGLES.map((t) => (
-              <Chip
-                key={t.key}
-                active={isVisible(hiddenBentuk, t.key)}
-                onClick={() => toggleCol(TABLE_ID, t.key)}
-              >
-                {t.label}
-              </Chip>
-            ))}
+            {BENTUK_TOGGLES.map((t) => {
+              const on = t.keys.every((k) => isVisible(hiddenBentuk, k));
+              return (
+                <Chip
+                  key={t.label}
+                  active={on}
+                  onClick={() => setManyCols(TABLE_ID, t.keys, !on)}
+                  title="Kasual + formal sekaligus"
+                >
+                  {t.label}
+                </Chip>
+              );
+            })}
             <button
               type="button"
-              onClick={() => setManyCols(TABLE_ID, BENTUK_TOGGLES.map((t) => t.key), !semuaTampil)}
+              onClick={() =>
+                setManyCols(TABLE_ID, BENTUK_TOGGLES.flatMap((t) => t.keys), !semuaTampil)
+              }
               className="k-chip k-chip-off ml-auto"
             >
               <AppIcon
@@ -448,9 +482,11 @@ function BabBentuk({
 
   const fixed = cols.reduce((n, c) => n + widthOf(c.key), 0);
 
-  // Jumlah kolom per grup (untuk header gabungan Positif/Negatif).
-  const spanPositif = cols.filter((c) => c.group === "positif").length;
-  const spanNegatif = cols.filter((c) => c.group === "negatif").length;
+  // Grup yang tampil + jumlah kolomnya (untuk header gabungan). Grup kosong dibuang.
+  const grupTampil = GRUP_INFO.map((g) => ({
+    ...g,
+    span: cols.filter((c) => c.group === g.id).length,
+  })).filter((g) => g.span > 0);
 
   // Bab tanpa kata sifat: header ditandai, tombol buka/tutup dimatikan.
   if (kosong) {
@@ -535,7 +571,7 @@ function BabBentuk({
 
                 <thead>
                   <tr>
-                    {/* Kolom dasar: No / Kata / Arti */}
+                    {/* Kolom dasar: No / Kata / Arti (kosong di baris atas) */}
                     {cols
                       .filter((c) => c.group === null)
                       .map((c) => (
@@ -557,24 +593,21 @@ function BabBentuk({
                           )}
                         </th>
                       ))}
-                    {/* Header grup Positif */}
-                    {spanPositif > 0 && (
+                    {/* Header 4 grup: kasual/formal x positif/negatif */}
+                    {grupTampil.map((g) => (
                       <th
-                        colSpan={spanPositif}
-                        className="border-b border-l border-line/10 bg-success-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-success"
+                        key={g.id}
+                        colSpan={g.span}
+                        className={[
+                          "border-b border-l border-line/10 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em]",
+                          g.tone === "success"
+                            ? "bg-success-soft/60 text-success"
+                            : "bg-danger-soft/50 text-danger",
+                        ].join(" ")}
                       >
-                        Positif (肯定)
+                        {g.label}
                       </th>
-                    )}
-                    {/* Header grup Negatif */}
-                    {spanNegatif > 0 && (
-                      <th
-                        colSpan={spanNegatif}
-                        className="border-b border-l border-line/10 bg-danger-soft/50 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-danger"
-                      >
-                        Negatif (否定)
-                      </th>
-                    )}
+                    ))}
                   </tr>
                   <tr>
                     {/* sub-header kolom dasar kosong */}
@@ -587,26 +620,35 @@ function BabBentuk({
                           aria-hidden
                         />
                       ))}
-                    {/* sub-header kolom bentuk */}
+                    {/* sub-header kolom bentuk (Kini / Lampau) */}
                     {cols
                       .filter((c) => c.group !== null)
-                      .map((c) => (
-                        <th
-                          key={c.key}
-                          className={[
-                            "relative border-b border-line/[0.07] px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft",
-                            c.group === "positif" ? "bg-success-soft/40" : "bg-danger-soft/30",
-                            c.key === "posKini" || c.key === "negKini" ? "border-l border-line/[0.06]" : "",
-                          ].join(" ")}
-                        >
-                          {c.sub}
-                          <ColResizer
-                            width={widthOf(c.key)}
-                            label={`Lebar kolom ${c.group === "positif" ? "Positif" : "Negatif"} ${c.sub}`}
-                            onResize={(w) => setWidth(TABLE_ID, c.key, w)}
-                          />
-                        </th>
-                      ))}
+                      .map((c) => {
+                        const tone = c.group?.startsWith("kasual") ? "kasual" : "formal";
+                        const isPos = c.group?.endsWith("positif");
+                        return (
+                          <th
+                            key={c.key}
+                            className={[
+                              "relative border-b border-line/[0.07] px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft",
+                              isPos ? "bg-success-soft/40" : "bg-danger-soft/30",
+                              tone === "kasual" && c.sub === "Kini"
+                                ? "border-l border-line/[0.06]"
+                                : "",
+                              tone === "formal" && c.sub === "Kini"
+                                ? "border-l border-line/[0.06]"
+                                : "",
+                            ].join(" ")}
+                          >
+                            {c.sub}
+                            <ColResizer
+                              width={widthOf(c.key)}
+                              label={`Lebar kolom ${c.group} ${c.sub}`}
+                              onResize={(w) => setWidth(TABLE_ID, c.key, w)}
+                            />
+                          </th>
+                        );
+                      })}
                   </tr>
                 </thead>
 
@@ -700,18 +742,20 @@ function BabBentuk({
                                 </span>
                               </td>
                             );
-                          // Kolom bentuk (positif/negatif)
+                          // Kolom bentuk: kasual/formal x positif/negatif
                           const teks = c.nilai ? c.nilai(k) : "";
+                          const isPos = c.group?.endsWith("positif");
+                          const isFormal = c.group?.startsWith("formal");
                           return (
                             <td
                               key={c.key}
                               className={[
                                 "border-b border-line/[0.06] px-3 py-[9px] font-jp text-[14px]",
-                                c.group === "positif" ? "text-ink" : "text-seal",
-                                c.key === "posKini" || c.key === "negKini"
-                                  ? "border-l border-line/[0.06]"
-                                  : "",
+                                isPos ? "text-ink" : "text-seal",
+                                isFormal ? "bg-ink/[0.015]" : "",
+                                c.sub === "Kini" ? "border-l border-line/[0.06]" : "",
                               ].join(" ")}
+                              title={isFormal ? "Bentuk formal (sopan)" : undefined}
                             >
                               <span
                                 className="block overflow-hidden whitespace-nowrap text-ellipsis"

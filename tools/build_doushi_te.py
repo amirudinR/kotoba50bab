@@ -17,11 +17,12 @@ PENTING: godan yang berakhir -eru/-iru itu SAH (かえる 帰る, きる 切る,
 はいる 入る, しる 知る, すべる 滑る, まいる 参る). Jangan pindah ke gol 2.
 """
 
-import io, re, json
+import io, os, re, json
 
-ROOT = r"D:\LPK\Kotoba N5danN4\kotoba-app"
-SRC = ROOT + r"\src\data\doushi.ts"
-OUT = ROOT + r"\src\data\doushi_te.ts"
+# Path relatif ke root proyek (folder induk dari tempat script ini berada).
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, "src", "data", "doushi.ts")
+OUT = os.path.join(ROOT, "src", "data", "doushi_te.ts")
 
 
 def bentuk_te(kamus, kind):

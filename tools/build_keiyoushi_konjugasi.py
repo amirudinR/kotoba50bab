@@ -1,22 +1,28 @@
 # -*- coding: utf-8 -*-
 """Bangun src/data/keiyoushi_konjugasi.ts dari src/data/keiyoushi.ts.
 
-Menambahkan 4 bentuk konjugasi (positif/negatif x kini/lampau) + bentuk
-atributif na-adjektiva. Jalankan ulang setiap kali keiyoushi.ts berubah:
+Menambahkan 8 bentuk konjugasi (kasual & formal, positif/negatif x kini/lampau)
++ bentuk atributif na-adjektiva. Jalankan ulang setiap kali keiyoushi.ts berubah:
 
     python tools/build_keiyoushi_konjugasi.py
 
-Aturan:
+Aturan kasual:
   i-adj :  ~い -> ~かった / ~くない / ~くなかった
   na-adj:  ~   -> ~だ / ~だった / ~じゃない / ~じゃなかった  (atributif: ~な)
   Khusus:  いい -> いい / よかった / よくない / よくなかった  (juga よい, かっこいい)
+
+Aturan formal (sopan, +です):
+  i-adj :  bentuk kasual + です
+  na-adj:  ~です / ~でした / ~じゃないです / ~じゃなかったです
+  Khusus:  mengikuti bentuk kasual tidak beraturan + です
 """
 
-import io, re, json
+import io, os, re, json
 
-ROOT = r"D:\LPK\Kotoba N5danN4\kotoba-app"
-SRC = ROOT + r"\src\data\keiyoushi.ts"
-OUT = ROOT + r"\src\data\keiyoushi_konjugasi.ts"
+# Path relatif ke root proyek (folder tempat script ini berada/.. )
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, "src", "data", "keiyoushi.ts")
+OUT = os.path.join(ROOT, "src", "data", "keiyoushi_konjugasi.ts")
 
 # Bentuk tak beraturan: kana -> (posKini, posLampau, negKini, negLampau)
 IRREGULAR = {
@@ -32,6 +38,7 @@ IRREGULAR = {
 
 
 def konjugasi(kana, kind):
+    """Bentuk kasual: (posKini, posLampau, negKini, negLampau)."""
     if kana in IRREGULAR:
         return IRREGULAR[kana]
     if kind == "na":
@@ -40,6 +47,20 @@ def konjugasi(kana, kind):
         stem = kana[:-1]
         return (kana, stem + "かった", stem + "くない", stem + "くなかった")
     return (kana, kana, kana, kana)
+
+
+def konjugasi_formal(kana, kind):
+    """Bentuk formal/sopan (+です): (posKini, posLampau, negKini, negLampau)."""
+    if kind == "na":
+        return (
+            kana + "です",
+            kana + "でした",
+            kana + "じゃないです",
+            kana + "じゃなかったです",
+        )
+    # i-adj (termasuk tidak beraturan): bentuk kasual + です
+    pk, pl, nk, nl = konjugasi(kana, kind)
+    return (pk + "です", pl + "です", nk + "です", nl + "です")
 
 
 def js(s):
@@ -57,14 +78,14 @@ def main():
 
     L = []
     L.append(
-        "// Bentuk konjugasi kata sifat (keiyoushi): positif/negatif, kini/lampau."
+        "// Bentuk konjugasi kata sifat (keiyoushi): kasual & formal, positif/negatif, kini/lampau."
     )
     L.append(
         "// FILE GENERATE — jangan diedit per baris. Sumber: src/data/keiyoushi.ts"
     )
     L.append("// Jalankan: python tools/build_keiyoushi_konjugasi.py")
     L.append("//")
-    L.append("// Aturan:")
+    L.append("// Aturan kasual:")
     L.append("//   i-adj :  ~い -> ~かった / ~くない / ~くなかった")
     L.append(
         "//   na-adj:  ~   -> ~だ / ~だった / ~じゃない / ~じゃなかった (atributif: ~な)"
@@ -72,6 +93,9 @@ def main():
     L.append(
         "//   Khusus:  いい -> よかった / よくない / よくなかった (tidak beraturan)"
     )
+    L.append("// Aturan formal (+です):")
+    L.append("//   i-adj :  bentuk kasual + です")
+    L.append("//   na-adj:  ~です / ~でした / ~じゃないです / ~じゃなかったです")
     L.append("")
     L.append('import type { KeiyoushiKind } from "./keiyoushi";')
     L.append("")
@@ -88,6 +112,10 @@ def main():
     L.append("  positifLampau: string;")
     L.append("  negatifKini: string;")
     L.append("  negatifLampau: string;")
+    L.append("  formalPositifKini: string;")
+    L.append("  formalPositifLampau: string;")
+    L.append("  formalNegatifKini: string;")
+    L.append("  formalNegatifLampau: string;")
     L.append("}")
     L.append("")
     L.append("export const KEIYOUSHI_BENTUK: KeiyoushiBentuk[] = [")
@@ -95,6 +123,7 @@ def main():
     n_na = n_i = 0
     for bab, no, kana, kanji, arti, kind in rows:
         pk, pl, nk, nl = konjugasi(kana, kind)
+        fpk, fpl, fnk, fnl = konjugasi_formal(kana, kind)
         attr = (kana + "な") if kind == "na" else ""
         if kind == "na":
             n_na += 1
@@ -103,7 +132,8 @@ def main():
         L.append(
             "  {{ bab: {b}, no: {n}, kana: {k}, attributif: {at}, kanji: {kj}, arti: {a}, "
             "kind: {kd}, positifKini: {pk}, positifLampau: {pl}, negatifKini: {nk}, "
-            "negatifLampau: {nl} }},".format(
+            "negatifLampau: {nl}, formalPositifKini: {fpk}, formalPositifLampau: {fpl}, "
+            "formalNegatifKini: {fnk}, formalNegatifLampau: {fnl} }},".format(
                 b=bab,
                 n=no,
                 k=js(kana),
@@ -115,6 +145,10 @@ def main():
                 pl=js(pl),
                 nk=js(nk),
                 nl=js(nl),
+                fpk=js(fpk),
+                fpl=js(fpl),
+                fnk=js(fnk),
+                fnl=js(fnl),
             )
         )
 
