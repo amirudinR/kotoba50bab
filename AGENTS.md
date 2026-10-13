@@ -501,7 +501,7 @@ lihat bagian "Data — lazy load per bab" di atas.
 | `artiVariants` | pecah arti jadi alternatif (split koma/slash/titik) | isAnswerCorrect |
 | `isAnswerCorrect` | mode `kana-arti`: cocok ke varian arti; mode `arti-kana`: cocok persis ke kana atau kanji | QuizKetik |`isAnswerCorrect` memakai `includes` dua arah, jadi mengetik sebagian kata tetap dianggap benar. Itu disengaja.
 
-Kedua mode kuis memakai `const QUIZ_LEN = 10`.
+**Jumlah soal kuis = seluruh kata bab yang dipilih** (bukan lagi tetap 10). Mis. pilih bab 1 (30 kata) → 30 soal. Jika `pool.length > CONFIRM_ABOVE` (150), tampil **layar konfirmasi** dulu sebelum mulai (supaya user sadar kuisnya panjang). Berlaku di QuizPG & QuizKetik. `shuffle` menentukan urutan/acak, bukan jumlah.
 
 ### PWA
 
@@ -564,8 +564,8 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - **2 chip di atas tabel** untuk menyembunyikan/menampilkan kolom `Kamus` & `て` + tombol "Sembunyikan/Tampilkan semua" (store `kotoba-colvis`).
   - Bentuk て dibentuk dari **bentuk kamus + golongan**, bukan dari ます. Khusus `いく → いって` (bukan `いいて`).
 - **Flashcard** — Kartu flip 3D. Tap / Enter / Space untuk membalik. Teks **benar-benar center** (horizontal & vertikal); hint "ketuk untuk membalik" diposisikan absolute di bawah agar tidak menggeser teks utama. Baris kanji tampil bila `card.kanji` terisi, dengan label mono "Kanji", dan dilewati kalau isinya sama dengan teks utama. Tombol ☆/✓ menandai hafal. Arah kartu mengikuti `viewMode`.
-- **QuizPG** — 10 soal, 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
-- **QuizKetik** — 10 soal, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
+- **QuizPG** — soal **sebanyak kata bab terpilih** (lihat "Data & logika kuis"), 4 opsi berlabel A/B/C/D, 3 pengecoh dari seluruh bank kata. Opsi benar jadi `success-soft` + centang, salah dipilih jadi `danger-soft` + cross, sisanya redup. Panel feedback `role="status"`. Ringkasan akhir + daftar "Perlu diulang". Skor 100% dapat HankoSeal 「満」.
+- **QuizKetik** — soal **sebanyak kata bab terpilih**, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
 - **Search** — Pencarian live di `search.json` (kana, kanji, atau arti), maks 120 hasil, badge "bab N", tombol hafal per hasil, dua empty state. Index-nya sendiri dimuat saat halaman dibuka, dengan state loading.
 - **Progress** — Statistik besar (sudah dihafal, benar, salah, akurasi), bar per bab (50 bab, dua kolom di desktop), tombol reset dengan konfirmasi dua langkah. Empty state yang hangat kalau belum ada progres.
 - **List** (`route: list`, dibuka dari Home "Daftar") — Daftar lengkap 2.910 kata, **satu tabel per bab** (50 blok), masing-masing bisa dibuka/tutup. Kolom: No / Hiragana / Katakana / Romaji / Kanji / Arti, plus tombol audio di setiap baris.

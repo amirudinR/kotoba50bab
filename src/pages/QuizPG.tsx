@@ -19,7 +19,8 @@ interface Props {
   onBack: () => void;
 }
 
-const QUIZ_LEN = 10;
+/** Ambang jumlah soal yang memicu layar konfirmasi sebelum kuis dimulai. */
+const CONFIRM_ABOVE = 150;
 const LETTERS = ["A", "B", "C", "D"];
 
 interface Question {
@@ -44,9 +45,8 @@ export default function QuizPG({
 
   const questions = useMemo<Question[]>(() => {
     if (pool.length === 0) return [];
-    const picks = shuffle
-      ? sampleN(pool, Math.min(QUIZ_LEN, pool.length))
-      : pool.slice(0, Math.min(QUIZ_LEN, pool.length));
+    // Soal sebanyak seluruh kata bab terpilih (tanpa batas keras).
+    const picks = shuffle ? sampleN(pool, pool.length) : pool.slice();
 
     return picks.map((card) => {
       const answer = answerFor(card, viewMode);
@@ -69,12 +69,15 @@ export default function QuizPG({
   const [picked, setPicked] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [wrong, setWrong] = useState<KotobaWithBab[]>([]);
+  /** Konfirmasi sebelum mulai kalau soalnya banyak. */
+  const [started, setStarted] = useState(false);
 
   function restart() {
     setQi(0);
     setPicked(null);
     setScore(0);
     setWrong([]);
+    setStarted(false);
   }
 
   useEffect(() => {
@@ -95,6 +98,34 @@ export default function QuizPG({
           <Button className="mt-6" onClick={onBack} iconRight="ph:arrow-right">
             Pilih bab
           </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Layar konfirmasi kalau soal banyak & belum dimulai.
+  if (questions.length > CONFIRM_ABOVE && !started) {
+    return (
+      <div className="min-h-full pb-24">
+        <TopBar title="Kuis Pilihan" subtitle="Konfirmasi" onBack={onBack} />
+        <div className="mx-auto max-w-md px-4 pt-16 text-center">
+          <HankoSeal mark="問" size="lg" className="animate-fade-rise" />
+          <p className="mt-6 font-display text-3xl text-ink">
+            {questions.length} soal
+          </p>
+          <p className="mt-2 text-[15px] leading-relaxed text-muted">
+            Bab yang kamu pilih punya <b>{questions.length}</b> kata. Kuis ini akan
+            memuat semua kata tersebut — boleh jadi cukup panjang. Mau lanjut?
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <Button onClick={() => setStarted(true)} iconRight="ph:arrow-right">
+              Mulai kuis
+            </Button>
+            <button type="button" onClick={onBack} className="k-chip k-chip-off">
+              <Icon icon="ph:caret-left" className="text-[13px]" />
+              Kembali
+            </button>
+          </div>
         </div>
       </div>
     );

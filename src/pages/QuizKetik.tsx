@@ -18,7 +18,8 @@ interface Props {
   onBack: () => void;
 }
 
-const QUIZ_LEN = 10;
+/** Ambang jumlah soal yang memicu layar konfirmasi sebelum kuis dimulai. */
+const CONFIRM_ABOVE = 150;
 
 export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
   const recordAnswer = useProgress((s) => s.recordAnswer);
@@ -26,9 +27,8 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
 
   const questions = useMemo(() => {
     if (pool.length === 0) return [];
-    return shuffle
-      ? sampleN(pool, Math.min(QUIZ_LEN, pool.length))
-      : pool.slice(0, Math.min(QUIZ_LEN, pool.length));
+    // Soal sebanyak seluruh kata bab terpilih (tanpa batas keras).
+    return shuffle ? sampleN(pool, pool.length) : pool.slice();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pool, shuffle, viewMode]);
 
@@ -37,6 +37,8 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
   const [result, setResult] = useState<null | boolean>(null);
   const [score, setScore] = useState(0);
   const [wrong, setWrong] = useState<KotobaWithBab[]>([]);
+  /** Konfirmasi sebelum mulai kalau soalnya banyak. */
+  const [started, setStarted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function restart() {
@@ -45,6 +47,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
     setResult(null);
     setScore(0);
     setWrong([]);
+    setStarted(false);
   }
 
   useEffect(() => {
@@ -69,6 +72,34 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
           <Button className="mt-6" onClick={onBack} iconRight="ph:arrow-right">
             Pilih bab
           </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Layar konfirmasi kalau soal banyak & belum dimulai.
+  if (questions.length > CONFIRM_ABOVE && !started) {
+    return (
+      <div className="min-h-full pb-24">
+        <TopBar title="Kuis Ketik" subtitle="Konfirmasi" onBack={onBack} />
+        <div className="mx-auto max-w-md px-4 pt-16 text-center">
+          <HankoSeal mark="問" size="lg" className="animate-fade-rise" />
+          <p className="mt-6 font-display text-3xl text-ink">
+            {questions.length} soal
+          </p>
+          <p className="mt-2 text-[15px] leading-relaxed text-body">
+            Bab yang kamu pilih punya <b>{questions.length}</b> kata. Kuis ini akan
+            memuat semua kata tersebut — boleh jadi cukup panjang. Mau lanjut?
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <Button onClick={() => setStarted(true)} iconRight="ph:arrow-right">
+              Mulai kuis
+            </Button>
+            <button type="button" onClick={onBack} className="k-chip k-chip-off">
+              <AppIcon icon="ph:caret-left" className="text-[13px]" />
+              Kembali
+            </button>
+          </div>
         </div>
       </div>
     );
