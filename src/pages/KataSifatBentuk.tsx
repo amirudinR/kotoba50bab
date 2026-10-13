@@ -304,6 +304,15 @@ export default function KataSifatBentuk({ onBack }: Props) {
               />
               {semuaTampil ? "Sembunyikan semua" : "Tampilkan semua"}
             </button>
+            <button
+              type="button"
+              onClick={() => useColWidths.getState().resetTable(TABLE_ID)}
+              title="Kembalikan lebar kolom ke ukuran awal"
+              className="k-chip k-chip-off"
+            >
+              <AppIcon icon="ph:arrows-in" className="text-[13px]" />
+              Reset lebar
+            </button>
           </div>
         </div>
 

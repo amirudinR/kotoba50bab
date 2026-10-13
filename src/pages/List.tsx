@@ -7,6 +7,7 @@ import BabAccordion from "../components/BabAccordion";
 import { Chip } from "../components/Controls";
 import { BABS_META, TOTAL_KOTOBA, useBab } from "../data";
 import { useList, type ColKey, type KatakanaMode, type ViewMode } from "../store/list";
+import { useColWidths } from "../store/colwidth";
 import { useSpeech } from "../lib/speech";
 import type { Kotoba } from "../types";
 
@@ -182,6 +183,7 @@ export default function List({ onBack }: Props) {
             onShowAllCols={showAllCols}
             onHideMainCols={() => setCols(MAIN_COLS, false)}
             onReset={resetCols}
+            onResetWidths={() => useColWidths.getState().resetTable("list")}
             katakanaMode={katakanaMode}
             onKana={setKatakanaMode}
             viewMode={viewMode}

@@ -17,13 +17,16 @@ Progres hafalan dan statistik kuis disimpan **di perangkat masing-masing** (`loc
 | Domain produksi | `https://kotoba50bab.vercel.app` |
 | Proyek Vercel | `kotoba50bab` (team `amirs-projects-e5d6b990`) |
 | Bahasa UI | Indonesia, dengan label Jepang sebagai elemen visual |
-| Root folder kerja | `D:\LPK\Kotoba N5danN4\kotoba-app` **dan** `D:\LPK\kanji-hafalan` |
+| Root folder kerja | `D:\LPK\kanji-hafalan` (**hanya ini — lihat catatan**) |
 | Data sumber | `../kotoba minna no nihonggo bab 1-50-1.pdf` (folder induk, ~5 MB, **tidak** masuk repo) |
 
 > **Catatan folder (jangan tertukar):**
-> - `D:\LPK\kanji-hafalan` — isinya proyek Kotoba ini (nama folder menyesatkan),
->   terhubung ke repo `kotoba50bab`. Ini yang dipakai di sesi kerja terakhir.
-> - `D:\LPK\Kotoba N5danN4\kotoba-app` — salinan lama proyek Kotoba yang sama.
+> - ✅ `D:\LPK\kanji-hafalan` — **folder kerja resmi** proyek Kotoba (nama folder
+>   menyesatkan). Terhubung ke repo `kotoba50bab`.
+> - ⚠️ `D:\LPK\Kotoba N5danN4\kotoba-app` — **salinan lama** proyek Kotoba yang
+>   sama, menunjuk repo yang **sama**. **Jangan kerja di dua folder ini
+>   bergantian.** Sempat terjadi commit di folder satu tidak terlihat di folder
+>   lain. Pilih `D:\LPK\kanji-hafalan` untuk semua pekerjaan.
 > - Proyek **Kanji** (beda proyek) ada di `D:\LPK\KanjiLPK-asli`, repo `KanjiLPK`,
 >   domain `kanjilpk.vercel.app`. **Jangan** campur aduk dengan proyek ini.
 
@@ -296,7 +299,8 @@ menyembunyikan/menampilkan kolom (mirip kontrol kolom List, tapi lebih ringkas):
 - **Bentuk Kata Sifat** — 4 chip: `Positif kini`, `Positif lampau`, `Negatif kini`, `Negatif lampau`. Kolom dasar (`No`, `Kata`, `Arti`) selalu tampil.
 - **Bentuk て** — 2 chip: `Kamus`, `て`.
 - Ada tombol **"Sembunyikan semua" / "Tampilkan semua"** di kanan (ikon `ph:eye` / `ph:eye-slash`).
-- **Store:** `store/colvis.ts` — `useColVis` menyimpan `hidden: Record<tableId, Record<colKey, true>>`, persist di **`kotoba-colvis`**. Helper `isVisible(hiddenMap, colKey)` (kolom yang belum pernah diubah = tampil).
+- Ada juga tombol **"Reset lebar"** (ikon `ph:arrows-in`) di panel yang sama untuk mengembalikan lebar kolom ke default.
+- **Store:** `store/colvis.ts` — `useColVis` menyimpan `hidden: Record<tableId, Record<colKey, true>>`, persist di **`kotoba-colvis`**. Helper `isVisible(hiddenMap, colKey)` (kolom yang belum pernah diubah = tampil). API-nya sengaja ringkas: hanya `toggle` & `setMany` (tombol "Tampilkan semua" memakai `setMany`). Tidak ada `setVisible`/`resetTable` — jangan tambahkan tanpa dipakai.
 - **Implementasi:** kolom bentuk disusun dari konfigurasi data (`BENTUK_COLS` di `KataSifatBentuk.tsx`), lalu difilter `isVisible`. Header grup `Positif`/`Negatif` memakai `colSpan` yang dihitung dari jumlah kolom grup yang tampil — kalau grup kosong, header-nya tidak dirender.
 - **Id tabel** sama dengan resize kolom: `bentuk-sifat` & `te`.
 
@@ -308,6 +312,7 @@ Kolom tabel bisa **diperluas/dipersempit** dengan drag garis pemisah antar kolom
 - **Komponen:** `components/ColResizer.tsx` — handle `position: absolute right-0` di dalam `<th className="relative …">`. Menyokong mouse, sentuh (Pointer Events + `setPointerCapture`), dan keyboard (← / →, Shift = langkah besar). Kolom yang bisa di-resize hanya yang punya handle.
 - **Pemakaian:** tiap kolom punya lebar efektif `pickWidth(overrides, colKey, WIDTH[colKey])` — override pengguna kalau ada, kalau tidak default. Lebar itu dipakai di `<colgroup>` **dan** di `style={{ minWidth: totalFixed }}` tabel.
 - **Tabel yang punya resize:** `KotobaTable.tsx` (id `list`), `KataSifatBentuk.tsx` (id `bentuk-sifat`), `KataKerjaTe.tsx` (id `te`). Kolom paling sempit (`No`, `Audio`) sengaja **tidak** diberi handle.
+- **Reset lebar kolom:** tombol **"Reset lebar"** (ikon `ph:arrows-in`) mengembalikan lebar satu tabel ke default dengan `useColWidths.getState().resetTable(tableId)`. Letaknya: di `ListControls.tsx` (kanan, sebelah tombol "Reset") dengan prop `onResetWidths`; di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` di dalam panel chip kolom bentuk. **Beda** dengan tombol "Reset" di List — yang itu me-reset *visibilitas* kolom (`store/list.resetCols`), bukan lebar.
 - **Catatan:** karena lebar dikontrol `colgroup` + `table-layout: fixed`, **default `arti` bukan lagi `0` (sisa ruang)** — sekarang nilai px nyata (220). Jangan kembalikan ke `0`, itu membuat overflow/overlap kolom kembali.
 
 ### Tema & Dark Mode
@@ -412,7 +417,7 @@ Kalau `false`, ikon akan muncul sebagai kotak kosong.
 
 ### Data — lazy load per bab
 
-Data 2.910 entri **tidak** di-bundle statis. `src/data/index.ts`sóleh
+Data 2.910 entri **tidak** di-bundle statis. `src/data/index.ts` menyediakan
 menyediakan metadata ringan (`index.json`, 2.1 KB) dan API async; sisanya
 diambil saat dibutuhkan.
 
@@ -543,7 +548,7 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
 - **QuizKetik** — 10 soal, user mengetik jawaban. Memakai `<form onSubmit>` + tombol `type="submit"` (tekan Enter berfungsi) — **jangan diubah jadi onClick**. Menampilkan jawaban user vs jawaban benar saat salah. Ringkasan + HankoSeal 「満」 kalau sempurna.
 - **Search** — Pencarian live di `search.json` (kana, kanji, atau arti), maks 120 hasil, badge "bab N", tombol hafal per hasil, dua empty state. Index-nya sendiri dimuat saat halaman dibuka, dengan state loading.
 - **Progress** — Statistik besar (sudah dihafal, benar, salah, akurasi), bar per bab (50 bab, dua kolom di desktop), tombol reset dengan konfirmasi dua langkah. Empty state yang hangat kalau belum ada progres.
-- **List** (`route: list`,dibuka dari Home "Daftar") — Daftar lengkap 2.910 kata, **satu tabel per bab** (50 blok), masing-masing bisa dibuka/tutup. Kolom: No / Hiragana / Katakana / Romaji / Kanji / Arti, plus tombol audio di setiap baris.
+- **List** (`route: list`, dibuka dari Home "Daftar") — Daftar lengkap 2.910 kata, **satu tabel per bab** (50 blok), masing-masing bisa dibuka/tutup. Kolom: No / Hiragana / Katakana / Romaji / Kanji / Arti, plus tombol audio di setiap baris.
   - Pencarian live di 4 field (kana, kanji, romaji, arti) + filter "hanya yang punya kanji" + sortir per bab / abjad romaji, dengan hitungan "N dari M" dan tombol bersihkan.
   - Bab tanpa hasil otomatis disembunyikan; **saat searching/filtering tabel dipaksa terbuka** walau babnya tertutup, karena kalau tidak hasil pencarian tidak terlihat sama sekali.
   - Tampilan dibungkus `overflow-x-auto` dengan `min-width`, jadi di iPhone tabel bisa di-scroll mendatar tanpa membuat halaman ikut melebar.
@@ -659,6 +664,7 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Halaman aplikasi memakai lebar penuh (`mx-auto w-full px-…`), bukan `max-w-*`.** Ini keputusan sadar supaya tabel & kartu memakai seluruh ruang di desktop. Jangan kembalikan `max-w-3xl`/`max-w-5xl`/`max-w-xl` ke kontainer utama halaman. Yang tetap sempit: paragraf hero Home, layar loading Flashcard/Quiz, kotak jawaban kuis, dan kotak cari panel List — lihat bagian "Lebar halaman" di atas.
 - **Mode "Semua bab" di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` menampilkan seluruh bab 1–50.** Bab tanpa isi tetap dirender sebagai header redup (ikon `ph:minus`, teks "Tidak ada kata sifat/kata kerja di bab ini") dan tombolnya tidak interaktif. Saat filter/pencarian aktif, `babGroups` dikembalikan hanya bab yang punya hasil. Hitungan "sudah hafal" & "Buka semua" memakai `babIsi` (bab yang ada isinya), bukan `babGroups`.
 - **Kolom bentuk bisa disembunyikan (`store/colvis.ts`, key `kotoba-colvis`).** Di `KataSifatBentuk.tsx` kolom disusun dari `BENTUK_COLS` lalu difilter `isVisible`; header grup Positif/Negatif pakai `colSpan` dinamis dan **tidak dirender bila grupnya kosong**. Jangan hardcode `colSpan={2}` lagi — itu akan jebol saat chip dimatikan. Saat menambah kolom baru, tambahkan ke `BENTUK_COLS` (bukan hanya ke JSX).
+- **Dua "reset" yang berbeda, jangan tertukar.** Tombol **"Reset"** di `ListControls.tsx` me-reset *visibilitas* kolom (`store/list.resetCols`). Tombol **"Reset lebar"** (ikon `ph:arrows-in`) me-reset *lebar* kolom ke default (`useColWidths.getState().resetTable(id)`, key `kotoba-colwidths`). Keduanya beda store & beda key localStorage.
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
 - **Pencarian di List memuat banyak chunk.** Mengetik di kotak cari mengaktifkan `showTable` untuk semua bab, jadi loader ikut mengambil hampir 50 file. Ini perilaku yang diharapkan (pencarian harus lintas bab), tapi jangan dianggap bug.
 - **`table-layout: fixed` harus dipakai bersama `<colgroup>`.** `table-fixed` tanpa `colgroup` membuat browser membagi rata seluruh lebar — itu penyebab kolom "No" berisi 1–2 digit menyisakan ruang kosong ±180px. Sebaliknya, `table-auto` **mengabaikan** `width` di `<col>`, jadi lebar yang ditulis tidak dipatuhi. Kombinasi yang benar: `style={{ tableLayout: "fixed" }}` + `<colgroup>` berisi `width` px.

@@ -59,6 +59,7 @@ interface Props {
   onShowAllCols: () => void;
   onHideMainCols: () => void;
   onReset: () => void;
+  onResetWidths: () => void;
   katakanaMode: KatakanaMode;
   onKana: (m: KatakanaMode) => void;
   viewMode: ViewMode;
@@ -93,6 +94,7 @@ export default function ListControls({
   onShowAllCols,
   onHideMainCols,
   onReset,
+  onResetWidths,
   katakanaMode,
   onKana,
   viewMode,
@@ -157,6 +159,15 @@ export default function ListControls({
           <button type="button" onClick={onReset} title="Kembalikan kolom ke tampilan awal" className={QUIET}>
             <AppIcon icon="ph:arrow-counter-clockwise" className="text-[14px]" />
             Reset
+          </button>
+          <button
+            type="button"
+            onClick={onResetWidths}
+            title="Kembalikan lebar kolom ke ukuran awal"
+            className={QUIET}
+          >
+            <AppIcon icon="ph:arrows-in" className="text-[14px]" />
+            Reset lebar
           </button>
         </div>
       </div>

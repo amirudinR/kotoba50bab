@@ -16,24 +16,16 @@ export type BentukColKey = "posKini" | "posLampau" | "negKini" | "negLampau" | "
 interface ColVisState {
   /** id tabel -> (colKey -> tampil?). Kolom yang tidak tercatat = tampil. */
   hidden: Record<string, Record<string, boolean>>;
-  setVisible: (tableId: string, colKey: string, visible: boolean) => void;
+  /** Balik tampil/sembunyi satu kolom. */
   toggle: (tableId: string, colKey: string) => void;
-  /** Set beberapa kolom sekaligus. */
+  /** Set beberapa kolom sekaligus (mis. tombol "Tampilkan semua"). */
   setMany: (tableId: string, colKeys: string[], visible: boolean) => void;
-  resetTable: (tableId: string) => void;
 }
 
 export const useColVis = create<ColVisState>()(
   persist(
     (set) => ({
       hidden: {},
-      setVisible: (tableId, colKey, visible) =>
-        set((s) => ({
-          hidden: {
-            ...s.hidden,
-            [tableId]: { ...(s.hidden[tableId] ?? {}), [colKey]: !visible },
-          },
-        })),
       toggle: (tableId, colKey) =>
         set((s) => {
           const cur = s.hidden[tableId]?.[colKey] ?? false;
@@ -49,12 +41,6 @@ export const useColVis = create<ColVisState>()(
           const next = { ...(s.hidden[tableId] ?? {}) };
           for (const k of colKeys) next[k] = !visible;
           return { hidden: { ...s.hidden, [tableId]: next } };
-        }),
-      resetTable: (tableId) =>
-        set((s) => {
-          const next = { ...s.hidden };
-          delete next[tableId];
-          return { hidden: next };
         }),
     }),
     { name: "kotoba-colvis" },
