@@ -2,11 +2,14 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 /* ============================================================
-   Visibilitas kolom tabel halaman "bentuk".
+   Visibilitas kolom tabel halaman "bentuk" + pilihan gaya.
 
    Dipakai oleh KataSifatBentuk (11 kolom: no, kata, arti, 4 kasual,
    4 formal) dan KataKerjaTe (kolom: kamus, te). Pengguna bisa
    menyembunyikan/menampilkan kolom lewat chip di atas tabel.
+
+   Selain visibilitas per kolom, tiap tabel bisa punya "gaya"
+   (mis. semua/kasual/formal) yang disimpan per tabel.
 
    Disimpan per "tabel" (id) di localStorage.
    ============================================================ */
@@ -14,16 +17,21 @@ import { persist } from "zustand/middleware";
 interface ColVisState {
   /** id tabel -> (colKey -> tampil?). Kolom yang tidak tercatat = tampil. */
   hidden: Record<string, Record<string, boolean>>;
+  /** id tabel -> gaya aktif (mis. "semua" | "kasual" | "formal"). */
+  gaya: Record<string, string>;
   /** Balik tampil/sembunyi satu kolom. */
   toggle: (tableId: string, colKey: string) => void;
   /** Set beberapa kolom sekaligus (mis. tombol "Tampilkan semua"). */
   setMany: (tableId: string, colKeys: string[], visible: boolean) => void;
+  /** Set gaya aktif untuk satu tabel. */
+  setGaya: (tableId: string, gaya: string) => void;
 }
 
 export const useColVis = create<ColVisState>()(
   persist(
     (set) => ({
       hidden: {},
+      gaya: {},
       toggle: (tableId, colKey) =>
         set((s) => {
           const cur = s.hidden[tableId]?.[colKey] ?? false;
@@ -40,6 +48,8 @@ export const useColVis = create<ColVisState>()(
           for (const k of colKeys) next[k] = !visible;
           return { hidden: { ...s.hidden, [tableId]: next } };
         }),
+      setGaya: (tableId, gaya) =>
+        set((s) => ({ gaya: { ...s.gaya, [tableId]: gaya } })),
     }),
     { name: "kotoba-colvis" },
   ),

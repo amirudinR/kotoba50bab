@@ -95,15 +95,32 @@ const GRUP_INFO: { id: GrupBentuk; label: string; tone: "success" | "danger" }[]
   { id: "formal-negatif", label: "Formal · Negatif (丁寧形 否定)", tone: "danger" },
 ];
 
+/** Gaya bentuk: tampilkan semua, hanya kasual, atau hanya formal. */
+type GayaBentuk = "semua" | "kasual" | "formal";
+
+const GAYA_OPTIONS: { value: GayaBentuk; label: string; short: string }[] = [
+  { value: "semua", label: "Semua", short: "Semua" },
+  { value: "kasual", label: "Kasual (普通形)", short: "Kasual" },
+  { value: "formal", label: "Formal (丁寧形)", short: "Formal" },
+];
+
 /**
- * 4 tombol chip untuk menyembunyikan/menampilkan kolom bentuk.
- * Tiap chip mengontrol DUA kolom sekaligus (kasual + formal).
+ * 8 tombol chip untuk menyembunyikan/menampilkan kolom bentuk (satu per kolom).
+ * `gaya` = "kasual" atau "formal"; chip dengan gaya di luar gaya aktif dinonaktifkan.
  */
-const BENTUK_TOGGLES: { label: string; keys: ColKeyBentuk[] }[] = [
-  { label: "Positif kini", keys: ["kasPosKini", "forPosKini"] },
-  { label: "Positif lampau", keys: ["kasPosLampau", "forPosLampau"] },
-  { label: "Negatif kini", keys: ["kasNegKini", "forNegKini"] },
-  { label: "Negatif lampau", keys: ["kasNegLampau", "forNegLampau"] },
+const BENTUK_TOGGLES: {
+  key: ColKeyBentuk;
+  label: string;
+  gaya: "kasual" | "formal";
+}[] = [
+  { key: "kasPosKini", label: "Kasual positif kini", gaya: "kasual" },
+  { key: "kasPosLampau", label: "Kasual positif lampau", gaya: "kasual" },
+  { key: "kasNegKini", label: "Kasual negatif kini", gaya: "kasual" },
+  { key: "kasNegLampau", label: "Kasual negatif lampau", gaya: "kasual" },
+  { key: "forPosKini", label: "Formal positif kini", gaya: "formal" },
+  { key: "forPosLampau", label: "Formal positif lampau", gaya: "formal" },
+  { key: "forNegKini", label: "Formal negatif kini", gaya: "formal" },
+  { key: "forNegLampau", label: "Formal negatif lampau", gaya: "formal" },
 ];
 
 
@@ -130,11 +147,16 @@ export default function KataSifatBentuk({ onBack }: Props) {
   const speech = useSpeech();
   // Kolom bentuk yang disembunyikan (chip di atas tabel).
   const hiddenBentuk = useColVis((s) => s.hidden[TABLE_ID]);
+  const toggleCol = useColVis((s) => s.toggle);
   const setManyCols = useColVis((s) => s.setMany);
-  // Semua kolom bentuk (gabungan dari 4 pasang chip) sedang tampil?
-  const semuaTampil = BENTUK_TOGGLES.every((t) =>
-    t.keys.every((k) => isVisible(hiddenBentuk, k)),
+  // Gaya aktif: semua / kasual / formal (persist per tabel).
+  const gaya = (useColVis((s) => s.gaya[TABLE_ID]) ?? "semua") as GayaBentuk;
+  const setGaya = useColVis((s) => s.setGaya);
+  // Semua chip (dari gaya yang aktif) sedang tampil?
+  const togglesAktif = BENTUK_TOGGLES.filter(
+    (t) => gaya === "semua" || t.gaya === gaya,
   );
+  const semuaTampil = togglesAktif.every((t) => isVisible(hiddenBentuk, t.key));
   const canSpeak = speech.supported && speech.hasVoice;
   const [speakingKey, setSpeakingKey] = useState<string | null>(null);
 
@@ -309,17 +331,40 @@ export default function KataSifatBentuk({ onBack }: Props) {
 
           <p className="text-[13px] leading-relaxed text-muted">{FILTER_DESC[filter]}</p>
 
-          {/* —— Tampilkan/sembunyikan kolom bentuk (4 chip, tiap chip = kasual + formal) —— */}
-          <div className="flex flex-wrap items-center gap-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
+          {/* —— Gaya bentuk: Semua / Kasual / Formal —— */}
+          <div className="mt-3 flex flex-wrap items-center gap-2.5">
+            <span className="k-eyebrow shrink-0">Gaya bentuk</span>
+            <Segmented
+              options={GAYA_OPTIONS}
+              value={gaya}
+              onChange={(v) => setGaya(TABLE_ID, v)}
+            />
+            <span className="text-[12px] text-muted">
+              {gaya === "semua"
+                ? "Kasual + formal ditampilkan"
+                : gaya === "kasual"
+                  ? "Hanya bentuk kasual (普通形)"
+                  : "Hanya bentuk formal (丁寧形 · です)"}
+            </span>
+          </div>
+
+          {/* —— Pilih kolom bentuk (8 chip, satu per kolom) —— */}
+          <div className="mt-2 flex flex-wrap items-center gap-2 rounded-card border border-line/[0.12] bg-surface px-3 py-2.5">
             <span className="k-eyebrow shrink-0">Kolom bentuk</span>
             {BENTUK_TOGGLES.map((t) => {
-              const on = t.keys.every((k) => isVisible(hiddenBentuk, k));
+              const cocokGaya = gaya === "semua" || t.gaya === gaya;
+              const on = cocokGaya && isVisible(hiddenBentuk, t.key);
               return (
                 <Chip
-                  key={t.label}
+                  key={t.key}
                   active={on}
-                  onClick={() => setManyCols(TABLE_ID, t.keys, !on)}
-                  title="Kasual + formal sekaligus"
+                  disabled={!cocokGaya}
+                  onClick={() => toggleCol(TABLE_ID, t.key)}
+                  title={
+                    cocokGaya
+                      ? `${on ? "Sembunyikan" : "Tampilkan"} kolom ${t.label}`
+                      : `Ganti gaya ke "${t.gaya}" untuk mengatur kolom ini`
+                  }
                 >
                   {t.label}
                 </Chip>
@@ -328,7 +373,7 @@ export default function KataSifatBentuk({ onBack }: Props) {
             <button
               type="button"
               onClick={() =>
-                setManyCols(TABLE_ID, BENTUK_TOGGLES.flatMap((t) => t.keys), !semuaTampil)
+                setManyCols(TABLE_ID, togglesAktif.map((t) => t.key), !semuaTampil)
               }
               className="k-chip k-chip-off ml-auto"
             >
@@ -405,6 +450,7 @@ export default function KataSifatBentuk({ onBack }: Props) {
                 speakingKey={speakingKey}
                 setSpeakingKey={setSpeakingKey}
                 hidden={hiddenBentuk}
+                gaya={gaya}
               />
             ))}
           </div>
@@ -440,6 +486,8 @@ interface BabBentukProps {
   setSpeakingKey: (k: string | null) => void;
   /** Peta kolom yang disembunyikan (dari useColVis). */
   hidden: Record<string, boolean> | undefined;
+  /** Gaya aktif: semua/kasual/formal. */
+  gaya: GayaBentuk;
 }
 
 function BabBentuk({
@@ -454,6 +502,7 @@ function BabBentuk({
   speakingKey,
   setSpeakingKey,
   hidden,
+  gaya,
 }: BabBentukProps) {
   const [mounted, setMounted] = useState(open);
 
@@ -475,10 +524,13 @@ function BabBentuk({
   const widthOf = (key: ColKeyBentuk) =>
     pickWidth(overrides, key, WIDTH[key]);
 
-  // Kolom yang benar-benar dirender (kolom bentuk bisa disembunyikan).
-  const cols = BENTUK_COLS.filter(
-    (c) => c.group === null || isVisible(hidden, c.key),
-  );
+  // Kolom yang benar-benar dirender: gaya cocok DAN kolom tidak disembunyikan chip.
+  const cols = BENTUK_COLS.filter((c) => {
+    if (c.group === null) return true;
+    const g = c.group.startsWith("kasual") ? "kasual" : "formal";
+    if (gaya !== "semua" && gaya !== g) return false;
+    return isVisible(hidden, c.key);
+  });
 
   const fixed = cols.reduce((n, c) => n + widthOf(c.key), 0);
 

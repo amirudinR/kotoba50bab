@@ -19,6 +19,8 @@ interface ChipProps {
   /** Label yang dibaca screen reader bila children bukan teks. */
   srLabel?: string;
   className?: string;
+  /** Nonaktifkan tombol (mis. kolom di luar gaya yang dipilih). */
+  disabled?: boolean;
 }
 
 export function Chip({
@@ -29,14 +31,21 @@ export function Chip({
   title,
   srLabel,
   className = "",
+  disabled = false,
 }: ChipProps) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       aria-pressed={active}
       title={title}
-      className={["k-chip", active ? "k-chip-on" : "k-chip-off", className].join(" ")}
+      className={[
+        "k-chip",
+        active ? "k-chip-on" : "k-chip-off",
+        disabled ? "pointer-events-none opacity-35" : "",
+        className,
+      ].join(" ")}
     >
       {active ? (
         <AppIcon icon="ph:check" className="text-[12px]" />
