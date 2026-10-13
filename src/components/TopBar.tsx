@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import AppIcon from "./Icon";
 import type { IconName } from "./Icon";
+import ZoomControls from "./ZoomControls";
 import { useTheme, type Theme } from "../store/theme";
 
 interface TopBarProps {
@@ -54,6 +55,8 @@ export default function TopBar({ title, subtitle, onBack, right }: TopBarProps) 
         </div>
 
         {right}
+
+        <ZoomControls />
 
         <button
           onClick={cycle}

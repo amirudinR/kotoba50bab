@@ -225,6 +225,7 @@ kotoba-app/
 │  │  ├─ list.ts            # collapsed, visible, katakanaMode, query, filter, sort (persist)
 │  │  ├─ colwidth.ts        # lebar kolom tabel yang di-resize pengguna (persist) + pickWidth()
 │  │  ├─ colvis.ts          # kolom tabel yang disembunyikan (persist) + isVisible()
+│  │  ├─ zoom.ts            # skala tampilan (persist) + ZOOM_STEPS + applyZoom()/initZoom()
 │  │  └─ theme.ts           # light/dark/system (persist) + initTheme()
 │  ├─ components/
 │  │  ├─ Icon.tsx           # wrapper Iconify, tipe IconName = `ph:${string}`
@@ -232,11 +233,12 @@ kotoba-app/
 │  │  ├─ Button.tsx         # variant: ink|seal|ghost|quiet|accent
 │  │  ├─ PaperCard.tsx      # k-card, props raised/tape/tilt/onClick
 │  │  ├─ ProgressBar.tsx    # tone: ink|accent|seal|success|danger|warn
-│  │  ├─ TopBar.tsx         # header sticky + tombol tema
+│  │  ├─ TopBar.tsx         # header sticky + kontrol zoom + tombol tema
 │  │  ├─ KotobaTable.tsx    # tabel kosakata (colgroup + table-fixed + kolom audio)
 │  │  ├─ BabAccordion.tsx   # satu blok bab: header + tabel, animasi buka/tutup
 │  │  ├─ Controls.tsx       # Chip (toggle) + Segmented (radio, ←/→) yang dipakai bersama
 │  │  ├─ ColResizer.tsx     # handle drag untuk melebarkan/menyempitkan kolom tabel
+│  │  ├─ ZoomControls.tsx   # tombol −/persen/+ untuk skala tampilan (di TopBar)
 │  │  ├─ ListControls.tsx   # panel kontrol List: bulk kolom, bulk 50 bab, kana, terpilih
 │  │  └─ LoadingRows.tsx    # skeleton baris saat data dimuat
 │  └─ pages/
@@ -282,9 +284,10 @@ Tiga store memakai middleware `persist` dari Zustand. Nama key `localStorage`:
 | `useTheme` | `store/theme.ts` | **`kotoba-theme`** | `theme: "light" \| "dark" \| "system"` + `setTheme`, `cycle`, `syncFromSystem` |
 | `useList` | `store/list.ts` | **`kotoba-list`** | `collapsed` (default **semua 50 bab tertutup**), `visible` (kolom), `katakanaMode`, `focusBabs`, `query`, `onlyWithKanji`, `sortBy` + `toggleBab`, `expandAll`, `collapseAll`, `expandOnly`, `toggleCol`, `setCol`, `setCols` (bulk kolom), `showAllCols`, `resetCols`, `setKatakanaMode` |
 | `useColWidths` | `store/colwidth.ts` | **`kotoba-colwidths`** | `widths` (id tabel → colKey → px) + `setWidth`, `resetTable` |
-| `useColVis` | `store/colvis.ts` | **`kotoba-colvis`** | `hidden` (id tabel → colKey → true bila disembunyikan) + `setVisible`, `toggle`, `setMany`, `resetTable` |
+| `useColVis` | `store/colvis.ts` | **`kotoba-colvis`** | `hidden` (id tabel → colKey → true bila disembunyikan) + `toggle`, `setMany` |
+| `useZoom` | `store/zoom.ts` | **`kotoba-zoom`** | `pct` (75–175, default 100) + `zoomIn`, `zoomOut`, `resetZoom`, `setZoom` |
 
-Tujuh key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
+Delapan key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
 `sortBy` ikut ter-persist, jadi pencarian yang belum dibersihkan akan tetap ada
 saat aplikasi dibuka lagi. Kalau itu terasa mengganggu, pindahkan ketiga field
 itu ke `partialize`/`omit` pada middleware `persist`.
@@ -314,6 +317,15 @@ Kolom tabel bisa **diperluas/dipersempit** dengan drag garis pemisah antar kolom
 - **Tabel yang punya resize:** `KotobaTable.tsx` (id `list`), `KataSifatBentuk.tsx` (id `bentuk-sifat`), `KataKerjaTe.tsx` (id `te`). Kolom paling sempit (`No`, `Audio`) sengaja **tidak** diberi handle.
 - **Reset lebar kolom:** tombol **"Reset lebar"** (ikon `ph:arrows-in`) mengembalikan lebar satu tabel ke default dengan `useColWidths.getState().resetTable(tableId)`. Letaknya: di `ListControls.tsx` (kanan, sebelah tombol "Reset") dengan prop `onResetWidths`; di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` di dalam panel chip kolom bentuk. **Beda** dengan tombol "Reset" di List — yang itu me-reset *visibilitas* kolom (`store/list.resetCols`), bukan lebar.
 - **Catatan:** karena lebar dikontrol `colgroup` + `table-layout: fixed`, **default `arti` bukan lagi `0` (sisa ruang)** — sekarang nilai px nyata (220). Jangan kembalikan ke `0`, itu membuat overflow/overlap kolom kembali.
+
+### Zoom / skala tampilan
+
+Pengguna bisa memperbesar/memperkecil **seluruh halaman** (teks, tabel, kartu) lewat kontrol zoom di `TopBar`.
+
+- **Store:** `store/zoom.ts` — `useZoom` menyimpan `pct` (persen), persist di key **`kotoba-zoom`**. 7 langkah tetap di `ZOOM_STEPS = [75, 85, 100, 115, 130, 150, 175]`; default 100.
+- **Cara kerja:** skala **bukan** diubah lewat root `font-size` (banyak elemen app memakai px absolut seperti `text-[13px]`, jadi tidak akan ikut). Skala diterapkan dengan properti CSS **`zoom`** pada `<html>` lewat `applyZoom(pct)` (`root.style.setProperty("zoom", pct/100)`; 100% = properti dibuang). `initZoom()` dipanggil di `main.tsx` untuk menerapkan nilai tersimpan saat boot, dan `index.html` punya script anti-flash yang menerapkan zoom sebelum React mount (pola sama seperti tema).
+- **Komponen:** `components/ZoomControls.tsx` — tombol **−** (`ph:magnifying-glass-minus`), label **persen** (klik = reset 100%), tombol **+** (`ph:magnifying-glass-plus`). Tombol − / + otomatis `disabled` di ujung rentang. Disembunyikan di layar sangat kecil (`hidden sm:flex`) supaya header tidak sesak.
+- **Catatan:** jangan ganti ke `transform: scale()` — itu merusak posisi `sticky`/scroll. `zoom` CSS adalah jalur yang dipilih.
 
 ### Tema & Dark Mode
 
@@ -390,9 +402,9 @@ export type IconName = `ph:${string}`;
 Semua pemakaian ikon wajib berawalan `ph:`. Tipe sengaja `string`, bukan union literal, supaya kolom ikon pada array data (mis. daftar mode di `Home.tsx`) tidak butuh `as const`.
 
 Semua nama ikon yang dipakai, sudah diverifikasi ada di `@iconify-json/ph`
-(**41 ikon**, dicek otomatis — lihat gotcha di bawah):
+(**43 ikon**, dicek otomatis — lihat gotcha di bawah):
 
-`ph:arrow-counter-clockwise`, `ph:arrow-elbow-down-right`, `ph:arrow-right`, `ph:arrows-clockwise`, `ph:arrows-in`, `ph:arrows-out`, `ph:book-open`, `ph:cards`, `ph:caret-down`, `ph:caret-left`, `ph:caret-right`, `ph:caret-up`, `ph:chart-bar`, `ph:check`, `ph:check-circle`, `ph:check-square`, `ph:circle-notch`, `ph:eye`, `ph:eye-slash`, `ph:keyboard`, `ph:laptop`, `ph:lightbulb`, `ph:lightning`, `ph:list-bullets`, `ph:magnifying-glass`, `ph:minus`, `ph:moon`, `ph:notebook`, `ph:seal-check`, `ph:shuffle`, `ph:speaker-high`, `ph:square`, `ph:star`, `ph:sun`, `ph:target`, `ph:text-aa`, `ph:text-t`, `ph:trash`, `ph:waveform`, `ph:x`, `ph:x-circle`.
+`ph:arrow-counter-clockwise`, `ph:arrow-elbow-down-right`, `ph:arrow-right`, `ph:arrows-clockwise`, `ph:arrows-in`, `ph:arrows-out`, `ph:book-open`, `ph:cards`, `ph:caret-down`, `ph:caret-left`, `ph:caret-right`, `ph:caret-up`, `ph:chart-bar`, `ph:check`, `ph:check-circle`, `ph:check-square`, `ph:circle-notch`, `ph:eye`, `ph:eye-slash`, `ph:keyboard`, `ph:laptop`, `ph:lightbulb`, `ph:lightning`, `ph:list-bullets`, `ph:magnifying-glass`, `ph:magnifying-glass-minus`, `ph:magnifying-glass-plus`, `ph:minus`, `ph:moon`, `ph:notebook`, `ph:seal-check`, `ph:shuffle`, `ph:speaker-high`, `ph:square`, `ph:star`, `ph:sun`, `ph:target`, `ph:text-aa`, `ph:text-t`, `ph:trash`, `ph:waveform`, `ph:x`, `ph:x-circle`.
 
 Keterangan guna (sebagian): trio tema `ph:sun`/`ph:moon`/`ph:laptop` (`TopBar`),
 `ph:square`/`ph:check-square` (pilih bab), `ph:text-t` (kolom teks),
@@ -401,7 +413,8 @@ Keterangan guna (sebagian): trio tema `ph:sun`/`ph:moon`/`ph:laptop` (`TopBar`),
 `ph:lightbulb` (aturan menghafal), `ph:arrow-elbow-down-right` (bentuk kamus),
 `ph:arrows-clockwise` (Bentuk Kata Sifat), `ph:minus` (bab tanpa isi),
 `ph:arrows-in`/`ph:arrows-out` (reset/aksi lebar kolom), `ph:circle-notch` (loading),
-`ph:eye`/`ph:eye-slash` (sembunyikan/tampilkan).
+`ph:eye`/`ph:eye-slash` (sembunyikan/tampilkan),
+`ph:magnifying-glass-minus`/`ph:magnifying-glass-plus` (zoom out/in).
 
 > **Cara paling aman:** jangan mengandalkan daftar manual di atas. Jalankan skrip
 > verifikasi di gotcha di bawah setiap kali menambah ikon baru — daftar manual
@@ -515,6 +528,7 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
 ## Fitur
 
 - **Home** — Hero dengan kanji 「言葉」 88px + HankoSeal, baris statistik (total kata / bab / dihafal), kartu mode (2 utama + 3 pendukung), grid pilih bab 1–50, toggle urutan acak, bar kemajuan hafalan. Dua tombol tambahan: **Kata Sifat** dan **Kata Kerja** (lihat di bawah).
+- **Zoom (semua halaman)** — di `TopBar` ada kontrol zoom: tombol **−**, label **persen**, tombol **+** (dan klik label untuk reset 100%). Skala **seluruh halaman** dari 75%–175% (7 langkah), diterapkan lewat properti CSS `zoom` di `<html>`, disimpan di `kotoba-zoom`. Lihat bagian "Zoom / skala tampilan".
 - **KataSifat** (`route: kata-sifat`, dibuka dari Home "Kata Sifat") — Daftar **111 kata sifat** (17 na + 94 i) dari 50 bab. Sumber data `src/data/keiyoushi.ts`.
   - Hero 形容詞 + HankoSeal 「形」, switch filter **Semua / な / い** (`Segmented`), pencarian kana/kanji/arti.
   - Kartu per kata: kana + kanji + badge jenis (な/い dengan warna beda) + arti + label bab, tombol audio & tombol hafal, bar progres "sudah hafal" per daftar yang tampil.
@@ -681,6 +695,7 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **`pykakasi` harus terpasang** untuk `tools/build_data.py` mengisi `romaji`. Bukan dependency `package.json`, jadi `pip install pykakasi` setiap environment baru.
 - **`selectAll()` memakai `Array.from({ length: 50 })`** dan UI menampilkan "1–50". Kalau dataset berubah, keduanya harus diubah bersamaan.
 - **Jangan pakai `cd` di command shell**; pakai working directory. Path mengandung spasi — selalu kutip.
+- **Zoom memakai properti CSS `zoom` di `<html>`, bukan `transform: scale()` dan bukan root `font-size`.** `transform` merusak `sticky`/scroll; `font-size` tak berpengaruh karena app ini penuh ukuran px absolut (`text-[13px]`). Nilai tersimpan di `kotoba-zoom` dan diterapkan ganda: script anti-flash di `index.html` (sebelum React) + `initZoom()` di `main.tsx`. Kalau menambah nilai langkah baru, edit `ZOOM_STEPS` di `store/zoom.ts` (urutan menaik).
 - **Jangan commit `node_modules`, `dist`, `*.log`, `*.tsbuildinfo`, `dev.pid`, `__pycache__`.**
 - **Jangan hapus `src/data/kotoba.json`** saat scaffold ulang. Regenerasinya mahal dan tidak ada salinan di dalam repo.
 - **`index.html` mengaktifkan `user-scalable=no`.** Keputusan sadar untuk mencegah zoom saat mengetik kuis. Hati-hati mengubahnya. **Jangan hapus `maximum-scale=1.0`/`user-scalable=no`** untuk "memperbaiki scroll" — itu tidak menyelesaikan apa pun dan justru memunculkan auto-zoom saat mengetik di `QuizKetik` (pernah dicoba, dikembalikan). Scroll halaman tidak dipengaruhi meta viewport.

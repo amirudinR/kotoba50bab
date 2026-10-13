@@ -40,6 +40,21 @@
       })();
     </script>
 
+    <!-- Terapkan zoom SEBELUM React mount supaya tidak ada kilatan ukuran -->
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem("kotoba-zoom");
+          var pct = raw ? JSON.parse(raw).state.pct : 100;
+          if (typeof pct === "number" && pct !== 100 && pct > 0) {
+            document.documentElement.style.zoom = String(pct / 100);
+          }
+        } catch (e) {
+          /* biarkan default */
+        }
+      })();
+    </script>
+
     <style>
       /* Latar awal sama persis dengan body supaya transisi mulus */
       html {
