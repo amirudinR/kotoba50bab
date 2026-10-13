@@ -1,4 +1,6 @@
 import AppIcon from "./Icon";
+import ColResizer from "./ColResizer";
+import { useColWidths, pickWidth } from "../store/colwidth";
 import { maybeKatakana, type KatakanaMode } from "../store/list";
 import type { ColKey } from "../store/list";
 import type { Kotoba } from "../types";
@@ -13,11 +15,9 @@ interface Props {
 }
 
 /**
- * Lebar kolom dalam px. Dipakai bersama `table-layout: fixed` + `<colgroup>`,
- * sehingga lebar yang ditulis di sini dipatuhi persis. Versi sebelumnya
- * memakai `table-fixed` tanpa `colgroup`, yang membuat browser membagi rata
- * seluruh lebar — kolom "No" berisi 1–2 digit jadi menyisakan ruang kosong
- * besar, sedangkan kolom "Arti" justru terpotong.
+ * Lebar kolom dalam px (nilai DEFAULT — bisa diubah pengguna lewat drag,
+ * lebar tersimpan di localStorage per kolom). Dipakai bersama
+ * `table-layout: fixed` + `<colgroup>`, sehingga lebar yang ditulis dipatuhi.
  */
 const WIDTH: Record<ColKey, number> = {
   no: 44,
@@ -25,9 +25,12 @@ const WIDTH: Record<ColKey, number> = {
   katakana: 196,
   romaji: 236,
   kanji: 128,
-  arti: 0, // sisa ruang
+  arti: 220,
   audio: 44,
 };
+
+/** Id tabel untuk menyimpan lebar kolom di localStorage. */
+const TABLE_ID = "list";
 
 const LABEL: Record<ColKey, string> = {
   no: "No",
@@ -56,20 +59,21 @@ export default function KotobaTable({
   if (visible.arti) keys.push("arti");
   if (canSpeak) keys.push("audio");
 
-  const fixed = keys.reduce((n, k) => n + (WIDTH[k] || 0), 0);
+  const overrides = useColWidths((s) => s.widths[TABLE_ID]);
+  const setWidth = useColWidths((s) => s.setWidth);
+  const widthOf = (k: ColKey) => pickWidth(overrides, k, WIDTH[k]);
+
+  const fixed = keys.reduce((n, k) => n + widthOf(k), 0);
 
   return (
     <div className="scroll-slim overflow-x-auto">
       <table
         className="w-full border-separate border-spacing-0 text-[14px]"
-        style={{ minWidth: fixed + 140, tableLayout: "fixed" }}
+        style={{ minWidth: fixed, tableLayout: "fixed" }}
       >
         <colgroup>
           {keys.map((k) => (
-            <col
-              key={k}
-              style={{ width: WIDTH[k] ? `${WIDTH[k]}px` : undefined }}
-            />
+            <col key={k} style={{ width: `${widthOf(k)}px` }} />
           ))}
         </colgroup>
 
@@ -82,10 +86,19 @@ export default function KotobaTable({
                 className={[
                   "border-b border-line/10 bg-sunken/70 px-3 py-2",
                   "text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85",
+                  "relative",
                   k === "no" ? "text-center" : "text-left",
                 ].join(" ")}
               >
                 {LABEL[k] || <span className="sr-only">Audio</span>}
+                {/* Kolom No & Audio tidak bisa di-resize (terlalu sempit). */}
+                {k !== "no" && k !== "audio" && (
+                  <ColResizer
+                    width={widthOf(k)}
+                    label={`Lebar kolom ${LABEL[k]}`}
+                    onResize={(w) => setWidth(TABLE_ID, k, w)}
+                  />
+                )}
               </th>
             ))}
           </tr>

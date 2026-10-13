@@ -12,6 +12,8 @@ import TopBar from "../components/TopBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
 import { Segmented } from "../components/Controls";
+import { useColWidths, pickWidth } from "../store/colwidth";
+import ColResizer from "../components/ColResizer";
 import JpText from "../components/JpText";
 import AppIcon from "../components/Icon";
 
@@ -69,8 +71,13 @@ const KIND_DESC: Record<FilterKind, string> = {
   "3": "Golongan 3 (不規則): hanya する → して dan くる → きて.",
 };
 
-/** Lebar kolom (px) — dipakai bersama `table-layout: fixed` + `<colgroup>`. */
-const WIDTH = { no: 44, kata: 170, arti: 0, kamus: 148, te: 148 } as const;
+/** Lebar default kolom (px) — bisa diubah pengguna lewat drag (disimpan di localStorage). */
+const WIDTH = { no: 44, kata: 170, arti: 220, kamus: 148, te: 148 } as const;
+
+type ColKeyTe = keyof typeof WIDTH;
+
+/** Id tabel untuk menyimpan lebar kolom di localStorage. */
+const TABLE_ID = "te";
 
 function matches(d: DoushiTe, q: string): boolean {
   if (!q) return true;
@@ -391,7 +398,11 @@ function BabTe({
   const hafalBab = items.filter((d) => isHafal(d.bab, d.no)).length;
   const kosong = items.length === 0;
 
-  const fixed = WIDTH.no + WIDTH.kata + WIDTH.kamus + WIDTH.te;
+  const overrides = useColWidths((s) => s.widths[TABLE_ID]);
+  const setWidth = useColWidths((s) => s.setWidth);
+  const widthOf = (key: ColKeyTe) => pickWidth(overrides, key, WIDTH[key]);
+
+  const fixed = widthOf("no") + widthOf("kata") + widthOf("arti") + widthOf("kamus") + widthOf("te");
 
   // Bab tanpa kata kerja: header ditandai, tombol buka/tutup dimatikan.
   if (kosong) {
@@ -469,11 +480,11 @@ function BabTe({
                 style={{ minWidth: fixed + 140, tableLayout: "fixed" }}
               >
                 <colgroup>
-                  <col style={{ width: `${WIDTH.no}px` }} />
-                  <col style={{ width: `${WIDTH.kata}px` }} />
-                  <col />
-                  <col style={{ width: `${WIDTH.kamus}px` }} />
-                  <col style={{ width: `${WIDTH.te}px` }} />
+                  <col style={{ width: `${widthOf("no")}px` }} />
+                  <col style={{ width: `${widthOf("kata")}px` }} />
+                  <col style={{ width: `${widthOf("arti")}px` }} />
+                  <col style={{ width: `${widthOf("kamus")}px` }} />
+                  <col style={{ width: `${widthOf("te")}px` }} />
                 </colgroup>
 
                 <thead>
@@ -481,17 +492,37 @@ function BabTe({
                     <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       No
                     </th>
-                    <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
+                    <th className="relative border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       Kata
+                      <ColResizer
+                        width={widthOf("kata")}
+                        label="Lebar kolom Kata"
+                        onResize={(w) => setWidth(TABLE_ID, "kata", w)}
+                      />
                     </th>
-                    <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
+                    <th className="relative border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       Arti
+                      <ColResizer
+                        width={widthOf("arti")}
+                        label="Lebar kolom Arti"
+                        onResize={(w) => setWidth(TABLE_ID, "arti", w)}
+                      />
                     </th>
-                    <th className="border-b border-l border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
+                    <th className="relative border-b border-l border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       Kamus
+                      <ColResizer
+                        width={widthOf("kamus")}
+                        label="Lebar kolom Kamus"
+                        onResize={(w) => setWidth(TABLE_ID, "kamus", w)}
+                      />
                     </th>
-                    <th className="border-b border-l border-line/10 bg-accent-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-accent">
+                    <th className="relative border-b border-l border-line/10 bg-accent-soft/60 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-accent">
                       て
+                      <ColResizer
+                        width={widthOf("te")}
+                        label="Lebar kolom て"
+                        onResize={(w) => setWidth(TABLE_ID, "te", w)}
+                      />
                     </th>
                   </tr>
                 </thead>

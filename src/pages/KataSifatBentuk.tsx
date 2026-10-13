@@ -11,6 +11,8 @@ import TopBar from "../components/TopBar";
 import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
 import { Segmented } from "../components/Controls";
+import { useColWidths, pickWidth } from "../store/colwidth";
+import ColResizer from "../components/ColResizer";
 import JpText from "../components/JpText";
 import AppIcon from "../components/Icon";
 
@@ -32,16 +34,32 @@ const FILTER_DESC: Record<FilterKind, string> = {
   i: "Kata sifat い — berakhiran い dan berubah sendiri tanpa だ.",
 };
 
-/** Lebar kolom dalam px — dipakai bersama `table-layout: fixed` + `<colgroup>`. */
+/** Lebar default kolom (px). Bisa diubah pengguna lewat drag (disimpan di localStorage). */
 const WIDTH = {
   no: 44,
   kata: 150,
-  arti: 0, // sisa ruang
+  arti: 220,
   posKini: 132,
   posLampau: 148,
   negKini: 132,
   negLampau: 148,
 } as const;
+
+type ColKeyBentuk = keyof typeof WIDTH;
+
+/** Urutan kolom + label header — dipakai untuk colgroup, header, & resize. */
+const COLS: { key: ColKeyBentuk; label: string; align: "left" | "center" }[] = [
+  { key: "no", label: "No", align: "center" },
+  { key: "kata", label: "Kata", align: "left" },
+  { key: "arti", label: "Arti", align: "left" },
+  { key: "posKini", label: "Kini", align: "left" },
+  { key: "posLampau", label: "Lampau", align: "left" },
+  { key: "negKini", label: "Kini", align: "left" },
+  { key: "negLampau", label: "Lampau", align: "left" },
+];
+
+/** Id tabel untuk menyimpan lebar kolom di localStorage. */
+const TABLE_ID = "bentuk-sifat";
 
 function matches(k: KeiyoushiBentuk, q: string): boolean {
   if (!q) return true;
@@ -354,7 +372,13 @@ function BabBentuk({
   const hafalBab = items.filter((k) => isHafal(k.bab, k.no)).length;
   const kosong = items.length === 0;
 
-  const fixed = WIDTH.no + WIDTH.kata + WIDTH.posKini + WIDTH.posLampau + WIDTH.negKini + WIDTH.negLampau;
+  // Lebar kolom: default dari WIDTH, override dari store (drag pengguna).
+  const overrides = useColWidths((s) => s.widths[TABLE_ID]);
+  const setWidth = useColWidths((s) => s.setWidth);
+  const widthOf = (key: ColKeyBentuk) =>
+    pickWidth(overrides, key, WIDTH[key]);
+
+  const fixed = COLS.reduce((n, c) => n + widthOf(c.key), 0);
 
   // Bab tanpa kata sifat: header ditandai, tombol buka/tutup dimatikan.
   if (kosong) {
@@ -432,13 +456,9 @@ function BabBentuk({
                 style={{ minWidth: fixed + 120, tableLayout: "fixed" }}
               >
                 <colgroup>
-                  <col style={{ width: `${WIDTH.no}px` }} />
-                  <col style={{ width: `${WIDTH.kata}px` }} />
-                  <col />
-                  <col style={{ width: `${WIDTH.posKini}px` }} />
-                  <col style={{ width: `${WIDTH.posLampau}px` }} />
-                  <col style={{ width: `${WIDTH.negKini}px` }} />
-                  <col style={{ width: `${WIDTH.negLampau}px` }} />
+                  {COLS.map((c) => (
+                    <col key={c.key} style={{ width: `${widthOf(c.key)}px` }} />
+                  ))}
                 </colgroup>
 
                 <thead>
@@ -446,11 +466,21 @@ function BabBentuk({
                     <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       No
                     </th>
-                    <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
+                    <th className="relative border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       Kata
+                      <ColResizer
+                        width={widthOf("kata")}
+                        label="Lebar kolom Kata"
+                        onResize={(w) => setWidth(TABLE_ID, "kata", w)}
+                      />
                     </th>
-                    <th className="border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
+                    <th className="relative border-b border-line/10 bg-sunken/70 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.08em] text-muted/85">
                       Arti
+                      <ColResizer
+                        width={widthOf("arti")}
+                        label="Lebar kolom Arti"
+                        onResize={(w) => setWidth(TABLE_ID, "arti", w)}
+                      />
                     </th>
                     <th
                       colSpan={2}
@@ -469,17 +499,37 @@ function BabBentuk({
                     <th className="border-b border-line/10 bg-sunken/40 px-3 py-1.5" aria-hidden />
                     <th className="border-b border-line/10 bg-sunken/40 px-3 py-1.5" aria-hidden />
                     <th className="border-b border-line/10 bg-sunken/40 px-3 py-1.5" aria-hidden />
-                    <th className="border-b border-line/[0.07] bg-success-soft/40 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
+                    <th className="relative border-b border-line/[0.07] bg-success-soft/40 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
                       Kini
+                      <ColResizer
+                        width={widthOf("posKini")}
+                        label="Lebar kolom Positif kini"
+                        onResize={(w) => setWidth(TABLE_ID, "posKini", w)}
+                      />
                     </th>
-                    <th className="border-b border-line/[0.07] bg-success-soft/40 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
+                    <th className="relative border-b border-line/[0.07] bg-success-soft/40 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
                       Lampau
+                      <ColResizer
+                        width={widthOf("posLampau")}
+                        label="Lebar kolom Positif lampau"
+                        onResize={(w) => setWidth(TABLE_ID, "posLampau", w)}
+                      />
                     </th>
-                    <th className="border-b border-line/[0.07] bg-danger-soft/30 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
+                    <th className="relative border-b border-line/[0.07] bg-danger-soft/30 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
                       Kini
+                      <ColResizer
+                        width={widthOf("negKini")}
+                        label="Lebar kolom Negatif kini"
+                        onResize={(w) => setWidth(TABLE_ID, "negKini", w)}
+                      />
                     </th>
-                    <th className="border-b border-line/[0.07] bg-danger-soft/30 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
+                    <th className="relative border-b border-line/[0.07] bg-danger-soft/30 px-3 py-1.5 text-left text-[10.5px] font-semibold text-ink-soft">
                       Lampau
+                      <ColResizer
+                        width={widthOf("negLampau")}
+                        label="Lebar kolom Negatif lampau"
+                        onResize={(w) => setWidth(TABLE_ID, "negLampau", w)}
+                      />
                     </th>
                   </tr>
                 </thead>

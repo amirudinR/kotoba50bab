@@ -199,6 +199,7 @@ kotoba-app/
 │  │  ├─ settings.ts        # selectedBabs, shuffle, viewMode (persist)
 │  │  ├─ progress.ts        # hafal, stats (persist) + kataKey()
 │  │  ├─ list.ts            # collapsed, visible, katakanaMode, query, filter, sort (persist)
+│  │  ├─ colwidth.ts        # lebar kolom tabel yang di-resize pengguna (persist) + pickWidth()
 │  │  └─ theme.ts           # light/dark/system (persist) + initTheme()
 │  ├─ components/
 │  │  ├─ Icon.tsx           # wrapper Iconify, tipe IconName = `ph:${string}`
@@ -210,6 +211,7 @@ kotoba-app/
 │  │  ├─ KotobaTable.tsx    # tabel kosakata (colgroup + table-fixed + kolom audio)
 │  │  ├─ BabAccordion.tsx   # satu blok bab: header + tabel, animasi buka/tutup
 │  │  ├─ Controls.tsx       # Chip (toggle) + Segmented (radio, ←/→) yang dipakai bersama
+│  │  ├─ ColResizer.tsx     # handle drag untuk melebarkan/menyempitkan kolom tabel
 │  │  ├─ ListControls.tsx   # panel kontrol List: bulk kolom, bulk 50 bab, kana, terpilih
 │  │  └─ LoadingRows.tsx    # skeleton baris saat data dimuat
 │  └─ pages/
@@ -254,13 +256,24 @@ Tiga store memakai middleware `persist` dari Zustand. Nama key `localStorage`:
 | `useProgress` | `store/progress.ts` | **`kotoba-progress`** | `hafal: string[]`, `stats: Record<string, {benar, salah}>` + `toggleHafal`, `isHafal`, `recordAnswer`, `resetProgress` |
 | `useTheme` | `store/theme.ts` | **`kotoba-theme`** | `theme: "light" \| "dark" \| "system"` + `setTheme`, `cycle`, `syncFromSystem` |
 | `useList` | `store/list.ts` | **`kotoba-list`** | `collapsed` (default **semua 50 bab tertutup**), `visible` (kolom), `katakanaMode`, `focusBabs`, `query`, `onlyWithKanji`, `sortBy` + `toggleBab`, `expandAll`, `collapseAll`, `expandOnly`, `toggleCol`, `setCol`, `setCols` (bulk kolom), `showAllCols`, `resetCols`, `setKatakanaMode` |
+| `useColWidths` | `store/colwidth.ts` | **`kotoba-colwidths`** | `widths` (id tabel → colKey → px) + `setWidth`, `resetTable` |
 
-Lima key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
+Enam key itu satu-satunya yang dipakai aplikasi. `query` / `onlyWithKanji` /
 `sortBy` ikut ter-persist, jadi pencarian yang belum dibersihkan akan tetap ada
 saat aplikasi dibuka lagi. Kalau itu terasa mengganggu, pindahkan ketiga field
 itu ke `partialize`/`omit` pada middleware `persist`.
 
 `hafal` disimpan sebagai array of string (bukan `Set`) agar bisa di-serialize. Kunci unik kata dibuat `kataKey(bab, no)` → `` `${bab}-${no}` ``.
+
+### Resize kolom tabel
+
+Kolom tabel bisa **diperluas/dipersempit** dengan drag garis pemisah antar kolom.
+
+- **Store:** `store/colwidth.ts` — `useColWidths` menyimpan `widths: Record<tableId, Record<colKey, px>>`, persist di key **`kotoba-colwidths`** (localStorage, per-perangkat). Ada `MIN_COL_WIDTH = 56`.
+- **Komponen:** `components/ColResizer.tsx` — handle `position: absolute right-0` di dalam `<th className="relative …">`. Menyokong mouse, sentuh (Pointer Events + `setPointerCapture`), dan keyboard (← / →, Shift = langkah besar). Kolom yang bisa di-resize hanya yang punya handle.
+- **Pemakaian:** tiap kolom punya lebar efektif `pickWidth(overrides, colKey, WIDTH[colKey])` — override pengguna kalau ada, kalau tidak default. Lebar itu dipakai di `<colgroup>` **dan** di `style={{ minWidth: totalFixed }}` tabel.
+- **Tabel yang punya resize:** `KotobaTable.tsx` (id `list`), `KataSifatBentuk.tsx` (id `bentuk-sifat`), `KataKerjaTe.tsx` (id `te`). Kolom paling sempit (`No`, `Audio`) sengaja **tidak** diberi handle.
+- **Catatan:** karena lebar dikontrol `colgroup` + `table-layout: fixed`, **default `arti` bukan lagi `0` (sisa ruang)** — sekarang nilai px nyata (220). Jangan kembalikan ke `0`, itu membuat overflow/overlap kolom kembali.
 
 ### Tema & Dark Mode
 
@@ -489,6 +502,7 @@ yang tertulis di catatan lama — jangan pakai lagi sebagai acuan.
   - **"Buka semua / Tutup semua" itu untuk KOLOM, bukan untuk 50 bab.** "Tutup semua" menyembunyikan 4 kolom isi — `kana`, `romaji`, `kanji`, `arti` — sehingga tabel tetap punya kolom `No` sebagai jangkar. Kontrol untuk 50 bab karena itu berlabel eksplisit **"Buka semua bab" / "Tutup semua bab"**. Jangan tukar lagi dua kelompok tombol ini; sempat tertukar dan jadi ambigu.
   - `disabled` pada "Buka semua" dihitung dari **semua** kolom chip (termasuk Katakana), bukan hanya 4 kolom utama. Kalau hanya cek 4 kolom utama, tombol mati padahal Kolom masih ada yang belum tampil.
   - Kolom Romaji **tidak** punya lebar px tetap: ia memakai sisa ruang (`0`) agar kolom Arti yang paling memerlukan ruang tetap lega di layar lebar.
+  - **Lebar kolom bisa diatur pengguna** dengan drag handle di header (`ColResizer` + `useColWidths`). Default lebar ada di `WIDTH`, override disimpan di `kotoba-colwidths`. Kolom No & Audio tidak punya handle.
 
 ## Sistem Desain
 
@@ -575,7 +589,7 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
   - **Khusus `いく → いって`** (bukan `いいて`). Kalau menambah godan tidak beraturan lain, tambahkan ke cabang khusus di skrip generator.
   - **Perhatian: gol 1 godan yang kamusnya berakhiran `-eru`/`-iru` itu SAH** (mis. `かえる 帰る`, `きる 切る`, `はいる 入る`, `しる 知る`, `すべる 滑る`, `まいる 参る` → `かえって`, `きって`, `はいって`, `しって`, `すべって`, `まいって`). Jangan "perbaiki" jadi gol 2 hanya karena berakhiran -eru/-iru.
   - **Empat entri pernah salah golongan/kamus di `doushi.ts` dan sudah dikoreksi:** `おきる`(起きる), `かりる`(借りる), `たりる`(足りる) harus **gol 2** (bukan gol 1); `おります`(折ります, melipat) bentuk kamusnya **`おる`** godan (bukan `おりる` — itu 降りる "turun" yang beda kata). Total jadi gol1 140 / gol2 75 / gol3 79.
-- **Tabel di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` mengikuti aturan tabel yang sama** seperti `KotobaTable.tsx`: `table-layout: fixed` + `<colgroup>`, sel teks `overflow-hidden` + `whitespace-nowrap text-ellipsis` + `title` (biar tidak meluber ke kolom sebelah — lihat gotcha tabel di atas). Isi tabel di-unmount saat bab tertutup.
+- **Tabel di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` mengikuti aturan tabel yang sama** seperti `KotobaTable.tsx`: `table-layout: fixed` + `<colgroup>`, sel teks `overflow-hidden` + `whitespace-nowrap text-ellipsis` + `title` (biar tidak meluber ke kolom sebelah — lihat gotcha tabel di atas). Isi tabel di-unmount saat bab tertutup. **Semua kolom (kecuali No) punya handle resize** — lebar default di `WIDTH`, override di `kotoba-colwidths`. Jangan buat kolom tanpa elemen `<col>` berlebar eksplisit, karena `table-layout: fixed` butuh itu.
 - **Halaman aplikasi memakai lebar penuh (`mx-auto w-full px-…`), bukan `max-w-*`.** Ini keputusan sadar supaya tabel & kartu memakai seluruh ruang di desktop. Jangan kembalikan `max-w-3xl`/`max-w-5xl`/`max-w-xl` ke kontainer utama halaman. Yang tetap sempit: paragraf hero Home, layar loading Flashcard/Quiz, kotak jawaban kuis, dan kotak cari panel List — lihat bagian "Lebar halaman" di atas.
 - **Mode "Semua bab" di `KataSifatBentuk.tsx` & `KataKerjaTe.tsx` menampilkan seluruh bab 1–50.** Bab tanpa isi tetap dirender sebagai header redup (ikon `ph:minus`, teks "Tidak ada kata sifat/kata kerja di bab ini") dan tombolnya tidak interaktif. Saat filter/pencarian aktif, `babGroups` dikembalikan hanya bab yang punya hasil. Hitungan "sudah hafal" & "Buka semua" memakai `babIsi` (bab yang ada isinya), bukan `babGroups`.
 - **`useBab(bab, enabled)`** — kalau tabel sedang tidak tampil, teruskan `enabled: false` supaya chunk tidak diunduh. Kalau `enabled` selalu `true`, 50 file terambil begitu halaman List dibuka.
