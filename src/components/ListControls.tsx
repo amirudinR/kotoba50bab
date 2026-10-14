@@ -172,24 +172,26 @@ export default function ListControls({
         </div>
       </div>
 
-      {/* —— Baris 2: toggle kolom (hanya relevan di tampilan List) —— */}
-      {!isGrid && (
-        <div className="k-hairline border-t px-3 py-2.5 sm:px-4">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="mr-0.5 w-[52px] shrink-0 text-[12px] font-medium text-muted">Kolom</span>
-            {COLS.map((c) => (
-              <Chip
-                key={c.key}
-                active={visible[c.key]}
-                onClick={() => onToggleCol(c.key)}
-                title={`${visible[c.key] ? "Sembunyikan" : "Tampilkan"} kolom ${c.label}`}
-              >
-                {c.label}
-              </Chip>
-            ))}
-          </div>
+      {/* —— Baris 2: toggle kolom ——
+          Tampil di mode List DAN Grid. Di mode List chip menyembunyikan
+          kolom tabel; di mode Grid chip menyembunyikan bagian kartu
+          (romaji/kanji/arti/katakana). No & audio tidak punya chip —
+          No selalu ikut `visible.no`, audio selalu tampil. */}
+      <div className="k-hairline border-t px-3 py-2.5 sm:px-4">
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className="mr-0.5 w-[52px] shrink-0 text-[12px] font-medium text-muted">Kolom</span>
+          {COLS.map((c) => (
+            <Chip
+              key={c.key}
+              active={visible[c.key]}
+              onClick={() => onToggleCol(c.key)}
+              title={`${visible[c.key] ? "Sembunyikan" : "Tampilkan"} kolom ${c.label}`}
+            >
+              {c.label}
+            </Chip>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* —— Baris 3: format kana —— */}
       <div className="k-hairline flex items-center gap-3 px-3 py-2.5 sm:px-4">
