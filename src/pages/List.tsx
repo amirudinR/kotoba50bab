@@ -66,7 +66,6 @@ export default function List({ onBack }: Props) {
   const speech = useSpeech();
   const q = query.trim();
   const filtering = q.length > 0 || onlyWithKanji;
-  const canSpeak = speech.supported && speech.hasVoice;
 
   // Total hasil pencarian ditampilkan di header. tiap bab melaporkan
   // jumlah barisnya sendiri lewat `report`; efeknya hanya jalan saat
@@ -217,7 +216,6 @@ export default function List({ onBack }: Props) {
               query={q}
               onlyWithKanji={onlyWithKanji}
               sortBy={sortBy}
-              canSpeak={canSpeak}
               speech={speech}
               report={report}
             />
@@ -258,7 +256,6 @@ function BabRow({
   query,
   onlyWithKanji,
   sortBy,
-  canSpeak,
   speech,
   report,
 }: {
@@ -274,7 +271,6 @@ function BabRow({
   query: string;
   onlyWithKanji: boolean;
   sortBy: SortBy;
-  canSpeak: boolean;
   speech: ReturnType<typeof useSpeech>;
   report: (bab: number, n: number) => void;
 }) {
@@ -317,8 +313,6 @@ function BabRow({
       katakanaMode={katakanaMode}
       viewMode={viewMode}
       speak={speech.speak}
-      canSpeak={canSpeak}
-      isSpeaking={speech.isSpeaking}
       filtering={filtering}
     />
   );

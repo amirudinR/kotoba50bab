@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AppIcon from "./Icon";
 import ColResizer from "./ColResizer";
 import { useColWidths, pickWidth } from "../store/colwidth";
@@ -10,8 +11,10 @@ interface Props {
   visible: Record<ColKey, boolean>;
   katakanaMode: KatakanaMode;
   speak: (t: string) => boolean;
-  canSpeak: boolean;
-  isSpeaking: boolean;
+  /** @deprecated tombol suara kini selalu tampil — tak lagi dipakai. */
+  canSpeak?: boolean;
+  /** @deprecated status bicara kini per-baris. */
+  isSpeaking?: boolean;
 }
 
 /**
@@ -47,9 +50,8 @@ export default function KotobaTable({
   visible,
   katakanaMode,
   speak,
-  canSpeak,
-  isSpeaking,
 }: Props) {
+  const [speakingKey, setSpeakingKey] = useState<string | null>(null);
   const keys: ColKey[] = [];
   if (visible.no) keys.push("no");
   if (visible.kana) keys.push("kana");
@@ -57,7 +59,7 @@ export default function KotobaTable({
   if (visible.romaji) keys.push("romaji");
   if (visible.kanji) keys.push("kanji");
   if (visible.arti) keys.push("arti");
-  if (canSpeak) keys.push("audio");
+  keys.push("audio");
 
   const overrides = useColWidths((s) => s.widths[TABLE_ID]);
   const setWidth = useColWidths((s) => s.setWidth);
@@ -160,24 +162,32 @@ export default function KotobaTable({
                   {it.arti}
                 </td>
               )}
-              {canSpeak && (
-                <td className="border-b border-line/[0.06] px-1 py-[7px] text-center">
-                  <button
-                    onClick={() => speak(it.kana)}
-                    aria-label={`Dengarkan pelafalan ${it.kana}`}
-                    title={`Dengarkan ${it.romaji}`}
-                    className="grid h-8 w-8 place-items-center rounded-full
-                      text-muted/70 transition-colors duration-150
-                      hover:bg-accent/15 hover:text-accent active:scale-90
-                      focus-visible:text-accent"
-                  >
-                    <AppIcon
-                      icon={isSpeaking ? "ph:waveform" : "ph:speaker-high"}
-                      className="text-[15px]"
-                    />
-                  </button>
-                </td>
-              )}
+              <td className="border-b border-line/[0.06] px-1 py-[7px] text-center">
+                <button
+                  onClick={() => {
+                    const key = `${it.no}`;
+                    setSpeakingKey(speak(it.kana) ? key : null);
+                  }}
+                  aria-label={`Dengarkan pelafalan ${it.kana}`}
+                  title={`Dengarkan ${it.romaji}`}
+                  className={`grid h-8 w-8 place-items-center rounded-full
+                    transition-colors duration-150 active:scale-90
+                    focus-visible:text-accent ${
+                      speakingKey === `${it.no}`
+                        ? "bg-accent/15 text-accent"
+                        : "text-muted/70 hover:bg-accent/15 hover:text-accent"
+                    }`}
+                >
+                  <AppIcon
+                    icon={
+                      speakingKey === `${it.no}`
+                        ? "ph:waveform"
+                        : "ph:speaker-high"
+                    }
+                    className="text-[15px]"
+                  />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

@@ -31,8 +31,10 @@ interface Props {
   katakanaMode: KatakanaMode;
   viewMode: ViewMode;
   speak: (t: string) => boolean;
-  canSpeak: boolean;
-  isSpeaking: boolean;
+  /** @deprecated tombol suara selalu tampil — tak lagi dipakai di sini. */
+  canSpeak?: boolean;
+  /** @deprecated status bicara kini per-kartu/baris. */
+  isSpeaking?: boolean;
   /** Mode filter aktif — mengubah label jumlah menjadi "N dari M". */
   filtering: boolean;
 }
@@ -51,8 +53,6 @@ export default function BabAccordion({
   katakanaMode,
   viewMode,
   speak,
-  canSpeak,
-  isSpeaking,
   filtering,
 }: Props) {
   // Tabel di-unmount setelah animasi tutup selesai. Kalau tidak, semua baris
@@ -153,8 +153,6 @@ export default function BabAccordion({
                   visible={visible}
                   katakanaMode={katakanaMode}
                   speak={speak}
-                  canSpeak={canSpeak}
-                  isSpeaking={isSpeaking}
                   bab={bab}
                 />
               ) : (
@@ -163,8 +161,6 @@ export default function BabAccordion({
                   visible={visible}
                   katakanaMode={katakanaMode}
                   speak={speak}
-                  canSpeak={canSpeak}
-                  isSpeaking={isSpeaking}
                 />
               )}
             </div>

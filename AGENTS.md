@@ -235,12 +235,28 @@ kotoba-app/
 │  │  ├─ ProgressBar.tsx    # tone: ink|accent|seal|success|danger|warn
 │  │  ├─ TopBar.tsx         # header sticky + kontrol zoom + tombol tema
 │  │  ├─ KotobaTable.tsx    # tabel kosakata (colgroup + table-fixed + kolom audio)
-│  │  ├─ BabAccordion.tsx   # satu blok bab: header + tabel, animasi buka/tutup
+│  │  ├─ KotobaGrid.tsx     # tampilan GRID kartu kosakata (auto-fill kolom)
+│  │  ├─ BabAccordion.tsx   # satu blok bab: header + tabel/grid, animasi buka/tutup
 │  │  ├─ Controls.tsx       # Chip (toggle, ada prop disabled) + Segmented (radio, ←/→) yang dipakai bersama
 │  │  ├─ ColResizer.tsx     # handle drag untuk melebarkan/menyempitkan kolom tabel
 │  │  ├─ ZoomControls.tsx   # tombol −/persen/+ untuk skala tampilan (di TopBar)
 │  │  ├─ ListControls.tsx   # panel kontrol List: bulk kolom, bulk 50 bab, kana, terpilih
-│  │  └─ LoadingRows.tsx    # skeleton baris saat data dimuat
+│  │  ├─ LoadingRows.tsx    # skeleton baris saat data dimuat
+│  │  ├─ bentuk-sifat/      # modul halaman Bentuk Kata Sifat (lihat Changelog)
+│  │  │  ├─ constants.ts    #   WIDTH, BENTUK_COLS, GRUP_INFO, BENTUK_TOGGLES, matches()
+│  │  │  ├─ PilBentuk.tsx   #   pil compact kolom bentuk
+│  │  │  ├─ BentukToolbar.tsx # hero + filter + pencarian + panel pil kolom
+│  │  │  └─ BabBentuk.tsx   #   satu blok bab (akordeon + tabel konjugasi)
+│  │  ├─ bentuk-te/         # modul halaman Bentuk て (pola sama)
+│  │  │  ├─ constants.ts    #   WIDTH, ATURAN, KIND_TONE, BENTUK_TOGGLES, matches()
+│  │  │  ├─ TeToolbar.tsx   #   hero + kartu aturan + filter + chip kolom
+│  │  │  └─ BabTe.tsx       #   satu blok bab (akordeon + tabel て)
+│  │  └─ quiz/              # komponen bersama QuizPG & QuizKetik
+│  │     ├─ QuizConfirm.tsx #   layar konfirmasi >150 soal
+│  │     ├─ FeedbackCard.tsx #  kartu feedback benar/salah
+│  │     └─ QuizSummary.tsx #   layar ringkasan akhir
+│  ├─ hooks/
+│  │  └─ useAutoAdvance.ts  # auto-lanjut saat jawaban benar (QuizPG & QuizKetik)
 │  └─ pages/
 │     ├─ Home.tsx           # hero, statistik, mode, pilih bab
 │     ├─ Flashcard.tsx      # kartu flip 3D + baris kanji
@@ -657,6 +673,42 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 > - Setelah setiap perubahan: `npm run build` **wajib** lolos (satu-satunya
 >   verifikasi, tidak ada lint/test), lalu commit → push.
 
+## Changelog (jangan diulang / jangan di-regresi)
+
+Catatan perubahan yang sudah dikerjakan — supaya agent berikutnya tidak mengulang kesalahan atau mengembalikan keputusan yang sudah final.
+
+### 2026 — Auto-lanjut kuis + anti-scroll desktop + grid melebar + tombol suara
+
+| Perubahan | File | Keputusan (jangan diubah tanpa alasan) |
+| --- | --- | --- |
+| Grid kartu **melebar** (bukan memanjang) | `KotobaGrid.tsx` | Grid pakai `grid-cols-[repeat(auto-fill,minmax(220px,1fr))]` + `items-start`. Jumlah kolom menyesuaikan lebar layar (bisa 4/5/6+). **Jangan** kembalikan ke `sm:grid-cols-2 lg:grid-cols-3` yang memaksa 3 kolom sempit. Tinggi kartu **natural** (tidak dipotong/line-clamp). |
+| Kuis desktop **tanpa scroll** | `QuizPG.tsx`, `QuizKetik.tsx` | `lg:h-screen lg:overflow-hidden` + grid `lg:grid-rows` 2 kolom. Kolom kanan `lg:overflow-y-auto` hanya **fallback** (zoom/font besar). Jangan kembalikan ke `lg:sticky lg:top-20` lama yang bikin scroll. |
+| **Auto-lanjut saat jawaban BENAR** (~1 dtk) | `QuizPG.tsx`, `QuizKetik.tsx` | `useEffect` dengan `setTimeout(1000)`. **HANYA saat benar.** Jawaban **salah → tetap manual** (klik tombol). Di soal terakhir benar → feedback 1 dtk dulu (`showResult`), baru layar hasil. Jangan bikin auto-lanjut saat salah, dan jangan auto-advance di soal terakhir tanpa delay. |
+| Kredit **"Build by Amirsan"** | `Home.tsx`, `List.tsx` (footer) | Jangan dihapus. |
+| Tombol suara **selalu tampil** di Grid & Tabel | `KotobaGrid.tsx`, `KotobaTable.tsx`, `BabAccordion.tsx`, `List.tsx` | Lihat gotcha tombol audio. `canSpeak`/`isSpeaking` deprecated. Status bicara per-kartu (`speakingKey`). |
+| **Kredit app lain** | `src/data/partikel.ts` dkk | ⚠️ **Halaman `/partikel` BUKAN proyek ini** — itu proyek `D:\LPK\mnn1` (repo `minnanonihongo`). Jangan sentuh dari sini. |
+
+**Aturan refactor:** kalau memecah file besar jadi komponen modular, lakukan **pure refactor** (perilaku & tampilan identik), akhiri dengan `npm run build` hijau.
+
+### 2026 — Refactor modular (file gemuk dipecah)
+
+Halaman besar dipecah jadi folder komponen + `constants.ts`. Pola: **`constants.ts`** (konstanta tipe/data) + **satu file per bagian UI** + page tinggal orkestrasi state. Tidak ada perubahan perilaku.
+
+| Sebelum | Jadi | Isi |
+| --- | --- | --- |
+| `pages/KataSifatBentuk.tsx` (906) | `pages/KataSifatBentuk.tsx` (**181**) + `components/bentuk-sifat/{constants.ts, PilBentuk.tsx, BentukToolbar.tsx, BabBentuk.tsx}` | Page = state/filter/grouping; toolbar = hero+filter+panel pil; BabBentuk = akordeon+tabel |
+| `pages/KataKerjaTe.tsx` (637) | `pages/KataKerjaTe.tsx` (**162**) + `components/bentuk-te/{constants.ts, TeToolbar.tsx, BabTe.tsx}` | Pola sama dengan bentuk-sifat |
+| `pages/QuizPG.tsx` (447) | (**316**) + `components/quiz/{QuizConfirm.tsx, FeedbackCard.tsx, QuizSummary.tsx}` + `hooks/useAutoAdvance.ts` | Bagian yang duplikat dengan QuizKetik dijadikan komponen bersama |
+| `pages/QuizKetik.tsx` (394) | (**277**) + modul yang sama | — |
+
+**Komponen/hook bersama kuis (jangan duplikasi ulang):**
+- `hooks/useAutoAdvance.ts` — logika auto-lanjut saat benar (dipakai QuizPG & QuizKetik). Kalau mengubah perilaku auto-lanjut, ubah **di sini**, bukan di tiap page.
+- `components/quiz/QuizConfirm.tsx` — layar konfirmasi >150 soal.
+- `components/quiz/FeedbackCard.tsx` — kartu feedback benar/salah (menerima `wrongDetail` & `answerContent` sebagai slot).
+- `components/quiz/QuizSummary.tsx` — layar ringkasan akhir (prop `alwaysShowWrong` membedakan PG & Ketik).
+
+**Catatan:** tombol audio di `BabBentuk.tsx` & `BabTe.tsx` juga **selalu tampil** (tidak lagi pakai `canSpeak`), konsisten dengan Grid & Tabel.
+
 ## Gotcha & Perhatian
 
 - **`npm run build` adalah satu-satunya verifikasi.** Script-nya `tsc -b && vite build`, jadi error TypeScript menggagalkan build sebelum bundling. Tidak ada `lint`/`test`/`typecheck`.
@@ -712,7 +764,8 @@ Untuk auto-build per push, hubungkan repo di dashboard Vercel. Pastikan `node_mo
 - **Accordion harus meng-unmount isi saat tertutup.** Kalau isi hanya dipotong dengan `grid-template-rows: 0fr`, seluruh baris bab yang pernah dibuka tetap ada di DOM — setelah "Buka semua" itu 2.910 `<tr>` yang tidak terlihat tapi tetap di-memory. Pola yang dipakai `BabAccordion.tsx`: `mounted` state + `setTimeout(280ms)` mengikuti `open`. Data tetap aman karena `useBab` menyimpan cache modul, jadi membuka lagi instan.
 - **Target sentuh minimal 44px di perangkat sentuh.** Ada aturan global `@media (pointer: coarse)` di `src/index.css` yang menaikkan `min-height` semua `button` dan `[role="radio"]`. Tombol audio di dalam tabel dikecualikan lewat `aria-label^="Dengarkan"` supaya tinggi baris tetap padat.
 - **Kolom yang disembunyikan harus ikut hilang dari `<colgroup>`,** kalau tidak lebarnya tidak terpakai dan tabel melebar.
-- **Tombol audio hanya dirender kalau `speech.supported && speech.hasVoice`.** Kalau hanya `supported`, tombol muncul sebelum voice terdeteksi lalu hilang sesaat. Di browser tanpa voice `ja` (mis. Firefox sebagian), tombol harus disembunyikan, bukan ditampilkan mati.
+- **Tombol audio di Grid & Tabel SELALU dirender** (tidak lagi bergantung `supported && hasVoice`). Keputusan: tombol harus selalu terlihat & bisa diklik; kalau browser tidak punya voice `ja`, `speak()` tetap dipanggil dan browser memakai voice default (fallback). Status "sedang berbunyi" (ikon `ph:waveform`) kini **per-kartu/baris** via state lokal `speakingKey`, bukan lagi global `isSpeaking` dari `useSpeech` — kalau pakai global, semua kartu ikut berkedip waveform.
+- **`canSpeak` & `isSpeaking` sudah deprecated** di prop `KotobaGrid`, `KotobaTable`, `BabAccordion` (masih diterima sebagai opsional demi kompat, tidak dipakai). Jangan tambahkan logika baru yang bergantung pada keduanya. `List.tsx` sudah tidak lagi menghitung `canSpeak`.
 - **Tidak ada aset audio.** Pelafalan dibuat Web Speech API saat runtime — jangan tambahkan file mp3 untuk mempercepat, itu langsung menambah ukuran repo dan bundel.
 - **`pykakasi` harus terpasang** untuk `tools/build_data.py` mengisi `romaji`. Bukan dependency `package.json`, jadi `pip install pykakasi` setiap environment baru.
 - **`selectAll()` memakai `Array.from({ length: 50 })`** dan UI menampilkan "1–50". Kalau dataset berubah, keduanya harus diubah bersamaan.

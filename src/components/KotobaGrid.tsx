@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AppIcon from "./Icon";
 import { maybeKatakana, type KatakanaMode } from "../store/list";
 import type { ColKey } from "../store/list";
@@ -27,8 +28,10 @@ interface Props {
   visible: Record<ColKey, boolean>;
   katakanaMode: KatakanaMode;
   speak: (t: string) => boolean;
-  canSpeak: boolean;
-  isSpeaking: boolean;
+  /** @deprecated tombol suara kini selalu tampil — tak lagi dipakai. */
+  canSpeak?: boolean;
+  /** @deprecated tidak dipakai lagi — status bicara kini per-kartu. */
+  isSpeaking?: boolean;
   /** Nomor bab — dipakai untuk aria-label tombol audio yang unik. */
   bab: number;
 }
@@ -38,10 +41,11 @@ export default function KotobaGrid({
   visible,
   katakanaMode,
   speak,
-  canSpeak,
-  isSpeaking,
   bab,
 }: Props) {
+  /** Kata (`bab-no`) yang sedang dibunyikan — agar ikon waveform hanya di kartu itu. */
+  const [speakingKey, setSpeakingKey] = useState<string | null>(null);
+
   const showRomaji = visible.romaji;
   const showKanji = visible.kanji;
   const showArti = visible.arti;
@@ -74,23 +78,32 @@ export default function KotobaGrid({
                 </span>
               )}
               <span className="ml-auto">
-                {canSpeak && (
-                  <button
-                    type="button"
-                    onClick={() => speak(it.kana)}
-                    aria-label={`Dengarkan ${it.kana} (bab ${bab} nomor ${it.no})`}
-                    title={`Dengarkan ${it.romaji}`}
-                    className="grid h-7 w-7 place-items-center rounded-full
-                      text-muted/70 transition-colors duration-150
-                      hover:bg-accent/15 hover:text-accent active:scale-90
-                      focus-visible:text-accent"
-                  >
-                    <AppIcon
-                      icon={isSpeaking ? "ph:waveform" : "ph:speaker-high"}
-                      className="text-[15px]"
-                    />
-                  </button>
-                )}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const key = `${bab}-${it.no}`;
+                    const ok = speak(it.kana);
+                    setSpeakingKey(ok ? key : null);
+                  }}
+                  aria-label={`Dengarkan ${it.kana} (bab ${bab} nomor ${it.no})`}
+                  title={`Dengarkan ${it.romaji}`}
+                  className={`grid h-7 w-7 place-items-center rounded-full
+                    transition-colors duration-150 active:scale-90
+                    focus-visible:text-accent ${
+                      speakingKey === `${bab}-${it.no}`
+                        ? "bg-accent/15 text-accent"
+                        : "text-muted/70 hover:bg-accent/15 hover:text-accent"
+                    }`}
+                >
+                  <AppIcon
+                    icon={
+                      speakingKey === `${bab}-${it.no}`
+                        ? "ph:waveform"
+                        : "ph:speaker-high"
+                    }
+                    className="text-[15px]"
+                  />
+                </button>
               </span>
             </div>
 

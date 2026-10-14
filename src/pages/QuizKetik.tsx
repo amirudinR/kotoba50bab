@@ -10,6 +10,10 @@ import PaperCard from "../components/PaperCard";
 import HankoSeal from "../components/HankoSeal";
 import JpText from "../components/JpText";
 import AppIcon from "../components/Icon";
+import QuizConfirm from "../components/quiz/QuizConfirm";
+import FeedbackCard from "../components/quiz/FeedbackCard";
+import QuizSummary from "../components/quiz/QuizSummary";
+import { useAutoAdvance } from "../hooks/useAutoAdvance";
 
 interface Props {
   pool: KotobaWithBab[];
@@ -66,16 +70,14 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
    * Auto-lanjut HANYA saat jawaban benar (delay pendek ~1 dtk).
    * Salah → tetap manual lewat tombol "Soal berikutnya".
    */
-  useEffect(() => {
-    if (result !== true) return;
-    const isLastQ = qi >= questions.length - 1;
-    const t = setTimeout(() => {
-      if (isLastQ) setShowResult(true);
-      else nextQ();
-    }, 1000);
-    return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [result, qi, questions.length]);
+  useAutoAdvance({
+    answered: result !== null,
+    correct: result === true,
+    qi,
+    total: questions.length,
+    onNext: nextQ,
+    onFinish: () => setShowResult(true),
+  });
 
   if (questions.length === 0) {
     return (
@@ -98,28 +100,13 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
   // Layar konfirmasi kalau soal banyak & belum dimulai.
   if (questions.length > CONFIRM_ABOVE && !started) {
     return (
-      <div className="min-h-full pb-24">
-        <TopBar title="Kuis Ketik" subtitle="Konfirmasi" onBack={onBack} />
-        <div className="mx-auto max-w-md px-4 pt-16 text-center">
-          <HankoSeal mark="問" size="lg" className="animate-fade-rise" />
-          <p className="mt-6 font-display text-3xl text-ink">
-            {questions.length} soal
-          </p>
-          <p className="mt-2 text-[15px] leading-relaxed text-body">
-            Bab yang kamu pilih punya <b>{questions.length}</b> kata. Kuis ini akan
-            memuat semua kata tersebut — boleh jadi cukup panjang. Mau lanjut?
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            <Button onClick={() => setStarted(true)} iconRight="ph:arrow-right">
-              Mulai kuis
-            </Button>
-            <button type="button" onClick={onBack} className="k-chip k-chip-off">
-              <AppIcon icon="ph:caret-left" className="text-[13px]" />
-              Kembali
-            </button>
-          </div>
-        </div>
-      </div>
+      <QuizConfirm
+        title="Kuis Ketik"
+        count={questions.length}
+        hint="Mau lanjut?"
+        onStart={() => setStarted(true)}
+        onBack={onBack}
+      />
     );
   }
 
@@ -158,106 +145,15 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
 
   // ===== Ringkasan =====
   if (isLast && answered && showResult) {
-    const perfect = score === questions.length;
-    const pctHafal = Math.round((score / questions.length) * 100);
-
     return (
-      <div className="min-h-full pb-24">
-        <TopBar title="Kuis Ketik" subtitle="Selesai" onBack={onBack} />
-
-        <div className="mx-auto max-w-xl px-4 pt-6">
-          <PaperCard raised className="animate-fade-rise p-6 text-center">
-            {perfect && (
-              <div className="mb-4 flex justify-center">
-                <HankoSeal mark="満" size="md" stamp />
-              </div>
-            )}
-
-            <p className="k-eyebrow">Skor akhir</p>
-            <div className="mt-2 flex items-end justify-center gap-1.5">
-              <span className="k-num font-display text-6xl leading-none text-ink">
-                {score}
-              </span>
-              <span className="k-num mb-1 font-display text-2xl text-muted">
-                / {questions.length}
-              </span>
-            </div>
-
-            <div className="mx-auto mt-4 max-w-[16rem]">
-              <ProgressBar
-                value={score}
-                max={questions.length}
-                tone={perfect ? "success" : pctHafal >= 50 ? "accent" : "seal"}
-              />
-            </div>
-
-            <p className="mt-4 font-display text-xl text-ink">
-              {perfect
-                ? "Sempurna, semua benar."
-                : pctHafal >= 70
-                  ? "Bagus sekali, teruskan."
-                  : pctHafal >= 40
-                    ? "Sudah setengah jalan."
-                    : "Awal yang baik, ulangi lagi."}
-            </p>
-            {perfect && (
-              <p className="mt-1 text-[14px] text-muted">
-                Semua kata soal ini sudah ditandai hafal.
-              </p>
-            )}
-          </PaperCard>
-
-          {wrong.length > 0 && (
-            <section className="mt-6">
-              <div className="mb-3 flex items-center gap-2">
-                <AppIcon icon="ph:arrow-counter-clockwise" className="text-base text-seal" />
-                <h2 className="font-display text-lg font-semibold text-ink">
-                  Perlu diulang
-                </h2>
-                <span className="k-num rounded-pill bg-seal/10 px-2 py-0.5 font-mono text-[11px] text-seal">
-                  {wrong.length}
-                </span>
-              </div>
-
-              <ul className="space-y-2">
-                {wrong.map((c) => (
-                  <li key={`${c.bab}-${c.no}`}>
-                    <PaperCard className="flex items-center gap-3 p-3">
-                      <span className="min-w-0 flex-1">
-                        <span className="flex items-baseline gap-2">
-                          <span className="font-display text-2xl leading-tight text-ink">
-                            <JpText text={c.kana} />
-                          </span>
-                          {c.kanji && (
-                            <span className="truncate font-display text-sm text-muted sm:text-base">
-                              <JpText text={c.kanji} />
-                            </span>
-                          )}
-                        </span>
-                        <span className="mt-0.5 block text-[14px] leading-snug text-body">
-                          {c.arti}
-                        </span>
-                      </span>
-                      <span className="k-eyebrow shrink-0 normal-case tracking-normal">
-                        bab {c.bab}
-                      </span>
-                    </PaperCard>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
-
-          <div className="mt-6 flex flex-col-reverse gap-2.5 sm:flex-row sm:justify-center">
-            <Button variant="ghost" icon="ph:arrow-counter-clockwise" onClick={restart}>
-              Ulangi
-            </Button>
-            <Button iconRight="ph:arrow-right" onClick={onBack}>
-              Kembali
-            </Button>
-          </div>
-        </div>
-      </div>
+      <QuizSummary
+        title="Kuis Ketik"
+        score={score}
+        total={questions.length}
+        wrong={wrong}
+        onRestart={restart}
+        onBack={onBack}
+      />
     );
   }
 
@@ -364,53 +260,30 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
               </form>
             ) : (
               <div className="mt-5 animate-fade-rise lg:mt-0">
-                <div
-                  role="status"
-                  aria-live="polite"
-                  className={`rounded-card border p-4 ${
-                    result
-                      ? "border-success/35 bg-success-soft"
-                      : "border-danger/35 bg-danger-soft"
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <AppIcon
-                      icon={result ? "ph:check-circle" : "ph:x-circle"}
-                      className={`shrink-0 text-2xl ${result ? "text-success" : "text-danger"}`}
-                    />
-                    <span
-                      className={`font-display text-2xl leading-none ${
-                        result ? "text-success" : "text-danger"
-                      }`}
-                    >
-                      {result ? "Benar" : "Kurang tepat"}
-                    </span>
-                  </div>
-
-                  {!result && (
-                    <p className="mt-3 text-[14px] text-body">
-                      <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                        kamu tulis
-                      </span>
-                      <span className="k-underline font-medium">{input || "—"}</span>
-                    </p>
-                  )}
-
-                  <p className="mt-1.5 text-[14px] text-body">
-                    <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
-                      jawaban benar
-                    </span>
-                    <span className="font-display text-lg text-ink">
+                <FeedbackCard
+                  correct={result === true}
+                  wrongDetail={
+                    !result ? (
+                      <p className="mt-3 text-[14px] text-body">
+                        <span className="k-eyebrow mr-1.5 normal-case tracking-normal">
+                          kamu tulis
+                        </span>
+                        <span className="k-underline font-medium">{input || "—"}</span>
+                      </p>
+                    ) : undefined
+                  }
+                  answerContent={
+                    <>
                       <JpText text={expected} />
-                    </span>
-                    {q.kanji && viewMode === "kana-arti" && (
-                      <span className="text-muted">
-                        {" · "}
-                        <JpText text={q.kanji} />
-                      </span>
-                    )}
-                  </p>
-                </div>
+                      {q.kanji && viewMode === "kana-arti" && (
+                        <span className="text-muted">
+                          {" · "}
+                          <JpText text={q.kanji} />
+                        </span>
+                      )}
+                    </>
+                  }
+                />
 
                 <Button
                   className="mt-4 w-full"
