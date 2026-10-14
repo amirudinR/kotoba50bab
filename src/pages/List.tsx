@@ -234,6 +234,12 @@ export default function List({ onBack }: Props) {
             Kembali ke Home
           </Button>
         </div>
+
+        <footer className="mt-6 text-center">
+          <p className="text-[12px] text-muted/70">
+            Build by <span className="font-semibold text-muted">Amirsan</span>
+          </p>
+        </footer>
       </main>
     </div>
   );

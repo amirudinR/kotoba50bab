@@ -254,6 +254,9 @@ export default function Home() {
 
         <footer className="mt-9 text-center">
           <p className="k-eyebrow">Kotoba · belajar kosakata Jepang</p>
+          <p className="mt-2 text-[12px] text-muted/70">
+            Build by <span className="font-semibold text-muted">Amirsan</span>
+          </p>
         </footer>
       </main>
     </div>

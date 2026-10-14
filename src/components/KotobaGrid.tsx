@@ -49,7 +49,7 @@ export default function KotobaGrid({
 
   return (
     <div
-      className="grid grid-cols-1 gap-2 p-2.5 sm:grid-cols-2 sm:p-3 lg:grid-cols-3"
+      className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] items-start gap-2 p-2.5 sm:gap-2.5 sm:p-3"
       role="list"
     >
       {items.map((it) => {

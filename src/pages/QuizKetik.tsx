@@ -39,6 +39,8 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
   const [wrong, setWrong] = useState<KotobaWithBab[]>([]);
   /** Konfirmasi sebelum mulai kalau soalnya banyak. */
   const [started, setStarted] = useState(false);
+  /** Di soal terakhir: tunggu sebentar setelah benar sebelum layar hasil. */
+  const [showResult, setShowResult] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function restart() {
@@ -48,6 +50,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
     setScore(0);
     setWrong([]);
     setStarted(false);
+    setShowResult(false);
   }
 
   useEffect(() => {
@@ -58,6 +61,21 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
   useEffect(() => {
     inputRef.current?.focus();
   }, [qi, result]);
+
+  /**
+   * Auto-lanjut HANYA saat jawaban benar (delay pendek ~1 dtk).
+   * Salah → tetap manual lewat tombol "Soal berikutnya".
+   */
+  useEffect(() => {
+    if (result !== true) return;
+    const isLastQ = qi >= questions.length - 1;
+    const t = setTimeout(() => {
+      if (isLastQ) setShowResult(true);
+      else nextQ();
+    }, 1000);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result, qi, questions.length]);
 
   if (questions.length === 0) {
     return (
@@ -129,13 +147,17 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
   }
 
   function nextQ() {
+    if (qi >= questions.length - 1) {
+      setShowResult(true);
+      return;
+    }
     setInput("");
     setResult(null);
     setQi((i) => i + 1);
   }
 
   // ===== Ringkasan =====
-  if (isLast && answered) {
+  if (isLast && answered && showResult) {
     const perfect = score === questions.length;
     const pctHafal = Math.round((score / questions.length) * 100);
 
@@ -241,14 +263,14 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
 
   // ===== Soal =====
   return (
-    <div className="min-h-full pb-28">
+    <div className="min-h-full pb-28 lg:flex lg:h-screen lg:flex-col lg:overflow-hidden lg:pb-0">
       <TopBar
         title="Kuis Ketik"
         subtitle={`Soal ${qi + 1} / ${questions.length} · benar ${score}`}
         onBack={onBack}
       />
 
-      <div className="mx-auto w-full px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:pt-3">
         <div className="mb-3 flex items-center gap-3">
           <ProgressBar
             value={qi + (answered ? 1 : 0)}
@@ -261,12 +283,12 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
           </span>
         </div>
 
-        {/* Desktop: 2 kolom (soal kiri, input/feedback kanan) supaya muat tanpa scroll. */}
-        <div className="lg:grid lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-6">
+        {/* Desktop: 2 kolom (soal kiri, input/feedback kanan) muat tanpa scroll. */}
+        <div className="lg:grid lg:min-h-0 lg:flex-1 lg:grid-cols-[1fr_1.1fr] lg:items-stretch lg:gap-6">
           {/* Kolom kiri: kartu pertanyaan */}
           <PaperCard
             raised
-            className="k-margin px-5 py-7 text-center lg:sticky lg:top-20"
+            className="k-margin px-5 py-7 text-center lg:self-start"
           >
             <p className="k-eyebrow">{labelPrompt}</p>
 
@@ -293,7 +315,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
           </PaperCard>
 
           {/* Kolom kanan: input / feedback */}
-          <div>
+          <div className="lg:flex lg:min-h-0 lg:flex-col lg:overflow-y-auto lg:pr-1 scroll-slim">
             {!answered ? (
               <form
                 onSubmit={(e) => {
@@ -396,7 +418,7 @@ export default function QuizKetik({ pool, shuffle, viewMode, onBack }: Props) {
                   onClick={nextQ}
                   iconRight="ph:arrow-right"
                 >
-                  {isLast ? "Lihat hasil" : "Soal berikutnya"}
+                  {isLast ? "Lihat hasil" : result ? "Lanjut…" : "Soal berikutnya"}
                 </Button>
               </div>
             )}

@@ -71,6 +71,8 @@ export default function QuizPG({
   const [wrong, setWrong] = useState<KotobaWithBab[]>([]);
   /** Konfirmasi sebelum mulai kalau soalnya banyak. */
   const [started, setStarted] = useState(false);
+  /** Di soal terakhir: tunggu sebentar setelah jawab benar sebelum layar hasil. */
+  const [showResult, setShowResult] = useState(false);
 
   function restart() {
     setQi(0);
@@ -78,12 +80,31 @@ export default function QuizPG({
     setScore(0);
     setWrong([]);
     setStarted(false);
+    setShowResult(false);
   }
 
   useEffect(() => {
     restart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questions]);
+
+  const answered = picked !== null;
+  const correct = answered && normalize(picked!) === normalize(questions[qi]?.answer ?? "");
+
+  /**
+   * Auto-lanjut HANYA saat jawaban benar (delay pendek ~1 dtk).
+   * Salah → tetap manual lewat tombol "Soal berikutnya".
+   */
+  useEffect(() => {
+    if (!answered || !correct) return;
+    const isLastQ = qi >= questions.length - 1;
+    const t = setTimeout(() => {
+      if (isLastQ) setShowResult(true);
+      else nextQ();
+    }, 1000);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered, correct, qi, questions.length]);
 
   if (questions.length === 0) {
     return (
@@ -133,8 +154,6 @@ export default function QuizPG({
 
   const q = questions[qi];
   const isLast = qi >= questions.length - 1;
-  const answered = picked !== null;
-  const correct = picked !== null && normalize(picked) === normalize(q.answer);
 
   const isKanaMode = viewMode === "kana-arti";
   const prompt = isKanaMode ? q.card.kana : q.card.arti;
@@ -154,12 +173,16 @@ export default function QuizPG({
   }
 
   function nextQ() {
+    if (qi >= questions.length - 1) {
+      setShowResult(true);
+      return;
+    }
     setPicked(null);
     setQi((i) => i + 1);
   }
 
   // ===== Ringkasan =====
-  if (isLast && answered) {
+  if (isLast && answered && showResult) {
     const total = questions.length;
     const perfect = score === total;
     const pct = Math.round((score / total) * 100);
@@ -280,14 +303,14 @@ export default function QuizPG({
 
   // ===== Soal =====
   return (
-    <div className="min-h-full pb-28">
+    <div className="min-h-full pb-28 lg:flex lg:h-screen lg:flex-col lg:overflow-hidden lg:pb-0">
       <TopBar
         title="Kuis Pilihan"
         subtitle={`Soal ${qi + 1} / ${questions.length} · benar ${score}`}
         onBack={onBack}
       />
 
-      <div className="mx-auto w-full px-4 pt-4">
+      <div className="mx-auto w-full px-4 pt-4 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col lg:pt-3">
         <div className="mb-3 flex items-center gap-3">
           <ProgressBar
             value={qi + (answered ? 1 : 0)}
@@ -303,13 +326,13 @@ export default function QuizPG({
           </span>
         </div>
 
-        {/* Desktop: 2 kolom (soal kiri, opsi kanan) supaya muat tanpa scroll.
+        {/* Desktop: 2 kolom (soal kiri, opsi kanan) muat tanpa scroll.
             Mobile: tetap 1 kolom menumpuk. */}
-        <div className="lg:grid lg:grid-cols-[1fr_1.1fr] lg:items-start lg:gap-6">
+        <div className="lg:grid lg:min-h-0 lg:flex-1 lg:grid-cols-[1fr_1.1fr] lg:items-stretch lg:gap-6">
           {/* Kolom kiri: kartu pertanyaan */}
           <PaperCard
             raised
-            className="k-margin px-5 py-7 text-center lg:sticky lg:top-20"
+            className="k-margin px-5 py-7 text-center lg:self-start"
           >
             <p className="k-eyebrow">{promptLabel}</p>
 
@@ -336,7 +359,7 @@ export default function QuizPG({
           </PaperCard>
 
           {/* Kolom kanan: opsi + feedback */}
-          <div>
+          <div className="lg:flex lg:min-h-0 lg:flex-col lg:overflow-y-auto lg:pr-1 scroll-slim">
             <p className="k-eyebrow mb-2.5 mt-5 normal-case tracking-normal lg:mt-0">
               Pilih {isKanaMode ? "arti" : "kosakata"} yang benar
             </p>
@@ -456,7 +479,7 @@ export default function QuizPG({
                   onClick={nextQ}
                   iconRight="ph:arrow-right"
                 >
-                  {isLast ? "Lihat hasil" : "Soal berikutnya"}
+                  {isLast ? "Lihat hasil" : correct ? "Lanjut…" : "Soal berikutnya"}
                 </Button>
               </div>
             )}
