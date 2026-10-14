@@ -161,6 +161,7 @@ export default function BabAccordion({
                   visible={visible}
                   katakanaMode={katakanaMode}
                   speak={speak}
+                  bab={bab}
                 />
               )}
             </div>

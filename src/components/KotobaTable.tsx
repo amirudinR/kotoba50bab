@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import AppIcon from "./Icon";
 import ColResizer from "./ColResizer";
 import { useColWidths, pickWidth } from "../store/colwidth";
 import { maybeKatakana, type KatakanaMode } from "../store/list";
 import type { ColKey } from "../store/list";
+import { useReveal, selKey, type SelCol } from "../store/reveal";
 import type { Kotoba } from "../types";
 
 interface Props {
@@ -15,6 +16,8 @@ interface Props {
   canSpeak?: boolean;
   /** @deprecated status bicara kini per-baris. */
   isSpeaking?: boolean;
+  /** Nomor bab — dipakai untuk kunci sel (buka-tutup per sel). */
+  bab: number;
 }
 
 /**
@@ -50,8 +53,11 @@ export default function KotobaTable({
   visible,
   katakanaMode,
   speak,
+  bab,
 }: Props) {
   const [speakingKey, setSpeakingKey] = useState<string | null>(null);
+  const hiddenSels = useReveal((s) => s.hidden);
+  const toggleSel = useReveal((s) => s.toggleSel);
   const keys: ColKey[] = [];
   if (visible.no) keys.push("no");
   if (visible.kana) keys.push("kana");
@@ -115,51 +121,90 @@ export default function KotobaTable({
             >
               {visible.no && (
                 <td className="k-rownum border-b border-line/[0.06] px-3 py-[11px] text-center">
-                  {it.no}
+                  <Sel
+                    bab={bab}
+                    no={it.no}
+                    col="no"
+                    hiddenSels={hiddenSels}
+                    onToggle={toggleSel}
+                    className="justify-center tabular-nums"
+                  >
+                    {it.no}
+                  </Sel>
                 </td>
               )}
               {visible.kana && (
-                <td
-                  className="k-kana overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
-                  title={it.kana}
-                >
-                  {maybeKatakana(it.kana, katakanaMode)}
+                <td className="k-kana overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]">
+                  <Sel
+                    bab={bab}
+                    no={it.no}
+                    col="kana"
+                    hiddenSels={hiddenSels}
+                    onToggle={toggleSel}
+                    title={it.kana}
+                  >
+                    {maybeKatakana(it.kana, katakanaMode)}
+                  </Sel>
                 </td>
               )}
               {visible.katakana && (
-                <td
-                  className="overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px] font-jp text-[15.5px] leading-[1.45] text-ink-soft"
-                  title={maybeKatakana(it.kana, "katakana")}
-                >
-                  {maybeKatakana(it.kana, "katakana")}
+                <td className="overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px] font-jp text-[15.5px] leading-[1.45] text-ink-soft">
+                  <Sel
+                    bab={bab}
+                    no={it.no}
+                    col="katakana"
+                    hiddenSels={hiddenSels}
+                    onToggle={toggleSel}
+                    title={maybeKatakana(it.kana, "katakana")}
+                  >
+                    {maybeKatakana(it.kana, "katakana")}
+                  </Sel>
                 </td>
               )}
               {visible.romaji && (
-                <td
-                  className="k-romaji overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
-                  title={it.romaji}
-                >
-                  {it.romaji}
+                <td className="k-romaji overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]">
+                  <Sel
+                    bab={bab}
+                    no={it.no}
+                    col="romaji"
+                    hiddenSels={hiddenSels}
+                    onToggle={toggleSel}
+                    title={it.romaji}
+                  >
+                    {it.romaji}
+                  </Sel>
                 </td>
               )}
               {visible.kanji && (
-                <td
-                  className="k-kanji overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
-                  title={it.kanji || undefined}
-                >
-                  {it.kanji || (
-                    <span aria-hidden className="text-muted/40">
-                      —
-                    </span>
-                  )}
+                <td className="k-kanji overflow-hidden whitespace-nowrap text-ellipsis border-b border-line/[0.06] px-3 py-[11px]">
+                  <Sel
+                    bab={bab}
+                    no={it.no}
+                    col="kanji"
+                    hiddenSels={hiddenSels}
+                    onToggle={toggleSel}
+                    title={it.kanji || undefined}
+                  >
+                    {it.kanji || (
+                      <span aria-hidden className="text-muted/40">
+                        —
+                      </span>
+                    )}
+                  </Sel>
                 </td>
               )}
               {visible.arti && (
-                <td
-                  className="k-arti overflow-hidden text-ellipsis border-b border-line/[0.06] px-3 py-[11px]"
-                  title={it.arti}
-                >
-                  {it.arti}
+                <td className="k-arti overflow-hidden text-ellipsis border-b border-line/[0.06] px-3 py-[11px]">
+                  <Sel
+                    bab={bab}
+                    no={it.no}
+                    col="arti"
+                    hiddenSels={hiddenSels}
+                    onToggle={toggleSel}
+                    title={it.arti}
+                  >
+                    {it.arti}
+                  </Sel>
                 </td>
               )}
               <td className="border-b border-line/[0.06] px-1 py-[7px] text-center">
@@ -193,5 +238,67 @@ export default function KotobaTable({
         </tbody>
       </table>
     </div>
+  );
+}
+
+/* ============================================================
+   Sel tabel yang bisa DIBUKA-TUTUP sendiri (mode latihan).
+
+   Klik sel → isinya disembunyikan (jadi strip tipis / titik-titik),
+   sel LAIN di baris & kolom yang sama tidak terpengaruh. Klik lagi →
+   isi muncul kembali.
+
+   Dipakai untuk latihan: sembunyikan satu jawaban dulu, tebak, baru
+   buka. Status tiap sel disimpan di `store/reveal.ts`.
+   ============================================================ */
+
+function Sel({
+  bab,
+  no,
+  col,
+  title,
+  className = "",
+  children,
+  hiddenSels,
+  onToggle,
+}: {
+  bab: number;
+  no: number;
+  col: SelCol;
+  title?: string;
+  className?: string;
+  children: ReactNode;
+  hiddenSels: string[];
+  onToggle: (key: string) => void;
+}) {
+  const key = selKey(bab, no, col);
+  const closed = hiddenSels.includes(key);
+
+  return (
+    <button
+      type="button"
+      onClick={() => onToggle(key)}
+      aria-pressed={closed}
+      title={closed ? "Ketuk untuk menampilkan" : title}
+      className={[
+        "flex w-full items-center text-left transition-colors duration-100",
+        "rounded-[4px] -mx-1 px-1 py-0.5",
+        closed
+          ? "bg-sunken/60 text-muted/50 hover:bg-sunken"
+          : "hover:bg-ink/[0.05]",
+        className,
+      ].join(" ")}
+    >
+      {closed ? (
+        <span
+          aria-hidden
+          className="select-none tracking-[0.3em] text-muted/40"
+        >
+          ••••
+        </span>
+      ) : (
+        children
+      )}
+    </button>
   );
 }
