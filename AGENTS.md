@@ -17,16 +17,21 @@ Progres hafalan dan statistik kuis disimpan **di perangkat masing-masing** (`loc
 | Domain produksi | `https://kotoba50bab.vercel.app` |
 | Proyek Vercel | `kotoba50bab` (team `amirs-projects-e5d6b990`) |
 | Bahasa UI | Indonesia, dengan label Jepang sebagai elemen visual |
-| Root folder kerja | `D:\LPK\kanji-hafalan` (**hanya ini — lihat catatan**) |
+| Root folder kerja | `D:\LPK\Kotoba N5danN4\kotoba-app` (lihat catatan) |
 | Data sumber | `../kotoba minna no nihonggo bab 1-50-1.pdf` (folder induk, ~5 MB, **tidak** masuk repo) |
 
 > **Catatan folder (jangan tertukar):**
-> - ✅ `D:\LPK\kanji-hafalan` — **folder kerja resmi** proyek Kotoba (nama folder
->   menyesatkan). Terhubung ke repo `kotoba50bab`.
-> - ⚠️ `D:\LPK\Kotoba N5danN4\kotoba-app` — **salinan lama** proyek Kotoba yang
->   sama, menunjuk repo yang **sama**. **Jangan kerja di dua folder ini
->   bergantian.** Sempat terjadi commit di folder satu tidak terlihat di folder
->   lain. Pilih `D:\LPK\kanji-hafalan` untuk semua pekerjaan.
+> - Ada **dua salinan** proyek Kotoba yang sama, keduanya menunjuk repo
+>   `kotoba50bab`:
+>   - `D:\LPK\Kotoba N5danN4\kotoba-app` — salinan di dalam folder data N5/N4.
+>   - `D:\LPK\kanji-hafalan` — nama folder menyesatkan, isinya proyek Kotoba.
+> - **PENTING — jangan kerja di dua folder bergantian tanpa sinkron.** Repo
+>   mereka sama, tetapi perubahan lokal (yang belum di-push) **tidak** ikut
+>   pindah. Sempat terjadi: commit di satu folder tidak terlihat di folder lain,
+>   dan satu folder ketinggalan belasan commit dari `origin/main`.
+> - **Pola aman:** sebelum mulai kerja di folder mana pun, jalankan
+>   `git fetch origin && git status -sb`. Kalau ketinggalan, `git pull --ff-only`
+>   dulu. Setelah selesai, `git push` segera supaya folder lain bisa ikut pull.
 > - Proyek **Kanji** (beda proyek) ada di `D:\LPK\KanjiLPK-asli`, repo `KanjiLPK`,
 >   domain `kanjilpk.vercel.app`. **Jangan** campur aduk dengan proyek ini.
 
@@ -712,6 +717,8 @@ Halaman besar dipecah jadi folder komponen + `constants.ts`. Pola: **`constants.
 ### 2026 — Kartu Grid: tombol audio jangan bertabrakan teks
 
 Di `KotobaGrid.tsx`, tombol audio dulu sejajar di baris atas (flex) bersama nomor, sehingga kana panjang (mis. `始まります`) tampak menabrak ikon. **Perbaikan:** tombol audio jadi `absolute right-2.5 top-2.5`, kartu diberi `p-3 pr-11` (padding kanan selebar tombol), dan tiap teks (`kana`, `katakana`, `romaji`, `kanji`) diberi `min-w-0 overflow-hidden break-words`. **Jangan** kembalikan tombol ke dalam flex baris atas — itu yang bikin tabrakan teks/ikon muncul lagi.
+
+**Tambahan (v2):** baris atas nomor diberi `min-h-7` (= tinggi tombol audio `h-7`). Karena tombol audio kini `absolute` (keluar dari alur flex), baris atas jadi setinggi baris nomor saja (kecil, ±16px); tanpa `min-h-7`, kana besar mulai lebih tinggi dari posisi bawah tombol dan bisa tetap bertabrakan di zoom besar. `min-h-7` menjamin kana **selalu** mulai di bawah tombol. **Jangan** hapus `min-h-7`.
 
 ## Gotcha & Perhatian
 

@@ -70,8 +70,10 @@ export default function KotobaGrid({
             className="k-card relative flex flex-col gap-1.5 p-3 pr-11 transition-colors
               duration-150 hover:border-line/25"
           >
-            {/* —— Baris atas: nomor —— */}
-            <div className="flex items-center gap-2">
+            {/* —— Baris atas: nomor. min-h-7 = tinggi tombol audio (h-7)
+                supaya kana besar SELALU mulai di bawah tombol, tak
+                bertabrakan walau tombolnya absolute. —— */}
+            <div className="flex min-h-7 items-center gap-2">
               {visible.no && (
                 <span className="k-num text-[11px] font-medium tabular-nums text-muted/70">
                   #{it.no}
