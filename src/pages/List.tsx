@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, useRef } from "react";
+import { useEffect, useMemo, useReducer, useRef, useState } from "react";
 import TopBar from "../components/TopBar";
 import Button from "../components/Button";
 import AppIcon from "../components/Icon";
@@ -276,8 +276,18 @@ function BabRow({
 }) {
   // Saat searching/filtering tabel harus tetap terlihat walau bab tertutup,
   // karena kalau tidak hasil pencarian tidak akan terlihat sama sekali.
+  // TAPI pengguna tetap boleh menutupnya secara manual (tombol tetap
+  // berfungsi) — kalau tidak, saat mencari bab yang isinya banyak jadi
+  // tidak bisa disembunyikan. Karena itu ada `manualClosed`.
   const filtering = !!query || onlyWithKanji;
-  const open = !collapsed || filtering;
+  const [manualClosed, setManualClosed] = useState(false);
+
+  // Filter berubah → buka paksa lagi (hasil pencarian baru harus terlihat).
+  useEffect(() => {
+    setManualClosed(false);
+  }, [query, onlyWithKanji]);
+
+  const open = (!collapsed || filtering) && !manualClosed;
   const { items, loading } = useBab(bab, open);
 
   const filtered = useMemo(() => {
@@ -298,6 +308,14 @@ function BabRow({
   // supaya tidak muncul lalu menghilang.
   if (filtering && filtered.length === 0) return null;
 
+  // Saat filtering, tombol kepala bab dipakai untuk buka/tutup manual
+  // (bukan mengubah `collapsed` bab, karena saat filtering bab dipaksa
+  // terbuka). Di luar filtering, tombol tetap fungsi aslinya.
+  const handleToggle = () => {
+    if (filtering) setManualClosed((v) => !v);
+    else onToggle();
+  };
+
   return (
     <BabAccordion
       bab={bab}
@@ -306,7 +324,7 @@ function BabRow({
       open={open}
       loading={loading}
       picked={picked}
-      onToggle={onToggle}
+      onToggle={handleToggle}
       onPick={onPick}
       items={filtered}
       visible={visible}
