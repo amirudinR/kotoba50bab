@@ -67,68 +67,69 @@ export default function KotobaGrid({
           <article
             key={it.no}
             role="listitem"
-            className="k-card flex flex-col gap-1.5 p-3 transition-colors
+            className="k-card relative flex flex-col gap-1.5 p-3 pr-11 transition-colors
               duration-150 hover:border-line/25"
           >
-            {/* —— Baris atas: nomor + audio —— */}
+            {/* —— Baris atas: nomor —— */}
             <div className="flex items-center gap-2">
               {visible.no && (
                 <span className="k-num text-[11px] font-medium tabular-nums text-muted/70">
                   #{it.no}
                 </span>
               )}
-              <span className="ml-auto">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const key = `${bab}-${it.no}`;
-                    const ok = speak(it.kana);
-                    setSpeakingKey(ok ? key : null);
-                  }}
-                  aria-label={`Dengarkan ${it.kana} (bab ${bab} nomor ${it.no})`}
-                  title={`Dengarkan ${it.romaji}`}
-                  className={`grid h-7 w-7 place-items-center rounded-full
-                    transition-colors duration-150 active:scale-90
-                    focus-visible:text-accent ${
-                      speakingKey === `${bab}-${it.no}`
-                        ? "bg-accent/15 text-accent"
-                        : "text-muted/70 hover:bg-accent/15 hover:text-accent"
-                    }`}
-                >
-                  <AppIcon
-                    icon={
-                      speakingKey === `${bab}-${it.no}`
-                        ? "ph:waveform"
-                        : "ph:speaker-high"
-                    }
-                    className="text-[15px]"
-                  />
-                </button>
-              </span>
             </div>
 
+            {/* Tombol audio: absolute di kanan-atas supaya TIDAK pernah
+                bertabrakan dengan kana/teks panjang di bawahnya. */}
+            <button
+              type="button"
+              onClick={() => {
+                const key = `${bab}-${it.no}`;
+                const ok = speak(it.kana);
+                setSpeakingKey(ok ? key : null);
+              }}
+              aria-label={`Dengarkan ${it.kana} (bab ${bab} nomor ${it.no})`}
+              title={`Dengarkan ${it.romaji}`}
+              className={`absolute right-2.5 top-2.5 grid h-7 w-7 place-items-center
+                rounded-full transition-colors duration-150 active:scale-90
+                focus-visible:text-accent ${
+                  speakingKey === `${bab}-${it.no}`
+                    ? "bg-accent/15 text-accent"
+                    : "text-muted/70 hover:bg-accent/15 hover:text-accent"
+                }`}
+            >
+              <AppIcon
+                icon={
+                  speakingKey === `${bab}-${it.no}`
+                    ? "ph:waveform"
+                    : "ph:speaker-high"
+                }
+                className="text-[15px]"
+              />
+            </button>
+
             {/* —— Kana utama —— */}
-            <p className="font-jp text-[21px] font-medium leading-[1.3] text-ink">
+            <p className="min-w-0 overflow-hidden break-words font-jp text-[21px] font-medium leading-[1.3] text-ink">
               {kana}
             </p>
 
             {/* —— Katakana (opsional) —— */}
             {showKataRow && (
-              <p className="font-jp text-[13px] leading-tight text-ink-soft/80">
+              <p className="min-w-0 overflow-hidden break-words font-jp text-[13px] leading-tight text-ink-soft/80">
                 {katakana}
               </p>
             )}
 
             {/* —— Romaji —— */}
             {showRomaji && (
-              <p className="font-mono text-[12px] leading-tight text-ink-soft/80">
+              <p className="min-w-0 overflow-hidden break-words font-mono text-[12px] leading-tight text-ink-soft/80">
                 {it.romaji}
               </p>
             )}
 
             {/* —— Kanji (hanya bila terisi) —— */}
             {showKanji && it.kanji.trim() !== "" && (
-              <p className="font-jp text-[15px] leading-[1.35] text-ink-soft">
+              <p className="min-w-0 overflow-hidden break-words font-jp text-[15px] leading-[1.35] text-ink-soft">
                 {it.kanji}
               </p>
             )}

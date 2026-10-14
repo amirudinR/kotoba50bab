@@ -709,6 +709,10 @@ Halaman besar dipecah jadi folder komponen + `constants.ts`. Pola: **`constants.
 
 **Catatan:** tombol audio di `BabBentuk.tsx` & `BabTe.tsx` juga **selalu tampil** (tidak lagi pakai `canSpeak`), konsisten dengan Grid & Tabel.
 
+### 2026 — Kartu Grid: tombol audio jangan bertabrakan teks
+
+Di `KotobaGrid.tsx`, tombol audio dulu sejajar di baris atas (flex) bersama nomor, sehingga kana panjang (mis. `始まります`) tampak menabrak ikon. **Perbaikan:** tombol audio jadi `absolute right-2.5 top-2.5`, kartu diberi `p-3 pr-11` (padding kanan selebar tombol), dan tiap teks (`kana`, `katakana`, `romaji`, `kanji`) diberi `min-w-0 overflow-hidden break-words`. **Jangan** kembalikan tombol ke dalam flex baris atas — itu yang bikin tabrakan teks/ikon muncul lagi.
+
 ## Gotcha & Perhatian
 
 - **`npm run build` adalah satu-satunya verifikasi.** Script-nya `tsc -b && vite build`, jadi error TypeScript menggagalkan build sebelum bundling. Tidak ada `lint`/`test`/`typecheck`.
